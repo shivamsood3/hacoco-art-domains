@@ -68,24 +68,24 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
   }
 
   return (
-    <div className={`glass-panel rounded-[2rem] p-6 md:p-8 ${className}`}>
+    <div className={`surface-card p-6 md:p-8 ${className}`}>
       <div className="mb-6">
-        <p className="gold-label text-[11px]">{site.form.eyebrow}</p>
-        <h3 className="font-display mt-3 text-3xl leading-none text-white md:text-4xl">
+        <p className="eyebrow">{site.form.eyebrow}</p>
+        <h3 className="font-display mt-3 text-3xl leading-none text-[var(--textStrong)] md:text-4xl">
           {site.form.title}
         </h3>
-        <p className="mt-3 max-w-xl text-sm leading-6 text-white/70 md:text-base">
+        <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--textMuted)] md:text-base">
           {site.form.description}
         </p>
       </div>
 
       {status === "success" ? (
-        <div className="rounded-[1.6rem] border border-[var(--color-line-soft)] bg-[rgba(182,155,99,0.08)] p-6">
-          <p className="gold-label text-[11px]">{site.success.eyebrow}</p>
-          <h4 className="font-display mt-3 text-3xl text-white">
+        <div className="surface-card-tint p-6">
+          <p className="eyebrow">{site.success.eyebrow}</p>
+          <h4 className="font-display mt-3 text-3xl text-[var(--textStrong)]">
             {site.success.title}
           </h4>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-white/72 md:text-base">
+          <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--textMuted)] md:text-base">
             {message}
           </p>
         </div>
@@ -108,7 +108,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
 
           <div className="md:col-span-2">
             <button
-              className="w-full rounded-full border border-[var(--color-gold)] bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold tracking-[0.18em] text-black uppercase hover:translate-y-[-1px] hover:bg-[var(--color-gold-soft)] disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-full bg-[var(--textStrong)] px-6 py-3 text-sm font-semibold tracking-[0.18em] text-white uppercase shadow-[var(--shadowSoft)] hover:translate-y-[-1px] hover:bg-[#312924] disabled:cursor-not-allowed disabled:opacity-60"
               disabled={status === "loading"}
               type="submit"
             >
@@ -117,10 +117,10 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
           </div>
 
           {status === "error" ? (
-            <p className="md:col-span-2 text-sm text-[#f0b7aa]">{message}</p>
+            <p className="md:col-span-2 text-sm text-[#b45d4b]">{message}</p>
           ) : null}
 
-          <p className="md:col-span-2 text-xs leading-5 text-white/48">
+          <p className="md:col-span-2 text-xs leading-5 text-[var(--textSoft)]">
             By submitting, you agree to be contacted by the Hacoco team regarding
             your stated art acquisition interests.
           </p>
@@ -148,12 +148,12 @@ function Field({
         ? "md:col-span-2"
         : "";
   const baseClass =
-    "w-full rounded-[1.2rem] border border-white/10 bg-white/4 px-4 py-3 text-sm text-white outline-none placeholder:text-white/32 focus:border-[var(--color-gold)] focus:bg-white/6";
+    "focus-luxury w-full rounded-[1.2rem] border border-subtle bg-[var(--bgSurface)] px-4 py-3 text-sm text-[var(--textStrong)] outline-none placeholder:text-[var(--textSoft)]";
 
   if (field.type === "select") {
     return (
       <label className={`block ${wrapperClass}`}>
-        <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-white/48">
+        <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
           {field.label}
         </span>
         <select
@@ -177,7 +177,7 @@ function Field({
   if (field.type === "textarea") {
     return (
       <label className={`block ${wrapperClass}`}>
-        <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-white/48">
+        <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
           {field.label}
         </span>
         <textarea
@@ -194,7 +194,7 @@ function Field({
 
   return (
     <label className={`block ${wrapperClass}`}>
-      <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-white/48">
+      <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
         {field.label}
       </span>
       <input

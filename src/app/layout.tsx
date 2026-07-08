@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Commissioner, Cormorant_Garamond } from "next/font/google";
 
 import { AnalyticsProvider } from "@/components/analytics-provider";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 import "./globals.css";
 
-const sans = Manrope({
+const sans = Commissioner({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-commissioner",
 });
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-cormorant",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant-garamond",
+  weight: ["400", "500", "600"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {

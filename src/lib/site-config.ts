@@ -164,26 +164,35 @@ export type SiteConfig = {
 };
 
 const sharedArtworkImage =
-  "https://hacoco.art/cdn/shop/files/3horses_AK_6b9a0313-1424-426d-93fe-9f1cdb910eb6.jpg?v=1769334548";
+  "https://hacoco.art/cdn/shop/files/3horses_AK.jpg?v=1769326096&width=1066";
 
 const logoArtworkImage =
-  "https://hacoco.art/cdn/shop/files/hacoco_favicon_81adcae8-2262-4b16-ac35-0fb2035ccace.jpg?crop=center&height=512&v=1770054236&width=512";
+  "https://hacoco.art/cdn/shop/files/TailofTails_NH.jpg?v=1776419622&width=1066";
+
+const paintingGallery = [
+  "https://hacoco.art/cdn/shop/files/TailofTails_NH.jpg?v=1776419622&width=1066",
+  "https://hacoco.art/cdn/shop/files/ashish_K_1.jpg?v=1769535307&width=1066",
+  "https://hacoco.art/cdn/shop/files/YellowMosaicScape_OilonCanvas_Ceramicmosaiconwood_30inchdiameter.jpg?v=1770200049&width=1066",
+  "https://hacoco.art/cdn/shop/files/OrangeMosaicScape_OilonCanvas_Ceramicmosaiconwood_36inchdiameter.jpg?v=1770200022&width=1066",
+  "https://hacoco.art/cdn/shop/files/Interior_Mosaic_by_Rhea_Maheshwari.jpg?v=1770199791&width=1066",
+  "https://hacoco.art/cdn/shop/files/Divine_Guidance2024_Rhea_Maheshwari_bb439e27-12de-43eb-a79c-98d6195d4848.jpg?v=1770199600&width=1066",
+] as const;
 
 const sharedTrustStrip = [
   {
     kicker: "Discretion",
-    title: "Private deal flow over public noise",
-    copy: "Every inquiry is handled with confidentiality, fit screening, and curated alignment.",
+    title: "Private access",
+    copy: "Every inquiry is handled discreetly and matched with intent.",
   },
   {
     kicker: "Curation",
-    title: "Selection shaped by taste and strategy",
-    copy: "We focus on contemporary art that can live with both cultural relevance and collecting intent.",
+    title: "Curated selection",
+    copy: "A narrower shortlist instead of an overwhelming catalogue.",
   },
   {
     kicker: "Execution",
-    title: "A guided acquisition path",
-    copy: "Shortlists, context, pricing guidance, and follow-through handled in one private process.",
+    title: "Guided acquisition",
+    copy: "Clear next steps from brief to acquisition.",
   },
 ] as const;
 
@@ -203,54 +212,89 @@ export const siteConfigs: Record<string, SiteConfig> = {
       ogImage: sharedArtworkImage,
     },
     navigation: [
-      { label: "Why Collect", href: "#why-collect" },
-      { label: "Themes", href: "#themes" },
+      { label: "Works", href: "#featured-works" },
+      { label: "Approach", href: "#focus" },
       { label: "Process", href: "#process" },
       { label: "Request Access", href: "#lead-form" },
     ],
     navCtaLabel: "Private Access",
     hero: {
-      eyebrow: "Collection-led capital allocation",
-      title: "Art as capital, approached with patience, context, and long-term intent.",
+      eyebrow: "Art acquisition for serious collectors",
+      title: "Build a culturally resonant art collection with disciplined private access.",
       description:
-        "Hacoco Capital helps discerning buyers build contemporary art collections that hold cultural credibility and acquisition discipline. This is not speculative flipping. It is thoughtful position-building in art.",
+        "For collectors, HNIs, and NRIs who want stronger judgment, sharper curation, and fewer but better acquisition opportunities.",
       ctas: [
         { label: "Request Private Access", href: "#lead-form", variant: "primary" },
-        { label: "Build Your Collection", href: "#process", variant: "secondary" },
+        { label: "See The Approach", href: "#focus", variant: "secondary" },
       ],
       metrics: [
-        { value: "Private", label: "Invite-led access to acquisition opportunities" },
-        { value: "Curated", label: "Selection across emerging and mid-career artists" },
-        { value: "Guided", label: "Hands-on support from brief to acquisition" },
+        { value: "Private", label: "For qualified collector conversations" },
+        { value: "Curated", label: "Emerging and mid-career works" },
+        { value: "Focused", label: "Shortlists built around fit" },
       ],
       image: {
-        src: sharedArtworkImage,
-        alt: "Curated artwork from Hacoco",
-        captionTitle: "Collection building with conviction",
+        src: paintingGallery[0],
+        alt: "Painting from the Hacoco collection",
+        captionTitle: "Collection building with more clarity",
         captionText:
-          "Selected imagery sourced from Hacoco’s art platforms for editorial presentation.",
+          "Artwork imagery selected from the Hacoco paintings collection.",
       },
     },
     trustStrip: [...sharedTrustStrip],
     sections: {
+      showcase: {
+        eyebrow: "Selected Works",
+        title: "A curated preview from the Hacoco paintings collection.",
+        description: "Selected to signal tone, range, and collecting quality.",
+        artworks: [
+          {
+            title: "Tale of Tails",
+            artist: "Nazish Hassan",
+            medium: "Painting",
+            priceBand: "Request",
+            image: paintingGallery[0],
+          },
+          {
+            title: "Horses Under Tree",
+            artist: "Ashish Kushwaha",
+            medium: "Painting",
+            priceBand: "Available",
+            image: sharedArtworkImage,
+          },
+          {
+            title: "Interior Mosaic",
+            artist: "Rhea Maheshwari",
+            medium: "Painting",
+            priceBand: "Available",
+            image: paintingGallery[4],
+          },
+          {
+            title: "Divine Guidance",
+            artist: "Rhea Maheshwari",
+            medium: "Painting",
+            priceBand: "Available",
+            image: paintingGallery[5],
+          },
+        ],
+      },
       collectWhy: {
-        eyebrow: "Why Collect Art Now",
-        title: "A serious collection can function as both cultural expression and disciplined capital deployment.",
+        eyebrow: "Why Hacoco Capital",
+        title: "Built to improve quality of decision, not just quantity of options.",
         items: [
           {
-            kicker: "Cultural scarcity",
-            title: "Finite works, selective access",
-            copy: "Strong contemporary works do not behave like mass inventory. Quality supply is constrained, and access often improves through relationship-led sourcing.",
+            kicker: "Selection",
+            title: "A tighter field",
+            copy: "You see a narrower set of works with a stronger case for fit.",
           },
           {
-            kicker: "Portfolio character",
-            title: "A different asset behavior",
-            copy: "For many collectors, art sits outside ordinary market correlation. The appeal is not just upside, but a richer ownership profile rooted in culture and stewardship.",
+            kicker: "Fit",
+            title: "Collection-first thinking",
+            copy: "Recommendations are shaped around taste, intent, and collecting horizon.",
           },
           {
-            kicker: "Legacy",
-            title: "Assets you can live with",
-            copy: "Unlike abstract financial exposure, a collection can be inhabited, discussed, inherited, and shaped over time with visible personal meaning.",
+            kicker: "Support",
+            title: "Calm execution",
+            copy: "From first brief to acquisition, the process stays clear and discreet.",
           },
         ],
       },
@@ -279,13 +323,13 @@ export const siteConfigs: Record<string, SiteConfig> = {
       },
       whyHacoco: {
         eyebrow: "Why Hacoco",
-        title: "A quieter, more deliberate acquisition experience.",
+        title: "Art buying improves when the process becomes more selective.",
         paragraphs: [
-          "We are intentionally selective in how opportunities are shown and matched. That protects both buyer quality and the integrity of the collection-building process.",
-          "Our role is to help filter, contextualize, and sequence decisions so that each acquisition fits your collecting thesis, spatial reality, and budget discipline.",
+          "We do not believe serious collectors benefit from seeing everything. They benefit from seeing the right works, with enough context to decide well.",
+          "Our role is to filter, frame, and sequence decisions so each acquisition strengthens the collection rather than simply adding to it.",
         ],
         aside:
-          "No inflated urgency. No borrowed prestige. Just considered art selection, credible guidance, and discreet execution.",
+          "No catalogue fatigue. No borrowed prestige. Just considered selection, credible context, and discreet execution.",
       },
       audience: {
         eyebrow: "Who This Is For",
@@ -299,45 +343,41 @@ export const siteConfigs: Record<string, SiteConfig> = {
       },
       process: {
         eyebrow: "Process",
-        title: "A private acquisition flow built for clarity.",
+        title: "How it works.",
         steps: [
           {
             title: "Brief",
-            copy: "We understand your location, collecting interest, budget range, and whether you are building around a theme or a first acquisition.",
+            copy: "Tell us what you want to collect and your working budget.",
           },
           {
             title: "Curation",
-            copy: "A focused shortlist is prepared around your taste, confidence level, and collecting horizon.",
+            copy: "We prepare a tighter shortlist aligned to your brief.",
           },
           {
             title: "Selection",
-            copy: "We discuss fit, context, and acquisition logic so decisions feel considered rather than rushed.",
-          },
-          {
-            title: "Execution",
-            copy: "Once aligned, we help move the work through to final acquisition and next-step collection planning.",
+            copy: "You review, refine, and move ahead with the right work.",
           },
         ],
       },
     },
     ctaBand: {
       eyebrow: "Private Access",
-      title: "Build a collection that carries both cultural presence and strategic patience.",
+      title: "If you are building with long-term intent, begin with a private brief.",
       description:
-        "Share your brief and we will return only with relevant art acquisition options.",
+        "Share your preferences, budget, and collecting direction. We will return only with relevant next steps.",
       buttonLabel: "Request Private Access",
     },
     formSection: {
       eyebrow: "Request Access",
-      title: "Tell us how you want to begin collecting.",
+      title: "Share your collecting brief.",
       description:
-        "We use this brief to prepare a more relevant first conversation and curate suitable opportunities.",
+        "A concise brief helps us return with a more intelligent first conversation.",
     },
     form: {
       eyebrow: "Capital Brief",
-      title: "Private collection request",
+      title: "Request private access",
       description:
-        "For HNIs, NRIs, collectors, and buyers approaching art with long-term intent.",
+        "For buyers seeking private, better-qualified art opportunities.",
       submitLabel: "Request Private Access",
       leadTag: "CAP-LEAD",
       fields: [
@@ -370,12 +410,12 @@ export const siteConfigs: Record<string, SiteConfig> = {
     },
     success: {
       eyebrow: "Access Requested",
-      title: "Your request is now under private review.",
+      title: "Your brief is in review.",
       message:
-        "A Hacoco Capital advisor will review your collecting brief and reach out with a discreet next step.",
+        "A Hacoco Capital advisor will review your brief and come back with the most appropriate next step.",
     },
     footer: {
-      copy: "Private art acquisition for collectors who prefer cultural depth over noise.",
+      copy: "Private art acquisition for collectors who prefer clarity over noise.",
       email: "capital@hacococapital.com",
       contactLabel: "Private collection desk",
     },
@@ -395,126 +435,124 @@ export const siteConfigs: Record<string, SiteConfig> = {
       ogImage: sharedArtworkImage,
     },
     navigation: [
-      { label: "Acquire", href: "#acquire" },
+      { label: "Works", href: "#featured-works" },
       { label: "Featured Works", href: "#featured-works" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Why Us", href: "#focus" },
       { label: "Get Options", href: "#lead-form" },
     ],
     navCtaLabel: "Get Options",
     hero: {
-      eyebrow: "The conversion-led acquisition page",
-      title: "Tell us what you want to buy. We will return with curated art options.",
+      eyebrow: "Curated works, delivered faster",
+      title: "Tell us what you want to buy. We will send a tighter shortlist of works worth seeing.",
       description:
-        "For buyers who already want relevant art opportunities, not endless browsing. Share your style preference, budget range, and intended use. We respond with selected available works.",
+        "Built for buyers who want relevance, speed, and a clear path from interest to acquisition.",
       formAboveFold: true,
       ctas: [
         { label: "Get Curated Art Options", href: "#lead-form", variant: "primary" },
         { label: "Receive Available Works", href: "#featured-works", variant: "secondary" },
       ],
       metrics: [
-        { value: "Fast", label: "Above-the-fold inquiry flow for immediate conversion" },
-        { value: "Matched", label: "Shortlists based on style, usage, and budget" },
-        { value: "Relevant", label: "No generic catalogue overload" },
+        { value: "Fast", label: "A short form above the fold" },
+        { value: "Matched", label: "By style, budget, and use" },
+        { value: "Curated", label: "No catalogue overload" },
       ],
       image: {
-        src: sharedArtworkImage,
-        alt: "Selected Hacoco artwork",
+        src: paintingGallery[1],
+        alt: "Selected painting from Hacoco",
         captionTitle: "Available works, curated to brief",
-        captionText: "Visuals sourced from Hacoco’s art platforms.",
+        captionText: "Artwork imagery selected from the Hacoco paintings collection.",
       },
     },
     trustStrip: [...sharedTrustStrip],
     sections: {
       acquisitionFocus: {
         eyebrow: "What You Can Acquire",
-        title: "A focused route into emerging and established contemporary works.",
+        title: "A faster route to more relevant works.",
         description:
-          "This page is built for intent-rich buyers who want relevant options quickly.",
+          "Built for buyers who care more about fit than volume.",
         items: [
           {
             kicker: "Emerging",
-            title: "Early conviction opportunities",
-            copy: "For buyers who want strong visual language and promising younger practices with room to grow.",
+            title: "Emerging works",
+            copy: "For buyers looking for younger practices with distinctive visual language.",
           },
           {
             kicker: "Established",
-            title: "Recognizable market confidence",
-            copy: "For clients who prefer artists with greater audience familiarity, stronger references, or deeper placement context.",
+            title: "Established names",
+            copy: "For buyers who want stronger familiarity, confidence, and placement context.",
           },
           {
             kicker: "Use-led",
-            title: "Home, office, or collection fit",
-            copy: "We can shape options around atmosphere, scale, client-facing presentation, or collector-grade intent.",
+            title: "Home, office, or collection",
+            copy: "Shortlists can be shaped around space, use-case, and collecting intent.",
           },
         ],
       },
       showcase: {
-        eyebrow: "Featured Artworks",
-        title: "A preview of the editorial tone and acquisition range we curate.",
+        eyebrow: "Selected Works",
+        title: "A preview from the Hacoco paintings collection.",
         description:
-          "Representative artwork imagery sourced from Hacoco to signal style, mood, and acquisition fit.",
+          "Representative works to signal style, mood, and acquisition range.",
         artworks: [
           {
-            title: "Curated Contemporary Selection",
-            artist: "Hacoco",
-            medium: "Editorial preview",
+            title: "Tale of Tails",
+            artist: "Nazish Hassan",
+            medium: "Painting",
             priceBand: "Request",
-            image: sharedArtworkImage,
+            image: paintingGallery[0],
           },
           {
-            title: "Private Collector Match",
-            artist: "Hacoco",
-            medium: "Selected works",
+            title: "The Midnight Passage",
+            artist: "Ashish Kushwaha",
+            medium: "Painting",
             priceBand: "Available",
-            image: logoArtworkImage,
+            image: paintingGallery[1],
           },
           {
-            title: "Style-Led Shortlists",
-            artist: "Bespoke",
-            medium: "Acquisition curation",
-            priceBand: "Matched",
+            title: "Yellow Mosaic Scape",
+            artist: "Nupur Kundu",
+            medium: "Painting",
+            priceBand: "Available",
+            image: paintingGallery[2],
           },
           {
-            title: "Spatial Acquisitions",
-            artist: "Private sourcing",
-            medium: "Home and office fit",
-            priceBand: "Discreet",
+            title: "Orange Mosaic Scape",
+            artist: "Nupur Kundu",
+            medium: "Painting",
+            priceBand: "Available",
+            image: paintingGallery[3],
           },
         ],
       },
       whyHacoco: {
         eyebrow: "Why Hacoco",
-        title: "We reduce the distance between intent and acquisition.",
+        title: "Less browsing. Better conversion from interest to purchase.",
         paragraphs: [
-          "Most buyers do not need a giant art marketplace. They need a credible filter that understands style, budget, and use-case, then returns options worth considering.",
-          "That is the role of this page. You tell us what you want to acquire, and we respond with a narrower, more actionable set of opportunities.",
+          "You share the brief. We return with a tighter selection that is more likely to suit your taste, budget, and context.",
+          "That means less noise, fewer dead ends, and a much cleaner route to an actual decision.",
         ],
       },
       process: {
         eyebrow: "Simple Process",
-        title: "A short path from brief to available works.",
+        title: "Three quick steps.",
         steps: [
           {
             title: "Share",
-            copy: "Submit your style preference, intended use, and budget range through the inquiry form.",
+            copy: "Tell us your style, budget, and intended use.",
           },
           {
             title: "Match",
-            copy: "We filter available works against your brief and prepare a relevant set of options.",
+            copy: "We curate available works against your brief.",
           },
           {
             title: "Review",
-            copy: "You review the shortlist with context on fit, pricing, and artistic direction.",
-          },
-          {
-            title: "Acquire",
-            copy: "Once aligned, we move toward private follow-through and purchase completion.",
+            copy: "You review the shortlist and move ahead with the right work.",
           },
         ],
       },
       faq: {
         eyebrow: "FAQ",
-        title: "Questions buyers usually ask before the shortlist arrives.",
+        title: "Questions buyers usually ask before requesting options.",
         items: [
           {
             question: "Do I need to know specific artists already?",
@@ -529,29 +567,29 @@ export const siteConfigs: Record<string, SiteConfig> = {
           {
             question: "Will I receive every available work?",
             answer:
-              "No. We curate rather than flood. The aim is to send a focused set that is more likely to convert into an actual acquisition.",
+              "No. We curate rather than flood. The objective is to send a smaller set with a stronger likelihood of fit.",
           },
         ],
       },
     },
     ctaBand: {
       eyebrow: "Acquisition Request",
-      title: "Ready to receive available works matched to your brief?",
+      title: "Ready for curated options instead of endless browsing?",
       description:
-        "Share a few details and we will respond with curated options rather than generic browsing noise.",
+        "Share a few details and we will return with available works matched to your taste, budget, and use-case.",
       buttonLabel: "Get Curated Art Options",
     },
     formSection: {
       eyebrow: "Receive Available Works",
-      title: "Tell us what you want to acquire.",
+      title: "Tell us what you want to buy.",
       description:
-        "This brief is designed to increase relevance and shorten the path from intent to purchase.",
+        "A short buying brief helps us respond with better options, faster.",
     },
     form: {
       eyebrow: "Buying Brief",
       title: "Receive curated art options",
       description:
-        "For direct buyers seeking matched art opportunities with minimal friction.",
+        "For direct buyers who want available works matched to brief.",
       submitLabel: "Get Curated Art Options",
       leadTag: "INV-LEAD",
       fields: [
@@ -584,9 +622,9 @@ export const siteConfigs: Record<string, SiteConfig> = {
     },
     success: {
       eyebrow: "Request Received",
-      title: "Your acquisition brief is in the queue.",
+      title: "Your request is in.",
       message:
-        "We will review your preferences and return with available works that fit your brief.",
+        "We will review your preferences and return with the most relevant available works.",
     },
     footer: {
       copy: "Curated art buying opportunities for clients who want relevance, trust, and speed.",
@@ -609,56 +647,91 @@ export const siteConfigs: Record<string, SiteConfig> = {
       ogImage: sharedArtworkImage,
     },
     navigation: [
-      { label: "Advisory Areas", href: "#advisory-areas" },
-      { label: "Who We Work With", href: "#who-we-work-with" },
+      { label: "Works", href: "#featured-works" },
+      { label: "Advisory", href: "#focus" },
       { label: "Process", href: "#process" },
       { label: "Consultation", href: "#lead-form" },
     ],
     navCtaLabel: "Book Consultation",
     hero: {
       eyebrow: "Bespoke sourcing and private guidance",
-      title: "Private art advisory for collectors who prefer discretion, judgment, and tailored sourcing.",
+      title: "Private art advisory for buyers who want stronger judgment, tailored sourcing, and discretion.",
       description:
-        "Hacoco Advisory works with individuals, family offices, collectors, and design-conscious buyers seeking private art guidance beyond transactional browsing.",
+        "For collectors and buyers who need context, conviction, and a more bespoke acquisition process.",
       ctas: [
         { label: "Book a Private Consultation", href: "#lead-form", variant: "primary" },
         { label: "Speak to Hacoco Advisory", href: "#lead-form", variant: "secondary" },
       ],
       metrics: [
-        { value: "Bespoke", label: "Advisory shaped to your collection or sourcing need" },
-        { value: "Private", label: "Discreet, relationship-led communication and access" },
-        { value: "Structured", label: "Clear process from brief to sourcing and decision" },
+        { value: "Bespoke", label: "Collection or sourcing-led support" },
+        { value: "Private", label: "Discreet handling and access" },
+        { value: "Clear", label: "A simple advisory workflow" },
       ],
       image: {
-        src: sharedArtworkImage,
-        alt: "Private art advisory visual",
+        src: paintingGallery[4],
+        alt: "Painting from the Hacoco collection",
         captionTitle: "Context-rich sourcing",
         captionText:
-          "A calmer route for buyers who need judgment, not generic listings.",
+          "Artwork imagery selected from the Hacoco paintings collection.",
       },
     },
     trustStrip: [...sharedTrustStrip],
     sections: {
+      showcase: {
+        eyebrow: "Selected Works",
+        title: "A visual reference from the Hacoco paintings collection.",
+        description: "Used here to frame taste, direction, and sourcing quality.",
+        artworks: [
+          {
+            title: "Interior Mosaic",
+            artist: "Rhea Maheshwari",
+            medium: "Painting",
+            priceBand: "Request",
+            image: paintingGallery[4],
+          },
+          {
+            title: "Divine Guidance",
+            artist: "Rhea Maheshwari",
+            medium: "Painting",
+            priceBand: "Request",
+            image: paintingGallery[5],
+          },
+          {
+            title: "Yellow Mosaic Scape",
+            artist: "Nupur Kundu",
+            medium: "Painting",
+            priceBand: "Available",
+            image: paintingGallery[2],
+          },
+          {
+            title: "Orange Mosaic Scape",
+            artist: "Nupur Kundu",
+            medium: "Painting",
+            priceBand: "Available",
+            image: paintingGallery[3],
+          },
+        ],
+      },
       advisoryAreas: {
         eyebrow: "Advisory Areas",
-        title: "Support across collection building, sourcing, and private opportunities.",
+        title: "Where private advisory creates real value.",
         description:
-          "This page is designed for clients who need an advisor, not just inventory.",
+          "Designed for clients who want guidance, not just access.",
         items: [
           {
             kicker: "Collection building",
-            title: "Shape a more coherent collection",
-            copy: "For buyers who want to build with narrative, taste, and long-term consistency rather than isolated purchases.",
+            title: "Collection building",
+            copy: "Build with stronger coherence, not just isolated purchases.",
           },
           {
             kicker: "Sourcing",
-            title: "Bespoke sourcing for specific briefs",
-            copy: "For clients seeking artists, palettes, mediums, or spatial fits that are not easily found through open browsing.",
+            title: "Bespoke sourcing",
+            copy: "Source around a style, thesis, artist, or collecting brief.",
           },
           {
             kicker: "Private sales",
-            title: "Discreet private market guidance",
-            copy: "For conversations where confidentiality, fit, and trusted handling matter as much as the work itself.",
+            title: "Private opportunities",
+            copy: "For conversations where discretion, access, and fit matter most.",
           },
         ],
       },
@@ -674,53 +747,49 @@ export const siteConfigs: Record<string, SiteConfig> = {
       },
       whyHacoco: {
         eyebrow: "Why Advisory Matters",
-        title: "Good art decisions are rarely just about availability.",
+        title: "The best art decisions are rarely driven by availability alone.",
         paragraphs: [
-          "The real work sits in framing the brief properly: what belongs in the collection, what does not, what deserves patience, and where private sourcing can add value.",
-          "Advisory helps separate taste from impulse, and opportunity from mere visibility. That distinction becomes more important as budgets rise and collections mature.",
+          "Real value sits in framing the brief properly: what belongs in the collection, what deserves patience, and where bespoke sourcing can add an edge.",
+          "Advisory separates taste from impulse and opportunity from visibility. That distinction matters more as budgets rise and collections become more intentional.",
         ],
       },
       process: {
         eyebrow: "Process",
-        title: "A discreet consultation-first workflow.",
+        title: "A consultation-first workflow.",
         steps: [
           {
             title: "Consult",
-            copy: "We begin with your requirement, budget comfort, aesthetic preferences, and timeline.",
+            copy: "We start with your requirement, budget, and preferences.",
           },
           {
             title: "Frame",
-            copy: "We define the brief properly, whether that means sourcing, collection shaping, or a private sale conversation.",
+            copy: "We frame the brief around sourcing, collecting, or advisory support.",
           },
           {
             title: "Source",
-            copy: "We assemble relevant options, context, and decision support tailored to your advisory need.",
-          },
-          {
-            title: "Proceed",
-            copy: "Once aligned, we help advance the next step with clarity and discretion.",
+            copy: "We return with relevant options and decision support.",
           },
         ],
       },
     },
     ctaBand: {
       eyebrow: "Private Consultation",
-      title: "If you need judgment, discretion, and bespoke sourcing, begin with a private advisory brief.",
+      title: "If you need judgment, discretion, and bespoke sourcing, start with a private advisory brief.",
       description:
-        "Share the contours of your requirement and we will shape the next conversation accordingly.",
+        "Share the contours of your requirement and we will shape the right next conversation around it.",
       buttonLabel: "Book a Private Consultation",
     },
     formSection: {
       eyebrow: "Advisory Contact",
-      title: "Start with a private consultation request.",
+      title: "Start with a short advisory brief.",
       description:
-        "The more context you share, the better we can shape the sourcing or advisory conversation.",
+        "A concise brief helps us shape the sourcing or advisory conversation with more precision.",
     },
     form: {
       eyebrow: "Advisory Brief",
       title: "Speak to Hacoco Advisory",
       description:
-        "For bespoke sourcing, collection building, and private advisory conversations.",
+        "For bespoke sourcing, collection building, and discreet advisory conversations.",
       submitLabel: "Book a Private Consultation",
       leadTag: "ADV-LEAD",
       fields: [
@@ -759,9 +828,9 @@ export const siteConfigs: Record<string, SiteConfig> = {
     },
     success: {
       eyebrow: "Consultation Requested",
-      title: "Your advisory request has been received.",
+      title: "Your advisory request is in.",
       message:
-        "A member of Hacoco Advisory will review your brief and reach out to arrange the next step.",
+        "A member of Hacoco Advisory will review your brief and respond with an appropriate next step shortly.",
     },
     calendly: {
       url: "https://calendly.com/",

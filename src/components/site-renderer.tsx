@@ -16,42 +16,18 @@ type SiteRendererProps = {
 };
 
 export function SiteRenderer({ site }: SiteRendererProps) {
+  const focusSection =
+    site.sections.acquisitionFocus ??
+    site.sections.advisoryAreas ??
+    site.sections.themes ??
+    site.sections.collectWhy;
+
   return (
-    <main className="overflow-x-hidden">
-      <div className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8">
+    <main className="page-shell overflow-x-hidden">
+      <div className="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8">
         <Navbar site={site} />
         <Hero site={site} />
         <TrustStrip site={site} />
-
-        {site.sections.collectWhy ? (
-          <SectionCards
-            id="why-collect"
-            eyebrow={site.sections.collectWhy.eyebrow}
-            title={site.sections.collectWhy.title}
-            description={site.sections.collectWhy.description}
-            items={site.sections.collectWhy.items}
-          />
-        ) : null}
-
-        {site.sections.themes ? (
-          <SectionCards
-            id="themes"
-            eyebrow={site.sections.themes.eyebrow}
-            title={site.sections.themes.title}
-            description={site.sections.themes.description}
-            items={site.sections.themes.items}
-          />
-        ) : null}
-
-        {site.sections.acquisitionFocus ? (
-          <SectionCards
-            id="acquire"
-            eyebrow={site.sections.acquisitionFocus.eyebrow}
-            title={site.sections.acquisitionFocus.title}
-            description={site.sections.acquisitionFocus.description}
-            items={site.sections.acquisitionFocus.items}
-          />
-        ) : null}
 
         {site.sections.showcase ? (
           <ArtworkShowcase
@@ -63,31 +39,22 @@ export function SiteRenderer({ site }: SiteRendererProps) {
           />
         ) : null}
 
+        {focusSection ? (
+          <QuickCards
+            id="focus"
+            eyebrow={focusSection.eyebrow}
+            title={focusSection.title}
+            description={focusSection.description}
+            items={focusSection.items}
+          />
+        ) : null}
+
         {site.sections.whyHacoco ? (
-          <EditorialSection
+          <NarrativeSection
             eyebrow={site.sections.whyHacoco.eyebrow}
             title={site.sections.whyHacoco.title}
             paragraphs={site.sections.whyHacoco.paragraphs}
             aside={site.sections.whyHacoco.aside}
-          />
-        ) : null}
-
-        {site.sections.audience ? (
-          <BulletColumns
-            id={site.slug === "advisory" ? "who-we-work-with" : undefined}
-            eyebrow={site.sections.audience.eyebrow}
-            title={site.sections.audience.title}
-            items={site.sections.audience.items}
-          />
-        ) : null}
-
-        {site.sections.advisoryAreas ? (
-          <SectionCards
-            id="advisory-areas"
-            eyebrow={site.sections.advisoryAreas.eyebrow}
-            title={site.sections.advisoryAreas.title}
-            description={site.sections.advisoryAreas.description}
-            items={site.sections.advisoryAreas.items}
           />
         ) : null}
 
@@ -111,32 +78,40 @@ export function SiteRenderer({ site }: SiteRendererProps) {
 
         <CtaBand site={site} />
 
-        <section
-          className="section-shell grid gap-8 py-16 lg:grid-cols-[1.05fr_0.95fr]"
-          id="lead-form"
-        >
-          <div className="pt-2">
-            <p className="gold-label text-[11px]">{site.formSection.eyebrow}</p>
-            <h2 className="font-display mt-4 max-w-2xl text-4xl leading-none text-white md:text-5xl">
+        <section className="section-shell py-16" id="lead-form">
+          <div className="section-band section-band--tint grid gap-10 p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+          <div className="max-w-xl">
+            <p className="eyebrow">{site.formSection.eyebrow}</p>
+            <h2 className="font-display mt-4 text-4xl leading-[0.95] text-[var(--textStrong)] md:text-5xl">
               {site.formSection.title}
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-white/68">
+            <p className="mt-4 text-base leading-7 text-[var(--textMuted)]">
               {site.formSection.description}
             </p>
 
+            <div className="mt-8 space-y-3">
+              {site.trustStrip.slice(0, 2).map((item) => (
+                <div key={item.title} className="surface-card px-5 py-4">
+                  <p className="text-sm font-semibold text-[var(--textStrong)]">
+                    {item.title}
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-[var(--textMuted)]">
+                    {item.copy}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             {site.calendly ? (
-              <div className="glass-panel mt-8 rounded-[2rem] p-6">
-                <p className="gold-label text-[11px]">Private Scheduling</p>
-                <h3 className="font-display mt-3 text-3xl text-white">
-                  Book a discreet conversation.
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-white/70">
-                  If you prefer a scheduled advisory call, use the private
-                  consultation calendar below.
+              <div className="surface-card mt-8 p-5">
+                <p className="eyebrow">Optional Scheduling</p>
+                <p className="mt-3 text-sm leading-6 text-[var(--textMuted)]">
+                  Prefer a scheduled call? Use the calendar below after sharing
+                  your brief.
                 </p>
-                <div className="mt-5 overflow-hidden rounded-[1.4rem] border border-white/10">
+                <div className="mt-4 overflow-hidden rounded-[1.4rem] border border-subtle">
                   <iframe
-                    className="min-h-[700px] w-full bg-white"
+                    className="min-h-[680px] w-full bg-[var(--bgElevated)]"
                     src={site.calendly.url}
                     title="Calendly"
                   />
@@ -146,6 +121,7 @@ export function SiteRenderer({ site }: SiteRendererProps) {
           </div>
 
           <LeadForm site={site} compact={site.slug === "investor"} />
+          </div>
         </section>
 
         <Footer site={site} />
@@ -156,26 +132,29 @@ export function SiteRenderer({ site }: SiteRendererProps) {
 
 function Navbar({ site }: { site: SiteConfig }) {
   return (
-    <header className="flex items-center justify-between py-6">
+    <header className="flex items-center justify-between py-6 md:py-8">
       <div>
-        <p className="text-sm uppercase tracking-[0.32em] text-white/52">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--textSoft)]">
           {site.brand.eyebrow}
         </p>
-        <p className="font-display mt-1 text-2xl text-white">{site.brand.name}</p>
+        <p className="font-display mt-1 text-[1.8rem] leading-none text-[var(--textStrong)]">
+          {site.brand.name}
+        </p>
       </div>
 
-      <nav className="hidden items-center gap-8 text-sm text-white/58 md:flex">
-        {site.navigation.map((item) => (
-          <a key={item.href} href={item.href} className="hover:text-white">
+      <nav className="hidden items-center gap-7 text-sm text-[var(--textMuted)] md:flex">
+        {site.navigation.slice(0, 3).map((item) => (
+          <a
+            key={`${item.label}-${item.href}`}
+            href={item.href}
+            className="hover:text-[var(--textStrong)]"
+          >
             {item.label}
           </a>
         ))}
       </nav>
 
-      <a
-        className="rounded-full border border-white/12 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/76 hover:border-[var(--color-gold)] hover:text-white"
-        href="#lead-form"
-      >
+      <a className="primary-button" href="#lead-form">
         {site.navCtaLabel}
       </a>
     </header>
@@ -184,25 +163,21 @@ function Navbar({ site }: { site: SiteConfig }) {
 
 function Hero({ site }: { site: SiteConfig }) {
   return (
-    <section className="grid min-h-[76vh] items-end gap-10 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-14">
-      <div>
-        <p className="gold-label text-[11px]">{site.hero.eyebrow}</p>
-        <h1 className="font-display mt-5 max-w-4xl text-[3.4rem] leading-[0.92] text-white md:text-[5rem]">
+    <section className="grid gap-10 py-8 md:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div className="pt-6 md:pt-10">
+        <p className="eyebrow">{site.hero.eyebrow}</p>
+        <h1 className="font-display copy-balance mt-5 max-w-3xl text-[3.5rem] leading-[0.88] text-[var(--textStrong)] md:text-[5.75rem]">
           {site.hero.title}
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
+        <p className="lede mt-5 max-w-xl">
           {site.hero.description}
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-7 flex flex-wrap gap-3">
           {site.hero.ctas.map((cta) => (
             <a
               key={cta.label}
-              className={
-                cta.variant === "primary"
-                  ? "rounded-full border border-[var(--color-gold)] bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-black hover:bg-[var(--color-gold-soft)]"
-                  : "rounded-full border border-white/14 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white hover:border-white/28"
-              }
+              className={cta.variant === "primary" ? "primary-button" : "secondary-button"}
               href={cta.href}
             >
               {cta.label}
@@ -210,110 +185,77 @@ function Hero({ site }: { site: SiteConfig }) {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+        <div className="mt-10 grid gap-3 sm:grid-cols-3">
           {site.hero.metrics.map((metric) => (
-            <div
-              key={metric.label}
-              className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
-            >
-              <p className="font-display text-4xl text-white">{metric.value}</p>
-              <p className="mt-2 text-sm leading-6 text-white/56">{metric.label}</p>
+            <div key={metric.label} className="surface-card-soft px-4 py-4">
+              <p className="font-display text-[2.2rem] leading-none text-[var(--textStrong)]">
+                {metric.value}
+              </p>
+              <p className="mt-1 text-sm leading-6 text-[var(--textMuted)]">
+                {metric.label}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
       {site.hero.formAboveFold ? (
-        <LeadForm site={site} className="self-center" compact />
-      ) : (
-        <div className="relative overflow-hidden rounded-[2.4rem] border border-white/8">
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-          <Image
-            alt={site.hero.image.alt}
-            className="h-full w-full object-cover"
-            height={900}
-            priority
-            src={site.hero.image.src}
-            width={720}
-          />
-          <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-            <p className="gold-label text-[11px]">Curated Preview</p>
-            <div className="mt-3 flex items-end justify-between gap-6">
-              <div>
-                <p className="font-display text-3xl text-white">
-                  {site.hero.image.captionTitle}
-                </p>
-                <p className="mt-2 text-sm text-white/62">
-                  {site.hero.image.captionText}
-                </p>
-              </div>
-              <div className="hidden rounded-full border border-white/12 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/72 md:block">
-                Private Access
-              </div>
-            </div>
-          </div>
+        <div className="space-y-5">
+          <ArtworkHeroCard site={site} />
+          <LeadForm site={site} compact />
         </div>
+      ) : (
+        <ArtworkHeroCard site={site} />
       )}
     </section>
+  );
+}
+
+function ArtworkHeroCard({ site }: { site: SiteConfig }) {
+  return (
+    <div className="section-band section-band--elevated grid gap-4 p-4 md:grid-cols-[1.2fr_0.8fr] md:p-5">
+      <div className="gallery-frame relative aspect-[4/5] md:aspect-auto">
+        <Image
+          alt={site.hero.image.alt}
+          className="h-full w-full object-cover"
+          height={920}
+          priority
+          sizes="(max-width: 768px) 100vw, 58vw"
+          src={site.hero.image.src}
+          width={760}
+        />
+      </div>
+
+      <div className="flex flex-col justify-between gap-4">
+        <div className="surface-card-tint p-6">
+          <p className="eyebrow">Private Art Access</p>
+          <h2 className="font-display copy-balance mt-4 text-[2.55rem] leading-[0.92] text-[var(--textStrong)]">
+            {site.hero.image.captionTitle}
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-[var(--textMuted)]">
+            {site.hero.image.captionText}
+          </p>
+        </div>
+
+        <div className="surface-card p-6">
+          <p className="eyebrow">What Happens Next</p>
+          <p className="mt-3 text-sm leading-6 text-[var(--textMuted)]">
+            Share a brief. We return with a tighter, more relevant next step.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
 function TrustStrip({ site }: { site: SiteConfig }) {
   return (
     <section className="section-shell py-8">
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="flex flex-wrap gap-3">
         {site.trustStrip.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] px-5 py-5"
-          >
-            <p className="gold-label text-[10px]">{item.kicker}</p>
-            <h2 className="mt-3 text-base font-semibold text-white">{item.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-white/58">{item.copy}</p>
+          <div key={item.title} className="surface-chip px-4 py-2 text-sm">
+            <span className="font-medium text-[var(--textStrong)]">{item.title}</span>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function SectionCards({
-  id,
-  eyebrow,
-  title,
-  description,
-  items,
-}: {
-  id?: string;
-  eyebrow: string;
-  title: string;
-  description?: string;
-  items: ContentCard[];
-}) {
-  return (
-    <section className="section-shell py-16" id={id}>
-      <p className="gold-label text-[11px]">{eyebrow}</p>
-      <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <h2 className="font-display max-w-3xl text-4xl leading-none text-white md:text-5xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="max-w-2xl text-base leading-7 text-white/64">{description}</p>
-        ) : null}
-      </div>
-
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {items.map((item) => (
-          <article
-            key={item.title}
-            className="glass-panel rounded-[1.8rem] p-6 md:min-h-72"
-          >
-            <p className="gold-label text-[10px]">{item.kicker}</p>
-            <h3 className="font-display mt-4 text-3xl leading-none text-white">
-              {item.title}
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-white/66">{item.copy}</p>
-          </article>
         ))}
       </div>
     </section>
@@ -334,58 +276,43 @@ function ArtworkShowcase({
   artworks: ShowcaseArtwork[];
 }) {
   return (
-    <section className="section-shell py-16" id={id}>
-      <p className="gold-label text-[11px]">{eyebrow}</p>
-      <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <h2 className="font-display max-w-3xl text-4xl leading-none text-white md:text-5xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="max-w-2xl text-base leading-7 text-white/64">{description}</p>
-        ) : null}
-      </div>
+    <section className="section-shell py-14" id={id}>
+      <SectionHeader eyebrow={eyebrow} title={title} description={description} />
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {artworks.map((artwork, index) => (
           <article
             key={`${artwork.artist}-${artwork.title}-${index}`}
-            className="overflow-hidden rounded-[1.8rem] border border-white/8 bg-white/[0.03]"
+            className="surface-card overflow-hidden"
           >
-            {artwork.image ? (
-              <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-hidden bg-[#efe7d8]">
+              {artwork.image ? (
                 <Image
                   alt={`${artwork.title} by ${artwork.artist}`}
                   className="h-full w-full object-cover"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   src={artwork.image}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/20 to-transparent" />
-              </div>
-            ) : (
-              <div className="flex aspect-[4/5] items-end bg-[radial-gradient(circle_at_top,_rgba(182,155,99,0.22),_transparent_35%),linear-gradient(180deg,_rgba(255,255,255,0.02),_rgba(255,255,255,0.01))] p-6">
-                <div>
-                  <p className="gold-label text-[10px]">{artwork.medium}</p>
-                  <p className="font-display mt-3 text-4xl text-white/92">
-                    {artwork.artist}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            <div className="p-5">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="font-display text-2xl text-white">{artwork.title}</h3>
-                  <p className="mt-2 text-sm text-white/56">
-                    {artwork.artist} • {artwork.medium}
-                  </p>
-                </div>
+              ) : null}
+            </div>
+            <div className="space-y-2 p-5">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
+                  {artwork.medium}
+                </p>
                 {artwork.priceBand ? (
-                  <span className="rounded-full border border-[var(--color-line-soft)] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-[var(--color-gold-soft)]">
+                  <span className="rounded-full bg-[var(--bgTint)] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--textStrong)]">
                     {artwork.priceBand}
                   </span>
                 ) : null}
               </div>
+              <h3 className="font-display text-[1.9rem] leading-none text-[var(--textStrong)]">
+                {artwork.title}
+              </h3>
+              <p className="text-sm leading-6 text-[var(--textMuted)]">
+                {artwork.artist}
+              </p>
             </div>
           </article>
         ))}
@@ -394,7 +321,43 @@ function ArtworkShowcase({
   );
 }
 
-function EditorialSection({
+function QuickCards({
+  id,
+  eyebrow,
+  title,
+  description,
+  items,
+}: {
+  id?: string;
+  eyebrow: string;
+  title: string;
+  description?: string;
+  items: ContentCard[];
+}) {
+  return (
+    <section className="section-shell py-14" id={id}>
+      <SectionHeader eyebrow={eyebrow} title={title} description={description} />
+
+      <div className="mt-8 grid gap-4 md:grid-cols-3">
+        {items.slice(0, 3).map((item) => (
+          <article key={item.title} className="surface-card p-6">
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
+              {item.kicker}
+            </p>
+            <h3 className="mt-4 text-lg font-semibold text-[var(--textStrong)]">
+              {item.title}
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-[var(--textMuted)]">
+              {item.copy}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function NarrativeSection({
   eyebrow,
   title,
   paragraphs,
@@ -406,56 +369,27 @@ function EditorialSection({
   aside?: string;
 }) {
   return (
-    <section className="section-shell grid gap-10 py-16 lg:grid-cols-[1.08fr_0.92fr]">
-      <div>
-        <p className="gold-label text-[11px]">{eyebrow}</p>
-        <h2 className="font-display mt-4 max-w-3xl text-4xl leading-none text-white md:text-5xl">
-          {title}
-        </h2>
-      </div>
+    <section className="section-shell py-14">
+      <div className="section-band section-band--elevated grid gap-8 p-6 md:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-10">
+        <div>
+          <p className="eyebrow">{eyebrow}</p>
+          <h2 className="font-display copy-balance mt-4 max-w-3xl text-4xl leading-[0.95] text-[var(--textStrong)] md:text-5xl">
+            {title}
+          </h2>
+        </div>
 
-      <div className="space-y-5 text-base leading-8 text-white/68">
-        {paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-
-        {aside ? (
-          <div className="rounded-[1.6rem] border border-[var(--color-line-soft)] bg-[rgba(182,155,99,0.06)] p-5 text-sm leading-7 text-white/72">
-            {aside}
-          </div>
-        ) : null}
-      </div>
-    </section>
-  );
-}
-
-function BulletColumns({
-  id,
-  eyebrow,
-  title,
-  items,
-}: {
-  id?: string;
-  eyebrow: string;
-  title: string;
-  items: string[];
-}) {
-  return (
-    <section className="section-shell py-16" id={id}>
-      <p className="gold-label text-[11px]">{eyebrow}</p>
-      <h2 className="font-display mt-4 max-w-3xl text-4xl leading-none text-white md:text-5xl">
-        {title}
-      </h2>
-
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
-        {items.map((item) => (
-          <div
-            key={item}
-            className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] px-5 py-5 text-sm leading-7 text-white/70"
-          >
-            {item}
-          </div>
-        ))}
+        <div className="space-y-5">
+          {paragraphs.slice(0, 2).map((paragraph) => (
+            <p key={paragraph} className="text-base leading-8 text-[var(--textMuted)] md:text-[1.02rem]">
+              {paragraph}
+            </p>
+          ))}
+          {aside ? (
+            <div className="surface-card-tint p-5">
+              <p className="text-sm leading-7 text-[var(--textStrong)]">{aside}</p>
+            </div>
+          ) : null}
+        </div>
       </div>
     </section>
   );
@@ -473,25 +407,19 @@ function ProcessSection({
   steps: ProcessStep[];
 }) {
   return (
-    <section className="section-shell py-16" id={id}>
-      <p className="gold-label text-[11px]">{eyebrow}</p>
-      <h2 className="font-display mt-4 max-w-3xl text-4xl leading-none text-white md:text-5xl">
-        {title}
-      </h2>
+    <section className="section-shell py-14" id={id}>
+      <SectionHeader eyebrow={eyebrow} title={title} />
 
-      <div className="mt-10 grid gap-5 lg:grid-cols-4">
-        {steps.map((step, index) => (
-          <article
-            key={step.title}
-            className="glass-panel rounded-[1.8rem] p-6"
-          >
-            <p className="text-sm text-[var(--color-gold-soft)]">
-              0{index + 1}
-            </p>
-            <h3 className="font-display mt-4 text-3xl leading-none text-white">
+      <div className="mt-8 grid gap-4 md:grid-cols-3">
+        {steps.slice(0, 3).map((step, index) => (
+          <article key={step.title} className="surface-card-soft p-6">
+            <p className="text-sm text-[var(--textSoft)]">0{index + 1}</p>
+            <h3 className="mt-3 text-lg font-semibold text-[var(--textStrong)]">
               {step.title}
             </h3>
-            <p className="mt-4 text-sm leading-7 text-white/66">{step.copy}</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--textMuted)]">
+              {step.copy}
+            </p>
           </article>
         ))}
       </div>
@@ -511,22 +439,16 @@ function FaqSection({
   items: FaqItem[];
 }) {
   return (
-    <section className="section-shell py-16" id={id}>
-      <p className="gold-label text-[11px]">{eyebrow}</p>
-      <h2 className="font-display mt-4 max-w-3xl text-4xl leading-none text-white md:text-5xl">
-        {title}
-      </h2>
+    <section className="section-shell py-14" id={id}>
+      <SectionHeader eyebrow={eyebrow} title={title} />
 
-      <div className="mt-10 space-y-4">
-        {items.map((item) => (
-          <details
-            key={item.question}
-            className="group rounded-[1.6rem] border border-white/8 bg-white/[0.03] p-6"
-          >
-            <summary className="cursor-pointer list-none text-lg font-medium text-white">
+      <div className="mt-8 space-y-3">
+        {items.slice(0, 3).map((item) => (
+          <details key={item.question} className="surface-card px-5 py-4">
+            <summary className="cursor-pointer list-none text-base font-medium text-[var(--textStrong)]">
               {item.question}
             </summary>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-white/66">
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--textMuted)]">
               {item.answer}
             </p>
           </details>
@@ -538,48 +460,74 @@ function FaqSection({
 
 function CtaBand({ site }: { site: SiteConfig }) {
   return (
-    <section className="section-shell py-16">
-      <div className="rounded-[2rem] border border-[var(--color-line-soft)] bg-[radial-gradient(circle_at_top,_rgba(182,155,99,0.14),_transparent_40%),linear-gradient(180deg,_rgba(255,255,255,0.04),_rgba(255,255,255,0.02))] px-6 py-10 md:px-10">
-        <p className="gold-label text-[11px]">{site.ctaBand.eyebrow}</p>
-        <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <h2 className="font-display max-w-3xl text-4xl leading-none text-white md:text-5xl">
-              {site.ctaBand.title}
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-white/66">
-              {site.ctaBand.description}
-            </p>
-          </div>
-
-          <a
-            className="rounded-full border border-[var(--color-gold)] bg-[var(--color-gold)] px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-black hover:bg-[var(--color-gold-soft)]"
-            href="#lead-form"
-          >
-            {site.ctaBand.buttonLabel}
-          </a>
+    <section className="section-shell py-14">
+      <div className="section-band section-band--elevated flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
+        <div className="max-w-3xl">
+          <p className="eyebrow">{site.ctaBand.eyebrow}</p>
+          <h2 className="font-display copy-balance mt-4 text-4xl leading-[0.95] text-[var(--textStrong)] md:text-5xl">
+            {site.ctaBand.title}
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--textMuted)]">
+            {site.ctaBand.description}
+          </p>
         </div>
+
+        <a className="primary-button" href="#lead-form">
+          {site.ctaBand.buttonLabel}
+        </a>
       </div>
     </section>
+  );
+}
+
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) {
+  return (
+    <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2 className="font-display copy-balance mt-4 max-w-3xl text-4xl leading-[0.95] text-[var(--textStrong)] md:text-5xl">
+          {title}
+        </h2>
+      </div>
+      {description ? (
+        <p className="max-w-xl text-base leading-7 text-[var(--textMuted)]">
+          {description}
+        </p>
+      ) : null}
+    </div>
   );
 }
 
 function Footer({ site }: { site: SiteConfig }) {
   return (
     <footer className="section-shell py-8">
-      <div className="flex flex-col gap-6 border-t border-white/8 pt-8 md:flex-row md:items-end md:justify-between">
+      <div className="flex flex-col gap-5 border-t border-subtle pt-8 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.28em] text-white/42">
+          <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--textSoft)]">
             {site.brand.eyebrow}
           </p>
-          <p className="font-display mt-2 text-2xl text-white">{site.brand.name}</p>
-          <p className="mt-3 max-w-xl text-sm leading-7 text-white/56">
+          <p className="font-display mt-2 text-[1.9rem] text-[var(--textStrong)]">
+            {site.brand.name}
+          </p>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--textMuted)]">
             {site.footer.copy}
           </p>
         </div>
 
-        <div className="space-y-2 text-sm text-white/48">
+        <div className="space-y-2 text-sm text-[var(--textMuted)]">
           <p>{site.footer.contactLabel}</p>
-          <Link href={`mailto:${site.footer.email}`} className="block hover:text-white">
+          <Link
+            href={`mailto:${site.footer.email}`}
+            className="block text-[var(--textStrong)] hover:opacity-70"
+          >
             {site.footer.email}
           </Link>
           <p>{site.primaryDomain}</p>

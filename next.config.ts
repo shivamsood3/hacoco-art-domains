@@ -3,6 +3,11 @@ import path from "node:path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: [
+    "hacococapital.local",
+    "investwithhacoco.local",
+    "hacoco-advisory.local",
+  ],
   images: {
     remotePatterns: [
       {
