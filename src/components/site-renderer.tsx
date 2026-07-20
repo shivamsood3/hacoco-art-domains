@@ -6,7 +6,7 @@ import type {
   FaqItem,
   ProcessStep,
   SiteConfig,
-  ShowcaseArtwork,
+  ShowcaseItem,
 } from "@/lib/site-config";
 
 import { LeadForm } from "./lead-form";
@@ -30,12 +30,12 @@ export function SiteRenderer({ site }: SiteRendererProps) {
         <TrustStrip site={site} />
 
         {site.sections.showcase ? (
-          <ArtworkShowcase
+          <ShowcaseSection
             id="featured-works"
             eyebrow={site.sections.showcase.eyebrow}
             title={site.sections.showcase.title}
             description={site.sections.showcase.description}
-            artworks={site.sections.showcase.artworks}
+            items={site.sections.showcase.items}
           />
         ) : null}
 
@@ -228,7 +228,7 @@ function ArtworkHeroCard({ site }: { site: SiteConfig }) {
 
       <div className="flex flex-col justify-between gap-4">
         <div className="surface-card-tint p-6">
-          <p className="eyebrow">Private Art Access</p>
+          <p className="eyebrow">{site.hero.image.eyebrow}</p>
           <h2 className="font-display copy-balance mt-4 text-[2.55rem] leading-[0.92] text-[var(--textStrong)]">
             {site.hero.image.captionTitle}
           </h2>
@@ -262,56 +262,56 @@ function TrustStrip({ site }: { site: SiteConfig }) {
   );
 }
 
-function ArtworkShowcase({
+function ShowcaseSection({
   id,
   eyebrow,
   title,
   description,
-  artworks,
+  items,
 }: {
   id?: string;
   eyebrow: string;
   title: string;
   description?: string;
-  artworks: ShowcaseArtwork[];
+  items: ShowcaseItem[];
 }) {
   return (
     <section className="section-shell py-14" id={id}>
       <SectionHeader eyebrow={eyebrow} title={title} description={description} />
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {artworks.map((artwork, index) => (
+        {items.map((item, index) => (
           <article
-            key={`${artwork.artist}-${artwork.title}-${index}`}
+            key={`${item.subtitle}-${item.title}-${index}`}
             className="surface-card overflow-hidden"
           >
             <div className="relative aspect-[4/5] overflow-hidden bg-[#efe7d8]">
-              {artwork.image ? (
+              {item.image ? (
                 <Image
-                  alt={`${artwork.title} by ${artwork.artist}`}
+                  alt={`${item.title}, ${item.subtitle}`}
                   className="h-full w-full object-cover"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                  src={artwork.image}
+                  src={item.image}
                 />
               ) : null}
             </div>
             <div className="space-y-2 p-5">
               <div className="flex items-center justify-between gap-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
-                  {artwork.medium}
+                  {item.category}
                 </p>
-                {artwork.priceBand ? (
+                {item.badge ? (
                   <span className="rounded-full bg-[var(--bgTint)] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--textStrong)]">
-                    {artwork.priceBand}
+                    {item.badge}
                   </span>
                 ) : null}
               </div>
               <h3 className="font-display text-[1.9rem] leading-none text-[var(--textStrong)]">
-                {artwork.title}
+                {item.title}
               </h3>
               <p className="text-sm leading-6 text-[var(--textMuted)]">
-                {artwork.artist}
+                {item.subtitle}
               </p>
             </div>
           </article>
@@ -531,6 +531,14 @@ function Footer({ site }: { site: SiteConfig }) {
             {site.footer.email}
           </Link>
           <p>{site.primaryDomain}</p>
+          <div className="flex gap-4 pt-2">
+            <Link href="/terms" className="hover:text-[var(--textStrong)]">
+              Terms of Use
+            </Link>
+            <Link href="/privacy" className="hover:text-[var(--textStrong)]">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

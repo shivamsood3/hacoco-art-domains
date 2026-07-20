@@ -122,7 +122,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
 
           <p className="md:col-span-2 text-xs leading-5 text-[var(--textSoft)]">
             By submitting, you agree to be contacted by the Hacoco team regarding
-            your stated art acquisition interests.
+            your stated {site.vertical === "art" ? "art advisory" : "real estate"} interests.
           </p>
         </form>
       )}

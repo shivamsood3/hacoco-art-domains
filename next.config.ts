@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "hacoco.art",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
   turbopack: {

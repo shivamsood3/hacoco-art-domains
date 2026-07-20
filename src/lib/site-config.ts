@@ -14,11 +14,11 @@ export type ContentCard = {
   copy: string;
 };
 
-export type ShowcaseArtwork = {
+export type ShowcaseItem = {
   title: string;
-  artist: string;
-  medium: string;
-  priceBand?: string;
+  subtitle: string;
+  category: string;
+  badge?: string;
   image?: string;
 };
 
@@ -34,6 +34,7 @@ export type FaqItem = {
 
 export type SiteConfig = {
   slug: "capital" | "investor" | "advisory";
+  vertical: "real-estate" | "art";
   primaryDomain: string;
   hostAliases: string[];
   brand: {
@@ -67,6 +68,7 @@ export type SiteConfig = {
     image: {
       src: string;
       alt: string;
+      eyebrow: string;
       captionTitle: string;
       captionText: string;
     };
@@ -89,6 +91,12 @@ export type SiteConfig = {
       description?: string;
       items: ContentCard[];
     };
+    advisoryAreas?: {
+      eyebrow: string;
+      title: string;
+      description?: string;
+      items: ContentCard[];
+    };
     acquisitionFocus?: {
       eyebrow: string;
       title: string;
@@ -99,24 +107,13 @@ export type SiteConfig = {
       eyebrow: string;
       title: string;
       description?: string;
-      artworks: ShowcaseArtwork[];
+      items: ShowcaseItem[];
     };
     whyHacoco?: {
       eyebrow: string;
       title: string;
       paragraphs: string[];
       aside?: string;
-    };
-    audience?: {
-      eyebrow: string;
-      title: string;
-      items: string[];
-    };
-    advisoryAreas?: {
-      eyebrow: string;
-      title: string;
-      description?: string;
-      items: ContentCard[];
     };
     process?: {
       eyebrow: string;
@@ -163,11 +160,11 @@ export type SiteConfig = {
   };
 };
 
-const sharedArtworkImage =
-  "https://hacoco.art/cdn/shop/files/3horses_AK.jpg?v=1769326096&width=1066";
+const artHeroImage =
+  "https://hacoco.art/cdn/shop/files/Interior_Mosaic_by_Rhea_Maheshwari.jpg?v=1770199791&width=1066";
 
-const logoArtworkImage =
-  "https://hacoco.art/cdn/shop/files/TailofTails_NH.jpg?v=1776419622&width=1066";
+const artOgImage =
+  "https://hacoco.art/cdn/shop/files/3horses_AK.jpg?v=1769326096&width=1066";
 
 const paintingGallery = [
   "https://hacoco.art/cdn/shop/files/TailofTails_NH.jpg?v=1776419622&width=1066",
@@ -178,7 +175,32 @@ const paintingGallery = [
   "https://hacoco.art/cdn/shop/files/Divine_Guidance2024_Rhea_Maheshwari_bb439e27-12de-43eb-a79c-98d6195d4848.jpg?v=1770199600&width=1066",
 ] as const;
 
-const sharedTrustStrip = [
+const realEstateImages = [
+  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85",
+] as const;
+
+const realEstateTrustStrip = [
+  {
+    kicker: "Access",
+    title: "Private mandates",
+    copy: "Curated opportunities across select Delhi NCR micro markets.",
+  },
+  {
+    kicker: "Review",
+    title: "Document led",
+    copy: "Every serious conversation begins with asset, title, and fit review.",
+  },
+  {
+    kicker: "Execution",
+    title: "Guided closure",
+    copy: "A clear path from mandate to negotiation and transaction support.",
+  },
+] as const;
+
+const artTrustStrip = [
   {
     kicker: "Discretion",
     title: "Private access",
@@ -199,409 +221,386 @@ const sharedTrustStrip = [
 export const siteConfigs: Record<string, SiteConfig> = {
   "hacococapital.com": {
     slug: "capital",
+    vertical: "real-estate",
     primaryDomain: "hacococapital.com",
     hostAliases: ["www.hacococapital.com", "hacococapital.local"],
     brand: {
       name: "Hacoco Capital",
-      eyebrow: "Private Art Capital",
+      eyebrow: "Private Real Estate Capital",
     },
     seo: {
-      title: "Hacoco Capital | Art as Capital, Curated for Long-Term Collectors",
+      title: "Hacoco Capital | Private Real Estate Investment Access",
       description:
-        "Build a considered contemporary art collection with Hacoco Capital. Discreet access for HNIs, NRIs, and serious collectors seeking long-term art acquisition strategy.",
-      ogImage: sharedArtworkImage,
+        "Private real estate investment access for HNIs, family offices, founders, and NRIs seeking curated residential and commercial opportunities in Delhi NCR.",
+      ogImage: realEstateImages[0],
     },
     navigation: [
-      { label: "Works", href: "#featured-works" },
+      { label: "Opportunities", href: "#featured-works" },
       { label: "Approach", href: "#focus" },
       { label: "Process", href: "#process" },
       { label: "Request Access", href: "#lead-form" },
     ],
-    navCtaLabel: "Private Access",
+    navCtaLabel: "Request Access",
     hero: {
-      eyebrow: "Art acquisition for serious collectors",
-      title: "Build a culturally resonant art collection with disciplined private access.",
+      eyebrow: "Private real estate capital access",
+      title: "Curated real estate opportunities for serious capital.",
       description:
-        "For collectors, HNIs, and NRIs who want stronger judgment, sharper curation, and fewer but better acquisition opportunities.",
+        "For HNIs, NRIs, founders, and family offices looking at high quality residential, commercial, and land linked opportunities across Delhi NCR.",
       ctas: [
         { label: "Request Private Access", href: "#lead-form", variant: "primary" },
-        { label: "See The Approach", href: "#focus", variant: "secondary" },
+        { label: "View Approach", href: "#focus", variant: "secondary" },
       ],
       metrics: [
-        { value: "Private", label: "For qualified collector conversations" },
-        { value: "Curated", label: "Emerging and mid-career works" },
-        { value: "Focused", label: "Shortlists built around fit" },
+        { value: "Private", label: "Off market and selective mandates" },
+        { value: "Reviewed", label: "Asset and documentation led screening" },
+        { value: "Focused", label: "Shortlists built around capital fit" },
       ],
       image: {
-        src: paintingGallery[0],
-        alt: "Painting from the Hacoco collection",
-        captionTitle: "Collection building with more clarity",
+        src: realEstateImages[0],
+        alt: "Luxury residential real estate exterior",
+        eyebrow: "Capital Mandates",
+        captionTitle: "Real estate access with sharper filters",
         captionText:
-          "Artwork imagery selected from the Hacoco paintings collection.",
+          "Structured introductions for buyers who want quality, clarity, and fewer wasted site visits.",
       },
     },
-    trustStrip: [...sharedTrustStrip],
+    trustStrip: [...realEstateTrustStrip],
     sections: {
       showcase: {
-        eyebrow: "Selected Works",
-        title: "A curated preview from the Hacoco paintings collection.",
-        description: "Selected to signal tone, range, and collecting quality.",
-        artworks: [
-          {
-            title: "Tale of Tails",
-            artist: "Nazish Hassan",
-            medium: "Painting",
-            priceBand: "Request",
-            image: paintingGallery[0],
-          },
-          {
-            title: "Horses Under Tree",
-            artist: "Ashish Kushwaha",
-            medium: "Painting",
-            priceBand: "Available",
-            image: sharedArtworkImage,
-          },
-          {
-            title: "Interior Mosaic",
-            artist: "Rhea Maheshwari",
-            medium: "Painting",
-            priceBand: "Available",
-            image: paintingGallery[4],
-          },
-          {
-            title: "Divine Guidance",
-            artist: "Rhea Maheshwari",
-            medium: "Painting",
-            priceBand: "Available",
-            image: paintingGallery[5],
-          },
-        ],
-      },
-      collectWhy: {
-        eyebrow: "Why Hacoco Capital",
-        title: "Built to improve quality of decision, not just quantity of options.",
+        eyebrow: "Opportunity Types",
+        title: "Real estate mandates shaped for serious buyers.",
+        description:
+          "The page is built around private capital conversations, not public listings.",
         items: [
           {
-            kicker: "Selection",
-            title: "A tighter field",
-            copy: "You see a narrower set of works with a stronger case for fit.",
+            title: "Prime residential",
+            subtitle: "South Delhi, Lutyens influence, gated addresses",
+            category: "Homes",
+            badge: "Private",
+            image: realEstateImages[0],
           },
           {
-            kicker: "Fit",
-            title: "Collection-first thinking",
-            copy: "Recommendations are shaped around taste, intent, and collecting horizon.",
+            title: "Income assets",
+            subtitle: "Leased floors, offices, retail, and yield led assets",
+            category: "Commercial",
+            badge: "Review",
+            image: realEstateImages[1],
           },
           {
-            kicker: "Support",
-            title: "Calm execution",
-            copy: "From first brief to acquisition, the process stays clear and discreet.",
+            title: "Redevelopment potential",
+            subtitle: "Builder floors, bungalows, and plot led mandates",
+            category: "Land",
+            badge: "Selective",
+            image: realEstateImages[2],
+          },
+          {
+            title: "NRI acquisition support",
+            subtitle: "Remote review, local coordination, and closure support",
+            category: "Advisory",
+            badge: "Guided",
+            image: realEstateImages[3],
           },
         ],
       },
       themes: {
-        eyebrow: "Collection Themes",
-        title: "Three acquisition lanes, curated to your collecting horizon.",
+        eyebrow: "Capital Focus",
+        title: "Three ways we help capital enter real estate more intelligently.",
         description:
-          "Each lane is shaped around taste, conviction, and budget discipline rather than volume.",
+          "Each route begins with requirement clarity, ticket size, holding period, and risk comfort.",
         items: [
           {
-            kicker: "Emerging",
-            title: "Emerging voices",
-            copy: "For collectors who want access to younger practices with strong visual language and room for long-term discovery.",
+            kicker: "Residential",
+            title: "Prime homes and floors",
+            copy: "For buyers seeking end use, legacy homes, or long hold residential assets.",
           },
           {
-            kicker: "Mid-career",
-            title: "Mid-career depth",
-            copy: "For buyers seeking stronger market context, developed bodies of work, and more established artistic positioning.",
+            kicker: "Commercial",
+            title: "Yield oriented assets",
+            copy: "For investors reviewing rent, tenant quality, location depth, and exit comfort.",
           },
           {
-            kicker: "Curated",
-            title: "Bespoke thematic curation",
-            copy: "For those building around a narrative, region, medium, or spatial setting rather than isolated single-piece buying.",
+            kicker: "Strategic",
+            title: "Land and redevelopment",
+            copy: "For capital that can underwrite location, permissions, time, and asset complexity.",
           },
         ],
       },
       whyHacoco: {
-        eyebrow: "Why Hacoco",
-        title: "Art buying improves when the process becomes more selective.",
+        eyebrow: "Why Hacoco Capital",
+        title: "A better real estate decision usually begins before the site visit.",
         paragraphs: [
-          "We do not believe serious collectors benefit from seeing everything. They benefit from seeing the right works, with enough context to decide well.",
-          "Our role is to filter, frame, and sequence decisions so each acquisition strengthens the collection rather than simply adding to it.",
+          "Most buyers lose time because the mandate is vague, the asset is weak, or the numbers are not framed clearly. We start by narrowing the brief.",
+          "Hacoco Capital filters opportunities around location, documentation, use case, capital size, and buyer intent before asking you to spend time on a property.",
         ],
         aside:
-          "No catalogue fatigue. No borrowed prestige. Just considered selection, credible context, and discreet execution.",
-      },
-      audience: {
-        eyebrow: "Who This Is For",
-        title: "Designed for buyers who want more than casual browsing.",
-        items: [
-          "HNIs and founders building a first serious art collection with advisory support.",
-          "NRIs seeking guided access to contemporary Indian art with a trusted local partner.",
-          "Seasoned collectors adding selectively rather than browsing broad marketplaces.",
-          "Family offices or private principals looking for a culturally literate acquisition channel.",
-        ],
+          "No listing clutter. No pressure calls. Just a clearer route to assets worth reviewing.",
       },
       process: {
         eyebrow: "Process",
-        title: "How it works.",
+        title: "From capital brief to serious opportunity review.",
         steps: [
           {
             title: "Brief",
-            copy: "Tell us what you want to collect and your working budget.",
+            copy: "Share location preference, ticket size, use case, and timeline.",
           },
           {
-            title: "Curation",
-            copy: "We prepare a tighter shortlist aligned to your brief.",
+            title: "Filter",
+            copy: "We screen available and private opportunities against your capital brief.",
           },
           {
-            title: "Selection",
-            copy: "You review, refine, and move ahead with the right work.",
+            title: "Review",
+            copy: "You receive a tighter set of assets with context for the next conversation.",
           },
         ],
       },
     },
     ctaBand: {
       eyebrow: "Private Access",
-      title: "If you are building with long-term intent, begin with a private brief.",
+      title: "If you are deploying serious capital, start with a clear mandate.",
       description:
-        "Share your preferences, budget, and collecting direction. We will return only with relevant next steps.",
+        "Share your real estate brief and we will respond with the most relevant next step.",
       buttonLabel: "Request Private Access",
     },
     formSection: {
-      eyebrow: "Request Access",
-      title: "Share your collecting brief.",
+      eyebrow: "Real Estate Brief",
+      title: "Share your acquisition mandate.",
       description:
-        "A concise brief helps us return with a more intelligent first conversation.",
+        "A concise mandate helps us qualify location, ticket size, asset type, and urgency.",
     },
     form: {
       eyebrow: "Capital Brief",
-      title: "Request private access",
+      title: "Request private real estate access",
       description:
-        "For buyers seeking private, better-qualified art opportunities.",
+        "For buyers and investors seeking curated real estate opportunities.",
       submitLabel: "Request Private Access",
       leadTag: "CAP-LEAD",
       fields: [
         { name: "name", label: "Name", type: "text", required: true, placeholder: "Your full name" },
         { name: "email", label: "Email", type: "email", required: true, placeholder: "name@example.com" },
         { name: "phone", label: "Phone", type: "tel", required: true, placeholder: "+91 / +1 / +44" },
-        { name: "location", label: "Location", type: "text", required: true, placeholder: "City, Country" },
+        { name: "location", label: "Preferred location", type: "text", required: true, placeholder: "South Delhi, Gurgaon, Noida, etc." },
         {
-          name: "collectingInterest",
-          label: "Collecting interest",
+          name: "assetType",
+          label: "Asset type",
           type: "select",
           required: true,
-          options: ["Emerging artists", "Mid-career artists", "Theme-led curation", "Need guidance"],
+          options: ["Residential", "Commercial", "Land or redevelopment", "Mixed mandate"],
         },
         {
           name: "budgetRange",
           label: "Budget range",
           type: "select",
           required: true,
-          options: ["Under INR 5L", "INR 5L - 15L", "INR 15L - 50L", "INR 50L+"],
+          options: ["INR 2 Cr to 5 Cr", "INR 5 Cr to 10 Cr", "INR 10 Cr to 25 Cr", "INR 25 Cr+"],
         },
         {
           name: "message",
-          label: "Message",
+          label: "Mandate notes",
           type: "textarea",
-          placeholder: "What kind of collection are you looking to build?",
+          placeholder: "Share timeline, preferred micro market, return expectation, or end use requirement.",
           fullWidth: true,
         },
       ],
     },
     success: {
       eyebrow: "Access Requested",
-      title: "Your brief is in review.",
+      title: "Your real estate brief is in review.",
       message:
-        "A Hacoco Capital advisor will review your brief and come back with the most appropriate next step.",
+        "A Hacoco Capital advisor will review your mandate and respond with an appropriate next step.",
     },
     footer: {
-      copy: "Private art acquisition for collectors who prefer clarity over noise.",
-      email: "capital@hacococapital.com",
-      contactLabel: "Private collection desk",
+      copy: "Private real estate capital access for clients who prefer clarity before site visits.",
+      email: "advisory@hacococapital.com",
+      contactLabel: "Capital desk",
     },
   },
   "investwithhacoco.com": {
     slug: "investor",
+    vertical: "real-estate",
     primaryDomain: "investwithhacoco.com",
     hostAliases: ["www.investwithhacoco.com", "investwithhacoco.local"],
     brand: {
       name: "Invest With Hacoco",
-      eyebrow: "Curated Art Acquisition",
+      eyebrow: "South Delhi Real Estate",
     },
     seo: {
-      title: "Invest With Hacoco | Receive Curated Art Buying Opportunities",
+      title: "Invest With Hacoco | South Delhi Real Estate Investment",
       description:
-        "Get direct access to curated art buying opportunities through Hacoco. Share your style, budget, and intended use to receive available works matched to your brief.",
-      ogImage: sharedArtworkImage,
+        "Curated South Delhi real estate investment opportunities across Greater Kailash, Defence Colony, Vasant Vihar, Panchsheel Park, Hauz Khas, and nearby prime markets.",
+      ogImage: realEstateImages[1],
     },
     navigation: [
-      { label: "Works", href: "#featured-works" },
-      { label: "Featured Works", href: "#featured-works" },
+      { label: "Opportunities", href: "#featured-works" },
       { label: "Why Us", href: "#focus" },
+      { label: "Blog", href: "/blog" },
       { label: "Get Options", href: "#lead-form" },
     ],
     navCtaLabel: "Get Options",
     hero: {
-      eyebrow: "Curated works, delivered faster",
-      title: "Tell us what you want to buy. We will send a tighter shortlist of works worth seeing.",
+      eyebrow: "Curated South Delhi property options",
+      title: "Tell us your budget. We will shortlist South Delhi real estate worth reviewing.",
       description:
-        "Built for buyers who want relevance, speed, and a clear path from interest to acquisition.",
+        "For buyers and investors who want relevant properties in prime Delhi locations without scrolling through stale listings.",
       formAboveFold: true,
       ctas: [
-        { label: "Get Curated Art Options", href: "#lead-form", variant: "primary" },
-        { label: "Receive Available Works", href: "#featured-works", variant: "secondary" },
+        { label: "Get Property Options", href: "#lead-form", variant: "primary" },
+        { label: "Read Market Guides", href: "/blog", variant: "secondary" },
       ],
       metrics: [
-        { value: "Fast", label: "A short form above the fold" },
-        { value: "Matched", label: "By style, budget, and use" },
-        { value: "Curated", label: "No catalogue overload" },
+        { value: "South Delhi", label: "Prime residential and investment markets" },
+        { value: "Matched", label: "By budget, location, and use case" },
+        { value: "Curated", label: "Shortlists instead of listing overload" },
       ],
       image: {
-        src: paintingGallery[1],
-        alt: "Selected painting from Hacoco",
-        captionTitle: "Available works, curated to brief",
-        captionText: "Artwork imagery selected from the Hacoco paintings collection.",
+        src: realEstateImages[1],
+        alt: "Modern luxury home interior",
+        eyebrow: "Property Access",
+        captionTitle: "South Delhi properties matched to brief",
+        captionText:
+          "A faster route to residential floors, bungalows, redevelopment assets, and investment grade properties.",
       },
     },
-    trustStrip: [...sharedTrustStrip],
+    trustStrip: [...realEstateTrustStrip],
     sections: {
       acquisitionFocus: {
-        eyebrow: "What You Can Acquire",
-        title: "A faster route to more relevant works.",
+        eyebrow: "What You Can Review",
+        title: "A focused route into South Delhi real estate.",
         description:
-          "Built for buyers who care more about fit than volume.",
+          "Built for buyers who care about location quality, clean context, and a practical buying process.",
         items: [
           {
-            kicker: "Emerging",
-            title: "Emerging works",
-            copy: "For buyers looking for younger practices with distinctive visual language.",
+            kicker: "Residential",
+            title: "Builder floors and homes",
+            copy: "Options across prime South Delhi colonies based on size, budget, parking, and lifestyle fit.",
           },
           {
-            kicker: "Established",
-            title: "Established names",
-            copy: "For buyers who want stronger familiarity, confidence, and placement context.",
+            kicker: "Investment",
+            title: "Yield and appreciation",
+            copy: "Review assets through rental demand, entry price, redevelopment potential, and exit comfort.",
           },
           {
-            kicker: "Use-led",
-            title: "Home, office, or collection",
-            copy: "Shortlists can be shaped around space, use-case, and collecting intent.",
+            kicker: "NRI",
+            title: "Remote buyer support",
+            copy: "A more organized process for NRIs who need local filtering before a property visit.",
           },
         ],
       },
       showcase: {
-        eyebrow: "Selected Works",
-        title: "A preview from the Hacoco paintings collection.",
+        eyebrow: "Property Categories",
+        title: "South Delhi real estate options matched to your buying brief.",
         description:
-          "Representative works to signal style, mood, and acquisition range.",
-        artworks: [
+          "Representative categories for serious buyers in prime Delhi micro markets.",
+        items: [
           {
-            title: "Tale of Tails",
-            artist: "Nazish Hassan",
-            medium: "Painting",
-            priceBand: "Request",
-            image: paintingGallery[0],
+            title: "Greater Kailash floors",
+            subtitle: "Premium residential floors with strong end use demand",
+            category: "GK 1 and GK 2",
+            badge: "Prime",
+            image: realEstateImages[0],
           },
           {
-            title: "The Midnight Passage",
-            artist: "Ashish Kushwaha",
-            medium: "Painting",
-            priceBand: "Available",
-            image: paintingGallery[1],
+            title: "Defence Colony homes",
+            subtitle: "Central location depth with strong resale familiarity",
+            category: "Defence Colony",
+            badge: "High demand",
+            image: realEstateImages[1],
           },
           {
-            title: "Yellow Mosaic Scape",
-            artist: "Nupur Kundu",
-            medium: "Painting",
-            priceBand: "Available",
-            image: paintingGallery[2],
+            title: "Vasant Vihar assets",
+            subtitle: "Low density luxury housing and embassy side demand",
+            category: "Vasant Vihar",
+            badge: "Luxury",
+            image: realEstateImages[2],
           },
           {
-            title: "Orange Mosaic Scape",
-            artist: "Nupur Kundu",
-            medium: "Painting",
-            priceBand: "Available",
-            image: paintingGallery[3],
+            title: "Redevelopment plots",
+            subtitle: "Selective mandates for buyers who can evaluate structure and time",
+            category: "South Delhi",
+            badge: "Selective",
+            image: realEstateImages[3],
           },
         ],
       },
       whyHacoco: {
-        eyebrow: "Why Hacoco",
-        title: "Less browsing. Better conversion from interest to purchase.",
+        eyebrow: "Why Invest With Hacoco",
+        title: "South Delhi property buying needs sharper filtering than a listing site can offer.",
         paragraphs: [
-          "You share the brief. We return with a tighter selection that is more likely to suit your taste, budget, and context.",
-          "That means less noise, fewer dead ends, and a much cleaner route to an actual decision.",
+          "Many good South Delhi properties are not evaluated well through photos alone. Colony, plot orientation, parking, floor height, documentation, and seller intent all matter.",
+          "We help buyers move from broad interest to a shortlist that matches budget, location preference, asset type, and practical buying readiness.",
         ],
+        aside:
+          "The goal is simple: fewer irrelevant properties, better conversations, and a clearer route to purchase.",
       },
       process: {
         eyebrow: "Simple Process",
-        title: "Three quick steps.",
+        title: "From budget to shortlist.",
         steps: [
           {
             title: "Share",
-            copy: "Tell us your style, budget, and intended use.",
+            copy: "Tell us your budget, preferred colonies, and reason for buying.",
           },
           {
             title: "Match",
-            copy: "We curate available works against your brief.",
+            copy: "We filter South Delhi real estate options against your requirement.",
           },
           {
             title: "Review",
-            copy: "You review the shortlist and move ahead with the right work.",
+            copy: "You receive a relevant property shortlist and next step guidance.",
           },
         ],
       },
       faq: {
         eyebrow: "FAQ",
-        title: "Questions buyers usually ask before requesting options.",
+        title: "Questions buyers ask before reviewing South Delhi property options.",
         items: [
           {
-            question: "Do I need to know specific artists already?",
+            question: "Can I request properties in specific South Delhi colonies?",
             answer:
-              "No. You can describe your preferred style, mood, medium, or interior context instead. We can work from taste, not just named artists.",
+              "Yes. You can name colonies such as Greater Kailash, Defence Colony, Vasant Vihar, Panchsheel Park, Hauz Khas, Anand Niketan, or other preferred micro markets.",
           },
           {
-            question: "Can I request art for a home or office project?",
+            question: "Can you help with both end use and investment properties?",
             answer:
-              "Yes. This form is built to support home, office, and collection-led buying briefs.",
+              "Yes. The shortlist can be shaped around self use, rental yield, capital appreciation, redevelopment potential, or a blended requirement.",
           },
           {
-            question: "Will I receive every available work?",
+            question: "Will I receive every property available in the market?",
             answer:
-              "No. We curate rather than flood. The objective is to send a smaller set with a stronger likelihood of fit.",
+              "No. The purpose is to filter, not flood. You receive a smaller set of South Delhi real estate options that better match your budget and intent.",
           },
         ],
       },
     },
     ctaBand: {
-      eyebrow: "Acquisition Request",
-      title: "Ready for curated options instead of endless browsing?",
+      eyebrow: "Property Shortlist",
+      title: "Ready for South Delhi property options that match your actual brief?",
       description:
-        "Share a few details and we will return with available works matched to your taste, budget, and use-case.",
-      buttonLabel: "Get Curated Art Options",
+        "Share your budget, preferred colonies, and buying intent. We will respond with a more useful next step than a generic listing feed.",
+      buttonLabel: "Get Property Options",
     },
     formSection: {
-      eyebrow: "Receive Available Works",
+      eyebrow: "Receive Property Options",
       title: "Tell us what you want to buy.",
       description:
-        "A short buying brief helps us respond with better options, faster.",
+        "A short real estate brief helps us respond with better South Delhi property options.",
     },
     form: {
-      eyebrow: "Buying Brief",
-      title: "Receive curated art options",
+      eyebrow: "Property Brief",
+      title: "Receive curated property options",
       description:
-        "For direct buyers who want available works matched to brief.",
-      submitLabel: "Get Curated Art Options",
+        "For direct buyers seeking matched South Delhi real estate opportunities.",
+      submitLabel: "Get Property Options",
       leadTag: "INV-LEAD",
       fields: [
         { name: "name", label: "Name", type: "text", required: true, placeholder: "Your full name" },
         { name: "email", label: "Email", type: "email", required: true, placeholder: "name@example.com" },
         { name: "phone", label: "Phone", type: "tel", required: true, placeholder: "+91 / +1 / +44" },
         {
-          name: "interest",
-          label: "Interest (artist/style)",
+          name: "preferredColonies",
+          label: "Preferred colonies",
           type: "text",
           required: true,
-          placeholder: "Abstract, figurative, earthy palettes, etc.",
+          placeholder: "GK, Defence Colony, Vasant Vihar, Hauz Khas, etc.",
           fullWidth: true,
         },
         {
@@ -609,31 +608,32 @@ export const siteConfigs: Record<string, SiteConfig> = {
           label: "Budget range",
           type: "select",
           required: true,
-          options: ["Under INR 2L", "INR 2L - 5L", "INR 5L - 15L", "INR 15L+"],
+          options: ["INR 2 Cr to 5 Cr", "INR 5 Cr to 10 Cr", "INR 10 Cr to 25 Cr", "INR 25 Cr+"],
         },
         {
-          name: "usage",
-          label: "Usage",
+          name: "purpose",
+          label: "Purpose",
           type: "select",
           required: true,
-          options: ["Home", "Office", "Collection"],
+          options: ["Self use", "Investment", "Rental income", "Redevelopment"],
         },
       ],
     },
     success: {
       eyebrow: "Request Received",
-      title: "Your request is in.",
+      title: "Your property brief is in.",
       message:
-        "We will review your preferences and return with the most relevant available works.",
+        "We will review your preferences and respond with relevant South Delhi real estate options.",
     },
     footer: {
-      copy: "Curated art buying opportunities for clients who want relevance, trust, and speed.",
-      email: "hello@investwithhacoco.com",
+      copy: "Curated South Delhi real estate opportunities for buyers who want relevance, trust, and speed.",
+      email: "shiv@hacococapital.com",
       contactLabel: "Buyer inquiries",
     },
   },
   "hacoco-advisory.com": {
     slug: "advisory",
+    vertical: "art",
     primaryDomain: "hacoco-advisory.com",
     hostAliases: ["www.hacoco-advisory.com", "hacoco-advisory.local"],
     brand: {
@@ -643,8 +643,8 @@ export const siteConfigs: Record<string, SiteConfig> = {
     seo: {
       title: "Hacoco Advisory | Bespoke Art Advisory and Private Sourcing",
       description:
-        "Private art advisory for collection building, bespoke sourcing, and private sales. Book a consultation with Hacoco Advisory for discreet, high-context guidance.",
-      ogImage: sharedArtworkImage,
+        "Private art advisory for collection building, bespoke sourcing, and private sales. Book a consultation with Hacoco Advisory for discreet, high context guidance.",
+      ogImage: artOgImage,
     },
     navigation: [
       { label: "Works", href: "#featured-works" },
@@ -655,66 +655,67 @@ export const siteConfigs: Record<string, SiteConfig> = {
     navCtaLabel: "Book Consultation",
     hero: {
       eyebrow: "Bespoke sourcing and private guidance",
-      title: "Private art advisory for buyers who want stronger judgment, tailored sourcing, and discretion.",
+      title: "Private art advisory for buyers who want stronger judgment and discretion.",
       description:
-        "For collectors and buyers who need context, conviction, and a more bespoke acquisition process.",
+        "For collectors and buyers who need context, conviction, and a more bespoke art acquisition process.",
       ctas: [
         { label: "Book a Private Consultation", href: "#lead-form", variant: "primary" },
         { label: "Speak to Hacoco Advisory", href: "#lead-form", variant: "secondary" },
       ],
       metrics: [
-        { value: "Bespoke", label: "Collection or sourcing-led support" },
+        { value: "Bespoke", label: "Collection or sourcing led support" },
         { value: "Private", label: "Discreet handling and access" },
         { value: "Clear", label: "A simple advisory workflow" },
       ],
       image: {
-        src: paintingGallery[4],
+        src: artHeroImage,
         alt: "Painting from the Hacoco collection",
-        captionTitle: "Context-rich sourcing",
+        eyebrow: "Private Art Access",
+        captionTitle: "Context rich sourcing",
         captionText:
           "Artwork imagery selected from the Hacoco paintings collection.",
       },
     },
-    trustStrip: [...sharedTrustStrip],
+    trustStrip: [...artTrustStrip],
     sections: {
       showcase: {
         eyebrow: "Selected Works",
         title: "A visual reference from the Hacoco paintings collection.",
         description: "Used here to frame taste, direction, and sourcing quality.",
-        artworks: [
+        items: [
           {
             title: "Interior Mosaic",
-            artist: "Rhea Maheshwari",
-            medium: "Painting",
-            priceBand: "Request",
+            subtitle: "Rhea Maheshwari",
+            category: "Painting",
+            badge: "Request",
             image: paintingGallery[4],
           },
           {
             title: "Divine Guidance",
-            artist: "Rhea Maheshwari",
-            medium: "Painting",
-            priceBand: "Request",
+            subtitle: "Rhea Maheshwari",
+            category: "Painting",
+            badge: "Request",
             image: paintingGallery[5],
           },
           {
             title: "Yellow Mosaic Scape",
-            artist: "Nupur Kundu",
-            medium: "Painting",
-            priceBand: "Available",
+            subtitle: "Nupur Kundu",
+            category: "Painting",
+            badge: "Available",
             image: paintingGallery[2],
           },
           {
             title: "Orange Mosaic Scape",
-            artist: "Nupur Kundu",
-            medium: "Painting",
-            priceBand: "Available",
+            subtitle: "Nupur Kundu",
+            category: "Painting",
+            badge: "Available",
             image: paintingGallery[3],
           },
         ],
       },
       advisoryAreas: {
         eyebrow: "Advisory Areas",
-        title: "Where private advisory creates real value.",
+        title: "Where private art advisory creates real value.",
         description:
           "Designed for clients who want guidance, not just access.",
         items: [
@@ -735,16 +736,6 @@ export const siteConfigs: Record<string, SiteConfig> = {
           },
         ],
       },
-      audience: {
-        eyebrow: "Who We Work With",
-        title: "Advisory is best suited to clients with a defined intention.",
-        items: [
-          "Collectors refining an existing collection and wanting stronger coherence.",
-          "Buyers seeking an advisor to source around a style, artist, or thesis.",
-          "Private clients and principals who value discretion and context-rich decision support.",
-          "Design-led home or office buyers who want art selected with aesthetic intelligence.",
-        ],
-      },
       whyHacoco: {
         eyebrow: "Why Advisory Matters",
         title: "The best art decisions are rarely driven by availability alone.",
@@ -755,7 +746,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
       },
       process: {
         eyebrow: "Process",
-        title: "A consultation-first workflow.",
+        title: "A consultation first workflow.",
         steps: [
           {
             title: "Consult",
@@ -808,7 +799,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
           label: "Budget range",
           type: "select",
           required: true,
-          options: ["Under INR 5L", "INR 5L - 15L", "INR 15L - 50L", "INR 50L+"],
+          options: ["Under INR 5L", "INR 5L to 15L", "INR 15L to 50L", "INR 50L+"],
         },
         {
           name: "preferredStyle",
@@ -837,7 +828,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
     },
     footer: {
       copy: "Private art advisory for collection building, sourcing, and discreet acquisition support.",
-      email: "advisory@hacoco-advisory.com",
+      email: "shiv@hacocoadvisory.com",
       contactLabel: "Advisory desk",
     },
   },

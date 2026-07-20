@@ -54,12 +54,12 @@ export async function submitLead(
 export function getDestinationEmail(leadTag: string) {
   switch (leadTag) {
     case "CAP-LEAD":
-      return process.env.RESEND_CAPITAL_TO || "capital@hacococapital.com";
+      return process.env.RESEND_CAPITAL_TO || "advisory@hacococapital.com";
     case "ADV-LEAD":
-      return process.env.RESEND_ADVISORY_TO || "advisory@hacoco-advisory.com";
+      return process.env.RESEND_ADVISORY_TO || "shiv@hacocoadvisory.com";
     case "INV-LEAD":
     default:
-      return process.env.RESEND_INVESTOR_TO || "hello@investwithhacoco.com";
+      return process.env.RESEND_INVESTOR_TO || "shiv@hacococapital.com";
   }
 }
 
@@ -87,7 +87,7 @@ export function createLeadEmailHtml(
   return `
     <div style="background:#0a0a0a;padding:32px;font-family:Arial,sans-serif;color:#f8f4ee;">
       <h1 style="margin:0 0 12px;font-size:28px;">${sanitize(brandName)} lead received</h1>
-      <p style="margin:0 0 20px;color:#d4c29a;">${sanitize(submission.leadTag)} • ${sanitize(submission.domain)}</p>
+      <p style="margin:0 0 20px;color:#d4c29a;">${sanitize(submission.leadTag)} | ${sanitize(submission.domain)}</p>
       <table style="width:100%;border-collapse:collapse;background:#f8f4ee;color:#111;border-radius:12px;overflow:hidden;">
         <tbody>${rows}</tbody>
       </table>

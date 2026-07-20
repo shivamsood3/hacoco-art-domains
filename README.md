@@ -1,43 +1,59 @@
-# Hacoco Art Domains
+# Hacoco Multi Domain Landing Pages
 
-Single Next.js codebase that renders three distinct art-acquisition landing pages by hostname:
+Single Next.js codebase that renders three distinct landing pages by hostname.
 
-- `hacococapital.com`
-- `investwithhacoco.com`
-- `hacoco-advisory.com`
+- `hacococapital.com`: private real estate capital access
+- `investwithhacoco.com`: South Delhi real estate buyer conversion and SEO blog
+- `hacoco-advisory.com`: private art advisory and bespoke sourcing
 
 ## File Structure
 
 ```text
 hacoco-art-domains/
 ├── .env.example
-├── .gitignore
 ├── README.md
-├── eslint.config.mjs
 ├── middleware.ts
 ├── next.config.ts
 ├── package.json
-├── postcss.config.mjs
-├── tsconfig.json
-└── src
-    ├── app
-    │   ├── api
-    │   │   └── leads
-    │   │       └── route.ts
-    │   ├── globals.css
-    │   ├── layout.tsx
-    │   └── page.tsx
-    ├── components
-    │   ├── analytics-provider.tsx
-    │   ├── lead-form.tsx
-    │   └── site-renderer.tsx
-    └── lib
-        ├── analytics.ts
-        ├── hostname.ts
-        ├── leads.ts
-        ├── resend.ts
-        └── site-config.ts
+├── src
+│   ├── app
+│   │   ├── api/leads/route.ts
+│   │   ├── blog
+│   │   │   ├── [slug]/page.tsx
+│   │   │   └── page.tsx
+│   │   ├── privacy/page.tsx
+│   │   ├── terms/page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── analytics-provider.tsx
+│   │   ├── lead-form.tsx
+│   │   └── site-renderer.tsx
+│   └── lib
+│       ├── analytics.ts
+│       ├── blog.ts
+│       ├── hostname.ts
+│       ├── leads.ts
+│       ├── resend.ts
+│       └── site-config.ts
 ```
+
+## Domain Mapping
+
+- `hacococapital.com` uses the Hacoco Capital real estate capital config.
+- `investwithhacoco.com` uses the South Delhi real estate conversion config.
+- `hacoco-advisory.com` uses the Hacoco Advisory art config.
+
+All three domains should point to the same deployment. The app reads the hostname at runtime and renders the matching config from `src/lib/site-config.ts`.
+
+## Routes
+
+- `/` renders the correct landing page for the current hostname.
+- `/terms` renders domain aware Terms of Use.
+- `/privacy` renders domain aware Privacy Policy.
+- `/blog` renders only on `investwithhacoco.com`.
+- `/blog/[slug]` renders South Delhi real estate articles only on `investwithhacoco.com`.
 
 ## Environment Variables
 
@@ -46,9 +62,9 @@ Copy `.env.example` to `.env.local` and set:
 - `NEXT_PUBLIC_SITE_URL`
 - `RESEND_API_KEY`
 - `RESEND_FROM_EMAIL`
-- `RESEND_CAPITAL_TO`
-- `RESEND_INVESTOR_TO`
-- `RESEND_ADVISORY_TO`
+- `RESEND_CAPITAL_TO=advisory@hacococapital.com`
+- `RESEND_INVESTOR_TO=shiv@hacococapital.com`
+- `RESEND_ADVISORY_TO=shiv@hacocoadvisory.com`
 - `GOOGLE_SHEETS_WEBHOOK_URL`
 - `NEXT_PUBLIC_GA4_ID`
 - `NEXT_PUBLIC_GOOGLE_ADS_ID`
@@ -76,18 +92,8 @@ Then open:
 
 - `http://hacococapital.local:3000`
 - `http://investwithhacoco.local:3000`
+- `http://investwithhacoco.local:3000/blog`
 - `http://hacoco-advisory.local:3000`
-
-Each host resolves to a different config object through `middleware.ts` and `src/lib/site-config.ts`.
-
-## How Domain Mapping Works
-
-- `middleware.ts` reads the request `host` and forwards it as `x-site-hostname`.
-- `src/lib/hostname.ts` normalizes the hostname.
-- `src/lib/site-config.ts` returns the correct config object.
-- `src/app/page.tsx` renders the shared renderer with the matched config.
-
-This keeps all domains inside one Next.js deployment.
 
 ## Lead Handling
 
@@ -98,35 +104,28 @@ The API route:
 1. Validates the payload.
 2. Includes `domain` and `leadTag`.
 3. Sends an email through Resend.
-4. Logs the same lead to a Google Sheets webhook.
+4. Logs the same lead to a Google Sheets webhook when configured.
 
-Routing:
+Email routing:
 
-- `CAP-LEAD` -> `capital@hacococapital.com`
-- `INV-LEAD` -> `hello@investwithhacoco.com`
-- `ADV-LEAD` -> `advisory@hacoco-advisory.com`
+- `CAP-LEAD` goes to `advisory@hacococapital.com`
+- `INV-LEAD` goes to `shiv@hacococapital.com`
+- `ADV-LEAD` goes to `shiv@hacocoadvisory.com`
 
 ## Vercel Deployment
 
 1. Push this project to GitHub.
-2. Import the repo into Vercel.
+2. Import the repo into one Vercel project.
 3. Add all environment variables in the Vercel project settings.
-4. Deploy once to get the production URL.
-5. In the Vercel project, add these custom domains:
-   - `hacococapital.com`
-   - `www.hacococapital.com`
-   - `investwithhacoco.com`
-   - `www.investwithhacoco.com`
-   - `hacoco-advisory.com`
-   - `www.hacoco-advisory.com`
-6. Update DNS for each domain to the Vercel target shown in the dashboard.
-7. Keep all six domains attached to the same Vercel project.
+4. Add all production domains to that same project.
+5. Update DNS for each domain to the Vercel target shown in the dashboard.
 
-Because the code reads the hostname at runtime, one deployment serves all three branded pages.
+Because the code reads the hostname at runtime, one deployment serves all three websites.
 
 ## Notes
 
-- The page system is intentionally config-driven.
-- Only art-focused language is used.
+- The page system is config driven.
+- Two sites now focus on real estate.
+- One site remains focused on art advisory.
 - No fake testimonials are included.
-- Artwork URLs are static references, not scraped at runtime.
+- Art images are static references from Hacoco sources.
