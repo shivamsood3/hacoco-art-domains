@@ -631,11 +631,14 @@ export const siteConfigs: Record<string, SiteConfig> = {
       contactLabel: "Buyer inquiries",
     },
   },
-  "hacoco-advisory.com": {
+  "hacocoadvisory.com": {
     slug: "advisory",
     vertical: "art",
-    primaryDomain: "hacoco-advisory.com",
-    hostAliases: ["www.hacoco-advisory.com", "hacoco-advisory.local"],
+    primaryDomain: "hacocoadvisory.com",
+    hostAliases: [
+      "www.hacocoadvisory.com",
+      "hacocoadvisory.local",
+    ],
     brand: {
       name: "Hacoco Advisory",
       eyebrow: "Private Art Advisory",

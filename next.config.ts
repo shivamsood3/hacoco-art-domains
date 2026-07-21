@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: [
     "hacococapital.local",
     "investwithhacoco.local",
-    "hacoco-advisory.local",
+    "hacocoadvisory.local",
   ],
   images: {
     remotePatterns: [

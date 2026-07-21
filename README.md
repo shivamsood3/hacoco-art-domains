@@ -4,7 +4,7 @@ Single Next.js codebase that renders three distinct landing pages by hostname.
 
 - `hacococapital.com`: private real estate capital access
 - `investwithhacoco.com`: South Delhi real estate buyer conversion and SEO blog
-- `hacoco-advisory.com`: private art advisory and bespoke sourcing
+- `hacocoadvisory.com`: private art advisory and bespoke sourcing
 
 ## File Structure
 
@@ -43,7 +43,7 @@ hacoco-art-domains/
 
 - `hacococapital.com` uses the Hacoco Capital real estate capital config.
 - `investwithhacoco.com` uses the South Delhi real estate conversion config.
-- `hacoco-advisory.com` uses the Hacoco Advisory art config.
+- `hacocoadvisory.com` uses the Hacoco Advisory art config.
 
 All three domains should point to the same deployment. The app reads the hostname at runtime and renders the matching config from `src/lib/site-config.ts`.
 
@@ -85,7 +85,7 @@ Add these entries to `/etc/hosts`:
 ```text
 127.0.0.1 hacococapital.local
 127.0.0.1 investwithhacoco.local
-127.0.0.1 hacoco-advisory.local
+127.0.0.1 hacocoadvisory.local
 ```
 
 Then open:
@@ -93,7 +93,7 @@ Then open:
 - `http://hacococapital.local:3000`
 - `http://investwithhacoco.local:3000`
 - `http://investwithhacoco.local:3000/blog`
-- `http://hacoco-advisory.local:3000`
+- `http://hacocoadvisory.local:3000`
 
 ## Lead Handling
 
