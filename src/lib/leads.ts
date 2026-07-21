@@ -5,6 +5,7 @@ export type LeadSubmission = {
   email: string;
   phone: string;
   domain: string;
+  companyWebsite: string;
   leadTag: string;
   [key: string]: string;
 };
@@ -18,7 +19,7 @@ type LeadDeliveryPayload = {
   html: string;
 };
 
-const protectedFields = new Set(["domain", "leadTag"]);
+const protectedFields = new Set(["domain", "leadTag", "companyWebsite"]);
 
 export function validateLeadPayload(payload: Partial<LeadSubmission>): ValidationResult {
   if (!payload.name || !payload.email || !payload.phone) {

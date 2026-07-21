@@ -22,6 +22,14 @@ export async function POST(request: Request) {
     }
 
     const submission = validation.data;
+
+    if (submission.companyWebsite) {
+      return NextResponse.json({
+        ok: true,
+        message: "Thank you. Your request has been received.",
+      });
+    }
+
     const site = getSiteConfigByDomain(submission.domain);
     const destinationEmail = getDestinationEmail(submission.leadTag);
 

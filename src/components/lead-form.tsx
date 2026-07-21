@@ -28,6 +28,11 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (status === "loading") {
+      return;
+    }
+
     setStatus("loading");
     setMessage("");
 
@@ -43,6 +48,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
       },
       body: JSON.stringify({
         domain: site.primaryDomain,
+        companyWebsite: "",
         leadTag: site.form.leadTag,
         ...values,
       }),

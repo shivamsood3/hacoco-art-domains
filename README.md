@@ -12,7 +12,6 @@ Single Next.js codebase that renders three distinct landing pages by hostname.
 hacoco-art-domains/
 ├── .env.example
 ├── README.md
-├── middleware.ts
 ├── next.config.ts
 ├── package.json
 ├── src
@@ -105,6 +104,7 @@ The API route:
 2. Includes `domain` and `leadTag`.
 3. Sends an email through Resend.
 4. Logs the same lead to a Google Sheets webhook when configured.
+5. Ignores honeypot submissions before sending email or webhook requests.
 
 Email routing:
 
@@ -121,6 +121,14 @@ Email routing:
 5. Update DNS for each domain to the Vercel target shown in the dashboard.
 
 Because the code reads the hostname at runtime, one deployment serves all three websites.
+
+## Cost Controls
+
+- No middleware or proxy layer is used for hostname routing.
+- The only internal API call is `/api/leads`, and it runs only after a form submit.
+- Analytics scripts load only when their public environment variables are configured.
+- Duplicate form submits are guarded on the client.
+- Bot honeypot submissions return success without sending email or webhook requests.
 
 ## Notes
 
