@@ -826,9 +826,6 @@ export const siteConfigs: Record<string, SiteConfig> = {
       message:
         "A member of Hacoco Advisory will review your brief and respond with an appropriate next step shortly.",
     },
-    calendly: {
-      url: "https://calendly.com/",
-    },
     footer: {
       copy: "Private art advisory for collection building, sourcing, and discreet acquisition support.",
       email: "shiv@hacocoadvisory.com",
