@@ -19,6 +19,7 @@ export async function GET() {
   if (site.slug === "investor") {
     paths.push(
       "/listings",
+      investorMarketsBasePath,
       ...investorListings.map((listing) => `/opportunities/${listing.slug}`),
       investorServicesBasePath,
       investorInsightsBasePath,

@@ -103,6 +103,62 @@ export default async function AboutPage() {
             </div>
           </section>
 
+          <section className="investor-about-framework">
+            <div>
+              <p className="investor-eyebrow">How We Work</p>
+              <h2>Hacoco is not a portal and not a volume brokerage desk.</h2>
+            </div>
+            <div>
+              <p>
+                A portal starts with supply. Hacoco starts with the buyer&apos;s
+                mandate. We want to know the market, budget, use case, hold
+                period, liquidity need, documentation comfort and what would
+                make the investment unacceptable.
+              </p>
+              <p>
+                From there, we source and compare opportunities across owner
+                conversations, developers, private inventory, local
+                intermediaries and Hacoco&apos;s own market work. The result should
+                be a smaller shortlist with clearer reasoning, not a feed of
+                every property available.
+              </p>
+            </div>
+          </section>
+
+          <section className="investor-about-table">
+            {[
+              {
+                label: "Who We Work With",
+                copy: "HNIs, NRIs, founders, family buyers and private investors who value discretion, market context and a disciplined route to acquisition.",
+              },
+              {
+                label: "Markets We Cover",
+                copy: "South Delhi homes, Delhi NCR primary property, Dubai real estate, Dubai company setup coordination, Goa villas, North India land and selected diversification opportunities.",
+              },
+              {
+                label: "What Intelligence Means",
+                copy: "Local pricing context, seller quality, developer assessment, title sensitivity, exit-buyer logic, service-charge review, rental realism and risks that should be visible before negotiation.",
+              },
+              {
+                label: "How Hacoco Gets Paid",
+                copy: "Commercial terms depend on the mandate and transaction route. Fees or success economics are discussed transparently before active work begins.",
+              },
+              {
+                label: "What We Do Not Do",
+                copy: "We do not provide legal, tax, mortgage or regulatory advice. We coordinate with qualified professionals where the transaction requires independent specialist review.",
+              },
+              {
+                label: "Who Is Behind Hacoco",
+                copy: "The work is led through Hacoco's private network and Shivam Sood's direct client relationships. Additional team information should remain real and verifiable before being published.",
+              },
+            ].map((item) => (
+              <article key={item.label}>
+                <span>{item.label}</span>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </section>
+
           <section className="investor-about-relationship">
             <p className="investor-eyebrow">A Direct Relationship</p>
             <h2>Built around relationships, not lead volume.</h2>

@@ -67,7 +67,7 @@ export const investorBlogPosts: BlogPost[] = [
       {
         heading: "Dubai as the international sleeve",
         body: [
-          "Dubai has become a serious allocation market because it combines transparent transaction data, foreign buyer access, rental demand, free zone business infrastructure and a tax environment that continues to attract entrepreneurs. Dubai Land Department data and independent market research both point to sustained institutionalisation of the market, with 2024 and 2025 activity showing depth across sales, leases and investor participation.",
+          "Dubai has become a serious allocation market because it combines foreign buyer access, rental demand, free zone business infrastructure, recognised transaction processes and a tax environment that continues to attract entrepreneurs. The market is also easier to study than many private real estate markets because official transaction and registration systems create a clearer trail for professional review.",
           "The right Dubai purchase is not simply the project with the loudest launch. Buyers need to distinguish between ready rental stock, off plan payment plans, prime branded inventory, family villa communities and short stay oriented units. Net yield, service charges, completion risk, developer delivery record, payment schedule, mortgage availability and exit liquidity all matter. For an Indian investor, currency exposure and future use also matter.",
         ],
       },
@@ -144,15 +144,15 @@ export const investorBlogPosts: BlogPost[] = [
     publishedAt: "2026-07-28",
     readTime: "15 min read",
     image: {
-      src: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=85",
-      alt: "Dubai skyline at golden hour",
+      src: "/images/investor/dubai-marina.jpg",
+      alt: "Dubai Marina waterfront and residential towers",
     },
     references: [],
     sections: [
       {
         heading: "Why Dubai belongs in the conversation",
         body: [
-          "Dubai is no longer a simple offshore property story for Indian capital. It is a combined real estate, business migration, rental income, residency and global operating base story. The city offers a level of market transparency and transaction activity that many emerging markets do not. Dubai Land Department publishes market data, while global consultancies continue to track strong residential demand and price growth across prime and mainstream segments.",
+          "Dubai is no longer a simple offshore property story for Indian capital. It is a combined real estate, business migration, rental income, residency and global operating base story. The city offers a level of transaction process, foreign buyer access and market visibility that many private real estate markets do not.",
           "For founders and business families, Dubai is useful because real estate and company setup can be planned together. A property may support lifestyle, rental income or long stay optionality. A free zone company may support regional trading, consulting, services, holding structures or global operations, subject to licensing and compliance.",
         ],
       },
@@ -173,7 +173,7 @@ export const investorBlogPosts: BlogPost[] = [
       {
         heading: "Free zone company setup as a service line",
         body: [
-          "Dubai free zones allow foreign investors to set up companies under dedicated zone authorities. Official Dubai guidance highlights benefits such as 100 percent foreign ownership, capital repatriation and streamlined registration. The UAE Ministry of Economy also notes that free zone entities are governed by their respective free zone authority rules, with activity selection, legal form, trade name, office facility and approvals forming the core setup sequence.",
+          "Dubai free zones allow foreign investors to set up companies under dedicated zone authorities, with the exact process depending on the selected free zone, activity, legal form, office requirement and approval path. Those details should be confirmed with the relevant authority and qualified corporate advisers before a client commits.",
           "For Hacoco clients, the practical service is not only filling forms. It is choosing the right free zone for the intended activity, understanding whether mainland trade is needed, mapping visa and office requirements, coordinating documentation, planning bank account readiness and avoiding a license that looks cheap but does not fit the business.",
         ],
       },
@@ -244,7 +244,7 @@ export const investorBlogPosts: BlogPost[] = [
       {
         heading: "Micro markets matter more than the Goa label",
         body: [
-          "North Goa continues to command strong attention in pockets such as Assagao, Siolim, Anjuna, Vagator, Parra, Moira, Reis Magos and parts of Candolim. These markets appeal to buyers looking for rental demand, cafe culture, access to beaches and a recognisable social ecosystem.",
+          "North Goa continues to command strong attention in pockets such as Assagao, Siolim, Anjuna, Vagator, Parra, Moira, Reis Magos and parts of Candolim. These markets appeal to buyers looking for rental demand, cafe culture, access to beaches and a recognisable social circuit.",
           "South Goa and inland pockets can offer privacy, larger land and a slower lifestyle, but they need a different rental and exit view. A buyer looking for monthly cash flow may not want the same asset as a buyer seeking a private retreat. The right shortlist begins with use case, not Instagram appeal.",
         ],
       },

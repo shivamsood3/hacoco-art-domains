@@ -533,24 +533,80 @@ export const investorMarketPages: InvestorDetailPage[] = [
     highlights: ["Global buyer access", "Escrow framework", "Rental depth", "Currency diversification"],
     sections: [
       {
-        heading: "Market thesis",
+        heading: "Market overview",
         body: [
-          "Dubai is useful for buyers seeking a mix of rental demand, global liquidity, lifestyle access, currency diversification and possible business alignment.",
-          "The strongest opportunities combine credible location, developer delivery, tenant demand and service-charge discipline.",
+          "Dubai is a global real estate market with several different buyer motives sitting inside one city: rental income, family use, business migration, currency diversification, residency planning and long-hold lifestyle ownership.",
+          "The market is not a single skyline story. A Dubai Marina duplex, a Downtown branded residence, a Business Bay apartment, a Dubai Hills family home, a Palm Jumeirah asset and a JVC off plan unit all carry different tenant pools, service charges, exit buyers and holding behaviour.",
         ],
       },
       {
-        heading: "Where buyers should focus",
+        heading: "The Hacoco view",
         body: [
-          "Dubai has multiple sub-markets inside one city. Marina, Downtown, Business Bay, Palm Jumeirah, JVC, Dubai Hills, Creek Harbour, branded residences and villa communities each suit different use cases.",
-          "Hacoco helps distinguish income assets, family-use homes, off plan entries, branded inventory and residency-linked purchases so the buyer is not comparing products that solve different problems.",
+          "We like Dubai when the buyer has a written reason to own there and the asset can stand up to completed-market scrutiny. We are more cautious when the purchase is driven only by launch scarcity, payment-plan comfort or an advertised yield that has not been converted into net owner return.",
+          "Scarcity is genuine in certain waterfront, prime, branded, villa and family-community segments. It is less genuine where similar units can be launched or handed over in volume. The discipline is to separate city-level strength from building-level risk.",
         ],
       },
       {
-        heading: "What can go wrong",
+        heading: "Ready versus off plan",
         body: [
-          "The market's strength is also the risk. High launch activity, heavy marketing, future handover supply and service-charge surprises can dilute returns if the asset is selected casually.",
-          "We review net yield, building charges, community maturity, developer record, unit efficiency, payment plan, handover concentration and the likely resale audience before a recommendation is made.",
+          "Ready property gives the buyer an existing building, observable service charges, current rental evidence and faster possession. It can be the better route when income visibility or family use matters more than payment flexibility.",
+          "Off plan property can provide earlier entry, staged payments and access to new communities, but the buyer accepts developer execution risk, future supply risk and the possibility that resale before handover is not available on favourable terms.",
+        ],
+      },
+      {
+        heading: "Developer selection",
+        body: [
+          "In Dubai, the developer is part of the asset. Delivery record, building management, handover quality, buyer communication, community planning and resale perception all influence the investment result.",
+          "Hacoco reviews the developer before the view, brochure or payment plan. A strong payment plan can make cash flow easier, but it cannot compensate for weak delivery, poor unit planning or a location that lacks a future tenant base.",
+        ],
+      },
+      {
+        heading: "Communities and micro markets",
+        body: [
+          "Dubai Marina and JBR tend to appeal to buyers seeking waterfront lifestyle, rentals and global familiarity. Downtown and Business Bay can suit central-city demand and branded inventory. Dubai Hills and Emirates Living style communities often speak to family occupation and longer-hold end users. JVC and emerging communities need sharper supply and service-charge review.",
+          "The right market depends on the mandate. Income, personal use, status, liquidity, residency relevance and business presence do not always point to the same building.",
+        ],
+      },
+      {
+        heading: "Rental economics",
+        body: [
+          "High advertised yield does not automatically mean high total return. The investor needs to move from gross rent to net owner outcome after service charges, vacancy, furnishing, property management, maintenance, transaction costs and currency movement.",
+          "Hacoco reviews whether the expected tenant pool is deep enough for the unit type and whether the asset would remain rentable if nearby supply increases.",
+        ],
+      },
+      {
+        heading: "Service charges and ownership cost",
+        body: [
+          "Service charges are central to Dubai underwriting because they affect net yield, resale perception and owner experience. Two similar apartments can have different investment outcomes because one building is better run and less expensive to hold.",
+          "We look at building quality, operating cost, maintenance culture, amenities burden and whether the service-charge profile is reasonable for the target tenant and resale buyer.",
+        ],
+      },
+      {
+        heading: "Escrow and buyer process",
+        body: [
+          "Dubai's off plan market operates through regulated project structures and buyer payment processes that should be reviewed at the project level. Buyers should understand the sale agreement, payment schedule, project registration, escrow mechanics, handover terms and default provisions before committing.",
+          "Hacoco helps coordinate the questions that should go to the developer, broker, lawyer, mortgage adviser or company setup specialist. The buyer should not treat a launch booking as a substitute for transaction review.",
+        ],
+      },
+      {
+        heading: "Indian and NRI considerations",
+        body: [
+          "Indian and NRI buyers often evaluate Dubai alongside family use, children, business setup, currency diversification, remittance planning and possible residency relevance. That makes the purchase more than a property decision.",
+          "The buyer should align property timing with banking, documentation, source of funds, tax advice, company setup needs and future use. A good Dubai plan is sequenced, not improvised.",
+        ],
+      },
+      {
+        heading: "Risks",
+        body: [
+          "The main risks are micro-market oversupply, weak developer delivery, high service charges, overoptimistic rental projections, short-term resale assumptions, payment-plan driven pricing and currency considerations for Indian buyers.",
+          "Launch demand does not guarantee resale liquidity. A project can sell quickly and still be a weak investment if too many similar units reach handover together or if the completed building cannot compete with ready alternatives.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches Dubai",
+        body: [
+          "We start with the mandate: ready or off plan, income or use, apartment or villa, business setup relevance, hold period, currency objective and liquidity need. Then we compare communities, developers, service charges, unit plans, payment structure and likely exit demand.",
+          "The output should be a focused shortlist, a list of questions for professional review and a clear explanation of why each option belongs in the conversation.",
         ],
       },
     ],

@@ -93,6 +93,7 @@ function buildRealEstateContent(
           `- Opportunity: ${listing.title}: ${baseUrl}/opportunities/${listing.slug}`,
       ),
       `- Services: ${baseUrl}${investorServicesBasePath}`,
+      `- Markets: ${baseUrl}${investorMarketsBasePath}`,
       `- Market Intelligence: ${baseUrl}${investorInsightsBasePath}`,
       ...investorBlogPosts.map(
         (post) => `- ${post.title}: ${baseUrl}${investorInsightsBasePath}/${post.slug}`,

@@ -25,6 +25,15 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function MarketIntelligencePage() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
+  const [featuredPost, ...otherPosts] = investorBlogPosts;
+  const categories = [
+    "South Delhi",
+    "NCR",
+    "Dubai",
+    "Goa",
+    "Land",
+    "Portfolio Strategy",
+  ];
 
   if (site.slug !== "investor") {
     notFound();
@@ -48,8 +57,30 @@ export default async function MarketIntelligencePage() {
           </p>
         </section>
 
+        <section className="intelligence-publication">
+          <div>
+            <p className="investor-eyebrow">Latest Analysis</p>
+            <h2>{featuredPost.title}</h2>
+            <p>{featuredPost.description}</p>
+            <Link
+              className="investor-text-link"
+              href={`${investorInsightsBasePath}/${featuredPost.slug}`}
+            >
+              Read featured analysis
+            </Link>
+          </div>
+          <div>
+            <p className="investor-eyebrow">Research Areas</p>
+            <div className="intelligence-publication__categories">
+              {categories.map((category) => (
+                <span key={category}>{category}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="intelligence-index">
-          {investorBlogPosts.map((post, index) => (
+          {otherPosts.map((post, index) => (
             <article className="intelligence-index__article" key={post.slug}>
               <Link
                 className="intelligence-index__image"
@@ -65,7 +96,7 @@ export default async function MarketIntelligencePage() {
               </Link>
               <div>
                 <p className="investor-eyebrow">
-                  0{index + 1} / {post.readTime}
+                  0{index + 2} / {post.readTime}
                 </p>
                 <h2>{post.title}</h2>
                 <p>{post.description}</p>

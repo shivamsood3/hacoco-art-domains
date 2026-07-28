@@ -65,6 +65,7 @@ export default async function OpportunityPage({
   }
 
   const url = `https://${site.primaryDomain}/opportunities/${listing.slug}`;
+  const related = getOpportunityRelatedLinks(listing);
 
   return (
     <main className="investor-site investor-inner">
@@ -148,6 +149,24 @@ export default async function OpportunityPage({
             </aside>
           </div>
 
+          <section className="opportunity-detail__context">
+            <div>
+              <p className="investor-eyebrow">Acquisition Context</p>
+              <h2>What a serious buyer should understand before enquiry.</h2>
+            </div>
+            <div>
+              <p>{getOpportunityContext(listing)}</p>
+              <div>
+                {related.map((item) => (
+                  <Link href={item.href} key={item.href}>
+                    <span>{item.type}</span>
+                    <strong>{item.label}</strong>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <section className="opportunity-detail__cta">
             <div>
               <p className="investor-eyebrow">Private Enquiry</p>
@@ -174,6 +193,62 @@ export default async function OpportunityPage({
       </div>
     </main>
   );
+}
+
+function getOpportunityContext(listing: NonNullable<ReturnType<typeof getInvestorListing>>) {
+  const haystack = `${listing.title} ${listing.location} ${listing.category}`.toLowerCase();
+
+  if (haystack.includes("dubai")) {
+    return "Dubai enquiries should move beyond headline price and view. The review should include service charges, building management, tenant demand, payment route, currency exposure, resale liquidity and whether the asset fits income, use or UAE market-entry objectives.";
+  }
+
+  if (haystack.includes("goa")) {
+    return "Goa opportunities should be reviewed as operating assets, not just second homes. Title, permissions, access, water, power, rental manager capability, seasonality and maintenance cost all affect owner outcome.";
+  }
+
+  if (haystack.includes("land") || haystack.includes("corridor") || haystack.includes("rajasthan") || haystack.includes("expressway")) {
+    return "Land enquiries need exact-location discipline. Title, mutation, access, frontage, land use, conversion path, local disputes, planning context and future buyer logic should be reviewed before price negotiation becomes serious.";
+  }
+
+  if (haystack.includes("commercial") || haystack.includes("janpath")) {
+    return "Commercial opportunities should be reviewed through tenancy quality, lease terms, vacancy risk, capital expenditure, title, building condition, compliance, operating cost and the depth of future institutional or private buyers.";
+  }
+
+  return "Prime Delhi residential opportunities should be reviewed through address quality, plot and land-share value, title, parking, floor plan, seller seriousness, construction age and resale depth. Finish matters, but documentation and location carry more durable value.";
+}
+
+function getOpportunityRelatedLinks(listing: NonNullable<ReturnType<typeof getInvestorListing>>) {
+  const haystack = `${listing.title} ${listing.location} ${listing.category}`.toLowerCase();
+
+  if (haystack.includes("dubai")) {
+    return [
+      { type: "Market", label: "Dubai Property", href: "/markets/dubai-property" },
+      { type: "Service", label: "Dubai Property Investment", href: "/services/dubai-property-investment" },
+      { type: "Intelligence", label: "Dubai Investor Guide", href: "/market-intelligence/dubai-real-estate-free-zone-company-setup-investor-guide" },
+    ];
+  }
+
+  if (haystack.includes("goa")) {
+    return [
+      { type: "Market", label: "Goa Villas", href: "/markets/goa-villas" },
+      { type: "Service", label: "Goa Villas and Second Homes", href: "/services/goa-villas-second-homes" },
+      { type: "Intelligence", label: "Goa Investment Guide", href: "/market-intelligence/goa-real-estate-second-homes-villas-investment-guide" },
+    ];
+  }
+
+  if (haystack.includes("land") || haystack.includes("corridor") || haystack.includes("rajasthan") || haystack.includes("expressway")) {
+    return [
+      { type: "Service", label: "North India Land Acquisition", href: "/services/north-india-land-acquisition" },
+      { type: "Market", label: "Growth Corridor Markets", href: "/markets" },
+      { type: "Intelligence", label: "North India Land Guide", href: "/market-intelligence/north-india-land-acquisition-growth-corridors" },
+    ];
+  }
+
+  return [
+    { type: "Market", label: "South Delhi Homes", href: "/markets/south-delhi-homes" },
+    { type: "Service", label: "Prime Homes and Builder Floors", href: "/services/south-delhi-prime-homes-builder-floors" },
+    { type: "Intelligence", label: "South Delhi Property Guide", href: "/market-intelligence/south-delhi-property-investment-guide-defence-colony-gk-vasant-vihar" },
+  ];
 }
 
 function Fact({ label, value }: { label: string; value: string }) {
