@@ -74,7 +74,11 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
       });
     } catch {
       setStatus("error");
-      setMessage("We could not reach the trade desk. Please try again or email us directly.");
+      setMessage(
+        `We could not reach the ${
+          site.vertical === "commodities" ? "trade desk" : "property desk"
+        }. Please try again or email us directly.`,
+      );
     }
   }
 

@@ -46,10 +46,17 @@ export async function submitLead(
   submission: LeadSubmission,
   delivery: LeadDeliveryPayload & { destinationEmail: string },
 ) {
-  await Promise.all([
-    sendLeadEmail(delivery.destinationEmail, delivery.subject, delivery.html),
-    sendBackupWebhook(submission),
-  ]);
+  await sendLeadEmail(
+    delivery.destinationEmail,
+    delivery.subject,
+    delivery.html,
+  );
+
+  try {
+    await sendBackupWebhook(submission);
+  } catch (error) {
+    console.error("Google Sheets backup logging failed", error);
+  }
 }
 
 export function getDestinationEmail(leadTag: string) {
@@ -100,16 +107,19 @@ async function sendLeadEmail(to: string, subject: string, html: string) {
   const resend = getResend();
 
   if (!resend) {
-    console.warn("Resend not configured. Skipping email delivery.");
-    return;
+    throw new Error("Resend email delivery is not configured.");
   }
 
-  await resend.emails.send({
+  const result = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL || "concierge@hacococapital.com",
     to,
     subject,
     html,
   });
+
+  if (result.error) {
+    throw new Error(`Resend rejected the lead email: ${result.error.message}`);
+  }
 }
 
 async function sendBackupWebhook(submission: LeadSubmission) {
@@ -118,7 +128,7 @@ async function sendBackupWebhook(submission: LeadSubmission) {
     return;
   }
 
-  await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
+  const response = await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -128,6 +138,10 @@ async function sendBackupWebhook(submission: LeadSubmission) {
       ...submission,
     }),
   });
+
+  if (!response.ok) {
+    throw new Error(`Google Sheets webhook returned ${response.status}.`);
+  }
 }
 
 function sanitize(value: string) {
