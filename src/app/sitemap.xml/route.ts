@@ -2,6 +2,12 @@ import { headers } from "next/headers";
 
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
+import {
+  investorMarketPages,
+  investorMarketsBasePath,
+  investorServicePages,
+  investorServicesBasePath,
+} from "@/lib/investor-detail-pages";
 
 export async function GET() {
   const headerStore = await headers();
@@ -13,6 +19,8 @@ export async function GET() {
     paths.push(
       investorInsightsBasePath,
       ...investorBlogPosts.map((post) => `${investorInsightsBasePath}/${post.slug}`),
+      ...investorServicePages.map((page) => `${investorServicesBasePath}/${page.slug}`),
+      ...investorMarketPages.map((page) => `${investorMarketsBasePath}/${page.slug}`),
     );
   }
 

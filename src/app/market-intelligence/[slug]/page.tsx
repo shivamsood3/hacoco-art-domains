@@ -99,7 +99,6 @@ export default async function MarketIntelligenceArticlePage({
             name: site.brand.name,
             url: baseUrl,
           },
-          citation: post.references.map((reference) => reference.href),
           inLanguage: "en",
         }}
       />
@@ -166,22 +165,17 @@ export default async function MarketIntelligenceArticlePage({
               ))}
             </div>
 
-            <aside className="surface-card-tint mt-12 p-6 md:p-8">
-              <p className="eyebrow">Selected References</p>
-              <div className="mt-5 grid gap-3">
-                {post.references.map((reference) => (
-                  <a
-                    key={reference.href}
-                    href={reference.href}
-                    rel="noreferrer"
-                    target="_blank"
-                    className="text-sm leading-6 text-[var(--textStrong)] underline decoration-[var(--borderSubtle)] underline-offset-4 hover:decoration-[var(--accentGold)]"
-                  >
-                    {reference.label}
-                  </a>
-                ))}
+            <section className="section-band section-band--elevated mt-12 flex flex-col gap-5 p-6 md:p-8 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="eyebrow">Investor Brief</p>
+                <h2 className="font-display mt-3 text-4xl leading-none text-[var(--textStrong)]">
+                  Want this translated into a live shortlist?
+                </h2>
               </div>
-            </aside>
+              <Link href="/#lead-form" className="primary-button">
+                Share Your Brief
+              </Link>
+            </section>
           </article>
         </div>
       </main>

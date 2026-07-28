@@ -12,6 +12,7 @@ export type ContentCard = {
   kicker: string;
   title: string;
   copy: string;
+  href?: string;
 };
 
 export type ShowcaseItem = {
@@ -20,6 +21,7 @@ export type ShowcaseItem = {
   category: string;
   badge?: string;
   image?: string;
+  href?: string;
 };
 
 export type ProcessStep = {
@@ -473,7 +475,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
         "Neemrana land investment",
         "France vineyard investment",
       ],
-      ogImage: realEstateImages[1],
+      ogImage: "/og-investwithhacoco.png",
     },
     navigation: [
       { label: "Markets", href: "#markets" },
@@ -518,41 +520,49 @@ export const siteConfigs: Record<string, SiteConfig> = {
             kicker: "Primary Market",
             title: "Off plan property investments",
             copy: "Primary investments across Delhi NCR, Goa and Dubai/UAE reviewed for developer quality, RERA or escrow comfort, payment plan, handover risk and resale depth.",
+            href: "/services/off-plan-property-investments",
           },
           {
             kicker: "South Delhi",
             title: "Prime homes and builder floors",
             copy: "Filtered residential options across established Delhi colonies based on budget, parking, floor quality, title comfort and resale depth.",
+            href: "/services/south-delhi-prime-homes-builder-floors",
           },
           {
             kicker: "Dubai",
             title: "Property investment",
             copy: "Shortlists across ready income assets, off plan opportunities, family communities and prime inventory with developer and yield context.",
+            href: "/services/dubai-property-investment",
           },
           {
             kicker: "Company Setup",
             title: "Dubai free zone support",
             copy: "Coordination for free zone selection, activity fit, company formation, visa planning, office packages and banking readiness.",
+            href: "/services/dubai-free-zone-company-setup",
           },
           {
             kicker: "Goa",
             title: "Villas and second homes",
             copy: "Curated Goa opportunities reviewed for location, title, permissions, managed rental potential and long hold lifestyle value.",
+            href: "/services/goa-villas-second-homes",
           },
           {
             kicker: "North India",
             title: "Land acquisition",
-            copy: "Specialised sourcing across Baghpat, Haridwar, Neemrana, Dehradun, Mussoorie foothills, Kotabagh, Bajunia and other up and coming corridors.",
+            copy: "Specialised sourcing across Baghpat, Haridwar, Neemrana, Dehradun, Mussoorie foothills, Kotabagh, Bejunia and other up and coming corridors.",
+            href: "/services/north-india-land-acquisition",
           },
           {
             kicker: "France",
             title: "Vineyard opportunities",
             copy: "Selective access to French vineyard opportunities for families seeking operating-asset diversification beyond residential property.",
+            href: "/services/france-vineyard-opportunities",
           },
           {
             kicker: "NRI",
             title: "Remote acquisition support",
             copy: "A structured process for overseas buyers who need shortlisting, local coordination and professional review before committing travel or capital.",
+            href: "/services/remote-acquisition-support",
           },
         ],
       },
@@ -568,6 +578,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "Delhi",
             badge: "Core",
             image: realEstateImages[0],
+            href: "/markets/south-delhi-homes",
           },
           {
             title: "Delhi NCR off plan",
@@ -575,6 +586,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "Primary",
             badge: "Off plan",
             image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
+            href: "/markets/delhi-ncr-off-plan",
           },
           {
             title: "Dubai property",
@@ -582,6 +594,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "UAE",
             badge: "Global",
             image: realEstateImages[1],
+            href: "/markets/dubai-property",
           },
           {
             title: "Goa villas",
@@ -589,6 +602,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "Goa",
             badge: "Lifestyle",
             image: realEstateImages[2],
+            href: "/markets/goa-villas",
           },
           {
             title: "Jewar and YEIDA land",
@@ -596,6 +610,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "North India",
             badge: "Land",
             image: realEstateImages[3],
+            href: "/markets/jewar-yeida-land",
           },
           {
             title: "Baghpat and Haridwar belt",
@@ -603,6 +618,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "North India",
             badge: "Corridor",
             image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85",
+            href: "/markets/baghpat-haridwar-belt",
           },
           {
             title: "Neemrana and DMIC",
@@ -610,13 +626,15 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "Rajasthan",
             badge: "Industrial",
             image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=85",
+            href: "/markets/neemrana-dmic",
           },
           {
             title: "Dehradun foothills",
-            subtitle: "Delhi-Dehradun and Mussoorie access areas, including Kotabagh and Bajunia near Kaladhungi",
+            subtitle: "Delhi-Dehradun and Mussoorie access areas, including Kotabagh and Bejunia near Kaladhungi",
             category: "Uttarakhand",
             badge: "Foothills",
             image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85",
+            href: "/markets/dehradun-foothills",
           },
           {
             title: "Dubai free zones",
@@ -624,6 +642,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "Business Setup",
             badge: "Services",
             image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85",
+            href: "/services/dubai-free-zone-company-setup",
           },
           {
             title: "France vineyards",
@@ -631,6 +650,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             category: "France",
             badge: "Selective",
             image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=85",
+            href: "/markets/france-vineyards",
           },
         ],
       },
@@ -679,7 +699,37 @@ export const siteConfigs: Record<string, SiteConfig> = {
           {
             question: "Do you specialise in land acquisition?",
             answer:
-              "Yes. Hacoco has a focused land acquisition capability in northern India, including Baghpat, Haridwar, Neemrana, Jewar, Dehradun, Mussoorie foothills, Kotabagh, Bajunia and other corridors where title, access, planning and hold period need careful review.",
+              "Yes. Hacoco has a focused land acquisition capability in northern India, including Baghpat, Haridwar, Neemrana, Jewar, Dehradun, Mussoorie foothills, Kotabagh, Bejunia and other corridors where title, access, planning and hold period need careful review.",
+          },
+          {
+            question: "How do you evaluate off plan property investments?",
+            answer:
+              "We review developer record, RERA or escrow comfort, land status, launch price against ready stock, payment plan, construction stage, future supply, rental depth and resale liquidity before recommending a project for serious review.",
+          },
+          {
+            question: "Can you help compare Delhi NCR, Goa and Dubai off plan options?",
+            answer:
+              "Yes. The comparison is built around the buyer's currency, hold period, use case, liquidity needs, risk appetite and whether the completed asset has tenant or resale demand.",
+          },
+          {
+            question: "What makes a land parcel investable?",
+            answer:
+              "A land parcel needs more than a growth story. We look for access, title comfort, mutation, land use, conversion pathway, road width, zoning, infrastructure timing, local demand and a realistic exit buyer.",
+          },
+          {
+            question: "Do you handle documentation or legal advice directly?",
+            answer:
+              "Hacoco coordinates the acquisition process and helps frame diligence, but legal, tax, compliance and technical reviews should be completed by qualified professionals appointed by the buyer.",
+          },
+          {
+            question: "Can you help with France vineyard opportunities?",
+            answer:
+              "Yes, selectively. Vineyard opportunities require specialist legal, tax, agricultural and operating review. We help frame the mandate and coordinate the right review path when suitable opportunities are available.",
+          },
+          {
+            question: "How quickly will I receive options?",
+            answer:
+              "Clear briefs receive the fastest response. A useful brief includes market, ticket size, asset type, purpose, hold period, preferred timing and any non-negotiables around location or risk.",
           },
         ],
       },

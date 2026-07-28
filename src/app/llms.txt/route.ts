@@ -2,6 +2,12 @@ import { headers } from "next/headers";
 
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
+import {
+  investorMarketPages,
+  investorMarketsBasePath,
+  investorServicePages,
+  investorServicesBasePath,
+} from "@/lib/investor-detail-pages";
 
 export async function GET() {
   const headerStore = await headers();
@@ -80,6 +86,12 @@ function buildRealEstateContent(
       `- Market Intelligence: ${baseUrl}${investorInsightsBasePath}`,
       ...investorBlogPosts.map(
         (post) => `- ${post.title}: ${baseUrl}${investorInsightsBasePath}/${post.slug}`,
+      ),
+      ...investorServicePages.map(
+        (page) => `- Service: ${page.title}: ${baseUrl}${investorServicesBasePath}/${page.slug}`,
+      ),
+      ...investorMarketPages.map(
+        (page) => `- Market: ${page.title}: ${baseUrl}${investorMarketsBasePath}/${page.slug}`,
       ),
     );
   }

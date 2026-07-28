@@ -65,7 +65,7 @@ export async function generateMetadata(): Promise<Metadata> {
                 ? {
                     width: 1200,
                     height: 630,
-                    type: "image/jpeg",
+                    type: site.seo.ogImage.endsWith(".png") ? "image/png" : "image/jpeg",
                   }
                 : {}),
             },

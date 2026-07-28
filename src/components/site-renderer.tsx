@@ -286,15 +286,16 @@ function ShowcaseSection({
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {items.map((item, index) => (
-          <article
+          <Link
             key={`${item.subtitle}-${item.title}-${index}`}
-            className="surface-card overflow-hidden"
+            href={item.href ?? "#lead-form"}
+            className="surface-card group overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(49,42,33,0.12)]"
           >
             <div className="relative aspect-[4/5] overflow-hidden bg-[#efe7d8]">
               {item.image ? (
                 <Image
                   alt={`${item.title}, ${item.subtitle}`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   src={item.image}
@@ -318,8 +319,11 @@ function ShowcaseSection({
               <p className="text-sm leading-6 text-[var(--textMuted)]">
                 {item.subtitle}
               </p>
+              <span className="inline-flex pt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--textStrong)]">
+                Read more
+              </span>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </section>
@@ -345,7 +349,11 @@ function QuickCards({
 
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         {items.slice(0, 8).map((item) => (
-          <article key={item.title} className="surface-card p-6">
+          <Link
+            key={item.title}
+            href={item.href ?? "#lead-form"}
+            className="surface-card group p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(49,42,33,0.12)]"
+          >
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
               {item.kicker}
             </p>
@@ -355,7 +363,10 @@ function QuickCards({
             <p className="mt-3 text-sm leading-6 text-[var(--textMuted)]">
               {item.copy}
             </p>
-          </article>
+            <span className="mt-5 inline-flex text-xs font-semibold uppercase tracking-[0.18em] text-[var(--textStrong)]">
+              Read more
+            </span>
+          </Link>
         ))}
       </div>
     </section>
@@ -448,7 +459,7 @@ function FaqSection({
       <SectionHeader eyebrow={eyebrow} title={title} />
 
       <div className="mt-8 space-y-3">
-        {items.slice(0, 3).map((item) => (
+        {items.map((item) => (
           <details key={item.question} className="surface-card px-5 py-4">
             <summary className="cursor-pointer list-none text-base font-medium text-[var(--textStrong)]">
               {item.question}
