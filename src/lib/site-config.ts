@@ -701,7 +701,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
         "cross-border commodity trade",
         "LC SBLC commodity transactions",
       ],
-      ogImage: "/og-commodities.jpg",
+      ogImage: "/og-commodities.jpg?v=20260728",
     },
     navigation: [
       { label: "Commodities", href: "#commodities" },
