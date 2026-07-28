@@ -14,11 +14,11 @@ type BlogRedirectPageProps = {
 
 const legacySlugMap: Record<string, string> = {
   "south-delhi-real-estate-investment-guide":
-    "india-real-estate-allocation-south-delhi-dubai-goa-land",
+    "south-delhi-property-investment-guide-defence-colony-gk-vasant-vihar",
   "best-places-to-buy-property-in-south-delhi":
-    "india-real-estate-allocation-south-delhi-dubai-goa-land",
+    "south-delhi-property-investment-guide-defence-colony-gk-vasant-vihar",
   "builder-floors-in-south-delhi":
-    "india-real-estate-allocation-south-delhi-dubai-goa-land",
+    "south-delhi-property-investment-guide-defence-colony-gk-vasant-vihar",
   "nri-guide-to-buying-south-delhi-real-estate":
     "dubai-real-estate-free-zone-company-setup-investor-guide",
 };

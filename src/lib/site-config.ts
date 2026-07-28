@@ -457,9 +457,9 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Global Real Estate and Land",
     },
     seo: {
-      title: "Invest With Hacoco | Real Estate, Dubai Setup and North India Land",
+      title: "Invest With Hacoco | Off Plan Property, Land Acquisition and Dubai Setup",
       description:
-        "Curated real estate acquisition across South Delhi, Dubai, Goa and North India land corridors, with Dubai free zone company setup support.",
+        "Curated real estate acquisition across South Delhi, Delhi NCR off plan projects, Dubai, Goa, North India land corridors and select France vineyard opportunities.",
       keywords: [
         "real estate investment India",
         "South Delhi real estate investment",
@@ -468,6 +468,10 @@ export const siteConfigs: Record<string, SiteConfig> = {
         "Goa luxury villas",
         "North India land acquisition",
         "Jewar airport land investment",
+        "Baghpat land investment",
+        "Haridwar land investment",
+        "Neemrana land investment",
+        "France vineyard investment",
       ],
       ogImage: realEstateImages[1],
     },
@@ -482,16 +486,16 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Curated property and land acquisition",
       title: "Invest across India and Dubai with a sharper acquisition desk.",
       description:
-        "For HNIs, NRIs and founder capital reviewing South Delhi, Dubai, Goa and North India land opportunities without drowning in listing noise.",
+        "For HNIs, NRIs and founder capital reviewing South Delhi, primary off plan properties, Dubai/UAE, Goa, North India land corridors and select France vineyard opportunities.",
       formAboveFold: true,
       ctas: [
         { label: "Get Curated Options", href: "#lead-form", variant: "primary" },
         { label: "Read Market Intelligence", href: "/market-intelligence", variant: "secondary" },
       ],
       metrics: [
-        { value: "India", label: "Delhi, Goa and northern land corridors" },
-        { value: "Dubai", label: "Property and free zone setup support" },
-        { value: "Land", label: "Acquisition led North India specialisation" },
+        { value: "Primary", label: "Off plan projects in Delhi NCR, Goa and Dubai/UAE" },
+        { value: "Land", label: "Baghpat, Haridwar, Neemrana and foothill corridors" },
+        { value: "Global", label: "Dubai setup and France vineyard diversification" },
       ],
       image: {
         src: realEstateImages[1],
@@ -506,10 +510,15 @@ export const siteConfigs: Record<string, SiteConfig> = {
     sections: {
       acquisitionFocus: {
         eyebrow: "Services",
-        title: "One acquisition desk for property, land and Dubai market entry.",
+        title: "One acquisition desk for property, land, Dubai market entry and diversification.",
         description:
           "Built for buyers who care about location quality, legal clarity, market context and a practical route to execution.",
         items: [
+          {
+            kicker: "Primary Market",
+            title: "Off plan property investments",
+            copy: "Primary investments across Delhi NCR, Goa and Dubai/UAE reviewed for developer quality, RERA or escrow comfort, payment plan, handover risk and resale depth.",
+          },
           {
             kicker: "South Delhi",
             title: "Prime homes and builder floors",
@@ -533,7 +542,12 @@ export const siteConfigs: Record<string, SiteConfig> = {
           {
             kicker: "North India",
             title: "Land acquisition",
-            copy: "Specialised sourcing for land parcels across up and coming northern corridors where title, access and planning context can support long duration value.",
+            copy: "Specialised sourcing across Baghpat, Haridwar, Neemrana, Dehradun, Mussoorie foothills, Kotabagh, Bajunia and other up and coming corridors.",
+          },
+          {
+            kicker: "France",
+            title: "Vineyard opportunities",
+            copy: "Selective access to French vineyard opportunities for families seeking operating-asset diversification beyond residential property.",
           },
           {
             kicker: "NRI",
@@ -556,8 +570,15 @@ export const siteConfigs: Record<string, SiteConfig> = {
             image: realEstateImages[0],
           },
           {
+            title: "Delhi NCR off plan",
+            subtitle: "Primary projects across Gurugram, Dwarka Expressway, SPR, Noida and emerging NCR corridors",
+            category: "Primary",
+            badge: "Off plan",
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
+          },
+          {
             title: "Dubai property",
-            subtitle: "Ready yield, off plan growth and family community opportunities",
+            subtitle: "Primary off plan, ready yield, family communities and UAE market access",
             category: "UAE",
             badge: "Global",
             image: realEstateImages[1],
@@ -577,11 +598,25 @@ export const siteConfigs: Record<string, SiteConfig> = {
             image: realEstateImages[3],
           },
           {
-            title: "KMP and Sonipat belt",
-            subtitle: "Logistics, warehousing and low density land plays near northern NCR corridors",
+            title: "Baghpat and Haridwar belt",
+            subtitle: "Delhi-Dehradun Expressway influenced land, plotted, hospitality and access-led opportunities",
             category: "North India",
             badge: "Corridor",
             image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85",
+          },
+          {
+            title: "Neemrana and DMIC",
+            subtitle: "Industrial, warehousing and highway-linked land in the Khushkhera-Bhiwadi-Neemrana belt",
+            category: "Rajasthan",
+            badge: "Industrial",
+            image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=85",
+          },
+          {
+            title: "Dehradun foothills",
+            subtitle: "Delhi-Dehradun and Mussoorie access areas, including Kotabagh and Bajunia near Kaladhungi",
+            category: "Uttarakhand",
+            badge: "Foothills",
+            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85",
           },
           {
             title: "Dubai free zones",
@@ -590,6 +625,13 @@ export const siteConfigs: Record<string, SiteConfig> = {
             badge: "Services",
             image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85",
           },
+          {
+            title: "France vineyards",
+            subtitle: "Available vineyard opportunities for diversification, lifestyle utility and operating-asset exposure",
+            category: "France",
+            badge: "Selective",
+            image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=85",
+          },
         ],
       },
       whyHacoco: {
@@ -597,7 +639,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
         title: "Real estate allocation needs sharper filtering than a listing site can offer.",
         paragraphs: [
           "Good assets are rarely understood through photographs alone. Location depth, title, access, construction quality, yield assumptions, seller intent, permissions and exit liquidity all matter.",
-          "We help buyers move from broad interest to a mandate led shortlist across South Delhi, Dubai, Goa and northern land corridors.",
+          "We help buyers move from broad interest to a mandate led shortlist across South Delhi, primary off plan projects, Dubai/UAE, Goa, northern land corridors and selective international diversification.",
         ],
         aside:
           "The goal is simple: fewer irrelevant assets, better context and a clearer route to purchase or setup.",
@@ -627,7 +669,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
           {
             question: "Can I request one specific market only?",
             answer:
-              "Yes. You can request only South Delhi, only Dubai, only Goa, or only North India land. The process is shaped around your mandate.",
+              "Yes. You can request only South Delhi, only primary off plan, only Dubai/UAE, only Goa, only North India land, or only vineyard diversification. The process is shaped around your mandate.",
           },
           {
             question: "Can you help with Dubai company setup too?",
@@ -637,14 +679,14 @@ export const siteConfigs: Record<string, SiteConfig> = {
           {
             question: "Do you specialise in land acquisition?",
             answer:
-              "Yes. Hacoco has a focused land acquisition capability in northern India, including emerging corridors where title, access, planning and hold period need careful review.",
+              "Yes. Hacoco has a focused land acquisition capability in northern India, including Baghpat, Haridwar, Neemrana, Jewar, Dehradun, Mussoorie foothills, Kotabagh, Bajunia and other corridors where title, access, planning and hold period need careful review.",
           },
         ],
       },
     },
     ctaBand: {
       eyebrow: "Acquisition Brief",
-      title: "Ready for property, land or Dubai options that match your actual mandate?",
+      title: "Ready for property, land, off plan or diversification options that match your mandate?",
       description:
         "Share your budget, preferred market and buying intent. We will respond with a more useful next step than a generic listing feed.",
       buttonLabel: "Get Curated Options",
@@ -653,7 +695,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Receive Property Options",
       title: "Tell us what you want to acquire.",
       description:
-        "A short acquisition brief helps us respond with better property, land or Dubai setup options.",
+        "A short acquisition brief helps us respond with better property, land, off plan, Dubai setup or diversification options.",
     },
     form: {
       eyebrow: "Acquisition Brief",
@@ -672,11 +714,13 @@ export const siteConfigs: Record<string, SiteConfig> = {
           type: "select",
           required: true,
           options: [
+            "Primary off plan properties",
             "South Delhi real estate",
             "Dubai real estate",
             "Dubai free zone company setup",
             "Goa villas and second homes",
             "North India land parcels",
+            "France vineyard opportunities",
             "Multiple markets",
           ],
         },
@@ -698,14 +742,14 @@ export const siteConfigs: Record<string, SiteConfig> = {
           name: "preferredLocation",
           label: "Preferred location or corridor",
           type: "text",
-          placeholder: "South Delhi, Dubai Marina, Goa, Jewar, Sonipat, etc.",
+          placeholder: "Defence Colony, Dubai Marina, Goa, Baghpat, Haridwar, Neemrana, Kotabagh, France, etc.",
           fullWidth: true,
         },
         {
           name: "message",
           label: "Mandate notes",
           type: "textarea",
-          placeholder: "Share timing, asset type, land size, free zone requirement, expected yield, or any other context.",
+          placeholder: "Share timing, asset type, land size, off plan preference, free zone requirement, vineyard interest, expected yield, or any other context.",
           fullWidth: true,
         },
       ],
@@ -714,10 +758,10 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Request Received",
       title: "Your property brief is in.",
       message:
-        "We will review your preferences and respond with relevant real estate, land or Dubai setup options.",
+        "We will review your preferences and respond with relevant real estate, land, off plan, Dubai setup or diversification options.",
     },
     footer: {
-      copy: "Curated real estate, land acquisition and Dubai market entry support for buyers who want relevance, trust and speed.",
+      copy: "Curated real estate, off plan property, land acquisition, Dubai market entry and selective diversification support for buyers who want relevance, trust and speed.",
       email: "shiv@hacococapital.com",
       contactLabel: "Buyer inquiries",
     },

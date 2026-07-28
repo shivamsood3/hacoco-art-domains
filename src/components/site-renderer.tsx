@@ -344,7 +344,7 @@ function QuickCards({
       <SectionHeader eyebrow={eyebrow} title={title} description={description} />
 
       <div className="mt-8 grid gap-4 md:grid-cols-3">
-        {items.slice(0, 6).map((item) => (
+        {items.slice(0, 8).map((item) => (
           <article key={item.title} className="surface-card p-6">
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
               {item.kicker}
