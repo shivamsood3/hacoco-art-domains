@@ -36,7 +36,7 @@ export function SiteRenderer({ site }: SiteRendererProps) {
 
         {site.sections.showcase ? (
           <ShowcaseSection
-            id="featured-works"
+            id={site.slug === "investor" ? "markets" : "featured-works"}
             eyebrow={site.sections.showcase.eyebrow}
             title={site.sections.showcase.title}
             description={site.sections.showcase.description}
@@ -344,7 +344,7 @@ function QuickCards({
       <SectionHeader eyebrow={eyebrow} title={title} description={description} />
 
       <div className="mt-8 grid gap-4 md:grid-cols-3">
-        {items.slice(0, 3).map((item) => (
+        {items.slice(0, 6).map((item) => (
           <article key={item.title} className="surface-card p-6">
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--textSoft)]">
               {item.kicker}

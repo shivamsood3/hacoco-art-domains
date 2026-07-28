@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { investorBlogPosts } from "@/lib/blog";
+import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 export async function GET() {
@@ -11,14 +11,14 @@ export async function GET() {
 
   if (site.slug === "investor") {
     paths.push(
-      "/blog",
-      ...investorBlogPosts.map((post) => `/blog/${post.slug}`),
+      investorInsightsBasePath,
+      ...investorBlogPosts.map((post) => `${investorInsightsBasePath}/${post.slug}`),
     );
   }
 
   const urls = paths
     .map((path) => {
-      const priority = path === "" ? "1.0" : path === "/blog" ? "0.8" : "0.6";
+      const priority = path === "" ? "1.0" : path === investorInsightsBasePath ? "0.8" : "0.6";
 
       return [
         "  <url>",

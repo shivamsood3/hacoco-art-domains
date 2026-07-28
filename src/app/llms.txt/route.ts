@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { investorBlogPosts } from "@/lib/blog";
+import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 export async function GET() {
@@ -77,9 +77,9 @@ function buildRealEstateContent(
 
   if (site.slug === "investor") {
     lines.push(
-      `- South Delhi Real Estate Guides: ${baseUrl}/blog`,
+      `- Market Intelligence: ${baseUrl}${investorInsightsBasePath}`,
       ...investorBlogPosts.map(
-        (post) => `- ${post.title}: ${baseUrl}/blog/${post.slug}`,
+        (post) => `- ${post.title}: ${baseUrl}${investorInsightsBasePath}/${post.slug}`,
       ),
     );
   }
