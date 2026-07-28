@@ -11,6 +11,15 @@ import {
 
 export async function POST(request: Request) {
   try {
+    const contentLength = Number(request.headers.get("content-length") ?? "0");
+
+    if (contentLength > 20_000) {
+      return NextResponse.json(
+        { ok: false, message: "The submitted brief is too large." },
+        { status: 413 },
+      );
+    }
+
     const payload = (await request.json()) as Partial<LeadSubmission>;
     const validation = validateLeadPayload(payload);
 
@@ -22,6 +31,7 @@ export async function POST(request: Request) {
     }
 
     const submission = validation.data;
+    const site = getSiteConfigByDomain(submission.domain);
 
     if (submission.companyWebsite) {
       return NextResponse.json({
@@ -30,7 +40,13 @@ export async function POST(request: Request) {
       });
     }
 
-    const site = getSiteConfigByDomain(submission.domain);
+    if (submission.leadTag !== site.form.leadTag) {
+      return NextResponse.json(
+        { ok: false, message: "Lead routing information is invalid." },
+        { status: 400 },
+      );
+    }
+
     const destinationEmail = getDestinationEmail(submission.leadTag);
 
     await submitLead(submission, {

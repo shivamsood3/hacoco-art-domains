@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { InvestorDetailView } from "@/components/investor-detail-view";
 import {
   getInvestorMarketPage,
   investorMarketPages,
@@ -69,70 +67,11 @@ export default async function MarketPage({ params }: MarketPageProps) {
   }
 
   return (
-    <main className="page-shell min-h-screen">
-      <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-6 lg:px-8">
-        <SiteHeader site={site} activePath="/#markets" />
-
-        <article className="py-14">
-          <p className="eyebrow">{page.eyebrow}</p>
-          <h1 className="font-display copy-balance mt-5 max-w-5xl text-[3.3rem] leading-[0.92] text-[var(--textStrong)] md:text-[5rem]">
-            {page.title}
-          </h1>
-          <p className="lede mt-6 max-w-3xl">{page.description}</p>
-
-          <div className="relative mt-10 aspect-[16/8] overflow-hidden rounded-[1.4rem] border border-subtle bg-[var(--bgTint)]">
-            <Image
-              alt={page.image.alt}
-              className="h-full w-full object-cover"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 1100px"
-              src={page.image.src}
-            />
-          </div>
-
-          <section className="mt-8 grid gap-3 md:grid-cols-4">
-            {page.highlights.map((highlight) => (
-              <div key={highlight} className="surface-card-soft p-4">
-                <p className="text-sm font-medium leading-6 text-[var(--textStrong)]">
-                  {highlight}
-                </p>
-              </div>
-            ))}
-          </section>
-
-          <div className="mt-12 grid gap-5">
-            {page.sections.map((section) => (
-              <section key={section.heading} className="surface-card p-6 md:p-8">
-                <h2 className="font-display text-4xl leading-none text-[var(--textStrong)]">
-                  {section.heading}
-                </h2>
-                <div className="mt-5 space-y-5">
-                  {section.body.map((paragraph) => (
-                    <p key={paragraph} className="text-base leading-8 text-[var(--textMuted)]">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-
-          <section className="section-band section-band--elevated mt-12 flex flex-col gap-5 p-6 md:p-8 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="eyebrow">Market Brief</p>
-              <h2 className="font-display mt-3 text-4xl leading-none text-[var(--textStrong)]">
-                Want a shortlist in this market?
-              </h2>
-            </div>
-            <Link href="/#lead-form" className="primary-button">
-              Share Your Brief
-            </Link>
-          </section>
-        </article>
-
-        <SiteFooter site={site} />
-      </div>
-    </main>
+    <InvestorDetailView
+      activePath="/#markets"
+      ctaEyebrow="Market Brief"
+      page={page}
+      site={site}
+    />
   );
 }

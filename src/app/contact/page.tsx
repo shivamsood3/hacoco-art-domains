@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `Contact Us | ${site.brand.name}`,
     description:
       site.slug === "investor"
-        ? "Contact Invest With Hacoco for curated property, land, Dubai, Goa, South Delhi and global diversification opportunities."
+        ? "Speak to Hacoco about a private real estate acquisition, property investment or land requirement across Delhi, NCR, Dubai and selected markets."
         : `Contact ${site.brand.name}.`,
     alternates: {
       canonical: `https://${site.primaryDomain}/contact`,
@@ -25,6 +25,44 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ContactPage() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
+
+  if (site.slug === "investor") {
+    return (
+      <main className="investor-site investor-inner">
+        <div className="investor-container">
+          <SiteHeader site={site} activePath="/contact" />
+
+          <section className="investor-contact">
+            <div className="investor-contact__copy">
+              <p className="investor-eyebrow">Speak to Hacoco</p>
+              <h1>Tell us what you are looking for.</h1>
+              <p>
+                A market, budget and property type are enough to begin. Hacoco
+                will respond with the next useful question or opportunity.
+              </p>
+
+              <div className="investor-contact__details">
+                <div>
+                  <span>Email</span>
+                  <Link href={`mailto:${site.footer.email}`}>
+                    {site.footer.email}
+                  </Link>
+                </div>
+                <div>
+                  <span>Useful context</span>
+                  <p>Location / Budget / Property type / Timing</p>
+                </div>
+              </div>
+            </div>
+
+            <LeadForm className="investor-form investor-contact__form" compact site={site} />
+          </section>
+
+          <SiteFooter site={site} />
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="page-shell min-h-screen">
@@ -62,7 +100,7 @@ export default async function ContactPage() {
             </div>
           </div>
 
-          <LeadForm site={site} compact={site.slug === "investor"} />
+          <LeadForm site={site} />
         </section>
 
         <SiteFooter site={site} />

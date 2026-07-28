@@ -23,6 +23,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
   );
 
   const [values, setValues] = useState<FormValues>(initialValues);
+  const [companyWebsite, setCompanyWebsite] = useState("");
   const [status, setStatus] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
 
@@ -49,7 +50,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
         },
         body: JSON.stringify({
           domain: site.primaryDomain,
-          companyWebsite: "",
+          companyWebsite,
           leadTag: site.form.leadTag,
           ...values,
         }),
@@ -68,6 +69,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
       setStatus("success");
       setMessage(result.message);
       setValues(initialValues);
+      setCompanyWebsite("");
       trackEvent("conversion", {
         domain: site.primaryDomain,
         leadTag: site.form.leadTag,
@@ -95,7 +97,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
       </div>
 
       {status === "success" ? (
-        <div className="surface-card-tint p-6">
+        <div className="surface-card-tint p-6" role="status">
           <p className="eyebrow">{site.success.eyebrow}</p>
           <h4 className="font-display mt-3 text-3xl text-[var(--textStrong)]">
             {site.success.title}
@@ -106,6 +108,20 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
         </div>
       ) : (
         <form className="grid gap-4 md:grid-cols-2" onSubmit={onSubmit}>
+          <label
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-[9999px] h-px w-px overflow-hidden"
+          >
+            Company website
+            <input
+              autoComplete="off"
+              name="companyWebsite"
+              tabIndex={-1}
+              value={companyWebsite}
+              onChange={(event) => setCompanyWebsite(event.target.value)}
+            />
+          </label>
+
           {site.form.fields.map((field) => (
             <Field
               key={field.name}
@@ -132,7 +148,9 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
           </div>
 
           {status === "error" ? (
-            <p className="md:col-span-2 text-sm text-[#b45d4b]">{message}</p>
+            <p className="md:col-span-2 text-sm text-[#a33f32]" role="alert">
+              {message}
+            </p>
           ) : null}
 
           <p className="md:col-span-2 text-xs leading-5 text-[var(--textSoft)]">
@@ -213,7 +231,9 @@ function Field({
         {field.label}
       </span>
       <input
+        autoComplete={getAutocomplete(field.name, field.type)}
         className={baseClass}
+        inputMode={field.type === "tel" ? "tel" : undefined}
         name={field.name}
         placeholder={field.placeholder}
         required={field.required}
@@ -223,4 +243,11 @@ function Field({
       />
     </label>
   );
+}
+
+function getAutocomplete(name: string, type: LeadField["type"]) {
+  if (name === "name") return "name";
+  if (name === "email" || type === "email") return "email";
+  if (name === "phone" || type === "tel") return "tel";
+  return "off";
 }

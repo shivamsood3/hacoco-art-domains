@@ -103,68 +103,65 @@ export default async function MarketIntelligenceArticlePage({
           inLanguage: "en",
         }}
       />
-      <main className="page-shell min-h-screen">
-        <div className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 lg:px-8">
+      <main className="investor-site investor-inner min-h-screen">
+        <div className="investor-container">
           <SiteHeader site={site} activePath="/market-intelligence" />
 
-          <article className="py-14">
-            <p className="eyebrow">{post.readTime}</p>
-            <h1 className="font-display copy-balance mt-5 text-[3.2rem] leading-[0.92] text-[var(--textStrong)] md:text-[5rem]">
-              {post.title}
-            </h1>
-            <p className="lede mt-6 max-w-3xl">{post.description}</p>
+          <article className="intelligence-article">
+            <header>
+              <p className="investor-eyebrow">
+                Hacoco Intelligence / {post.readTime}
+              </p>
+              <h1>{post.title}</h1>
+              <p>{post.description}</p>
+            </header>
 
-            <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-[1.4rem] border border-subtle bg-[var(--bgTint)]">
+            <div className="intelligence-article__image">
               <Image
                 alt={post.image.alt}
-                className="h-full w-full object-cover"
+                className="object-cover"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 900px"
+                sizes="(max-width: 900px) 100vw, 1440px"
                 src={post.image.src}
               />
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-2">
-              {post.keywords.map((keyword) => (
-                <span
-                  key={keyword}
-                  className="rounded-full border border-subtle bg-[var(--bgSurface)] px-3 py-1 text-xs text-[var(--textMuted)]"
-                >
-                  {keyword}
-                </span>
-              ))}
+            <div className="intelligence-article__meta">
+              <span>Published</span>
+              <p>
+                {new Intl.DateTimeFormat("en-IN", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }).format(new Date(post.publishedAt))}
+              </p>
+              <span>Focus</span>
+              <p>{post.keywords.slice(0, 3).join(" / ")}</p>
             </div>
 
-            <div className="mt-12 space-y-10">
-              {post.sections.map((section) => (
-                <section key={section.heading} className="surface-card p-6 md:p-8">
-                  <h2 className="font-display text-4xl leading-none text-[var(--textStrong)]">
-                    {section.heading}
-                  </h2>
-                  <div className="mt-5 space-y-5">
+            <div className="intelligence-article__body">
+              {post.sections.map((section, index) => (
+                <section key={section.heading}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h2>{section.heading}</h2>
                     {section.body.map((paragraph) => (
-                      <p
-                        key={paragraph}
-                        className="text-base leading-8 text-[var(--textMuted)]"
-                      >
-                        {paragraph}
-                      </p>
+                      <p key={paragraph}>{paragraph}</p>
                     ))}
                   </div>
                 </section>
               ))}
             </div>
 
-            <section className="section-band section-band--elevated mt-12 flex flex-col gap-5 p-6 md:p-8 lg:flex-row lg:items-end lg:justify-between">
+            <section className="intelligence-article__cta">
               <div>
-                <p className="eyebrow">Investor Brief</p>
-                <h2 className="font-display mt-3 text-4xl leading-none text-[var(--textStrong)]">
-                  Want this translated into a live shortlist?
-                </h2>
+                <p className="investor-eyebrow">Investor Brief</p>
+                <h2>Turn research into a live shortlist.</h2>
+                <p>Discuss your market, budget and objective directly with Hacoco.</p>
               </div>
-              <Link href="/#lead-form" className="primary-button">
-                Share Your Brief
+              <Link href="/contact" className="investor-button">
+                Speak to Hacoco
               </Link>
             </section>
           </article>

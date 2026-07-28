@@ -1,20 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Commissioner, Cormorant_Garamond } from "next/font/google";
+import { DM_Sans, Newsreader } from "next/font/google";
 
 import { AnalyticsProvider } from "@/components/analytics-provider";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 import "./globals.css";
 
-const sans = Commissioner({
+const sans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-commissioner",
+  variable: "--font-dm-sans",
 });
 
-const display = Cormorant_Garamond({
+const display = Newsreader({
   subsets: ["latin"],
-  variable: "--font-cormorant-garamond",
+  variable: "--font-newsreader",
   weight: ["400", "500", "600"],
 });
 

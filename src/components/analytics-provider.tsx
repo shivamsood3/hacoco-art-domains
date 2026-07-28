@@ -59,6 +59,8 @@ export function AnalyticsProvider() {
             `}
           </Script>
           <noscript>
+            {/* A plain image is required for Meta's no-JavaScript fallback. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt=""
               height="1"

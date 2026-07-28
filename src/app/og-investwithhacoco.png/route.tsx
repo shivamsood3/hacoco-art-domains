@@ -7,8 +7,8 @@ export async function GET() {
     (
       <div
         style={{
-          background: "#f7f4ee",
-          color: "#261f19",
+          background: "#f4f1e9",
+          color: "#20231f",
           display: "flex",
           flexDirection: "column",
           height: "100%",
@@ -21,24 +21,23 @@ export async function GET() {
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <div
               style={{
-                color: "#9c8f80",
+                color: "#173f35",
                 fontSize: "26px",
                 letterSpacing: "10px",
                 textTransform: "uppercase",
               }}
             >
-              Invest With Hacoco
+              Private Real Estate &amp; Investment
             </div>
             <div style={{ fontSize: "78px", lineHeight: 0.94, maxWidth: "860px" }}>
-              Real estate, land and global diversification.
+              Property worth owning.
             </div>
           </div>
           <div
             style={{
               alignItems: "center",
-              background: "#261f19",
-              borderRadius: "34px",
-              color: "#f7f4ee",
+              border: "2px solid #173f35",
+              color: "#173f35",
               display: "flex",
               fontSize: "30px",
               fontWeight: 700,
@@ -54,7 +53,7 @@ export async function GET() {
         <div
           style={{
             borderTop: "2px solid #ded6ca",
-            color: "#5f554b",
+            color: "#65685f",
             display: "flex",
             fontSize: "28px",
             gap: "28px",
@@ -62,11 +61,10 @@ export async function GET() {
           }}
         >
           <span>South Delhi</span>
-          <span>Off plan</span>
-          <span>Dubai/UAE</span>
+          <span>NCR</span>
+          <span>Dubai</span>
           <span>Goa</span>
-          <span>North India land</span>
-          <span>France vineyards</span>
+          <span>Land</span>
         </div>
       </div>
     ),

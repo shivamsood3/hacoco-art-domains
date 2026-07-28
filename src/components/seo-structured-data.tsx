@@ -110,11 +110,11 @@ function buildServiceSchema(
     name: site.brand.name,
     serviceType:
       site.slug === "investor"
-        ? "Real estate, land acquisition and Dubai free zone setup support"
+        ? "Private real estate investment and acquisition"
         : "Private real estate investment access",
     description: site.seo.description,
     url: baseUrl,
-    areaServed: site.slug === "investor" ? "India and Dubai" : "Delhi NCR",
+    areaServed: site.slug === "investor" ? "Delhi, NCR, Dubai and selected markets" : "Delhi NCR",
     provider: {
       "@id": organizationId,
     },

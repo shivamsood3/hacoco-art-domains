@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import Image from "next/image";
 import Link from "next/link";
 
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
@@ -13,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `About Us | ${site.brand.name}`,
     description:
       site.slug === "investor"
-        ? "About Invest With Hacoco, a private acquisition desk for real estate, land, Dubai market entry and selective global diversification."
+        ? "About Hacoco, a private real estate investment and acquisition desk sourcing residential, land and investment opportunities."
         : `About ${site.brand.name}.`,
     alternates: {
       canonical: `https://${site.primaryDomain}/about`,
@@ -25,6 +26,102 @@ export default async function AboutPage() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
   const isInvestor = site.slug === "investor";
+
+  if (isInvestor) {
+    return (
+      <main className="investor-site investor-inner">
+        <div className="investor-container">
+          <SiteHeader site={site} activePath="/about" />
+
+          <section className="investor-about-hero">
+            <p className="investor-eyebrow">About Hacoco</p>
+            <h1>A private acquisition desk built around judgement.</h1>
+            <p>
+              Hacoco sources, evaluates and helps execute residential, land,
+              commercial and select investment opportunities across Delhi, NCR,
+              Dubai and selected markets.
+            </p>
+          </section>
+
+          <section className="investor-about-statement">
+            <div className="investor-about-statement__image">
+              <Image
+                alt="South Delhi residence sourced through Hacoco"
+                className="object-cover"
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 52vw"
+                src="/images/investor/jor-bagh.jpeg"
+              />
+            </div>
+            <div>
+              <p className="investor-eyebrow">What We Do</p>
+              <h2>Access is useful. Filtering makes it valuable.</h2>
+              <p>
+                The market is not short of property. It is short of clear
+                information, credible sellers and opportunities that make sense
+                at the quoted price.
+              </p>
+              <p>
+                Hacoco begins with the buyer&apos;s requirement, then screens the
+                property, counterparty, pricing and documentation before asking
+                the buyer to spend time.
+              </p>
+            </div>
+          </section>
+
+          <section className="investor-about-principles">
+            <div>
+              <p className="investor-eyebrow">The Hacoco Approach</p>
+              <h2>Access. Intelligence. Judgement. Execution.</h2>
+            </div>
+            <div>
+              <article>
+                <span>01</span>
+                <h3>Private acquisition</h3>
+                <p>
+                  Owner, developer and intermediary relationships used to find
+                  property beyond a standard portal search.
+                </p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Investment analysis</h3>
+                <p>
+                  Pricing evidence, property economics, future demand and exit
+                  depth examined before a case is made.
+                </p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Transaction execution</h3>
+                <p>
+                  Negotiation and diligence coordination with the qualified
+                  legal, tax and technical specialists a transaction requires.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section className="investor-about-relationship">
+            <p className="investor-eyebrow">A Direct Relationship</p>
+            <h2>Built around relationships, not lead volume.</h2>
+            <p>
+              Hacoco works directly with buyers, property owners, developers and
+              local specialists. We are not building a high-volume listing
+              portal. We are building a more useful path from requirement to
+              acquisition.
+            </p>
+            <Link className="investor-button" href="/contact">
+              Speak to Hacoco
+            </Link>
+          </section>
+
+          <SiteFooter site={site} />
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="page-shell min-h-screen">

@@ -8,13 +8,26 @@ type SiteChromeProps = {
 };
 
 const investorMenu = [
-  { label: "Buy", href: "/#markets" },
-  { label: "Listings", href: "/listings" },
+  { label: "Invest", href: "/#approach" },
   { label: "Markets", href: "/#markets" },
-  { label: "Services", href: "/#focus" },
+  { label: "Opportunities", href: "/listings" },
   { label: "Intelligence", href: "/market-intelligence" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+];
+
+const investorFooterMenu = [
+  { label: "Residential", href: "/services/south-delhi-prime-homes-builder-floors" },
+  { label: "Land", href: "/services/north-india-land-acquisition" },
+  { label: "Off Plan", href: "/services/off-plan-property-investments" },
+  { label: "Private Opportunities", href: "/listings" },
+];
+
+const investorMarketMenu = [
+  { label: "South Delhi", href: "/markets/south-delhi-homes" },
+  { label: "NCR", href: "/markets/delhi-ncr-off-plan" },
+  { label: "Dubai", href: "/markets/dubai-property" },
+  { label: "Goa", href: "/markets/goa-villas" },
+  { label: "Growth Corridors", href: "/services/north-india-land-acquisition" },
 ];
 
 function menuForSite(site: SiteConfig) {
@@ -38,6 +51,54 @@ function menuForSite(site: SiteConfig) {
 
 export function SiteHeader({ site, activePath }: SiteChromeProps) {
   const menu = menuForSite(site);
+
+  if (site.slug === "investor") {
+    return (
+      <header className="investor-header">
+        <Link href="/" className="investor-wordmark" aria-label="Invest With Hacoco home">
+          <span>Hacoco</span>
+          <small>Private Real Estate</small>
+        </Link>
+
+        <nav className="investor-nav" aria-label="Primary navigation">
+          {menu.map((item) => {
+            const isActive =
+              activePath === item.href ||
+              (activePath && item.href !== "/" && activePath.startsWith(item.href));
+
+            return (
+              <Link
+                key={`${item.label}-${item.href}`}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <Link className="investor-button investor-button--small" href="/contact">
+          Speak to Hacoco
+        </Link>
+
+        <details className="investor-mobile-menu">
+          <summary aria-label="Open navigation">
+            <span />
+            <span />
+          </summary>
+          <nav aria-label="Mobile navigation">
+            {menu.map((item) => (
+              <Link key={`${item.label}-${item.href}-mobile`} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/contact">Speak to Hacoco</Link>
+          </nav>
+        </details>
+      </header>
+    );
+  }
 
   return (
     <header className="site-header">
@@ -90,15 +151,58 @@ export function SiteHeader({ site, activePath }: SiteChromeProps) {
 }
 
 export function SiteFooter({ site }: { site: SiteConfig }) {
-  const investorLinks =
-    site.slug === "investor"
-      ? [
-          { label: "Listings", href: "/listings" },
-          { label: "Market Intelligence", href: "/market-intelligence" },
-          { label: "Services", href: "/#focus" },
-          { label: "Markets", href: "/#markets" },
-        ]
-      : site.navigation.slice(0, 4);
+  if (site.slug === "investor") {
+    return (
+      <footer className="investor-footer">
+        <div className="investor-footer__lead">
+          <Link href="/" className="investor-wordmark investor-wordmark--footer">
+            <span>Hacoco</span>
+            <small>Private Real Estate</small>
+          </Link>
+          <p>
+            Private real estate investment and acquisition across Delhi, NCR,
+            Dubai and selected markets.
+          </p>
+        </div>
+
+        <div>
+          <p className="investor-footer__label">Invest</p>
+          {investorFooterMenu.map((item) => (
+            <Link key={item.label} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <div>
+          <p className="investor-footer__label">Markets</p>
+          {investorMarketMenu.map((item) => (
+            <Link key={item.label} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <div>
+          <p className="investor-footer__label">Hacoco</p>
+          <Link href="/market-intelligence">Intelligence</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href={`mailto:${site.footer.email}`}>{site.footer.email}</Link>
+        </div>
+
+        <div className="investor-footer__legal">
+          <span>Invest With Hacoco</span>
+          <div>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
+  const investorLinks = site.navigation.slice(0, 4);
 
   return (
     <footer className="section-shell py-10">

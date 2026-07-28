@@ -22,17 +22,40 @@ type LeadDeliveryPayload = {
 const protectedFields = new Set(["domain", "leadTag", "companyWebsite"]);
 
 export function validateLeadPayload(payload: Partial<LeadSubmission>): ValidationResult {
-  if (!payload.name || !payload.email || !payload.phone) {
+  if (
+    typeof payload.name !== "string" ||
+    typeof payload.email !== "string" ||
+    typeof payload.phone !== "string" ||
+    !payload.name.trim() ||
+    !payload.email.trim() ||
+    !payload.phone.trim()
+  ) {
     return {
       success: false,
       message: "Name, email, and phone are required.",
     };
   }
 
-  if (!payload.domain || !payload.leadTag) {
+  if (
+    typeof payload.domain !== "string" ||
+    typeof payload.leadTag !== "string" ||
+    !payload.domain ||
+    !payload.leadTag
+  ) {
     return {
       success: false,
       message: "Domain routing information is missing.",
+    };
+  }
+
+  const invalidField = Object.values(payload).some(
+    (value) => typeof value !== "string" || value.length > 2_000,
+  );
+
+  if (invalidField) {
+    return {
+      success: false,
+      message: "One or more fields are invalid.",
     };
   }
 

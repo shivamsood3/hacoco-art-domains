@@ -8,6 +8,7 @@ import {
   investorServicePages,
   investorServicesBasePath,
 } from "@/lib/investor-detail-pages";
+import { investorListings } from "@/lib/listings";
 
 export async function GET() {
   const headerStore = await headers();
@@ -86,7 +87,11 @@ function buildRealEstateContent(
 
   if (site.slug === "investor") {
     lines.push(
-      `- Listings: ${baseUrl}/listings`,
+      `- Opportunities: ${baseUrl}/listings`,
+      ...investorListings.map(
+        (listing) =>
+          `- Opportunity: ${listing.title}: ${baseUrl}/opportunities/${listing.slug}`,
+      ),
       `- Market Intelligence: ${baseUrl}${investorInsightsBasePath}`,
       ...investorBlogPosts.map(
         (post) => `- ${post.title}: ${baseUrl}${investorInsightsBasePath}/${post.slug}`,

@@ -24,8 +24,20 @@ export default async function TermsPage() {
     site.vertical === "commodities" ? "commodity trade" : "real estate";
 
   return (
-    <main className="page-shell min-h-screen">
-      <div className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 lg:px-8">
+    <main
+      className={
+        site.slug === "investor"
+          ? "investor-site investor-inner min-h-screen"
+          : "page-shell min-h-screen"
+      }
+    >
+      <div
+        className={
+          site.slug === "investor"
+            ? "investor-container"
+            : "mx-auto max-w-5xl px-5 pb-16 sm:px-6 lg:px-8"
+        }
+      >
         <SiteHeader site={site} activePath="/terms" />
 
         <article className="py-14">

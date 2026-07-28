@@ -8,6 +8,7 @@ import {
   investorServicePages,
   investorServicesBasePath,
 } from "@/lib/investor-detail-pages";
+import { investorListings } from "@/lib/listings";
 
 export async function GET() {
   const headerStore = await headers();
@@ -18,6 +19,7 @@ export async function GET() {
   if (site.slug === "investor") {
     paths.push(
       "/listings",
+      ...investorListings.map((listing) => `/opportunities/${listing.slug}`),
       investorInsightsBasePath,
       ...investorBlogPosts.map((post) => `${investorInsightsBasePath}/${post.slug}`),
       ...investorServicePages.map((page) => `${investorServicesBasePath}/${page.slug}`),
