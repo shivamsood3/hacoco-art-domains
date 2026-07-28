@@ -79,8 +79,8 @@ export const investorServicePages: InvestorDetailPage[] = [
     description:
       "Filtered South Delhi homes across Defence Colony, Greater Kailash, Vasant Vihar, Anand Niketan, Panchsheel Park and other established colonies.",
     image: {
-      src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
-      alt: "Luxury home interior",
+      src: "/images/investor/jor-bagh.jpeg",
+      alt: "Hacoco villa opportunity in Jor Bagh, New Delhi",
     },
     keywords: [
       "South Delhi builder floors",
@@ -132,8 +132,8 @@ export const investorServicePages: InvestorDetailPage[] = [
     description:
       "Dubai and UAE property shortlists across off plan projects, ready income assets, villa communities, branded residences and family-led long-hold opportunities.",
     image: {
-      src: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=85",
-      alt: "Dubai skyline",
+      src: "/images/investor/dubai-marina.jpg",
+      alt: "Dubai Marina residential towers and waterfront",
     },
     keywords: [
       "Dubai property investment",
@@ -238,8 +238,8 @@ export const investorServicePages: InvestorDetailPage[] = [
     description:
       "Goa villa and second-home acquisition across selected micro markets, reviewed for title, permissions, location quality, management and rental potential.",
     image: {
-      src: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1600&q=85",
-      alt: "Goa coastline",
+      src: "/images/investor/goa.jpg",
+      alt: "Goa villa and coastal second-home context",
     },
     keywords: [
       "Goa villas",
@@ -291,8 +291,8 @@ export const investorServicePages: InvestorDetailPage[] = [
     description:
       "Specialised land acquisition across North India corridors including Baghpat, Haridwar, Neemrana, Jewar, Dehradun, Mussoorie foothills, Kotabagh and Bejunia.",
     image: {
-      src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85",
-      alt: "Open land at sunset",
+      src: "/images/investor/haridwar-land.jpg",
+      alt: "Hacoco land opportunity on the Haridwar Dehradun corridor",
     },
     keywords: [
       "North India land acquisition",
@@ -454,8 +454,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Builder floors, bungalows and redevelopment assets across Defence Colony, Greater Kailash, Vasant Vihar, Anand Niketan, Panchsheel Park and other prime colonies.",
     image: {
-      src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
-      alt: "Luxury home interior",
+      src: "/images/investor/safdarjung.jpeg",
+      alt: "Hacoco bungalow opportunity in Safdarjung Enclave, New Delhi",
     },
     keywords: ["South Delhi homes", "builder floors South Delhi", "Defence Colony", "Greater Kailash"],
     highlights: ["Scarce colony land", "Resale depth", "End-use demand", "Documentation-sensitive"],
@@ -479,6 +479,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "We screen for seller intent, comparable evidence, parking clarity, collaboration terms, land share, construction age, floor quality, lane width and professional document review before treating a property as worth serious buyer time.",
           "The goal is fewer site visits and stronger conviction. For South Delhi, a short list should feel narrow because the market rewards precision.",
+        ],
+      },
+      {
+        heading: "How the market works",
+        body: [
+          "South Delhi is built around plotted colonies, redevelopment economics and builder-floor ownership. Older plots are often redeveloped into independent floors, with value shaped by land share, parking, lift, floor level, terrace rights where applicable and the quality of the collaboration or redevelopment history.",
+          "Freehold or leasehold status, mutation, sanctioned plans, completion or occupancy comfort, property tax records, mortgage status and parking allocation all need professional review. The commercial decision and documentation review should move together.",
+        ],
+      },
+      {
+        heading: "Investor fit and risks",
+        body: [
+          "This market suits buyers seeking capital preservation, family occupation, address value and a recognised resale pool. It is less suitable for buyers whose main objective is high current yield or a quick speculative exit.",
+          "The main risks are opaque pricing, excessive seller expectations, title complexity, weak parking, overpaying for finish, collaboration ambiguity and liquidity friction at very high ticket sizes.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches South Delhi",
+        body: [
+          "We build the shortlist around colony, block, plot, floor, parking, seller seriousness and document-readiness. A beautiful floor in the wrong lane can be weaker than an older home with better land and address fundamentals.",
+          "Hacoco's role is to compress the market into fewer serious options, create negotiation context and coordinate the right professional review before the buyer commits.",
         ],
       },
     ],
@@ -515,6 +536,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "Hacoco reviews project registration, land status, payment schedule, construction progress, developer balance sheet behaviour, competing supply and likely resale depth after possession.",
           "A buyer should understand what happens if exit before handover is not available. If the asset does not work as a completed home or rental product, the entry is weaker than it appears.",
+        ],
+      },
+      {
+        heading: "How the market works",
+        body: [
+          "NCR primary property is driven by launch cycles, RERA registration, developer credibility, infrastructure dependency, payment schedules and future handover supply. A project can look compelling at launch and still struggle if the completed micro market has too much similar inventory.",
+          "Investors should compare the launch against nearby ready stock, likely possession-year competition, maintenance cost, unit efficiency, access, schools, office catchments and the developer's earlier handover behaviour.",
+        ],
+      },
+      {
+        heading: "Investor fit and risks",
+        body: [
+          "This market can suit buyers seeking developer-led growth exposure, staged payments and entry into an improving corridor. It is less suitable for buyers who need immediate rental income or cannot tolerate delay and execution risk.",
+          "The main risks are weak developer delivery, infrastructure delays, payment-plan driven pricing, thin resale before possession, high density, poor maintenance planning and a future buyer pool that is narrower than the launch narrative suggests.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches NCR",
+        body: [
+          "Hacoco starts by asking whether the completed asset would still make sense if the buyer had to hold it. We then review developer, location, construction stage, registration, payment schedule and exit logic.",
+          "The objective is to avoid launch noise and isolate projects where price, product, delivery and future demand are coherent.",
         ],
       },
     ],
@@ -618,8 +660,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Second homes and managed rental villas across selected Goa micro markets where title, permissions and operating quality can support long-hold value.",
     image: {
-      src: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1600&q=85",
-      alt: "Goa coastline",
+      src: "/images/investor/goa.jpg",
+      alt: "Goa villa and coastal second-home context",
     },
     keywords: ["Goa villas", "Goa second homes", "Goa real estate"],
     highlights: ["Lifestyle utility", "Managed rental potential", "Scarce micro markets", "Permission review"],
@@ -645,6 +687,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "A villa that is difficult to maintain, operate or resell can quickly become a lifestyle liability. The underwriting has to be practical.",
         ],
       },
+      {
+        heading: "How the market works",
+        body: [
+          "Goa behaves village by village. North Goa rental-led villa demand, South Goa privacy-led ownership and inland land opportunities each have a different buyer base, operating profile and exit path.",
+          "The asset must be reviewed as both property and operation: title, access, water, power, staff, maintenance, guest management, seasonality, owner use and permissions all affect the owner's actual outcome.",
+        ],
+      },
+      {
+        heading: "Investor fit and risks",
+        body: [
+          "Goa suits buyers who value lifestyle utility, second-home use, managed rental potential or long-hold scarcity in selected micro markets. It is less suitable for buyers seeking predictable passive income with no operating involvement.",
+          "The main risks are unclear title, permission gaps, weak access, unrealistic rental projections, high maintenance, poor property management, seasonality and buying emotion without an operating plan.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches Goa",
+        body: [
+          "We begin with use case: family retreat, managed rental, hybrid use, land banking or boutique hospitality. Then we screen location, documentation, operating partner quality and realistic hold period.",
+          "A Goa shortlist should explain why the specific village, product and operating model fit the buyer, not just why Goa is attractive.",
+        ],
+      },
     ],
   },
   {
@@ -654,8 +717,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Airport influenced land and plotted opportunities around Jewar and the Yamuna Expressway, reviewed with planning, access and exit-buyer context.",
     image: {
-      src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85",
-      alt: "Open land",
+      src: "/images/investor/jaipur-land.jpg",
+      alt: "Large North India land parcel used for corridor investment review",
     },
     keywords: ["Jewar land", "YEIDA land", "Yamuna Expressway"],
     highlights: ["Airport influence", "Planning context", "Industrial demand", "Long-hold optionality"],
@@ -681,6 +744,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "A serious purchase should be supported by legal diligence, mutation checks, land-use review and a realistic view of liquidity.",
         ],
       },
+      {
+        heading: "How the market works",
+        body: [
+          "Jewar and YEIDA land is shaped by planned infrastructure, authority zones, airport-led expectations, industrial demand, logistics, plotted development and long-duration urbanisation. The relevant question is whether the parcel sits inside a credible use path.",
+          "Investors should review exact access, authority jurisdiction, land use, ownership chain, mutation, acquisition risk, road hierarchy, nearby planned use and whether aggregation or conversion is realistic.",
+        ],
+      },
+      {
+        heading: "Risks",
+        body: [
+          "The main risks are buying too far from usable access, relying on speculative infrastructure assumptions, title defects, fragmented ownership, unclear land use, weak liquidity and sellers pricing land as if future development has already happened.",
+          "Airport proximity is not a thesis by itself. A parcel needs a practical reason to be owned and a future buyer who can use it.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches Jewar and YEIDA",
+        body: [
+          "Hacoco reviews land at the parcel level before the corridor level. We want to know the road, title, planning context, use case, seller seriousness and exit logic before discussing price.",
+          "A good land note should say what is known, what needs legal review and what must happen for the investment to work.",
+        ],
+      },
     ],
   },
   {
@@ -690,8 +774,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Delhi-Dehradun Expressway influenced land across Baghpat, Baraut, Haridwar, Rishikesh access and related hospitality or plotted opportunities.",
     image: {
-      src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85",
-      alt: "Foothill landscape",
+      src: "/images/investor/haridwar-land.jpg",
+      alt: "Hacoco land opportunity on the Haridwar Dehradun corridor",
     },
     keywords: ["Baghpat land", "Haridwar land", "Delhi Dehradun Expressway"],
     highlights: ["Expressway access", "Hospitality demand", "Plotted potential", "Conversion-sensitive"],
@@ -715,6 +799,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "Hacoco reviews road approach, drainage, title chain, land use, conversion pathway, local disputes, environmental issues and whether development cost makes the purchase sensible.",
           "This is a corridor where discipline matters. The best asset may not be the cheapest land, but the land with the cleanest path to use and exit.",
+        ],
+      },
+      {
+        heading: "How the market works",
+        body: [
+          "The Baghpat and Haridwar belt is not one uniform corridor. Baghpat and Baraut are access and regional movement stories, while Haridwar and Rishikesh-side land may involve pilgrimage, wellness, hospitality, plotted living or second-home demand.",
+          "The mechanics are local: interchange relevance, road approach, land use, drainage, flood risk, conversion, village boundaries, water, power and the buyer base at exit.",
+        ],
+      },
+      {
+        heading: "Investor fit and risks",
+        body: [
+          "This market may suit long-duration buyers who can accept field diligence and uncertain timing. It is less suitable for buyers who need immediate income or quick liquidity.",
+          "The main risks are poor approach, unclear conversion, local disputes, environmental constraints, overpaying for broad expressway proximity and buying scenic or cheap land that has no practical use path.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches the belt",
+        body: [
+          "Hacoco filters this market by route, exact access, land use, local demand and future buyer type. The first question is not whether the corridor is improving, but whether this parcel can benefit from that improvement.",
+          "We also separate hospitality, plotted, farmhouse, logistics and land-banking mandates because each requires a different parcel.",
         ],
       },
     ],
@@ -753,6 +858,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "The underwriting focuses on what can be verified today and what future optionality is being bought at a sensible price.",
         ],
       },
+      {
+        heading: "How the market works",
+        body: [
+          "Neemrana and the wider Khushkhera-Bhiwadi belt should be understood through industrial employment, warehousing, highway movement and manufacturing relevance. It is not primarily a weekend-home market.",
+          "The mechanics that matter are road access, land use, frontage, parcel size, proximity to industrial demand, conversion comfort and whether a future industrial, logistics or plotted buyer can use the asset.",
+        ],
+      },
+      {
+        heading: "Investor fit and risks",
+        body: [
+          "This market can suit buyers seeking industrial-corridor exposure or land that could appeal to a commercial user later. It is less suitable for buyers who want lifestyle utility or predictable residential rental income.",
+          "The main risks are weak access, unclear permitted use, thin end-user demand, fragmented title, overpaying for corridor branding and assuming industrial activity will lift every parcel equally.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches Neemrana",
+        body: [
+          "Hacoco looks for land where the use case can be explained without stretching. If the future buyer is industrial, warehousing, commercial or plotted, the parcel should already show why that buyer would care.",
+          "We prefer land where diligence can confirm access, ownership, use and pricing before the buyer enters extended negotiation.",
+        ],
+      },
     ],
   },
   {
@@ -762,8 +888,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Delhi-Dehradun and Mussoorie access areas, including Dehradun, Mussoorie foothills, Kotabagh, Bejunia near Kaladhungi and related second-home land.",
     image: {
-      src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85",
-      alt: "Foothill home landscape",
+      src: "/images/investor/haridwar-land.jpg",
+      alt: "Hacoco land opportunity used for Uttarakhand foothill acquisition review",
     },
     keywords: ["Dehradun land", "Mussoorie foothills", "Kotabagh", "Bejunia Kaladhungi"],
     highlights: ["Second-home demand", "Access-led value", "Buildability review", "Permission-sensitive"],
@@ -787,6 +913,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "Kotabagh and Bejunia near Kaladhungi can appeal to buyers seeking quieter lifestyle land near forest, hill and weekend-use demand. The opportunity requires careful checks on access, ownership, land use and practical development cost.",
           "Hacoco helps buyers avoid buying scenery without a plan. A beautiful parcel still needs legal clarity, buildability and a credible exit buyer.",
+        ],
+      },
+      {
+        heading: "How the market works",
+        body: [
+          "Foothill and hill-adjacent land is shaped by road approach, slope, water, forest proximity, construction rules, local permissions, seasonal access and the cost of creating a usable property.",
+          "The investor needs to know whether the land is meant for a family retreat, boutique hospitality, wellness use, agriculture-linked ownership or long-hold optionality because each use needs a different parcel.",
+        ],
+      },
+      {
+        heading: "Investor fit and risks",
+        body: [
+          "This market suits buyers who can hold patiently and value lifestyle or hospitality optionality. It is less suitable for buyers who want predictable income, simple maintenance or rapid resale.",
+          "The main risks are poor buildability, unclear access, water constraints, forest or environmental limitations, seasonal maintenance, title complexity and overpaying for scenery that cannot be converted into use.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches foothill land",
+        body: [
+          "Hacoco reviews the physical and legal practicality before the emotional appeal. Road, slope, water, permissions and title come before the view.",
+          "A suitable parcel should have a credible use path, a realistic development cost and a future buyer profile that can be explained without relying only on the broader Dehradun or Mussoorie story.",
         ],
       },
     ],
@@ -823,6 +970,27 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "Hacoco helps frame the opportunity, but specialist legal, tax, agricultural and operating advice is essential. Capex, staffing, yield variability and market route must be understood before the purchase is treated as serious.",
           "This category is best for families comfortable with operating complexity and a long horizon.",
+        ],
+      },
+      {
+        heading: "How the market works",
+        body: [
+          "A vineyard purchase is not only a land purchase. The buyer is also evaluating production history, appellation, inventory, brand position, distribution, hospitality potential, staffing and agricultural exposure.",
+          "The operating model decides the diligence path. A lifestyle estate, a working vineyard and a hospitality-led asset should not be reviewed as the same investment.",
+        ],
+      },
+      {
+        heading: "Investor fit and risks",
+        body: [
+          "This category can suit families seeking international diversification, lifestyle utility and a long-term operating asset. It is less suitable for buyers who want passive ownership or simple resale liquidity.",
+          "The main risks are agricultural volatility, capex, staffing, local legal and tax complexity, production quality, distribution weakness and mistaking a romantic asset for a financially coherent one.",
+        ],
+      },
+      {
+        heading: "How Hacoco approaches vineyards",
+        body: [
+          "Hacoco helps define whether the buyer is looking for passion, operating income, legacy, hospitality or diversification. That purpose decides which experts need to review the opportunity.",
+          "We keep this category selective. If the asset cannot support a clear operating and diligence path, it should remain a watchlist idea rather than a purchase recommendation.",
         ],
       },
     ],
