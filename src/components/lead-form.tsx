@@ -41,36 +41,41 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
       leadTag: site.form.leadTag,
     });
 
-    const response = await fetch("/api/leads", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          domain: site.primaryDomain,
+          companyWebsite: "",
+          leadTag: site.form.leadTag,
+          ...values,
+        }),
+      });
+
+      const result = (await response.json()) as { ok: boolean; message: string };
+
+      if (!response.ok || !result.ok) {
+        setStatus("error");
+        setMessage(
+          result.message || "We could not submit your request. Please try again.",
+        );
+        return;
+      }
+
+      setStatus("success");
+      setMessage(result.message);
+      setValues(initialValues);
+      trackEvent("conversion", {
         domain: site.primaryDomain,
-        companyWebsite: "",
         leadTag: site.form.leadTag,
-        ...values,
-      }),
-    });
-
-    const result = (await response.json()) as { ok: boolean; message: string };
-
-    if (!response.ok || !result.ok) {
+      });
+    } catch {
       setStatus("error");
-      setMessage(
-        result.message || "We could not submit your request. Please try again.",
-      );
-      return;
+      setMessage("We could not reach the trade desk. Please try again or email us directly.");
     }
-
-    setStatus("success");
-    setMessage(result.message);
-    setValues(initialValues);
-    trackEvent("conversion", {
-      domain: site.primaryDomain,
-      leadTag: site.form.leadTag,
-    });
   }
 
   return (
@@ -128,7 +133,7 @@ export function LeadForm({ site, className = "", compact = false }: LeadFormProp
 
           <p className="md:col-span-2 text-xs leading-5 text-[var(--textSoft)]">
             By submitting, you agree to be contacted by the Hacoco team regarding
-            your stated {site.vertical === "art" ? "art advisory" : "real estate"} interests.
+            your stated {site.vertical === "commodities" ? "commodity trade" : "real estate"} interests.
           </p>
         </form>
       )}

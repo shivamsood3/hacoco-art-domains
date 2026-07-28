@@ -32,9 +32,33 @@ export type FaqItem = {
   answer: string;
 };
 
+export type CommodityCategory = {
+  number: string;
+  title: string;
+  mode: "Sourcing & facilitation" | "Direct trading available";
+  description: string;
+  image: string;
+  featured?: boolean;
+};
+
+export type TradeServiceModel = {
+  number: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  appliesTo: string;
+  relationship: string;
+};
+
+export type TradeRiskControl = {
+  number: string;
+  title: string;
+  description: string;
+};
+
 export type SiteConfig = {
   slug: "capital" | "investor" | "advisory";
-  vertical: "real-estate" | "art";
+  vertical: "real-estate" | "commodities";
   primaryDomain: string;
   hostAliases: string[];
   brand: {
@@ -150,6 +174,11 @@ export type SiteConfig = {
     title: string;
     message: string;
   };
+  commodities?: {
+    categories: CommodityCategory[];
+    serviceModels: TradeServiceModel[];
+    riskControls: TradeRiskControl[];
+  };
   calendly?: {
     url: string;
   };
@@ -160,20 +189,15 @@ export type SiteConfig = {
   };
 };
 
-const artHeroImage =
-  "https://hacoco.art/cdn/shop/files/Interior_Mosaic_by_Rhea_Maheshwari.jpg?v=1770199791&width=1066";
-
-const artOgImage =
-  "https://hacoco.art/cdn/shop/files/3horses_AK.jpg?v=1769326096&width=1066";
-
-const paintingGallery = [
-  "https://hacoco.art/cdn/shop/files/TailofTails_NH.jpg?v=1776419622&width=1066",
-  "https://hacoco.art/cdn/shop/files/ashish_K_1.jpg?v=1769535307&width=1066",
-  "https://hacoco.art/cdn/shop/files/YellowMosaicScape_OilonCanvas_Ceramicmosaiconwood_30inchdiameter.jpg?v=1770200049&width=1066",
-  "https://hacoco.art/cdn/shop/files/OrangeMosaicScape_OilonCanvas_Ceramicmosaiconwood_36inchdiameter.jpg?v=1770200022&width=1066",
-  "https://hacoco.art/cdn/shop/files/Interior_Mosaic_by_Rhea_Maheshwari.jpg?v=1770199791&width=1066",
-  "https://hacoco.art/cdn/shop/files/Divine_Guidance2024_Rhea_Maheshwari_bb439e27-12de-43eb-a79c-98d6195d4848.jpg?v=1770199600&width=1066",
-] as const;
+const commodityImages = {
+  oil: "https://images.unsplash.com/photo-1530890448995-4d82724f702c?auto=format&fit=crop&w=1800&q=88",
+  grain:
+    "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1200&q=85",
+  fertilizer:
+    "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=85",
+  cropProtection:
+    "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=85",
+} as const;
 
 const realEstateImages = [
   "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
@@ -200,21 +224,21 @@ const realEstateTrustStrip = [
   },
 ] as const;
 
-const artTrustStrip = [
+const commodityTrustStrip = [
   {
-    kicker: "Discretion",
-    title: "Private access",
-    copy: "Every inquiry is handled discreetly and matched with intent.",
+    kicker: "Mandate",
+    title: "Requirement first",
+    copy: "Product, specification, volume, route, and timeline shape every engagement.",
   },
   {
-    kicker: "Curation",
-    title: "Curated selection",
-    copy: "A narrower shortlist instead of an overwhelming catalogue.",
+    kicker: "Verification",
+    title: "Counterparty led",
+    copy: "Credibility checks come before introductions and document exchange.",
   },
   {
     kicker: "Execution",
-    title: "Guided acquisition",
-    copy: "Clear next steps from brief to acquisition.",
+    title: "Trade disciplined",
+    copy: "Commercial documents and payment instruments follow an agreed sequence.",
   },
 ] as const;
 
@@ -633,203 +657,252 @@ export const siteConfigs: Record<string, SiteConfig> = {
   },
   "hacocoadvisory.com": {
     slug: "advisory",
-    vertical: "art",
+    vertical: "commodities",
     primaryDomain: "hacocoadvisory.com",
     hostAliases: [
       "www.hacocoadvisory.com",
       "hacocoadvisory.local",
+      "hacocoadvisory.localhost",
     ],
     brand: {
       name: "Hacoco Advisory",
-      eyebrow: "Private Art Advisory",
+      eyebrow: "Global Commodity Trade",
     },
     seo: {
-      title: "Hacoco Advisory | Bespoke Art Advisory and Private Sourcing",
+      title: "Hacoco Advisory | Crude Oil and Commodity Sourcing",
       description:
-        "Private art advisory for collection building, bespoke sourcing, and private sales. Book a consultation with Hacoco Advisory for discreet, high context guidance.",
-      ogImage: artOgImage,
+        "Commodity trading, sourcing, and trade facilitation for crude oil and refined products, food grains, fertilizers, and pesticides.",
+      ogImage: "/og-commodities.jpg",
     },
     navigation: [
-      { label: "Works", href: "#featured-works" },
-      { label: "Advisory", href: "#focus" },
+      { label: "Commodities", href: "#commodities" },
+      { label: "How We Operate", href: "#operating-models" },
+      { label: "Risk Control", href: "#risk-control" },
       { label: "Process", href: "#process" },
-      { label: "Consultation", href: "#lead-form" },
+      { label: "Trade Desk", href: "#lead-form" },
     ],
-    navCtaLabel: "Book Consultation",
+    navCtaLabel: "Submit Requirement",
     hero: {
-      eyebrow: "Bespoke sourcing and private guidance",
-      title: "Private art advisory for buyers who want stronger judgment and discretion.",
+      eyebrow: "Commodities sourcing and trade facilitation",
+      title: "Commodity trade, built on trust.",
       description:
-        "For collectors and buyers who need context, conviction, and a more bespoke art acquisition process.",
+        "Crude oil and refined products lead our sourcing and facilitation desk. We also cover food grains, fertilizers, and pesticides across select trade routes.",
       ctas: [
-        { label: "Book a Private Consultation", href: "#lead-form", variant: "primary" },
-        { label: "Speak to Hacoco Advisory", href: "#lead-form", variant: "secondary" },
+        { label: "Submit a Trade Requirement", href: "#lead-form", variant: "primary" },
+        { label: "See How We Operate", href: "#operating-models", variant: "secondary" },
       ],
       metrics: [
-        { value: "Bespoke", label: "Collection or sourcing led support" },
-        { value: "Private", label: "Discreet handling and access" },
-        { value: "Clear", label: "A simple advisory workflow" },
+        { value: "04", label: "Commodity categories" },
+        { value: "02", label: "Distinct operating models" },
+        { value: "01", label: "Disciplined trade desk" },
       ],
       image: {
-        src: artHeroImage,
-        alt: "Painting from the Hacoco collection",
-        eyebrow: "Private Art Access",
-        captionTitle: "Context rich sourcing",
+        src: commodityImages.oil,
+        alt: "Bulk cargo vessel at an industrial port",
+        eyebrow: "Lead Category",
+        captionTitle: "Crude oil and refined products",
         captionText:
-          "Artwork imagery selected from the Hacoco paintings collection.",
+          "Verified counterparty sourcing and structured trade facilitation for serious mandates.",
       },
     },
-    trustStrip: [...artTrustStrip],
+    trustStrip: [...commodityTrustStrip],
     sections: {
-      showcase: {
-        eyebrow: "Selected Works",
-        title: "A visual reference from the Hacoco paintings collection.",
-        description: "Used here to frame taste, direction, and sourcing quality.",
-        items: [
-          {
-            title: "Interior Mosaic",
-            subtitle: "Rhea Maheshwari",
-            category: "Painting",
-            badge: "Request",
-            image: paintingGallery[4],
-          },
-          {
-            title: "Divine Guidance",
-            subtitle: "Rhea Maheshwari",
-            category: "Painting",
-            badge: "Request",
-            image: paintingGallery[5],
-          },
-          {
-            title: "Yellow Mosaic Scape",
-            subtitle: "Nupur Kundu",
-            category: "Painting",
-            badge: "Available",
-            image: paintingGallery[2],
-          },
-          {
-            title: "Orange Mosaic Scape",
-            subtitle: "Nupur Kundu",
-            category: "Painting",
-            badge: "Available",
-            image: paintingGallery[3],
-          },
-        ],
-      },
-      advisoryAreas: {
-        eyebrow: "Advisory Areas",
-        title: "Where private art advisory creates real value.",
-        description:
-          "Designed for clients who want guidance, not just access.",
-        items: [
-          {
-            kicker: "Collection building",
-            title: "Collection building",
-            copy: "Build with stronger coherence, not just isolated purchases.",
-          },
-          {
-            kicker: "Sourcing",
-            title: "Bespoke sourcing",
-            copy: "Source around a style, thesis, artist, or collecting brief.",
-          },
-          {
-            kicker: "Private sales",
-            title: "Private opportunities",
-            copy: "For conversations where discretion, access, and fit matter most.",
-          },
-        ],
-      },
       whyHacoco: {
-        eyebrow: "Why Advisory Matters",
-        title: "The best art decisions are rarely driven by availability alone.",
+        eyebrow: "Why Trade Discipline Matters",
+        title: "A credible offer is more than a price and a document.",
         paragraphs: [
-          "Real value sits in framing the brief properly: what belongs in the collection, what deserves patience, and where bespoke sourcing can add an edge.",
-          "Advisory separates taste from impulse and opportunity from visibility. That distinction matters more as budgets rise and collections become more intentional.",
+          "Cross-border commodity transactions can stall on counterparty capability, inconsistent documents, or payment terms that do not match the commercial reality of the deal.",
+          "We help buyers and sellers qualify the mandate, test the transaction path, and engage counterparties with greater clarity before time and credibility are spent.",
         ],
+        aside:
+          "No introduction removes the need for independent legal, financial, technical, sanctions, and compliance review.",
       },
       process: {
-        eyebrow: "Process",
-        title: "A consultation first workflow.",
+        eyebrow: "Trade Process",
+        title: "From requirement to credible counterparty.",
         steps: [
           {
             title: "Consult",
-            copy: "We start with your requirement, budget, and preferences.",
+            copy: "We capture product specifications, volume, delivery basis, route, timeline, and commercial position.",
           },
           {
             title: "Frame",
-            copy: "We frame the brief around sourcing, collecting, or advisory support.",
+            copy: "We determine the operating model and align the mandate, KYC, supporting documents, and proposed payment path.",
           },
           {
             title: "Source",
-            copy: "We return with relevant options and decision support.",
+            copy: "We identify suitable counterparties and support a controlled progression through introductions, documents, and next steps.",
           },
         ],
       },
     },
+    commodities: {
+      categories: [
+        {
+          number: "01",
+          title: "Crude Oil & Refined Products",
+          mode: "Sourcing & facilitation",
+          description:
+            "Our lead category. We work from qualified mandates to source credible buyers or sellers and help structure the path toward a workable transaction.",
+          image: commodityImages.oil,
+          featured: true,
+        },
+        {
+          number: "02",
+          title: "Food Grains",
+          mode: "Direct trading available",
+          description:
+            "Select food grains, including rice, may be traded directly by Hacoco as principal. Other enquiries are assessed by product and route.",
+          image: commodityImages.grain,
+        },
+        {
+          number: "03",
+          title: "Fertilizers",
+          mode: "Sourcing & facilitation",
+          description:
+            "Counterparty sourcing and trade facilitation for defined fertilizer requirements, subject to specification, market, and compliance review.",
+          image: commodityImages.fertilizer,
+        },
+        {
+          number: "04",
+          title: "Pesticides",
+          mode: "Sourcing & facilitation",
+          description:
+            "Trade introductions for crop protection requirements where product registration, destination rules, and supplier capability are clear.",
+          image: commodityImages.cropProtection,
+        },
+      ],
+      serviceModels: [
+        {
+          number: "01",
+          eyebrow: "Principal Model",
+          title: "Direct trading",
+          description:
+            "For selected, easier-to-handle commodities, Hacoco may contract as the buyer or seller and execute the trade directly as principal.",
+          appliesTo:
+            "Currently relevant to select food grains such as rice, subject to product, volume, route, and commercial acceptance.",
+          relationship:
+            "Your commercial contract is directly with Hacoco.",
+        },
+        {
+          number: "02",
+          eyebrow: "Facilitation Model",
+          title: "Sourcing & trade facilitation",
+          description:
+            "Hacoco qualifies the requirement, sources suitable counterparties, and supports the transaction path without acting as principal.",
+          appliesTo:
+            "The primary model for crude oil and refined products, fertilizers, pesticides, and other complex cross-border mandates.",
+          relationship:
+            "The buyer and seller contract with each other. Hacoco facilitates the engagement.",
+        },
+      ],
+      riskControls: [
+        {
+          number: "A",
+          title: "Counterparty credibility",
+          description:
+            "We look for evidence that the buyer can buy, the seller can supply, and the people presenting the mandate are authorised to do so.",
+        },
+        {
+          number: "B",
+          title: "Document consistency",
+          description:
+            "Product, volume, route, pricing basis, and procedure need to align across the mandate, offer, and supporting documents.",
+        },
+        {
+          number: "C",
+          title: "Payment instrument fit",
+          description:
+            "LC, SBLC, and other instrument language must suit the transaction sequence and be reviewed by the parties and their banks.",
+        },
+      ],
+    },
     ctaBand: {
-      eyebrow: "Private Consultation",
-      title: "If you need judgment, discretion, and bespoke sourcing, start with a private advisory brief.",
+      eyebrow: "Trade Desk",
+      title: "A serious commodity requirement deserves a serious first review.",
       description:
-        "Share the contours of your requirement and we will shape the right next conversation around it.",
-      buttonLabel: "Book a Private Consultation",
+        "Share the product, volume, route, timing, and your role in the transaction. We will assess fit before proposing a next step.",
+      buttonLabel: "Submit a Trade Requirement",
     },
     formSection: {
-      eyebrow: "Advisory Contact",
-      title: "Start with a short advisory brief.",
+      eyebrow: "Start a Trade Conversation",
+      title: "Tell us what needs to move, and where.",
       description:
-        "A concise brief helps us shape the sourcing or advisory conversation with more precision.",
+        "Complete the short mandate form. Clear requirements receive the fastest and most useful response.",
     },
     form: {
-      eyebrow: "Advisory Brief",
-      title: "Speak to Hacoco Advisory",
+      eyebrow: "Commodity Requirement",
+      title: "Submit your trade brief",
       description:
-        "For bespoke sourcing, collection building, and discreet advisory conversations.",
-      submitLabel: "Book a Private Consultation",
+        "For buyers, sellers, and authorised mandates seeking direct trade or verified counterparty sourcing.",
+      submitLabel: "Send Trade Requirement",
       leadTag: "ADV-LEAD",
       fields: [
         { name: "name", label: "Name", type: "text", required: true, placeholder: "Your full name" },
         { name: "email", label: "Email", type: "email", required: true, placeholder: "name@example.com" },
         { name: "phone", label: "Phone", type: "tel", required: true, placeholder: "+91 / +1 / +44" },
         {
-          name: "requirement",
-          label: "Requirement",
-          type: "select",
-          required: true,
-          options: ["Collection building", "Bespoke sourcing", "Private sale", "Need advisory guidance"],
-        },
-        {
-          name: "budgetRange",
-          label: "Budget range",
-          type: "select",
-          required: true,
-          options: ["Under INR 5L", "INR 5L to 15L", "INR 15L to 50L", "INR 50L+"],
-        },
-        {
-          name: "preferredStyle",
-          label: "Preferred style",
+          name: "company",
+          label: "Company",
           type: "text",
-          placeholder: "Abstract, figurative, sculptural, monochrome, etc.",
+          required: true,
+          placeholder: "Company or trading entity",
+        },
+        {
+          name: "requirement",
+          label: "Commodity requirement",
+          type: "select",
+          required: true,
+          options: [
+            "Crude Oil & Refined Products",
+            "Food Grains",
+            "Fertilizers",
+            "Pesticides",
+            "Other",
+          ],
+        },
+        {
+          name: "role",
+          label: "Your role",
+          type: "select",
+          required: true,
+          options: ["Buyer", "Seller", "Buyer mandate", "Seller mandate", "Other"],
+        },
+        {
+          name: "dealVolume",
+          label: "Deal size / Volume",
+          type: "text",
+          required: true,
+          placeholder: "e.g. 50,000 MT or 2 million barrels per month",
+          fullWidth: true,
+        },
+        {
+          name: "originDestination",
+          label: "Origin / Destination country",
+          type: "text",
+          required: true,
+          placeholder: "Preferred origin and delivery destination",
           fullWidth: true,
         },
         {
           name: "notes",
-          label: "Notes",
+          label: "Specifications and notes",
           type: "textarea",
-          placeholder: "Add timing, artist references, space context, or advisory priorities.",
+          placeholder: "Add product specifications, delivery basis, timing, target terms, and any mandate details.",
           fullWidth: true,
         },
       ],
     },
     success: {
-      eyebrow: "Consultation Requested",
-      title: "Your advisory request is in.",
+      eyebrow: "Requirement Received",
+      title: "Your trade brief is with our desk.",
       message:
-        "A member of Hacoco Advisory will review your brief and respond with an appropriate next step shortly.",
+        "A member of Hacoco Advisory will review the commodity, volume, route, and commercial fit before responding with an appropriate next step.",
     },
     footer: {
-      copy: "Private art advisory for collection building, sourcing, and discreet acquisition support.",
+      copy: "Direct trading for selected commodities. Verified counterparty sourcing and trade facilitation for complex mandates.",
       email: "shiv@hacocoadvisory.com",
-      contactLabel: "Advisory desk",
+      contactLabel: "Commodity trade desk",
     },
   },
 };

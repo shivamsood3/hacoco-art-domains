@@ -4,7 +4,7 @@ Single Next.js codebase that renders three distinct landing pages by hostname.
 
 - `hacococapital.com`: private real estate capital access
 - `investwithhacoco.com`: South Delhi real estate buyer conversion and SEO blog
-- `hacocoadvisory.com`: private art advisory and bespoke sourcing
+- `hacocoadvisory.com`: commodity trading, sourcing, and trade facilitation
 
 ## File Structure
 
@@ -27,6 +27,7 @@ hacoco-art-domains/
 │   │   └── page.tsx
 │   ├── components
 │   │   ├── analytics-provider.tsx
+│   │   ├── commodity-site-renderer.tsx
 │   │   ├── lead-form.tsx
 │   │   └── site-renderer.tsx
 │   └── lib
@@ -42,7 +43,7 @@ hacoco-art-domains/
 
 - `hacococapital.com` uses the Hacoco Capital real estate capital config.
 - `investwithhacoco.com` uses the South Delhi real estate conversion config.
-- `hacocoadvisory.com` uses the Hacoco Advisory art config.
+- `hacocoadvisory.com` uses the Hacoco Advisory commodities config.
 
 All three domains should point to the same deployment. The app reads the hostname at runtime and renders the matching config from `src/lib/site-config.ts`.
 
@@ -134,6 +135,6 @@ Because the code reads the hostname at runtime, one deployment serves all three 
 
 - The page system is config driven.
 - Two sites now focus on real estate.
-- One site remains focused on art advisory.
+- One site focuses on commodity trading, sourcing, and trade facilitation.
 - No fake testimonials are included.
-- Art images are static references from Hacoco sources.
+- Commodity imagery uses static, curated references rather than scraping.

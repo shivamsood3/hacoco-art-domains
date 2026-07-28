@@ -7,26 +7,10 @@ const nextConfig: NextConfig = {
     "hacococapital.local",
     "investwithhacoco.local",
     "hacocoadvisory.local",
+    "hacocoadvisory.localhost",
   ],
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "hacoco.art",
-      },
-      {
-        protocol: "https",
-        hostname: "thehacoco.com",
-      },
-      {
-        protocol: "https",
-        hostname: "hacoco.art",
-        pathname: "/cdn/**",
-      },
-      {
-        protocol: "http",
-        hostname: "hacoco.art",
-      },
       {
         protocol: "https",
         hostname: "images.unsplash.com",

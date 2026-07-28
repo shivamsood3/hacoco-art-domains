@@ -17,7 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function TermsPage() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
-  const verticalLabel = site.vertical === "art" ? "art advisory" : "real estate";
+  const verticalLabel =
+    site.vertical === "commodities" ? "commodity trade" : "real estate";
 
   return (
     <main className="page-shell min-h-screen">
@@ -51,6 +52,14 @@ export default async function TermsPage() {
               Submitting a form does not create an advisory, brokerage, agency, or
               client relationship unless a separate written agreement is executed.
             </p>
+            {site.vertical === "commodities" ? (
+              <p>
+                Hacoco may act as principal only when this is expressly stated in a
+                written agreement. In sourcing and trade facilitation engagements,
+                the buyer and seller contract directly with each other and remain
+                responsible for performance, due diligence, compliance, and payment.
+              </p>
+            ) : null}
             <p>
               Any {verticalLabel} opportunity, shortlist, introduction, or
               discussion is subject to availability, independent review, due

@@ -17,7 +17,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function PrivacyPage() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
-  const verticalLabel = site.vertical === "art" ? "art advisory" : "real estate";
+  const verticalLabel =
+    site.vertical === "commodities" ? "commodity trade" : "real estate";
+  const submittedDetails =
+    site.vertical === "commodities"
+      ? "company, commodity, role, deal volume, origin, destination, and trade notes"
+      : "budget range, location preferences, and property notes";
 
   return (
     <main className="page-shell min-h-screen">
@@ -44,8 +49,8 @@ export default async function PrivacyPage() {
           <div className="mt-10 space-y-5 text-base leading-8 text-[var(--textMuted)]">
             <p>
               We collect the details you submit through our forms, including name,
-              email, phone number, budget range, preferences, and notes related to
-              your {verticalLabel} requirement.
+              email, phone number, {submittedDetails} related to your {verticalLabel}
+              requirement.
             </p>
             <p>
               We use this information to respond to your inquiry, qualify your

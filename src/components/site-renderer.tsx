@@ -9,6 +9,7 @@ import type {
   ShowcaseItem,
 } from "@/lib/site-config";
 
+import { CommoditySiteRenderer } from "./commodity-site-renderer";
 import { LeadForm } from "./lead-form";
 
 type SiteRendererProps = {
@@ -16,6 +17,10 @@ type SiteRendererProps = {
 };
 
 export function SiteRenderer({ site }: SiteRendererProps) {
+  if (site.vertical === "commodities") {
+    return <CommoditySiteRenderer site={site} />;
+  }
+
   const focusSection =
     site.sections.acquisitionFocus ??
     site.sections.advisoryAreas ??
@@ -201,17 +206,17 @@ function Hero({ site }: { site: SiteConfig }) {
 
       {site.hero.formAboveFold ? (
         <div className="space-y-5">
-          <ArtworkHeroCard site={site} />
+          <FeatureHeroCard site={site} />
           <LeadForm site={site} compact />
         </div>
       ) : (
-        <ArtworkHeroCard site={site} />
+        <FeatureHeroCard site={site} />
       )}
     </section>
   );
 }
 
-function ArtworkHeroCard({ site }: { site: SiteConfig }) {
+function FeatureHeroCard({ site }: { site: SiteConfig }) {
   return (
     <div className="section-band section-band--elevated grid gap-4 p-4 md:grid-cols-[1.2fr_0.8fr] md:p-5">
       <div className="gallery-frame relative aspect-[4/5] md:aspect-auto">
