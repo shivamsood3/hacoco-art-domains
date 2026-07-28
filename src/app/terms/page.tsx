@@ -11,6 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `Terms of Use | ${site.brand.name}`,
     description: `Terms of use for ${site.brand.name}.`,
+    alternates: {
+      canonical: `https://${site.primaryDomain}/terms`,
+    },
   };
 }
 

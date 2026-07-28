@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/seo-structured-data";
 import { getInvestorBlogPost, investorBlogPosts } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
@@ -23,15 +24,29 @@ export async function generateMetadata({
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getInvestorBlogPost(slug);
+  const headerStore = await headers();
+  const site = getSiteConfigFromHeaders(headerStore);
 
-  if (!post) {
+  if (!post || site.slug !== "investor") {
     return {};
   }
+
+  const canonicalUrl = `https://${site.primaryDomain}/blog/${post.slug}`;
 
   return {
     title: post.title,
     description: post.description,
     keywords: post.keywords,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.description,
+      url: canonicalUrl,
+      publishedTime: post.publishedAt,
+    },
   };
 }
 
@@ -45,9 +60,36 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const baseUrl = `https://${site.primaryDomain}`;
+  const canonicalUrl = `${baseUrl}/blog/${post.slug}`;
+
   return (
-    <main className="page-shell min-h-screen">
-      <div className="mx-auto max-w-4xl px-5 py-8 sm:px-6 lg:px-8">
+    <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: post.title,
+          description: post.description,
+          datePublished: post.publishedAt,
+          dateModified: post.publishedAt,
+          mainEntityOfPage: canonicalUrl,
+          url: canonicalUrl,
+          author: {
+            "@type": "Organization",
+            name: site.brand.name,
+            url: baseUrl,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: site.brand.name,
+            url: baseUrl,
+          },
+          inLanguage: "en",
+        }}
+      />
+      <main className="page-shell min-h-screen">
+        <div className="mx-auto max-w-4xl px-5 py-8 sm:px-6 lg:px-8">
         <header className="flex items-center justify-between border-b border-subtle pb-8">
           <Link href="/blog" className="text-sm text-[var(--textMuted)] hover:text-[var(--textStrong)]">
             Back to guides
@@ -95,7 +137,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
         </article>
-      </div>
-    </main>
+        </div>
+      </main>
+    </>
   );
 }

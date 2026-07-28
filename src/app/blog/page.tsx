@@ -14,6 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `South Delhi Real Estate Guides | ${site.brand.name}`,
     description:
       "Practical South Delhi real estate guides for buyers reviewing Greater Kailash, Defence Colony, Vasant Vihar, Panchsheel Park, Hauz Khas, and nearby prime colonies.",
+    alternates: {
+      canonical: `https://${site.primaryDomain}/blog`,
+    },
   };
 }
 

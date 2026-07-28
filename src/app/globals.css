@@ -810,6 +810,64 @@ textarea {
   line-height: 1.7;
 }
 
+.commodity-faq {
+  margin-top: 1rem;
+  border: 1px solid var(--commodityLine);
+  border-radius: 0.4rem;
+  background: var(--commoditySurface);
+}
+
+.commodity-faq details + details {
+  border-top: 1px solid var(--commodityLine);
+}
+
+.commodity-faq summary {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+  padding: 1.35rem 1.5rem;
+  list-style: none;
+}
+
+.commodity-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.commodity-faq summary > span {
+  color: var(--commoditySignal);
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.commodity-faq h3 {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.commodity-faq summary > i {
+  color: var(--commodityBlue);
+  font-size: 1.35rem;
+  font-style: normal;
+  transition: transform 180ms ease;
+}
+
+.commodity-faq details[open] summary > i {
+  transform: rotate(45deg);
+}
+
+.commodity-faq details > p {
+  max-width: 58rem;
+  margin: 0 1.5rem 1.5rem 4.9rem;
+  color: var(--commodityMuted);
+  font-size: 0.84rem;
+  line-height: 1.8;
+}
+
 .commodity-cta {
   display: grid;
   gap: 2.5rem;
@@ -1062,6 +1120,16 @@ textarea {
   .trade-process article + article {
     border-top: 0;
     border-left: 1px solid var(--commodityLine);
+  }
+
+  .commodity-faq summary {
+    padding: 1.6rem 2rem;
+  }
+
+  .commodity-faq details > p {
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+    margin-left: 5.4rem;
   }
 
   .commodity-lead {

@@ -11,6 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `Privacy Policy | ${site.brand.name}`,
     description: `Privacy policy for ${site.brand.name}.`,
+    alternates: {
+      canonical: `https://${site.primaryDomain}/privacy`,
+    },
   };
 }
 

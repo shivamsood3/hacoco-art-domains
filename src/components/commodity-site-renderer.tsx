@@ -34,6 +34,13 @@ export function CommoditySiteRenderer({ site }: { site: SiteConfig }) {
             title={site.sections.process.title}
           />
         ) : null}
+        {site.sections.faq ? (
+          <CommodityFaq
+            eyebrow={site.sections.faq.eyebrow}
+            items={site.sections.faq.items}
+            title={site.sections.faq.title}
+          />
+        ) : null}
         <CommodityCta site={site} />
         <CommodityLeadSection site={site} />
         <CommodityFooter site={site} />
@@ -307,6 +314,34 @@ function CommodityCta({ site }: { site: SiteConfig }) {
         <a className="commodity-button" href="#lead-form">
           {site.ctaBand.buttonLabel}
         </a>
+      </div>
+    </section>
+  );
+}
+
+function CommodityFaq({
+  eyebrow,
+  items,
+  title,
+}: {
+  eyebrow: string;
+  items: NonNullable<SiteConfig["sections"]["faq"]>["items"];
+  title: string;
+}) {
+  return (
+    <section className="commodity-section" id="faq">
+      <CommoditySectionHeading eyebrow={eyebrow} title={title} />
+      <div className="commodity-faq">
+        {items.map((item, index) => (
+          <details key={item.question}>
+            <summary>
+              <span>0{index + 1}</span>
+              <h3>{item.question}</h3>
+              <i aria-hidden="true">+</i>
+            </summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
       </div>
     </section>
   );

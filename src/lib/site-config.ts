@@ -68,6 +68,7 @@ export type SiteConfig = {
   seo: {
     title: string;
     description: string;
+    keywords: string[];
     ogImage?: string;
   };
   navigation: Array<{
@@ -256,6 +257,14 @@ export const siteConfigs: Record<string, SiteConfig> = {
       title: "Hacoco Capital | Private Real Estate Investment Access",
       description:
         "Private real estate investment access for HNIs, family offices, founders, and NRIs seeking curated residential and commercial opportunities in Delhi NCR.",
+      keywords: [
+        "private real estate investment",
+        "Delhi NCR real estate investment",
+        "off market property Delhi NCR",
+        "commercial property investment Delhi",
+        "NRI property investment India",
+        "HNI real estate advisory",
+      ],
       ogImage: realEstateImages[0],
     },
     navigation: [
@@ -451,6 +460,14 @@ export const siteConfigs: Record<string, SiteConfig> = {
       title: "Invest With Hacoco | South Delhi Real Estate Investment",
       description:
         "Curated South Delhi real estate investment opportunities across Greater Kailash, Defence Colony, Vasant Vihar, Panchsheel Park, Hauz Khas, and nearby prime markets.",
+      keywords: [
+        "South Delhi real estate",
+        "South Delhi property investment",
+        "builder floors South Delhi",
+        "Greater Kailash property",
+        "Defence Colony property",
+        "Vasant Vihar real estate",
+      ],
       ogImage: realEstateImages[1],
     },
     navigation: [
@@ -669,9 +686,21 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Global Commodity Trade",
     },
     seo: {
-      title: "Hacoco Advisory | Crude Oil and Commodity Sourcing",
+      title: "Commodity Trading and Crude Oil Sourcing | Hacoco Advisory",
       description:
-        "Commodity trading, sourcing, and trade facilitation for crude oil and refined products, food grains, fertilizers, and pesticides.",
+        "Commodity trading, verified counterparty sourcing, and trade facilitation for crude oil, refined petroleum products, food grains, fertilizers, and pesticides.",
+      keywords: [
+        "commodity trading advisory",
+        "crude oil sourcing",
+        "refined petroleum products sourcing",
+        "commodity trade facilitation",
+        "food grains trading",
+        "fertilizer sourcing",
+        "pesticide sourcing",
+        "verified commodity counterparties",
+        "cross-border commodity trade",
+        "LC SBLC commodity transactions",
+      ],
       ogImage: "/og-commodities.jpg",
     },
     navigation: [
@@ -732,6 +761,43 @@ export const siteConfigs: Record<string, SiteConfig> = {
           {
             title: "Source",
             copy: "We identify suitable counterparties and support a controlled progression through introductions, documents, and next steps.",
+          },
+        ],
+      },
+      faq: {
+        eyebrow: "Trade Desk FAQ",
+        title: "Questions serious counterparties ask first.",
+        items: [
+          {
+            question:
+              "Does Hacoco trade crude oil and refined products directly?",
+            answer:
+              "Not by default. For crude oil and refined products, Hacoco primarily sources qualified counterparties and facilitates the trade. Hacoco acts as principal only when expressly agreed in writing.",
+          },
+          {
+            question: "Which commodities can Hacoco trade directly?",
+            answer:
+              "Select food grains such as rice may be handled directly as principal, subject to product, volume, route, compliance, and commercial acceptance.",
+          },
+          {
+            question: "What should a commodity requirement include?",
+            answer:
+              "Include the product and specification, volume and frequency, preferred origin and destination, delivery basis, timeline, your role, and proposed payment terms.",
+          },
+          {
+            question: "Does Hacoco work with buyer and seller mandates?",
+            answer:
+              "Yes, when the mandate is authorised and its authority can be verified. KYC, company information, and evidence of the mandate are reviewed before a serious introduction.",
+          },
+          {
+            question: "How are LC and SBLC terms handled?",
+            answer:
+              "Hacoco can help align the proposed instrument with the transaction sequence. The parties, their banks, and their appointed legal or financial advisors remain responsible for reviewing, issuing, accepting, and performing under any LC, SBLC, or other payment instrument.",
+          },
+          {
+            question: "Does an introduction guarantee a completed trade?",
+            answer:
+              "No. Every transaction remains subject to contract, due diligence, compliance, documentation, and performance by the buyer and seller. An introduction does not replace independent legal, financial, technical, sanctions, or compliance review.",
           },
         ],
       },
