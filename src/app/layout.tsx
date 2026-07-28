@@ -22,6 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
   const canonicalUrl = `https://${site.primaryDomain}`;
+  const ogImage = site.seo.ogImage;
+  const ogImageUrl = site.seo.ogImage
+    ? new URL(site.seo.ogImage, canonicalUrl).toString()
+    : undefined;
 
   return {
     metadataBase: new URL(canonicalUrl),
@@ -32,6 +36,10 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: site.brand.name,
     publisher: site.brand.name,
     manifest: "/manifest.webmanifest",
+    icons: {
+      icon: "/icon",
+      apple: "/apple-icon",
+    },
     category:
       site.vertical === "commodities"
         ? "Commodity Trading and Sourcing"
@@ -56,16 +64,16 @@ export async function generateMetadata(): Promise<Metadata> {
       url: canonicalUrl,
       siteName: site.brand.name,
       type: "website",
-      images: site.seo.ogImage
+      images: ogImageUrl
         ? [
             {
-              url: site.seo.ogImage,
+              url: ogImageUrl,
               alt: site.seo.title,
-              ...(site.seo.ogImage.startsWith("/")
+              ...(ogImage?.startsWith("/")
                 ? {
                     width: 1200,
                     height: 630,
-                    type: site.seo.ogImage.endsWith(".png") ? "image/png" : "image/jpeg",
+                    type: ogImage.endsWith(".png") ? "image/png" : "image/jpeg",
                   }
                 : {}),
             },
@@ -76,7 +84,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: site.seo.title,
       description: site.seo.description,
-      images: site.seo.ogImage ? [site.seo.ogImage] : undefined,
+      images: ogImageUrl ? [ogImageUrl] : undefined,
     },
   };
 }

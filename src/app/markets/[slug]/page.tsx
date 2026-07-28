@@ -34,6 +34,7 @@ export async function generateMetadata({
   }
 
   const canonicalUrl = `https://${site.primaryDomain}${investorMarketsBasePath}/${page.slug}`;
+  const ogImageUrl = new URL("/og-investwithhacoco.png", canonicalUrl).toString();
 
   return {
     title: `${page.title} | ${site.brand.name}`,
@@ -45,13 +46,13 @@ export async function generateMetadata({
       description: page.description,
       url: canonicalUrl,
       type: "website",
-      images: [{ url: "/og-investwithhacoco.png", width: 1200, height: 630, type: "image/png" }],
+      images: [{ url: ogImageUrl, width: 1200, height: 630, type: "image/png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${page.title} | ${site.brand.name}`,
       description: page.description,
-      images: ["/og-investwithhacoco.png"],
+      images: [ogImageUrl],
     },
   };
 }
