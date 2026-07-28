@@ -20,6 +20,7 @@ export async function GET() {
     paths.push(
       "/listings",
       ...investorListings.map((listing) => `/opportunities/${listing.slug}`),
+      investorServicesBasePath,
       investorInsightsBasePath,
       ...investorBlogPosts.map((post) => `${investorInsightsBasePath}/${post.slug}`),
       ...investorServicePages.map((page) => `${investorServicesBasePath}/${page.slug}`),

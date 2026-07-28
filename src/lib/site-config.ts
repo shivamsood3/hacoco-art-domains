@@ -641,7 +641,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
             subtitle: "Company setup and market entry support for entrepreneurs and trading families",
             category: "Business Setup",
             badge: "Services",
-            image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85",
+            image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=85",
             href: "/services/dubai-free-zone-company-setup",
           },
           {

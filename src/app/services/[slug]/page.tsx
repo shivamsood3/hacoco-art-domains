@@ -68,7 +68,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <InvestorDetailView
-      activePath="/#approach"
+      activePath="/services"
       ctaEyebrow="Acquisition Brief"
       page={page}
       site={site}

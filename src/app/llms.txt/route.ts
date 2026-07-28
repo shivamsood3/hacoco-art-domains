@@ -92,6 +92,7 @@ function buildRealEstateContent(
         (listing) =>
           `- Opportunity: ${listing.title}: ${baseUrl}/opportunities/${listing.slug}`,
       ),
+      `- Services: ${baseUrl}${investorServicesBasePath}`,
       `- Market Intelligence: ${baseUrl}${investorInsightsBasePath}`,
       ...investorBlogPosts.map(
         (post) => `- ${post.title}: ${baseUrl}${investorInsightsBasePath}/${post.slug}`,

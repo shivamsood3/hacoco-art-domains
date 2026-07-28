@@ -56,6 +56,20 @@ export const investorServicePages: InvestorDetailPage[] = [
           "A good off plan investment should not depend only on market appreciation. It should make sense as a completed property, with a clear reason why future buyers or tenants will care about that location and product.",
         ],
       },
+      {
+        heading: "Where investors lose money",
+        body: [
+          "Most weak primary purchases begin with the wrong comparison set. A payment plan can look attractive against another launch, but the real benchmark is the value of a completed, competing asset in the same micro market.",
+          "We review supply coming into the handover window, developer execution record, unit efficiency, floor premium, maintenance load, expected exit pool and whether the buyer is being rewarded enough for accepting construction risk.",
+        ],
+      },
+      {
+        heading: "What Hacoco brings to the table",
+        body: [
+          "Hacoco does not treat Delhi NCR, Goa and Dubai off plan property as one uniform product. Each market has a different regulatory framework, buyer profile, liquidity depth and construction risk.",
+          "The output is a short acquisition note: why the project is worth reviewing, what could go wrong, what documents need professional review and which competing options should be seen before capital is committed.",
+        ],
+      },
     ],
   },
   {
@@ -93,6 +107,20 @@ export const investorServicePages: InvestorDetailPage[] = [
         body: [
           "We help compare ready floors, resale floors, redevelopment-linked assets, bungalows and select land-share opportunities across the colonies that match the buyer's mandate.",
           "The process is especially useful for NRIs and busy local buyers who need fewer but better site visits, cleaner context and a sharper decision framework before capital moves.",
+        ],
+      },
+      {
+        heading: "The value is in the block",
+        body: [
+          "A buyer can overpay for a beautiful finish and still own the wrong floor. South Delhi pricing depends on road width, plot shape, lift and parking quality, construction age, floor height, collaboration structure, entry experience and whether future buyers will trust the lane.",
+          "We separate cosmetic value from durable value. Interiors can be changed. Land share, title, approach, parking and neighbourhood quality are harder to repair after purchase.",
+        ],
+      },
+      {
+        heading: "How the shortlist is built",
+        body: [
+          "Hacoco begins with the buyer's non-negotiables, then filters inventory through title comfort, seller seriousness, comparable pricing, redevelopment risk, floor plan utility and resale depth.",
+          "The goal is not to flood the buyer with options. It is to reduce the search to a set of homes that deserve inspection, negotiation and professional due diligence.",
         ],
       },
     ],
@@ -134,6 +162,20 @@ export const investorServicePages: InvestorDetailPage[] = [
           "For Indian buyers, we also account for currency exposure, remittance planning, future use, professional tax advice and whether a purchase should sit alongside free zone setup or a wider UAE plan.",
         ],
       },
+      {
+        heading: "Ready versus off plan",
+        body: [
+          "Ready property can provide rental evidence, physical inspection and faster possession. Off plan property can provide phased payments, new inventory and access to projects that may be scarce once completed. Both can work, but they require different underwriting.",
+          "Hacoco compares net yield, service charges, expected completion supply, developer record, unit plan, community maturity and resale depth before presenting Dubai options as investable.",
+        ],
+      },
+      {
+        heading: "A global buyer lens",
+        body: [
+          "Dubai is attractive because it is open, liquid and globally understood. That openness also means buyers are exposed to aggressive launches, crowded narratives and projects that sell faster than they can be properly evaluated.",
+          "We help buyers slow the decision down. The better Dubai acquisition has a clear use case, sensible entry, defensible location, clean payment path and a realistic exit buyer.",
+        ],
+      },
     ],
   },
   {
@@ -143,8 +185,8 @@ export const investorServicePages: InvestorDetailPage[] = [
     description:
       "Dubai free zone setup support for entrepreneurs, trading families and investors who need activity fit, documentation coordination, visa planning and banking readiness.",
     image: {
-      src: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=85",
-      alt: "Business district skyline",
+      src: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600&q=85",
+      alt: "Dubai business towers and city skyline",
     },
     keywords: [
       "Dubai free zone company setup",
@@ -171,6 +213,20 @@ export const investorServicePages: InvestorDetailPage[] = [
         body: [
           "For many families, Dubai real estate and company setup are connected decisions. A property may support use or residency optionality, while the company supports trading, consulting, services or holding activity.",
           "The goal is to make those decisions coherent, with the right professional advice around tax, compliance, banking and corporate structure.",
+        ],
+      },
+      {
+        heading: "How we frame the setup",
+        body: [
+          "The starting point is the activity, not the package price. Consulting, trading, holding, services and regional operating businesses may need different free zones, office commitments, visa planning and banking preparation.",
+          "Hacoco helps coordinate the question set before introductions are made: ownership, activity, invoicing flow, client geography, visa requirement, expected banking profile and whether UAE property sits alongside the company plan.",
+        ],
+      },
+      {
+        heading: "What should be reviewed professionally",
+        body: [
+          "Company formation should be coordinated with qualified corporate, tax, banking and compliance specialists. Hacoco does not replace that advice. We help the client prepare a cleaner brief and avoid a setup that looks simple but creates operational friction later.",
+          "For serious families, the value is sequence. Property payments, documentation, source of funds, visas, operating purpose and banking readiness should be considered together.",
         ],
       },
     ],
@@ -210,6 +266,20 @@ export const investorServicePages: InvestorDetailPage[] = [
         body: [
           "North Goa, South Goa and inland pockets all serve different buyers. Some assets suit rental income. Some suit personal use. Some are better treated as land banking or low-density lifestyle ownership.",
           "We help define that purpose early so the buyer does not overpay for emotion or reject a strong asset because the comparison set is badly built.",
+        ],
+      },
+      {
+        heading: "What makes a villa investment grade",
+        body: [
+          "A Goa asset needs more than charm. We look at title comfort, access, water, power, permissions, design quality, staffing, maintenance, rental manager capability, occupancy assumptions and the ease of eventual resale.",
+          "The best opportunities usually combine lifestyle utility with a realistic operating plan. A weak villa may photograph well and still become expensive to own.",
+        ],
+      },
+      {
+        heading: "How Hacoco protects the process",
+        body: [
+          "We help buyers avoid comparing a managed villa, raw land parcel, boutique project and personal-use home as if they were the same asset class.",
+          "The shortlist is built around purpose first: personal use, managed rental, capital appreciation, family retreat or long-duration land exposure.",
         ],
       },
     ],
@@ -252,6 +322,20 @@ export const investorServicePages: InvestorDetailPage[] = [
           "We help screen for local risks before the buyer spends serious time or money, including fragmented ownership, weak approach, unclear conversion, environmental constraints and unrealistic seller pricing.",
         ],
       },
+      {
+        heading: "Corridors are not enough",
+        body: [
+          "The phrase near an expressway can hide a wide range of outcomes. A parcel near the wrong access point, with weak approach or difficult title, may not benefit from the larger infrastructure story.",
+          "Hacoco evaluates the exact asset: road width, distance from meaningful access, land use, mutation history, ownership fragmentation, drainage, conversion pathway, local demand and the likely future buyer.",
+        ],
+      },
+      {
+        heading: "What serious buyers need",
+        body: [
+          "Land is a patient asset. It should be bought with a holding plan, a legal review plan and a clear view of what would make the next buyer pay more.",
+          "We work best with buyers who want a disciplined field filter before committing travel, legal cost or negotiation energy to a parcel.",
+        ],
+      },
     ],
   },
   {
@@ -289,6 +373,20 @@ export const investorServicePages: InvestorDetailPage[] = [
         body: [
           "Vineyard diligence should include appellation, terroir, production history, operating team, capex, agricultural risk, distributor relationships, local legal structure, tax treatment and sale process.",
           "The buyer should move with specialist legal, tax, agricultural and operating advice. Hacoco's role is to help frame the opportunity and coordinate the right review path.",
+        ],
+      },
+      {
+        heading: "Why families consider it",
+        body: [
+          "A vineyard is different from residential real estate because it can combine land value, brand equity, production economics and family use. That mix can be attractive, but only when the buyer understands the operating burden.",
+          "Hacoco treats vineyard opportunities as specialist investments. The review must test the romance of the asset against cash flow, capex, staffing, agricultural volatility and jurisdiction-specific advice.",
+        ],
+      },
+      {
+        heading: "How the mandate is framed",
+        body: [
+          "Some families look for a lifestyle estate. Others want a functioning operating asset, hospitality potential or a long-term family holding. Each purpose changes the diligence path.",
+          "The first step is to define the role of the asset inside the family's broader portfolio before a specific estate is recommended.",
         ],
       },
     ],
@@ -330,6 +428,20 @@ export const investorServicePages: InvestorDetailPage[] = [
           "This is especially useful across South Delhi, Dubai, Goa and land parcels where micro-market context matters more than a listing link.",
         ],
       },
+      {
+        heading: "A better remote workflow",
+        body: [
+          "The work begins with a written mandate and a clear rejection framework. That helps avoid the common remote-buyer problem of reviewing too many weak links and too few real opportunities.",
+          "Hacoco can coordinate video walkthroughs, document collection, pricing context, site visit sequencing and introductions to qualified professionals where required.",
+        ],
+      },
+      {
+        heading: "Where it matters most",
+        body: [
+          "Remote acquisition support is most valuable when local nuance drives value: South Delhi lanes, Goa permissions, Dubai project selection and North India land title.",
+          "The aim is to make the buyer's first physical visit more productive, with fewer surprises and a clearer sense of what still needs verification.",
+        ],
+      },
     ],
   },
 ];
@@ -355,6 +467,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "Hacoco helps buyers compare the real trade-offs between new floors, resale floors, redevelopment assets and rare bungalow opportunities.",
         ],
       },
+      {
+        heading: "What drives pricing",
+        body: [
+          "The pricing conversation changes street by street. Defence Colony, Greater Kailash, Vasant Vihar, Anand Niketan, Panchsheel Park, Jor Bagh and Sunder Nagar each carry different buyer pools, plot typologies and resale behaviour.",
+          "A finished floor can command a premium, but the durable value often sits in land share, block quality, parking, lift experience, floor plate efficiency, documentation and how many future buyers will trust the address.",
+        ],
+      },
+      {
+        heading: "What Hacoco checks",
+        body: [
+          "We screen for seller intent, comparable evidence, parking clarity, collaboration terms, land share, construction age, floor quality, lane width and professional document review before treating a property as worth serious buyer time.",
+          "The goal is fewer site visits and stronger conviction. For South Delhi, a short list should feel narrow because the market rewards precision.",
+        ],
+      },
     ],
   },
   {
@@ -377,6 +503,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "Hacoco evaluates whether the project can compete after handover, not only whether the launch payment plan looks attractive today.",
         ],
       },
+      {
+        heading: "Where the opportunity is",
+        body: [
+          "Gurugram, Dwarka Expressway, SPR, New Gurgaon, Noida Expressway and selected peripheral corridors can all produce investable opportunities, but not every launch deserves capital.",
+          "The strongest primary assets usually combine credible developer delivery, sensible density, infrastructure visibility, livable unit planning and a future buyer pool that extends beyond launch investors.",
+        ],
+      },
+      {
+        heading: "Risk lens",
+        body: [
+          "Hacoco reviews project registration, land status, payment schedule, construction progress, developer balance sheet behaviour, competing supply and likely resale depth after possession.",
+          "A buyer should understand what happens if exit before handover is not available. If the asset does not work as a completed home or rental product, the entry is weaker than it appears.",
+        ],
+      },
     ],
   },
   {
@@ -386,8 +526,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Primary off plan, ready yield, branded residences, family communities and UAE market access for Indian and global buyers.",
     image: {
-      src: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=85",
-      alt: "Dubai skyline",
+      src: "/images/investor/dubai-marina.jpg",
+      alt: "Dubai Marina waterfront and high-rise towers",
     },
     keywords: ["Dubai property", "Dubai off plan", "UAE real estate"],
     highlights: ["Global buyer access", "Escrow framework", "Rental depth", "Currency diversification"],
@@ -397,6 +537,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "Dubai is useful for buyers seeking a mix of rental demand, global liquidity, lifestyle access, currency diversification and possible business alignment.",
           "The strongest opportunities combine credible location, developer delivery, tenant demand and service-charge discipline.",
+        ],
+      },
+      {
+        heading: "Where buyers should focus",
+        body: [
+          "Dubai has multiple sub-markets inside one city. Marina, Downtown, Business Bay, Palm Jumeirah, JVC, Dubai Hills, Creek Harbour, branded residences and villa communities each suit different use cases.",
+          "Hacoco helps distinguish income assets, family-use homes, off plan entries, branded inventory and residency-linked purchases so the buyer is not comparing products that solve different problems.",
+        ],
+      },
+      {
+        heading: "What can go wrong",
+        body: [
+          "The market's strength is also the risk. High launch activity, heavy marketing, future handover supply and service-charge surprises can dilute returns if the asset is selected casually.",
+          "We review net yield, building charges, community maturity, developer record, unit efficiency, payment plan, handover concentration and the likely resale audience before a recommendation is made.",
         ],
       },
     ],
@@ -421,6 +575,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "Hacoco screens for use case, title comfort, location quality, management and realistic income assumptions.",
         ],
       },
+      {
+        heading: "Different Goa assets",
+        body: [
+          "A North Goa income villa, a South Goa family retreat, a boutique project and an inland land parcel are not the same investment. Each has a different operating profile and buyer base.",
+          "The best purchases begin with purpose: personal use, managed rental, hybrid use, long hold land banking or hospitality potential.",
+        ],
+      },
+      {
+        heading: "Diligence focus",
+        body: [
+          "Hacoco reviews title comfort, access, water and power, permissions, coastal or village constraints, management partner quality, maintenance cost and realistic rental assumptions.",
+          "A villa that is difficult to maintain, operate or resell can quickly become a lifestyle liability. The underwriting has to be practical.",
+        ],
+      },
     ],
   },
   {
@@ -441,6 +609,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "The Jewar and YEIDA story is driven by airport-led infrastructure, industrial planning, logistics, plotted development and long-duration urbanisation.",
           "Hacoco reviews exact location, access, land use, title and realistic exit demand before treating land as investable.",
+        ],
+      },
+      {
+        heading: "Why exact location matters",
+        body: [
+          "Airport influence does not lift every parcel equally. Interchange access, sector planning, road width, land use, acquisition risk and surrounding development decide whether the land has a credible future buyer.",
+          "Hacoco studies the parcel in relation to planned infrastructure, existing access and the likely use case, rather than relying only on the airport narrative.",
+        ],
+      },
+      {
+        heading: "Buyer fit",
+        body: [
+          "This market suits patient capital that can tolerate title review, policy change, holding period and uncertain timing. It is not a quick resale market for casual buyers.",
+          "A serious purchase should be supported by legal diligence, mutation checks, land-use review and a realistic view of liquidity.",
         ],
       },
     ],
@@ -465,6 +647,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "Hacoco filters for interchanges, access, land use, conversion comfort, flood and drainage risk, and the future buyer profile.",
         ],
       },
+      {
+        heading: "Baghpat to Haridwar logic",
+        body: [
+          "Baghpat and Baraut can benefit from improved access to Delhi and regional movement, while Haridwar and Rishikesh-linked areas may support hospitality, wellness, plotted and second-home demand.",
+          "The attractive thesis is not just distance from Delhi. It is whether the parcel sits near meaningful access, can be legally used for the intended purpose and has a future buyer beyond the current seller's story.",
+        ],
+      },
+      {
+        heading: "Risk lens",
+        body: [
+          "Hacoco reviews road approach, drainage, title chain, land use, conversion pathway, local disputes, environmental issues and whether development cost makes the purchase sensible.",
+          "This is a corridor where discipline matters. The best asset may not be the cheapest land, but the land with the cleanest path to use and exit.",
+        ],
+      },
     ],
   },
   {
@@ -474,8 +670,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Industrial, warehousing and highway-linked land in the Khushkhera-Bhiwadi-Neemrana belt for buyers seeking corridor-led exposure.",
     image: {
-      src: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=85",
-      alt: "Modern low-rise building",
+      src: "/images/investor/neemrana-land.jpg",
+      alt: "Neemrana land and development corridor",
     },
     keywords: ["Neemrana land", "DMIC real estate", "industrial corridor land"],
     highlights: ["Industrial logic", "Highway access", "Warehousing demand", "Land use discipline"],
@@ -485,6 +681,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "Neemrana is an industrial and employment-led corridor, not a pure lifestyle market. Its strongest cases connect to manufacturing, logistics, warehousing and highway access.",
           "Hacoco focuses on land with credible future use, not random agricultural parcels sold on broad corridor excitement.",
+        ],
+      },
+      {
+        heading: "Industrial corridor lens",
+        body: [
+          "The Neemrana, Bhiwadi and Khushkhera belt should be reviewed through employment, logistics, manufacturing, warehousing and access, not only through residential appreciation.",
+          "A good land case has clear road connectivity, realistic land use, proximity to demand and a reason an industrial, commercial or plotted buyer would want it later.",
+        ],
+      },
+      {
+        heading: "What we avoid",
+        body: [
+          "We are cautious around parcels that are too far from usable access, unclear on title, dependent on vague future announcements or priced as if the full corridor story has already been delivered.",
+          "The underwriting focuses on what can be verified today and what future optionality is being bought at a sensible price.",
         ],
       },
     ],
@@ -509,6 +719,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
           "Hacoco reviews slope, road width, water, forest boundary, construction rules, title and local permissions before recommending a serious next step.",
         ],
       },
+      {
+        heading: "The Dehradun and Mussoorie access story",
+        body: [
+          "Improved Delhi-Dehradun connectivity can increase interest in second homes, retreat land and hospitality-led assets. That does not make every hill parcel investable.",
+          "Buildability, road approach, water, slope, forest proximity, local permissions and maintenance logistics determine whether the land can become a usable asset.",
+        ],
+      },
+      {
+        heading: "Kotabagh and Bejunia lens",
+        body: [
+          "Kotabagh and Bejunia near Kaladhungi can appeal to buyers seeking quieter lifestyle land near forest, hill and weekend-use demand. The opportunity requires careful checks on access, ownership, land use and practical development cost.",
+          "Hacoco helps buyers avoid buying scenery without a plan. A beautiful parcel still needs legal clarity, buildability and a credible exit buyer.",
+        ],
+      },
     ],
   },
   {
@@ -529,6 +753,20 @@ export const investorMarketPages: InvestorDetailPage[] = [
         body: [
           "French vineyards can suit families seeking differentiated real-asset exposure beyond residential property. They require specialist operating and legal diligence.",
           "Hacoco can help frame whether the opportunity is a passion asset, business asset, lifestyle investment or long-term family holding.",
+        ],
+      },
+      {
+        heading: "What makes it different",
+        body: [
+          "A vineyard is a real asset and an operating business. Land, appellation, production history, inventory, hospitality potential, brand and management all affect the investment case.",
+          "The buyer must be clear whether the objective is family legacy, lifestyle use, operating income, international diversification or a blend of these.",
+        ],
+      },
+      {
+        heading: "Diligence standard",
+        body: [
+          "Hacoco helps frame the opportunity, but specialist legal, tax, agricultural and operating advice is essential. Capex, staffing, yield variability and market route must be understood before the purchase is treated as serious.",
+          "This category is best for families comfortable with operating complexity and a long horizon.",
         ],
       },
     ],
