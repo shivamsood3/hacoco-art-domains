@@ -57,6 +57,8 @@ function buildCommodityContent(
     "## Official pages",
     "",
     `- Home: ${baseUrl}`,
+    `- About Us: ${baseUrl}/about`,
+    `- Contact Us: ${baseUrl}/contact`,
     `- Privacy Policy: ${baseUrl}/privacy`,
     `- Terms of Use: ${baseUrl}/terms`,
     `- Contact: mailto:${site.footer.email}`,
@@ -76,13 +78,15 @@ function buildRealEstateContent(
     "## Official pages",
     "",
     `- Home: ${baseUrl}`,
+    `- About Us: ${baseUrl}/about`,
+    `- Contact Us: ${baseUrl}/contact`,
     `- Privacy Policy: ${baseUrl}/privacy`,
     `- Terms of Use: ${baseUrl}/terms`,
-    `- Contact: mailto:${site.footer.email}`,
   ];
 
   if (site.slug === "investor") {
     lines.push(
+      `- Listings: ${baseUrl}/listings`,
       `- Market Intelligence: ${baseUrl}${investorInsightsBasePath}`,
       ...investorBlogPosts.map(
         (post) => `- ${post.title}: ${baseUrl}${investorInsightsBasePath}/${post.slug}`,

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
@@ -31,15 +32,8 @@ export default async function MarketIntelligencePage() {
 
   return (
     <main className="page-shell min-h-screen">
-      <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 lg:px-8">
-        <header className="flex items-center justify-between border-b border-subtle pb-8">
-          <Link href="/" className="font-display text-3xl text-[var(--textStrong)]">
-            {site.brand.name}
-          </Link>
-          <Link href="/#lead-form" className="primary-button">
-            Get Options
-          </Link>
-        </header>
+      <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-6 lg:px-8">
+        <SiteHeader site={site} activePath="/market-intelligence" />
 
         <section className="py-16">
           <p className="eyebrow">Market Intelligence</p>
@@ -92,6 +86,8 @@ export default async function MarketIntelligencePage() {
             </article>
           ))}
         </section>
+
+        <SiteFooter site={site} />
       </div>
     </main>
   );

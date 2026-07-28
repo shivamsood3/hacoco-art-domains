@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import Link from "next/link";
 
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -25,15 +25,8 @@ export default async function TermsPage() {
 
   return (
     <main className="page-shell min-h-screen">
-      <div className="mx-auto max-w-4xl px-5 py-8 sm:px-6 lg:px-8">
-        <header className="flex items-center justify-between border-b border-subtle pb-8">
-          <Link href="/" className="font-display text-3xl text-[var(--textStrong)]">
-            {site.brand.name}
-          </Link>
-          <Link href="/#lead-form" className="primary-button">
-            Contact
-          </Link>
-        </header>
+      <div className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 lg:px-8">
+        <SiteHeader site={site} activePath="/terms" />
 
         <article className="py-14">
           <p className="eyebrow">Terms of Use</p>
@@ -83,6 +76,8 @@ export default async function TermsPage() {
             </p>
           </div>
         </article>
+
+        <SiteFooter site={site} />
       </div>
     </main>
   );

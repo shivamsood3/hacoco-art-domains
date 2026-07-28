@@ -13,10 +13,11 @@ export async function GET() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
   const baseUrl = `https://${site.primaryDomain}`;
-  const paths = ["", "/privacy", "/terms"];
+  const paths = ["", "/about", "/contact", "/privacy", "/terms"];
 
   if (site.slug === "investor") {
     paths.push(
+      "/listings",
       investorInsightsBasePath,
       ...investorBlogPosts.map((post) => `${investorInsightsBasePath}/${post.slug}`),
       ...investorServicePages.map((page) => `${investorServicesBasePath}/${page.slug}`),

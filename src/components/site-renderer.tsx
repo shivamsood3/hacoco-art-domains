@@ -11,6 +11,7 @@ import type {
 
 import { CommoditySiteRenderer } from "./commodity-site-renderer";
 import { LeadForm } from "./lead-form";
+import { SiteFooter, SiteHeader } from "./site-chrome";
 
 type SiteRendererProps = {
   site: SiteConfig;
@@ -30,7 +31,7 @@ export function SiteRenderer({ site }: SiteRendererProps) {
   return (
     <main className="page-shell overflow-x-hidden">
       <div className="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8">
-        <Navbar site={site} />
+        <SiteHeader site={site} activePath="/" />
         <Hero site={site} />
         <TrustStrip site={site} />
 
@@ -129,44 +130,17 @@ export function SiteRenderer({ site }: SiteRendererProps) {
           </div>
         </section>
 
-        <Footer site={site} />
+        <SiteFooter site={site} />
       </div>
     </main>
   );
 }
 
-function Navbar({ site }: { site: SiteConfig }) {
-  return (
-    <header className="flex items-center justify-between py-6 md:py-8">
-      <div>
-        <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--textSoft)]">
-          {site.brand.eyebrow}
-        </p>
-        <p className="font-display mt-1 text-[1.8rem] leading-none text-[var(--textStrong)]">
-          {site.brand.name}
-        </p>
-      </div>
-
-      <nav className="hidden items-center gap-7 text-sm text-[var(--textMuted)] md:flex">
-        {site.navigation.slice(0, 3).map((item) => (
-          <a
-            key={`${item.label}-${item.href}`}
-            href={item.href}
-            className="hover:text-[var(--textStrong)]"
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-
-      <a className="primary-button" href="#lead-form">
-        {site.navCtaLabel}
-      </a>
-    </header>
-  );
-}
-
 function Hero({ site }: { site: SiteConfig }) {
+  if (site.slug === "investor") {
+    return <InvestorHero site={site} />;
+  }
+
   return (
     <section className="grid gap-10 py-8 md:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
       <div className="pt-6 md:pt-10">
@@ -212,6 +186,110 @@ function Hero({ site }: { site: SiteConfig }) {
       ) : (
         <FeatureHeroCard site={site} />
       )}
+    </section>
+  );
+}
+
+function InvestorHero({ site }: { site: SiteConfig }) {
+  const destinations = [
+    { label: "South Delhi", href: "/markets/south-delhi-homes" },
+    { label: "Delhi NCR Off Plan", href: "/markets/delhi-ncr-off-plan" },
+    { label: "Dubai/UAE", href: "/markets/dubai-property" },
+    { label: "Goa", href: "/markets/goa-villas" },
+    { label: "North India Land", href: "/services/north-india-land-acquisition" },
+  ];
+
+  return (
+    <section className="py-10 md:py-14">
+      <div className="mx-auto max-w-5xl text-center">
+        <p className="eyebrow">{site.hero.eyebrow}</p>
+        <h1 className="font-display copy-balance mx-auto mt-5 max-w-5xl text-[3.8rem] leading-[0.86] text-[var(--textStrong)] md:text-[6.8rem]">
+          Where do you want to invest?
+        </h1>
+        <p className="lede mx-auto mt-6 max-w-3xl">
+          Curated access across South Delhi homes, Delhi NCR off plan, Dubai/UAE,
+          Goa villas, North India land corridors and selective global
+          diversification.
+        </p>
+
+        <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-2">
+          {destinations.map((destination) => (
+            <Link
+              key={destination.label}
+              href={destination.href}
+              className="rounded-full border border-subtle bg-[var(--bgElevated)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--textMuted)] shadow-[var(--shadowSoft)] hover:-translate-y-0.5 hover:text-[var(--textStrong)]"
+            >
+              {destination.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {site.hero.ctas.map((cta) => (
+            <Link
+              key={cta.label}
+              className={cta.variant === "primary" ? "primary-button" : "secondary-button"}
+              href={cta.href}
+            >
+              {cta.label}
+            </Link>
+          ))}
+          <Link className="secondary-button" href="/listings">
+            View Listings
+          </Link>
+        </div>
+      </div>
+
+      <div className="section-band section-band--elevated mt-12 grid gap-4 p-4 md:grid-cols-[1.35fr_0.65fr] md:p-5">
+        <div className="gallery-frame relative aspect-[16/9]">
+          <Image
+            alt={site.hero.image.alt}
+            className="h-full w-full object-cover"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 70vw"
+            src={site.hero.image.src}
+          />
+        </div>
+
+        <div className="grid gap-4">
+          <div className="surface-card-tint p-6">
+            <p className="eyebrow">Private Acquisition Desk</p>
+            <h2 className="font-display copy-balance mt-4 text-[2.45rem] leading-[0.92] text-[var(--textStrong)]">
+              Matched property options, not browsing noise.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[var(--textMuted)]">
+              Tell us the market, ticket size, asset type and holding plan. We
+              filter the opportunity universe before asking you to spend time.
+            </p>
+          </div>
+
+          <div className="surface-card p-6">
+            <p className="eyebrow">Start Your Search</p>
+            <div className="mt-4 grid gap-3">
+              <Link href="/listings" className="secondary-button justify-center">
+                View Curated Listings
+              </Link>
+              <Link href="/contact" className="primary-button justify-center">
+                Speak To Hacoco
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3">
+        {site.hero.metrics.map((metric) => (
+          <div key={metric.label} className="surface-card-soft px-4 py-4 text-center">
+            <p className="font-display text-[2.2rem] leading-none text-[var(--textStrong)]">
+              {metric.value}
+            </p>
+            <p className="mt-1 text-sm leading-6 text-[var(--textMuted)]">
+              {metric.label}
+            </p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
@@ -519,44 +597,5 @@ function SectionHeader({
         </p>
       ) : null}
     </div>
-  );
-}
-
-function Footer({ site }: { site: SiteConfig }) {
-  return (
-    <footer className="section-shell py-8">
-      <div className="flex flex-col gap-5 border-t border-subtle pt-8 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--textSoft)]">
-            {site.brand.eyebrow}
-          </p>
-          <p className="font-display mt-2 text-[1.9rem] text-[var(--textStrong)]">
-            {site.brand.name}
-          </p>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--textMuted)]">
-            {site.footer.copy}
-          </p>
-        </div>
-
-        <div className="space-y-2 text-sm text-[var(--textMuted)]">
-          <p>{site.footer.contactLabel}</p>
-          <Link
-            href={`mailto:${site.footer.email}`}
-            className="block text-[var(--textStrong)] hover:opacity-70"
-          >
-            {site.footer.email}
-          </Link>
-          <p>{site.primaryDomain}</p>
-          <div className="flex gap-4 pt-2">
-            <Link href="/terms" className="hover:text-[var(--textStrong)]">
-              Terms of Use
-            </Link>
-            <Link href="/privacy" className="hover:text-[var(--textStrong)]">
-              Privacy Policy
-            </Link>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }

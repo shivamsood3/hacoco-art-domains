@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/seo-structured-data";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import {
   getInvestorBlogPost,
   investorBlogPosts,
@@ -103,18 +104,8 @@ export default async function MarketIntelligenceArticlePage({
         }}
       />
       <main className="page-shell min-h-screen">
-        <div className="mx-auto max-w-5xl px-5 py-8 sm:px-6 lg:px-8">
-          <header className="flex items-center justify-between border-b border-subtle pb-8">
-            <Link
-              href={investorInsightsBasePath}
-              className="text-sm text-[var(--textMuted)] hover:text-[var(--textStrong)]"
-            >
-              Back to intelligence
-            </Link>
-            <Link href="/#lead-form" className="primary-button">
-              Get Options
-            </Link>
-          </header>
+        <div className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 lg:px-8">
+          <SiteHeader site={site} activePath="/market-intelligence" />
 
           <article className="py-14">
             <p className="eyebrow">{post.readTime}</p>
@@ -177,6 +168,8 @@ export default async function MarketIntelligenceArticlePage({
               </Link>
             </section>
           </article>
+
+          <SiteFooter site={site} />
         </div>
       </main>
     </>

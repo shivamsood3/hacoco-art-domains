@@ -478,9 +478,11 @@ export const siteConfigs: Record<string, SiteConfig> = {
       ogImage: "/og-investwithhacoco.png",
     },
     navigation: [
+      { label: "Listings", href: "/listings" },
       { label: "Markets", href: "#markets" },
       { label: "Services", href: "#focus" },
       { label: "Intelligence", href: "/market-intelligence" },
+      { label: "About", href: "/about" },
       { label: "Get Options", href: "#lead-form" },
     ],
     navCtaLabel: "Get Options",

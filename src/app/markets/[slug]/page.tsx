@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import {
   getInvestorMarketPage,
   investorMarketPages,
@@ -69,15 +70,8 @@ export default async function MarketPage({ params }: MarketPageProps) {
 
   return (
     <main className="page-shell min-h-screen">
-      <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 lg:px-8">
-        <header className="flex items-center justify-between border-b border-subtle pb-8">
-          <Link href="/" className="font-display text-3xl text-[var(--textStrong)]">
-            {site.brand.name}
-          </Link>
-          <Link href="/#lead-form" className="primary-button">
-            Start Brief
-          </Link>
-        </header>
+      <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-6 lg:px-8">
+        <SiteHeader site={site} activePath="/#markets" />
 
         <article className="py-14">
           <p className="eyebrow">{page.eyebrow}</p>
@@ -136,6 +130,8 @@ export default async function MarketPage({ params }: MarketPageProps) {
             </Link>
           </section>
         </article>
+
+        <SiteFooter site={site} />
       </div>
     </main>
   );
