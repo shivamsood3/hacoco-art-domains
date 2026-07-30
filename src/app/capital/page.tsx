@@ -46,7 +46,7 @@ export default async function CapitalMandatePage() {
               Hacoco Capital reviews mandate, ticket size, geography, asset class, risk tolerance and timing before introducing opportunities. We do not present private mandates as public inventory.
             </p>
             <p>
-              This page is designed for serious capital allocations, typically starting around INR 25 Cr, with a stronger fit for INR 50 Cr to INR 500 Cr private real estate conversations.
+              Hacoco Capital is generally most relevant for larger or more complex mandates. Specific ticket guidance can be discussed privately once the mandate is understood.
             </p>
           </div>
         </section>

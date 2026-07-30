@@ -51,6 +51,7 @@ export function CapitalForm({
           companyWebsite,
           leadTag: site.form.leadTag,
           leadType: kind,
+          sourcePage: window.location.pathname,
           ...values,
         }),
       });
@@ -134,7 +135,7 @@ export function CapitalForm({
           ) : null}
 
           <p className="capital-form__fine">
-            This is an initial enquiry only. Hacoco Capital does not provide legal, tax, regulated investment or lending advice. Independent professional review is required before any transaction decision.
+            This is an initial enquiry only. Do not share sensitive documents through this form. Specialist legal, tax, technical, valuation or financial review may be required depending on the transaction.
           </p>
         </form>
       )}

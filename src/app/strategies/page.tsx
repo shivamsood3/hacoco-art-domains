@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CapitalFooter, CapitalHeader } from "@/components/capital-site";
-import { transactionStrategies } from "@/lib/capital-content";
+import { strategyComparison, transactionStrategies } from "@/lib/capital-content";
 import { getCapitalSiteOrNotFound } from "@/lib/capital-routing";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,9 +26,9 @@ export default async function StrategiesPage() {
 
         <section className="capital-page-hero">
           <p className="capital-eyebrow">Strategies</p>
-          <h1>Private real estate strategies where access is not enough.</h1>
+          <h1>Different transactions require different underwriting.</h1>
           <p>
-            Each strategy requires a different filter for risk, counterparty quality, documentation, hold period and execution path.
+            A leased commercial asset, a redevelopment site, a land parcel and a special situation do not deserve the same questions. Hacoco Capital begins by identifying what actually drives value and what could prevent execution.
           </p>
         </section>
 
@@ -40,6 +40,31 @@ export default async function StrategiesPage() {
                 <h2>{strategy.title}</h2>
                 <p>{strategy.summary}</p>
               </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="capital-section">
+          <div className="capital-section__head">
+            <p className="capital-eyebrow">Comparison Framework</p>
+            <h2>Different transactions require different diligence.</h2>
+          </div>
+          <div className="capital-comparison" role="table" aria-label="Strategy underwriting comparison">
+            <div className="capital-comparison__row capital-comparison__row--head" role="row">
+              <span>Strategy</span>
+              <span>Primary driver</span>
+              <span>What matters most</span>
+              <span>Principal risk</span>
+              <span>Counterparty</span>
+            </div>
+            {strategyComparison.map((item) => (
+              <div key={item.strategy} className="capital-comparison__row" role="row">
+                <strong>{item.strategy}</strong>
+                <span>{item.driver}</span>
+                <span>{item.matters}</span>
+                <span>{item.risk}</span>
+                <span>{item.counterparty}</span>
+              </div>
             ))}
           </div>
         </section>

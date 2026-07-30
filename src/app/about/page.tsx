@@ -5,7 +5,12 @@ import Link from "next/link";
 
 import { CapitalFooter, CapitalHeader } from "@/components/capital-site";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { transactionStrategies, underwritingPillars } from "@/lib/capital-content";
+import {
+  howCapitalWorks,
+  leadership,
+  transactionStrategies,
+  underwritingPillars,
+} from "@/lib/capital-content";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,7 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `About Us | ${site.brand.name}`,
     description:
-      site.slug === "investor"
+      site.slug === "capital"
+        ? "About Hacoco Capital, the private real estate transaction and capital advisory arm of Hacoco."
+        : site.slug === "investor"
         ? "About Hacoco, a private real estate investment and acquisition desk sourcing residential, land and investment opportunities."
         : `About ${site.brand.name}.`,
     alternates: {
@@ -37,9 +44,9 @@ export default async function AboutPage() {
 
           <section className="capital-page-hero">
             <p className="capital-eyebrow">About Hacoco Capital</p>
-            <h1>A private real estate transaction desk built around discretion and judgement.</h1>
+            <h1>The private transaction and capital advisory arm of Hacoco.</h1>
             <p>
-              Hacoco Capital works where a transaction is too sensitive, too large or too relationship-led for a public listing environment.
+              Hacoco Capital works selectively with investors, owners, developers and family offices on large or complex real estate mandates.
             </p>
           </section>
 
@@ -50,10 +57,59 @@ export default async function AboutPage() {
             </div>
             <div className="capital-copy-stack">
               <p>
-                The desk supports private acquisitions, income assets, land, development, redevelopment, special situations and discreet sell-side conversations. The work is practical: mandate framing, opportunity assessment, sourcing, preparation and counterparty introductions.
+                Hacoco Capital exists because large private real estate transactions rarely progress through exposure alone. They need origination, underwriting, preparation, counterparty access and execution discipline.
               </p>
               <p>
-                Hacoco Capital is not a fund, lender or regulated investment adviser. We do not promise returns, underwrite guarantees or provide legal, tax, valuation or regulatory advice. The value is in private market access, sharper filtering and a controlled route toward qualified professional diligence.
+                The desk supports private acquisitions, income assets, land, development, redevelopment, special situations and discreet sell-side conversations. The work is practical: mandate framing, opportunity assessment, sourcing, preparation and counterparty introductions.
+              </p>
+            </div>
+          </section>
+
+          <section className="capital-section">
+            <div className="capital-section__head">
+              <p className="capital-eyebrow">Two Hacoco Businesses</p>
+              <h2>Hacoco Capital and Invest With Hacoco are complementary.</h2>
+            </div>
+            <div className="capital-comparison-cards">
+              <article>
+                <span>Hacoco Capital</span>
+                <h3>Private transactions</h3>
+                <ul>
+                  <li>Capital mandates</li>
+                  <li>Income assets</li>
+                  <li>Development and redevelopment</li>
+                  <li>Dispositions</li>
+                  <li>Special situations</li>
+                </ul>
+              </article>
+              <article>
+                <span>Invest With Hacoco</span>
+                <h3>Property acquisition</h3>
+                <ul>
+                  <li>Market discovery</li>
+                  <li>Residential and land opportunities</li>
+                  <li>Buyer requirements</li>
+                  <li>Market intelligence</li>
+                  <li>Shortlisted acquisition support</li>
+                </ul>
+                <Link className="capital-text-link" href="https://www.investwithhacoco.com">
+                  Visit Invest With Hacoco
+                </Link>
+              </article>
+            </div>
+          </section>
+
+          <section className="capital-section capital-split">
+            <div>
+              <p className="capital-eyebrow">Broker Difference</p>
+              <h2>Not a listing desk. Not a public circulation machine.</h2>
+            </div>
+            <div className="capital-copy-stack">
+              <p>
+                A traditional brokerage process often begins with available supply. Hacoco Capital begins with the transaction problem: what the capital wants, what the owner needs, what the asset can support and which counterparties are worth approaching.
+              </p>
+              <p>
+                Large transactions do not close simply because more people see them. They close when the opportunity is properly prepared and reaches the right counterparty.
               </p>
             </div>
           </section>
@@ -81,6 +137,26 @@ export default async function AboutPage() {
             </div>
           </section>
 
+          <section className="capital-section capital-leadership">
+            <div>
+              <p className="capital-eyebrow">Leadership</p>
+              <h2>Transaction judgement is personal.</h2>
+              <p>
+                The public team profile is intentionally restrained until every photograph, title and background line is approved by the business.
+              </p>
+            </div>
+            <div className="capital-leadership__cards">
+              {leadership.map((person) => (
+                <article key={person.name}>
+                  <span>{person.role}</span>
+                  <h3>{person.name}</h3>
+                  <p>{person.focus}</p>
+                  <small>{person.note}</small>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section className="capital-section">
             <div className="capital-section__head">
               <p className="capital-eyebrow">Operating Principles</p>
@@ -93,6 +169,52 @@ export default async function AboutPage() {
                   <p>{pillar.copy}</p>
                 </article>
               ))}
+            </div>
+          </section>
+
+          <section className="capital-section">
+            <div className="capital-section__head">
+              <p className="capital-eyebrow">How The Desk Works</p>
+              <h2>From origin to execution support.</h2>
+            </div>
+            <div className="capital-process">
+              {howCapitalWorks.map((step, index) => (
+                <article key={step.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="capital-section capital-split">
+            <div>
+              <p className="capital-eyebrow">Commercial Terms</p>
+              <h2>Fees depend on the mandate.</h2>
+            </div>
+            <div className="capital-copy-stack">
+              <p>
+                Commercial arrangements vary by mandate. Hacoco Capital may work on advisory, brokerage, retainer or success-fee terms depending on the nature of the transaction.
+              </p>
+              <p>
+                Commercial terms and potential conflicts are discussed before substantive work begins. This wording should be reviewed for legal and business accuracy before wider outreach.
+              </p>
+            </div>
+          </section>
+
+          <section className="capital-section capital-split">
+            <div>
+              <p className="capital-eyebrow">Confidentiality & Status</p>
+              <h2>Disclosure is limited by design.</h2>
+            </div>
+            <div className="capital-copy-stack">
+              <p>
+                Transaction details are shared only where Hacoco has a genuine mandate, appropriate permission and a suitably relevant counterparty.
+              </p>
+              <p>
+                Hacoco Capital is not a fund, lender or regulated investment adviser. It does not promise returns, guarantee capital, provide lending decisions or replace legal, tax, valuation, technical or regulatory advice.
+              </p>
             </div>
           </section>
 

@@ -122,6 +122,7 @@ function buildRealEstateContent(
       `- Deploy Capital: ${baseUrl}/capital`,
       `- Private Transactions: ${baseUrl}/transactions`,
       `- Private Desk: ${baseUrl}/private-desk`,
+      `- Disclaimer: ${baseUrl}/disclaimer`,
       `- Strategies: ${baseUrl}/strategies`,
       `- Insights: ${baseUrl}/insights`,
       ...transactionStrategies.map(

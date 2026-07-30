@@ -43,7 +43,7 @@ export default async function TransactionsPage() {
               A private real estate transaction can lose leverage if the wrong buyers see weak information too early. Hacoco Capital helps frame the opportunity, identify what must be clarified and decide whether a controlled capital conversation is appropriate.
             </p>
             <p>
-              We support transaction advisory, opportunity assessment, sourcing, counterparty introductions and execution coordination. We do not act as a lender, fund manager or regulated investment adviser.
+              We support transaction advisory, opportunity assessment, sourcing, counterparty introductions and execution coordination. Specialist advisers can be involved where legal, tax, technical, valuation or financial review is required.
             </p>
           </div>
         </section>
@@ -55,10 +55,10 @@ export default async function TransactionsPage() {
             <p>{transactionDesk.description}</p>
           </div>
           <div className="capital-empty-state">
-            <span>Controlled Circulation</span>
-            <h3>No public transaction examples are fabricated here.</h3>
+            <span>Limited Disclosure</span>
+            <h3>No public transaction memoranda are currently open.</h3>
             <p>{transactionDesk.emptyState}</p>
-            <Link className="capital-button capital-button--ghost" href="/private-desk#memorandum">
+            <Link className="capital-button capital-button--ghost" href="/private-desk?route=memorandum">
               Request memorandum route
             </Link>
           </div>

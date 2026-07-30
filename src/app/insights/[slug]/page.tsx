@@ -54,18 +54,67 @@ export default async function CapitalInsightPage({ params }: PageProps) {
           <Link className="capital-text-link" href="/insights">
             Back to insights
           </Link>
-          <p className="capital-eyebrow">{insight.minutes}</p>
+          <p className="capital-eyebrow">{insight.category} / {insight.minutes}</p>
           <h1>{insight.title}</h1>
           <p className="capital-article__lede">{insight.description}</p>
+          <div className="capital-article__meta">
+            <span>Published {insight.published}</span>
+            <span>Updated {insight.updated}</span>
+          </div>
 
-          {insight.body.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          <section className="capital-article__summary">
+            <h2>Executive summary</h2>
+            <p>{insight.thesis}</p>
+          </section>
 
           <section>
-            <h2>Practical implication</h2>
+            <h2>Core investment question</h2>
             <p>
-              The right next step is not to request every available file. It is to define whether the opportunity fits mandate, role, timing and risk capacity. If that answer is unclear, capital should wait.
+              What must be true for this transaction to justify serious time, professional review and capital attention?
+            </p>
+          </section>
+
+          <section>
+            <h2>Transaction context</h2>
+            {insight.body.slice(0, 2).map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </section>
+
+          <section>
+            <h2>Analytical framework</h2>
+            {insight.body.slice(2).map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </section>
+
+          <section>
+            <h2>Principal risks</h2>
+            <p>
+              The most important risks are usually not hidden in the final negotiation. They are visible early through title, counterparty authority, income durability, pricing evidence, execution sequence and exit liquidity.
+            </p>
+          </section>
+
+          <section>
+            <h2>Hacoco view</h2>
+            <p>{insight.thesis}</p>
+          </section>
+
+          <section>
+            <h2>Buyer or owner checklist</h2>
+            <ul className="capital-article__checklist">
+              <li>Define role, mandate, timing and decision authority.</li>
+              <li>Confirm what must be reviewed by independent specialists.</li>
+              <li>Separate asking price from transaction evidence.</li>
+              <li>Identify the future buyer, tenant or capital partner.</li>
+              <li>Decide what information can be shared and with whom.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Related strategy</h2>
+            <p>
+              This note is most relevant to {insight.category.toLowerCase()} conversations and larger private transactions where preparation can change the quality of counterparties reached.
             </p>
           </section>
 

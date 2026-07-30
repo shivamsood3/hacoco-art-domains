@@ -258,7 +258,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
     seo: {
       title: "Hacoco Capital | Private Real Estate Capital & Transaction Advisory",
       description:
-        "Private real estate capital and transaction advisory for family offices, founders, UHNI buyers, owners, developers and large-ticket investors.",
+        "Hacoco Capital advises investors, owners, developers and family offices on select private real estate transactions, capital mandates and complex real estate opportunities.",
       keywords: [
         "private real estate capital",
         "real estate transaction advisory India",
@@ -290,7 +290,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
       metrics: [
         { value: "Private", label: "Off market and selective mandates" },
         { value: "Reviewed", label: "Asset and documentation led screening" },
-        { value: "Focused", label: "Shortlists built around capital fit" },
+        { value: "Prepared", label: "Transactions reviewed before introductions" },
       ],
       image: {
         src: realEstateImages[0],
@@ -658,7 +658,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
       },
       whyHacoco: {
         eyebrow: "Why Invest With Hacoco",
-        title: "Real estate allocation needs sharper filtering than a listing site can offer.",
+        title: "Real estate allocation needs deeper review than a listing site can offer.",
         paragraphs: [
           "Good assets are rarely understood through photographs alone. Location depth, title, access, construction quality, yield assumptions, seller intent, permissions and exit liquidity all matter.",
           "We help buyers move from broad interest to a mandate led shortlist across South Delhi, primary off plan projects, Dubai/UAE, Goa, northern land corridors and selective international diversification.",

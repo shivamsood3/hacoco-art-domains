@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Suspense } from "react";
 
-import { CapitalForm } from "@/components/capital-form";
+import { CapitalPrivateDesk } from "@/components/capital-private-desk";
 import { CapitalFooter, CapitalHeader } from "@/components/capital-site";
 import { getCapitalSiteOrNotFound } from "@/lib/capital-routing";
 
@@ -32,33 +32,9 @@ export default async function PrivateDeskPage() {
           </p>
         </section>
 
-        <section className="capital-section">
-          <div className="capital-two-paths capital-two-paths--three">
-            {[
-              ["Deploy Capital", "For principals and advisers with a clear capital mandate.", "#deploy"],
-              ["Discuss A Transaction", "For owners, developers and authorised representatives.", "#transaction"],
-              ["Request Memorandum", "For qualified recipients referencing a private transaction.", "#memorandum"],
-            ].map(([title, copy, href], index) => (
-              <Link key={title} href={href}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="capital-form-section" id="deploy">
-          <CapitalForm site={site} kind="deploy" />
-        </section>
-
-        <section className="capital-form-section" id="transaction">
-          <CapitalForm site={site} kind="transaction" />
-        </section>
-
-        <section className="capital-form-section" id="memorandum">
-          <CapitalForm site={site} kind="memorandum" />
-        </section>
+        <Suspense fallback={<div className="capital-private-selector" />}>
+          <CapitalPrivateDesk site={site} />
+        </Suspense>
 
         <CapitalFooter site={site} />
       </div>

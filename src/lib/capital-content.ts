@@ -26,6 +26,16 @@ export const transactionStrategies = [
       "Large residential assets, commercial properties, land positions, redevelopment opportunities and confidential owner conversations.",
     risk:
       "The work is not to find more options. It is to reject weak opportunities early, then move only where title, counterparty, pricing and execution path deserve attention.",
+    maySuit:
+      "Family offices, founders, UHNI buyers, NRI principals and advisers with a defined purchase thesis rather than a general property search.",
+    valueDriver:
+      "Scarcity, replacement value, seller context, transaction evidence and future liquidity.",
+    diligence:
+      "Title, ownership authority, comparable transactions, access, possession, tax and legal review, and the credibility of the seller's timeline.",
+    misconception:
+      "Private does not automatically mean better. A private opportunity still has to justify price, documentation risk and exit logic.",
+    decline:
+      "Hacoco may decline where the buyer mandate is vague, the seller is not authorised, pricing is unsupported or the asset requires public marketing rather than a private process.",
   },
   {
     slug: "income-assets",
@@ -37,6 +47,16 @@ export const transactionStrategies = [
       "Commercial floors, retail, office, mixed-use assets and residential holdings where income must be understood in context.",
     risk:
       "Yield can be misleading when vacancy, lock-in, escalation, fit-out cost, maintenance, compliance and tenant replacement risk are not priced correctly.",
+    maySuit:
+      "Capital seeking income visibility, a defined lease profile and a clearer view of downside than a pure appreciation-led purchase.",
+    valueDriver:
+      "Contracted cash flow, tenant durability, lease structure, escalation, operating cost discipline and exit yield.",
+    diligence:
+      "Lease, tenant credit, WALE, vacancy, deposits, lock-in, escalation, outgoings, building condition, compliance and likely buyer depth at exit.",
+    misconception:
+      "A higher headline yield is not always a better investment. It may simply be compensation for weaker income, shorter certainty or poorer liquidity.",
+    decline:
+      "Hacoco may decline where rent is overstated, lease documents are unclear, tenant replacement is weak or the asset is priced as if risk does not exist.",
   },
   {
     slug: "development-redevelopment",
@@ -48,6 +68,16 @@ export const transactionStrategies = [
       "Colonies, corridors and asset situations where permissions, timing, local market depth and partner capability shape the outcome.",
     risk:
       "Development upside is only useful when legal position, approvals, cost assumptions, exit market and partner alignment can survive a difficult review.",
+    maySuit:
+      "Owners, developers and capital partners reviewing redevelopment, collaboration, repositioning or value-creation transactions.",
+    valueDriver:
+      "Residual land value, permitted area, construction cost, absorption, partner capability and timing.",
+    diligence:
+      "Title, planning, approvals, saleable area, cost plan, contingency, market absorption, developer track record and exit route.",
+    misconception:
+      "A higher proposed built-up area does not create value if permissions, cost, timeline or demand assumptions are fragile.",
+    decline:
+      "Hacoco may decline where control is fragmented, approvals are unrealistic, economics depend on best-case pricing or the proposed partner lacks capability.",
   },
   {
     slug: "land",
@@ -59,6 +89,16 @@ export const transactionStrategies = [
       "North India corridors, urban expansion zones, logistics adjacency, institutional use cases and family balance-sheet land exposure.",
     risk:
       "Land is not liquid by default. The decision must be built around clean records, boundaries, access, zoning, realistic hold period and a credible exit route.",
+    maySuit:
+      "Patient capital, owners and developers evaluating strategic holding, aggregation, infrastructure adjacency or future-use optionality.",
+    valueDriver:
+      "Title clarity, access, frontage, permitted use, infrastructure assumptions, aggregation potential and future buyer logic.",
+    diligence:
+      "Revenue records, title chain, mutation, encumbrances, zoning, land use, road access, boundaries, litigation, approvals and local execution risk.",
+    misconception:
+      "Cheap price per acre can be expensive if title, access, land use or exit liquidity are weak.",
+    decline:
+      "Hacoco may decline where title cannot be reviewed, boundaries are unclear, access is dependent on informal arrangements or the thesis is only corridor speculation.",
   },
   {
     slug: "special-situations",
@@ -70,6 +110,16 @@ export const transactionStrategies = [
       "Assets that require careful counterparty handling, private negotiation and senior-level judgement before any capital is exposed.",
     risk:
       "Complexity can create entry advantage, but only when downside is visible and the transaction can be documented without ambiguity.",
+    maySuit:
+      "Capital and owners comfortable with complex timing, succession, distress, partner exit, incomplete execution or restructuring-led real estate situations.",
+    valueDriver:
+      "Complexity, mispricing, timing pressure, documentation clarity and the ability to solve a specific transaction problem.",
+    diligence:
+      "Ownership, authority, liabilities, documentation gaps, counterparty incentives, timing, litigation, financing position and execution sequence.",
+    misconception:
+      "Complex does not mean undervalued. Some complexity only reduces the probability of closing.",
+    decline:
+      "Hacoco may decline where the situation is unclear, parties are not aligned, documents are incomplete or value depends on pressure rather than a credible solution.",
   },
   {
     slug: "private-disposition-advisory",
@@ -81,6 +131,55 @@ export const transactionStrategies = [
       "Owners, families, developers and corporates with real estate that requires controlled positioning before it reaches prospective capital.",
     risk:
       "A weak sale process can damage price discovery. Confidentiality, buyer qualification and narrative discipline matter before conversations begin.",
+    maySuit:
+      "Owners, families, developers and corporates considering a sale, partial exit or capital partner without broad public exposure.",
+    valueDriver:
+      "Preparation quality, buyer qualification, pricing evidence, information control and negotiation discipline.",
+    diligence:
+      "Ownership authority, asset facts, title position, tenancy or possession, pricing support, likely buyer universe and disclosure boundaries.",
+    misconception:
+      "More circulation does not always create more value. For large assets, weak or premature circulation can reduce leverage.",
+    decline:
+      "Hacoco may decline where the owner is not aligned, price expectations cannot be supported or the transaction requires mass brokerage rather than private preparation.",
+  },
+] as const;
+
+export const strategyComparison = [
+  {
+    strategy: "Income Assets",
+    driver: "Contracted cash flow",
+    matters: "Tenant, lease, WALE, escalation, operating costs and exit yield",
+    diligence: "Lease review, tenant quality, vacancy, compliance and capex",
+    risk: "Income interruption or repricing",
+    counterparty: "Investor, owner, corporate occupier, family office",
+    horizon: "Hold-led, with exit underwritten from day one",
+  },
+  {
+    strategy: "Development & Redevelopment",
+    driver: "Value creation",
+    matters: "Residual land value, approvals, cost, saleable area and absorption",
+    diligence: "Title, planning, construction cost, contingency and partner capability",
+    risk: "Execution and market timing",
+    counterparty: "Owner, developer, capital partner",
+    horizon: "Transaction or project-led",
+  },
+  {
+    strategy: "Land",
+    driver: "Strategic optionality",
+    matters: "Title, access, permitted use, frontage and infrastructure assumptions",
+    diligence: "Revenue records, land use, boundaries, encumbrances and exit liquidity",
+    risk: "Illiquidity and planning uncertainty",
+    counterparty: "Owner, aggregator, developer, patient capital",
+    horizon: "Longer duration",
+  },
+  {
+    strategy: "Special Situations",
+    driver: "Complexity or mispricing",
+    matters: "Counterparty alignment, documentation, timing and path to control",
+    diligence: "Ownership, liabilities, legal review, consent and execution sequence",
+    risk: "Execution failure",
+    counterparty: "Owner, lender, partner, family office, developer",
+    horizon: "Event-led",
   },
 ] as const;
 
@@ -89,7 +188,7 @@ export const transactionDesk = {
   description:
     "Active opportunities are shared only when there is a genuine mandate, suitable counterparty fit and permission to discuss details. Public examples are intentionally limited.",
   emptyState:
-    "No public transaction memoranda are open on the website today. Qualified capital can submit a mandate to receive relevant private conversations when available.",
+    "No public transaction memoranda are currently open. Qualified counterparties may contact the Private Desk to discuss current requirements.",
 };
 
 export const activeCapitalMandates = {
@@ -97,7 +196,7 @@ export const activeCapitalMandates = {
   description:
     "Hacoco Capital maintains live conversations with private capital only where mandate, ticket size, market and risk appetite are clear enough to act.",
   emptyState:
-    "Mandates are not published as a public directory. Owners, developers and intermediaries can submit an opportunity for confidential review.",
+    "Active capital requirements are selectively disclosed where doing so may help identify a suitable opportunity.",
 };
 
 export const underwritingPillars = [
@@ -123,6 +222,59 @@ export const underwritingPillars = [
   },
 ] as const;
 
+export const underwritingFramework = [
+  {
+    title: "Income asset",
+    items: ["NOI", "Tenant quality", "Lease expiry", "Escalation", "Operating costs", "Vacancy", "Exit yield"],
+  },
+  {
+    title: "Development",
+    items: ["Residual land value", "Approvals", "Construction cost", "Saleable area", "Absorption", "Contingency", "Developer capability"],
+  },
+  {
+    title: "Land",
+    items: ["Title", "Land use", "Access", "Frontage", "Planning", "Infrastructure assumptions", "Exit liquidity"],
+  },
+  {
+    title: "Private acquisition",
+    items: ["Scarcity", "Replacement value", "Seller context", "Transaction evidence", "Title", "Liquidity"],
+  },
+] as const;
+
+export const howCapitalWorks = [
+  {
+    title: "Originate",
+    copy: "Understand the asset, capital requirement, counterparty and objective.",
+  },
+  {
+    title: "Assess",
+    copy: "Review economics, title, documentation, market evidence and transaction fit.",
+  },
+  {
+    title: "Prepare",
+    copy: "Develop the transaction narrative, key materials and qualification criteria.",
+  },
+  {
+    title: "Match",
+    copy: "Approach suitable capital, assets or counterparties selectively.",
+  },
+  {
+    title: "Execute",
+    copy: "Support introductions, diligence, negotiation and transaction progression.",
+  },
+] as const;
+
+export const leadership = [
+  {
+    name: "Shivam Sood",
+    role: "Founder / Private Transactions",
+    focus:
+      "Leads Hacoco's private client and counterparty conversations across real estate acquisition, capital and transaction mandates.",
+    note:
+      "Additional leadership biographies should be added only once factual roles, photographs and approved background details are available.",
+  },
+] as const;
+
 export const capitalInsights = [
   {
     slug: "private-real-estate-capital-needs-a-mandate-before-a-market",
@@ -130,6 +282,11 @@ export const capitalInsights = [
     description:
       "Why serious buyers should define ticket size, hold period, risk tolerance and execution constraints before reviewing private real estate opportunities.",
     minutes: "6 min read",
+    category: "Underwriting",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "A private real estate mandate should define risk, liquidity, time and documentation thresholds before sourcing begins.",
     body: [
       "Large private real estate transactions rarely fail because the buyer did not see enough options. They fail because the buyer saw too many unqualified options before the mandate was precise. A mandate is not a wishlist. It is a decision framework. It defines what kind of risk the capital is allowed to take, how long it can remain illiquid, what level of documentation comfort is required and what would make the opportunity unacceptable even if the address looks attractive.",
       "For family offices and founder capital, this matters because real estate is often emotional and operational at the same time. A home can also be a store of capital. A commercial asset can appear income-led while hiding vacancy or capex risk. A land parcel can look inexpensive while carrying time, access and title complexity. Without a mandate, every asset begins to look plausible. With a mandate, most assets are rejected quickly.",
@@ -143,6 +300,11 @@ export const capitalInsights = [
     description:
       "The practical questions a memorandum should address before an investor, owner or capital partner spends time on a private transaction.",
     minutes: "7 min read",
+    category: "Private Transactions",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "A memorandum should make a private transaction easier to qualify, not simply easier to circulate.",
     body: [
       "A private memorandum is not marketing decoration. It should help a qualified counterparty decide whether the transaction deserves a serious conversation. That means it must answer the questions that matter early: what is the asset, who controls it, what is the proposed transaction, what is known, what is unknown and what must be verified independently.",
       "In a private real estate situation, a good memorandum should describe the location, title position, current use, tenancy or possession status, development potential, pricing logic, expected timeline and the reason the transaction exists. It should also be honest about constraints. If approvals are pending, access is imperfect, tenancy is complex or family consent is required, those issues should not be hidden until diligence.",
@@ -151,16 +313,147 @@ export const capitalInsights = [
     ],
   },
   {
-    slug: "income-assets-require-more-than-a-yield-number",
-    title: "Income assets require more than a yield number",
+    slug: "income-assets-why-wale-can-matter-more-than-headline-yield",
+    title: "Income assets: why WALE can matter more than headline yield",
     description:
-      "Why rent, tenant quality, lease terms, maintenance and future liquidity matter before private capital buys an income-producing real estate asset.",
-    minutes: "5 min read",
+      "Why rent durability, tenant quality, lease expiry and exit yield can matter more than the first yield number a buyer sees.",
+    minutes: "8 min read",
+    category: "Income Assets",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "Headline yield is useful only after the buyer understands how long the income may last and what the next buyer will underwrite.",
     body: [
       "A quoted yield is only a starting point. Serious capital needs to know the quality of that income, the durability of the tenant, the enforceability of lease terms, the replacement depth in that micro-market and the capital expenditure likely to be required over the hold period.",
       "The most common mistake is comparing income assets only by headline return. Two assets can show similar yield while carrying very different risk. One may have a strong tenant, clean documentation and a location with future buyer depth. Another may have short lease visibility, building condition issues, concentrated tenant risk and weak resale liquidity. The yield number alone does not capture that difference.",
       "A disciplined review looks at lease lock-in, escalation, deposit, outgoings, vacancy assumptions, fit-out obligations, maintenance liabilities, compliance and the probability of selling the asset to the next buyer. Income is valuable when it is durable. It is less valuable when it compensates the buyer for risks they have not understood.",
       "Hacoco Capital treats income assets as transactions, not coupons. The question is not only what rent is being received today. The better question is whether the capital has been paid adequately for the risks it is accepting.",
+    ],
+  },
+  {
+    slug: "south-delhi-redevelopment-residual-land-value",
+    title: "South Delhi redevelopment: why residual land value matters",
+    description:
+      "How redevelopment conversations should move beyond asking price and into residual land value, permissions, cost, absorption and partner capability.",
+    minutes: "9 min read",
+    category: "Development",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "The seller's asking price is only one input. Residual land value is where a redevelopment transaction begins to show whether it can work.",
+    body: [
+      "Redevelopment is often discussed as if the asset value is obvious because the address is strong. In practice, the address is only the starting point. The transaction depends on what can legally and commercially be created, how long that creation may take, what it may cost and whether the completed product has a credible buyer or occupier market.",
+      "Residual land value forces discipline. It starts with the expected end value, subtracts construction cost, approvals, finance, contingency, marketing, taxes, partner economics and required margin. What remains is the amount the project can rationally support for land or owner consideration. If the seller expectation is materially above that number, the project may still be desirable, but it is not economically prepared.",
+      "In South Delhi, redevelopment is particularly sensitive because plots, lanes, parking, floor configurations, collaboration terms and buyer expectations vary sharply. Two assets in the same colony can produce very different economics. The underwriting has to move from address-level excitement to asset-level math.",
+      "Hacoco's view is that redevelopment conversations should begin with title, control, permissions, cost and buyer depth. Only then should parties debate price. If the economics cannot survive a conservative residual value review, wider circulation will not fix the transaction.",
+    ],
+  },
+  {
+    slug: "commercial-property-lease-expiry-and-price",
+    title: "Commercial property: how lease expiry changes price",
+    description:
+      "Why the same rent can imply different values depending on lease expiry, tenant replacement depth, escalation and buyer exit assumptions.",
+    minutes: "7 min read",
+    category: "Income Assets",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "A lease with weak remaining certainty should not be priced like a lease with durable income visibility.",
+    body: [
+      "Commercial real estate is often sold on rent and yield. The missing question is how much of that rent is durable. Lease expiry changes the price because it changes the buyer's certainty. A tenant with two years of visibility, unclear renewal economics or significant replacement risk is not the same as a tenant with longer contractual comfort and a deeper occupier market.",
+      "The underwriting should examine expiry, lock-in, escalation, deposits, tenant obligations, operating costs, fit-out ownership and the cost of vacancy. If the tenant leaves, the buyer needs to know who replaces them, at what rent, after how many months and with what capital expenditure.",
+      "Exit matters as much as entry. The next buyer will also review lease certainty. If the asset is likely to be sold near lease expiry, the exit yield may widen and the buyer may lose value even if the current rent looks attractive.",
+      "Hacoco's view is direct: lease expiry is not a footnote. It is a pricing input. Any income asset discussion that starts with yield but ignores expiry is incomplete.",
+    ],
+  },
+  {
+    slug: "land-title-access-permitted-use-price-per-acre",
+    title: "Land: why title, access and permitted use can outweigh price per acre",
+    description:
+      "A transaction note on land where cheap entry can become expensive if title, road access, land use or exit liquidity are weak.",
+    minutes: "8 min read",
+    category: "Land",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "Price per acre is not the investment case. Title, access, permitted use and exit liquidity decide whether the land can actually perform.",
+    body: [
+      "Land attracts capital because it appears simple. There is no tenant to manage, no fit-out to review and no building to maintain. That simplicity is misleading. Land can carry some of the hardest real estate risk because the buyer is underwriting what may happen in the future while accepting illiquidity today.",
+      "The first filter is title. Revenue records, mutation, encumbrances, litigation, family consent, land ceiling, zoning and permitted use must be reviewed by qualified professionals. The second filter is access. A parcel without reliable road access or frontage may trade at a discount for a reason. The third filter is future use. If the exit depends on a policy change, infrastructure assumption or speculative buyer, that risk must be priced.",
+      "Price per acre becomes meaningful only after these filters are passed. A higher-priced parcel with clean title, usable access and realistic exit demand can be safer than a cheaper parcel where every future step depends on uncertainty.",
+      "Hacoco's view is that land should be underwritten backwards from the exit. If the future buyer, use case and route to liquidity are unclear, patience alone is not an investment strategy.",
+    ],
+  },
+  {
+    slug: "private-dispositions-uncontrolled-circulation",
+    title: "Private dispositions: why uncontrolled circulation can weaken a large property transaction",
+    description:
+      "Why owners of large assets should prepare buyer qualification, pricing logic and disclosure boundaries before broad circulation.",
+    minutes: "6 min read",
+    category: "Private Transactions",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "Large transactions do not close simply because more people see them. They close when the opportunity is properly prepared and reaches the right counterparty.",
+    body: [
+      "For a large property owner, exposure can feel like progress. More calls, more messages and more circulated teasers can create the impression of momentum. The problem is that uncontrolled circulation can weaken the process. Buyers receive incomplete information, intermediaries repeat inconsistent numbers and the market starts to treat the asset as tired before a qualified conversation has even happened.",
+      "A private disposition should begin with preparation. The owner needs clarity on price logic, title position, tenancy or possession, intended structure, disclosure boundaries and who is authorised to speak. The buyer universe should be defined before the asset is circulated.",
+      "The strongest private processes are not silent. They are selective. The right counterparties receive enough information to judge relevance, and the wrong counterparties never enter the conversation.",
+      "Hacoco's view is that confidentiality has commercial value only when it is paired with preparation. Secrecy alone does not create price. A prepared process can protect leverage, reduce noise and improve the probability of a serious conversation.",
+    ],
+  },
+  {
+    slug: "special-situations-complexity-value-risk",
+    title: "Special situations: when complexity creates value and when it only creates risk",
+    description:
+      "A framework for separating real estate complexity that may create entry advantage from complexity that simply makes execution weaker.",
+    minutes: "7 min read",
+    category: "Special Situations",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "Complexity is investable only when it can be understood, documented and solved within a credible transaction path.",
+    body: [
+      "Special situations can attract capable capital because complexity may reduce competition. The opportunity may involve timing pressure, succession, partner exit, incomplete execution, debt, litigation context or a seller that needs certainty. But complexity is not the same as value. Sometimes it is only a warning that the transaction cannot close cleanly.",
+      "The first question is whether the complexity is soluble. If the issue is documentation, consent, timing or counterparty alignment, it may be possible to structure a path. If the issue is unclear ownership, disputed authority, unrealistic expectations or incomplete facts, the discount may not be enough.",
+      "Special situations require sharper sequencing. The buyer should know what must be verified before exclusivity, what must be solved before capital moves and what condition would end the discussion.",
+      "Hacoco's view is that complexity should be paid for only when the solution is visible. If the solution is vague, the transaction is not special. It is simply risky.",
+    ],
+  },
+  {
+    slug: "tenant-quality-income-durability",
+    title: "Tenant quality: assessing income durability beyond the brand name",
+    description:
+      "Why tenant brand, sector, premises relevance, lease behaviour and replacement market all matter in income asset underwriting.",
+    minutes: "6 min read",
+    category: "Income Assets",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "A recognised tenant name helps, but income durability depends on much more than brand familiarity.",
+    body: [
+      "A strong tenant name can make an income asset feel safe. It is useful, but it is not enough. The buyer needs to understand why the tenant occupies the asset, whether the premises are important to their operations, how the lease is structured and whether the rent is sustainable in that market.",
+      "Tenant quality should be reviewed through business stability, sector exposure, payment behaviour, security deposit, lease obligations, fit-out investment, renewal incentives and replacement demand. A famous tenant in the wrong location or with a short remaining term may still leave the buyer exposed.",
+      "Replacement is the real test. If the current tenant leaves, how many comparable occupiers exist, what rent would they pay and what downtime or capex would be required?",
+      "Hacoco's view is that tenant quality is a durability question, not a branding question. The rent is only as valuable as the probability that it continues or can be replaced on acceptable terms.",
+    ],
+  },
+  {
+    slug: "exit-liquidity-underwrite-backwards",
+    title: "Exit liquidity: underwrite large-ticket real estate backwards",
+    description:
+      "Why private capital should define the likely future buyer, financing environment and resale narrative before acquiring a large asset.",
+    minutes: "7 min read",
+    category: "Underwriting",
+    published: "2026-07-30",
+    updated: "2026-07-30",
+    thesis:
+      "A large real estate asset should be underwritten from the exit backwards, not only from the entry price forward.",
+    body: [
+      "Large-ticket real estate can look attractive at entry because supply is scarce and negotiation feels proprietary. The harder question is who buys it next. Exit liquidity is not a generic market condition. It is specific to asset size, ticket, location, title, tenancy, use case and the future buyer pool.",
+      "Underwriting backwards means asking who the next buyer is, what they will care about, what financing or internal approval they may need and what might make the asset harder to sell. A family buyer, developer, institution and owner-occupier all look at risk differently.",
+      "If the future buyer universe is narrow, the entry price must compensate for that. If the future buyer universe is deep, the asset may deserve a different conversation. Either way, exit cannot be postponed until the sale.",
+      "Hacoco's view is that every private acquisition should carry an exit memo, even if the capital intends to hold for a long time. Long hold does not remove liquidity risk. It only delays the moment when that risk becomes visible.",
     ],
   },
 ] as const;
@@ -267,7 +560,14 @@ export const memorandumFields: LeadField[] = [
     options: ["INR 25 Cr to 50 Cr", "INR 50 Cr to 100 Cr", "INR 100 Cr to 250 Cr", "INR 250 Cr to 500 Cr", "INR 500 Cr+"],
   },
   { name: "transactionReference", label: "Transaction reference", type: "text", required: true, placeholder: "If shared privately, add reference name or context" },
-  { name: "reasonForInterest", label: "Reason for interest", type: "textarea", required: true, placeholder: "Briefly explain capital fit, geography, asset class and timing.", fullWidth: true },
+  { name: "reasonForInterest", label: "Reason for interest", type: "textarea", required: true, placeholder: "Briefly explain geography, asset class, timing and why the transaction is relevant.", fullWidth: true },
+  {
+    name: "privacyAcknowledgement",
+    label: "Consent and privacy acknowledgement",
+    type: "select",
+    required: true,
+    options: ["I consent to be contacted and understand sensitive documents should not be sent through this form"],
+  },
   { name: "existingRelationship", label: "Existing Hacoco relationship", type: "text", placeholder: "Introducer, prior conversation or none" },
   { name: "adviserDetails", label: "Adviser details", type: "text", placeholder: "If represented by an adviser, mention firm/name" },
 ];

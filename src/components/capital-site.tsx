@@ -6,13 +6,14 @@ import {
   capitalImages,
   capitalInsights,
   capitalNav,
+  howCapitalWorks,
+  leadership,
   transactionDesk,
   transactionStrategies,
+  underwritingFramework,
   underwritingPillars,
 } from "@/lib/capital-content";
 import type { SiteConfig } from "@/lib/site-config";
-
-import { CapitalForm } from "./capital-form";
 
 export function CapitalSite({ site }: { site: SiteConfig }) {
   return (
@@ -22,12 +23,11 @@ export function CapitalSite({ site }: { site: SiteConfig }) {
         <CapitalHero site={site} />
         <TwoSidedProposition />
         <StrategyGrid />
-        <TransactionDesk site={site} />
         <UnderwritingApproach />
-        <CapitalMandates site={site} />
+        <PrivateDeskSection />
         <CapitalProcess />
         <SelectedInsight />
-        <DiscretionStatement />
+        <LeadershipSection />
         <FinalCta />
         <CapitalFooter site={site} />
       </div>
@@ -117,6 +117,7 @@ export function CapitalFooter({ site }: { site: SiteConfig }) {
         <p className="capital-footer__label">Contact</p>
         <Link href={`mailto:${site.footer.email}`}>{site.footer.email}</Link>
         <Link href="https://www.investwithhacoco.com">Invest With Hacoco</Link>
+        <Link href="/disclaimer">Disclaimer</Link>
         <Link href="/privacy">Privacy</Link>
         <Link href="/terms">Terms</Link>
       </div>
@@ -160,9 +161,9 @@ function CapitalHero({ site }: { site: SiteConfig }) {
 
       <div className="capital-hero__bar" aria-label="Capital desk focus">
         {[
-          ["INR 25 Cr+", "Indicative private transaction context"],
+          ["Larger", "Private or complex real estate mandates"],
           ["Two-sided", "Capital and opportunity mandates"],
-          ["Confidential", "Controlled introductions and review"],
+          ["Prepared", "Origination, underwriting and introductions"],
         ].map(([value, label]) => (
           <article key={value}>
             <strong>{value}</strong>
@@ -208,7 +209,7 @@ function StrategyGrid() {
     <section className="capital-section" id="strategies">
       <div className="capital-section__head">
         <p className="capital-eyebrow">Transaction Strategies</p>
-        <h2>Strategies where private real estate capital requires sharper filtering.</h2>
+        <h2>Different transactions require different underwriting.</h2>
         <Link href="/strategies">View all strategies</Link>
       </div>
       <div className="capital-strategy-grid">
@@ -224,23 +225,34 @@ function StrategyGrid() {
   );
 }
 
-function TransactionDesk({ site }: { site: SiteConfig }) {
+function PrivateDeskSection() {
   return (
-    <section className="capital-section capital-desk" id="transactions">
+    <section className="capital-section capital-private-desk" id="private-desk">
       <div>
-        <p className="capital-eyebrow">Private Desk</p>
-        <h2>{transactionDesk.title}</h2>
-        <p>{transactionDesk.description}</p>
+        <p className="capital-eyebrow">The Private Desk</p>
+        <h2>Transactions seeking capital. Capital seeking transactions.</h2>
+        <p>
+          Public disclosure is intentionally limited. Details are shared only where Hacoco has an active mandate, permission to disclose and a suitably relevant counterparty.
+        </p>
       </div>
-      <div className="capital-empty-state">
-        <span>Confidential</span>
-        <h3>No public memoranda open today.</h3>
-        <p>{transactionDesk.emptyState}</p>
-        <Link className="capital-button capital-button--ghost" href="/private-desk#memorandum">
-          Request Memorandum Access
-        </Link>
+      <div className="capital-private-desk__columns">
+        <article>
+          <span>Transactions Seeking Capital</span>
+          <h3>No public transaction memoranda are currently open.</h3>
+          <p>{transactionDesk.emptyState}</p>
+          <Link className="capital-button capital-button--ghost" href="/transactions">
+            Discuss A Transaction
+          </Link>
+        </article>
+        <article>
+          <span>Capital Seeking Transactions</span>
+          <h3>Capital requirements are selectively disclosed.</h3>
+          <p>{activeCapitalMandates.emptyState}</p>
+          <Link className="capital-button capital-button--ghost" href="/capital">
+            Deploy Capital
+          </Link>
+        </article>
       </div>
-      <CapitalForm site={site} kind="transaction" compact />
     </section>
   );
 }
@@ -249,39 +261,35 @@ function UnderwritingApproach() {
   return (
     <section className="capital-section capital-underwriting">
       <div>
-        <p className="capital-eyebrow">Underwriting Approach</p>
-        <h2>Risk is not avoided by language. It is reduced by process.</h2>
+        <p className="capital-eyebrow">Underwriting</p>
+        <h2>We start with the numbers.</h2>
         <p>
-          Hacoco Capital is not a regulated investment adviser, lender or fund manager. Our work is transaction advisory, opportunity assessment, sourcing, preparation and counterparty introduction support.
+          Risk is not avoided by language. It is reduced by process. Hacoco Capital provides real estate transaction advisory, origination and introduction support. It does not operate as a fund manager, lender or regulated investment adviser.
         </p>
       </div>
-      <div className="capital-underwriting__grid">
-        {underwritingPillars.map((pillar, index) => (
-          <article key={pillar.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{pillar.title}</h3>
-            <p>{pillar.copy}</p>
-          </article>
-        ))}
+      <div className="capital-underwriting__stack">
+        <div className="capital-underwriting__grid">
+          {underwritingPillars.map((pillar, index) => (
+            <article key={pillar.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.copy}</p>
+            </article>
+          ))}
+        </div>
+        <div className="capital-framework-grid">
+          {underwritingFramework.map((framework) => (
+            <article key={framework.title}>
+              <h3>{framework.title}</h3>
+              <ul>
+                {framework.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
-    </section>
-  );
-}
-
-function CapitalMandates({ site }: { site: SiteConfig }) {
-  return (
-    <section className="capital-section capital-mandates" id="capital">
-      <div>
-        <p className="capital-eyebrow">Active Capital Mandates</p>
-        <h2>{activeCapitalMandates.title}</h2>
-        <p>{activeCapitalMandates.description}</p>
-      </div>
-      <div className="capital-empty-state capital-empty-state--dark">
-        <span>Private</span>
-        <h3>Capital mandates are held off-page.</h3>
-        <p>{activeCapitalMandates.emptyState}</p>
-      </div>
-      <CapitalForm site={site} kind="deploy" compact />
     </section>
   );
 }
@@ -291,21 +299,20 @@ function CapitalProcess() {
     <section className="capital-section">
       <div className="capital-section__head">
         <p className="capital-eyebrow">How Hacoco Capital Works</p>
-        <h2>A controlled path from brief to qualified conversation.</h2>
+        <h2>Originate. Assess. Prepare. Match. Execute.</h2>
       </div>
       <div className="capital-process">
-        {[
-          ["Consult", "We clarify mandate, role, confidentiality, ticket size, asset class and what would make the transaction unacceptable."],
-          ["Frame", "We shape the opportunity or capital requirement into a serious decision package before introductions begin."],
-          ["Source", "We identify suitable counterparties, manage controlled conversations and support the path toward professional diligence."],
-        ].map(([title, copy], index) => (
-          <article key={title}>
+        {howCapitalWorks.map((step, index) => (
+          <article key={step.title}>
             <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{title}</h3>
-            <p>{copy}</p>
+            <h3>{step.title}</h3>
+            <p>{step.copy}</p>
           </article>
         ))}
       </div>
+      <p className="capital-process-note">
+        Legal, tax, technical, valuation and financial specialists may be involved depending on the transaction. Hacoco does not replace independent specialist review.
+      </p>
     </section>
   );
 }
@@ -327,14 +334,29 @@ function SelectedInsight() {
   );
 }
 
-function DiscretionStatement() {
+function LeadershipSection() {
   return (
-    <section className="capital-section capital-discretion">
-      <p className="capital-eyebrow">Discretion & Trust</p>
-      <h2>Confidentiality is not a design feature. It is part of the operating model.</h2>
-      <p>
-        Hacoco Capital does not publish fabricated transactions, fake client outcomes or artificial deal flow. Private mandates are handled selectively, with controlled information sharing and clear limits on what is discussed publicly.
-      </p>
+    <section className="capital-section capital-leadership">
+      <div>
+        <p className="capital-eyebrow">Judgement</p>
+        <h2>Private transactions are built on judgement and trust.</h2>
+        <p>
+          Hacoco Capital keeps the public team presence restrained until every biography and photograph is approved. The desk is led through direct client relationships rather than anonymous listing volume.
+        </p>
+      </div>
+      <div className="capital-leadership__cards">
+        {leadership.map((person) => (
+          <article key={person.name}>
+            <span>{person.role}</span>
+            <h3>{person.name}</h3>
+            <p>{person.focus}</p>
+            <small>{person.note}</small>
+          </article>
+        ))}
+        <Link className="capital-button capital-button--ghost" href="/about">
+          Read About Hacoco Capital
+        </Link>
+      </div>
     </section>
   );
 }

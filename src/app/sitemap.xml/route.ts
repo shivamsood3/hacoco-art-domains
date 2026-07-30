@@ -35,6 +35,7 @@ export async function GET() {
       "/capital",
       "/transactions",
       "/private-desk",
+      "/disclaimer",
       "/strategies",
       "/insights",
       ...transactionStrategies.map((strategy) => `/strategies/${strategy.slug}`),
