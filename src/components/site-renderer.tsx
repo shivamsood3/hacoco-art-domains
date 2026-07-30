@@ -9,6 +9,7 @@ import type {
   ShowcaseItem,
 } from "@/lib/site-config";
 
+import { CapitalSite } from "./capital-site";
 import { CommoditySiteRenderer } from "./commodity-site-renderer";
 import { InvestorSite } from "./investor-site";
 import { LeadForm } from "./lead-form";
@@ -19,6 +20,10 @@ type SiteRendererProps = {
 };
 
 export function SiteRenderer({ site }: SiteRendererProps) {
+  if (site.slug === "capital") {
+    return <CapitalSite site={site} />;
+  }
+
   if (site.vertical === "commodities") {
     return <CommoditySiteRenderer site={site} />;
   }

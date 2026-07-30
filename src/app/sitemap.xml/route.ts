@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 
+import { capitalInsights, transactionStrategies } from "@/lib/capital-content";
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 import {
@@ -26,6 +27,18 @@ export async function GET() {
       ...investorBlogPosts.map((post) => `${investorInsightsBasePath}/${post.slug}`),
       ...investorServicePages.map((page) => `${investorServicesBasePath}/${page.slug}`),
       ...investorMarketPages.map((page) => `${investorMarketsBasePath}/${page.slug}`),
+    );
+  }
+
+  if (site.slug === "capital") {
+    paths.push(
+      "/capital",
+      "/transactions",
+      "/private-desk",
+      "/strategies",
+      "/insights",
+      ...transactionStrategies.map((strategy) => `/strategies/${strategy.slug}`),
+      ...capitalInsights.map((insight) => `/insights/${insight.slug}`),
     );
   }
 

@@ -109,12 +109,19 @@ function buildServiceSchema(
     "@id": `${baseUrl}/#real-estate-service`,
     name: site.brand.name,
     serviceType:
-      site.slug === "investor"
+      site.slug === "capital"
+        ? "Private real estate capital and transaction advisory"
+        : site.slug === "investor"
         ? "Private real estate investment and acquisition"
         : "Private real estate investment access",
     description: site.seo.description,
     url: baseUrl,
-    areaServed: site.slug === "investor" ? "Delhi, NCR, Dubai and selected markets" : "Delhi NCR",
+    areaServed:
+      site.slug === "capital"
+        ? "India private real estate markets"
+        : site.slug === "investor"
+          ? "Delhi, NCR, Dubai and selected markets"
+          : "Delhi NCR",
     provider: {
       "@id": organizationId,
     },

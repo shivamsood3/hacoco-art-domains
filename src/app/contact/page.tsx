@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
 
+import { CapitalForm } from "@/components/capital-form";
+import { CapitalFooter, CapitalHeader } from "@/components/capital-site";
 import { LeadForm } from "@/components/lead-form";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
@@ -25,6 +27,45 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ContactPage() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
+
+  if (site.slug === "capital") {
+    return (
+      <main className="capital-site capital-inner">
+        <div className="capital-shell">
+          <CapitalHeader activePath="/private-desk" site={site} />
+
+          <section className="capital-page-hero">
+            <p className="capital-eyebrow">Contact Hacoco Capital</p>
+            <h1>Start with the private desk, not a public listing request.</h1>
+            <p>
+              Share the minimum useful context. A mandate, role and timing are enough for Hacoco Capital to assess the correct next step.
+            </p>
+          </section>
+
+          <section className="capital-section capital-split">
+            <div>
+              <p className="capital-eyebrow">Direct Contact</p>
+              <h2>For sensitive conversations, email remains available.</h2>
+            </div>
+            <div className="capital-copy-stack">
+              <p>
+                Email: <Link className="capital-text-link" href={`mailto:${site.footer.email}`}>{site.footer.email}</Link>
+              </p>
+              <p>
+                Do not send confidential documents through a public form. Hacoco Capital will request additional material only if fit, permission and confidentiality expectations are clear.
+              </p>
+            </div>
+          </section>
+
+          <section className="capital-form-section">
+            <CapitalForm site={site} kind="transaction" />
+          </section>
+
+          <CapitalFooter site={site} />
+        </div>
+      </main>
+    );
+  }
 
   if (site.slug === "investor") {
     return (

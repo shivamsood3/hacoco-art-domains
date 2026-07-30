@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 
+import { capitalInsights, transactionStrategies } from "@/lib/capital-content";
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 import {
@@ -103,6 +104,31 @@ function buildRealEstateContent(
       ),
       ...investorMarketPages.map(
         (page) => `- Market: ${page.title}: ${baseUrl}${investorMarketsBasePath}/${page.slug}`,
+      ),
+    );
+  }
+
+  if (site.slug === "capital") {
+    lines.push(
+      "",
+      "## What Hacoco Capital does",
+      "",
+      "Hacoco Capital is a private real estate capital and transaction advisory desk. It supports two sides of a private transaction: capital seeking opportunity, and opportunity seeking capital.",
+      "",
+      "The desk supports transaction advisory, opportunity assessment, private acquisitions, disposition advisory, capital introductions, sourcing and execution support. Hacoco Capital is not a fund manager, lender or regulated investment adviser.",
+      "",
+      "## Official Capital pages",
+      "",
+      `- Deploy Capital: ${baseUrl}/capital`,
+      `- Private Transactions: ${baseUrl}/transactions`,
+      `- Private Desk: ${baseUrl}/private-desk`,
+      `- Strategies: ${baseUrl}/strategies`,
+      `- Insights: ${baseUrl}/insights`,
+      ...transactionStrategies.map(
+        (strategy) => `- Strategy: ${strategy.title}: ${baseUrl}/strategies/${strategy.slug}`,
+      ),
+      ...capitalInsights.map(
+        (insight) => `- Insight: ${insight.title}: ${baseUrl}/insights/${insight.slug}`,
       ),
     );
   }

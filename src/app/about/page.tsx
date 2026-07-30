@@ -3,7 +3,9 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
+import { CapitalFooter, CapitalHeader } from "@/components/capital-site";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { transactionStrategies, underwritingPillars } from "@/lib/capital-content";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,6 +28,95 @@ export default async function AboutPage() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
   const isInvestor = site.slug === "investor";
+
+  if (site.slug === "capital") {
+    return (
+      <main className="capital-site capital-inner">
+        <div className="capital-shell">
+          <CapitalHeader activePath="/about" site={site} />
+
+          <section className="capital-page-hero">
+            <p className="capital-eyebrow">About Hacoco Capital</p>
+            <h1>A private real estate transaction desk built around discretion and judgement.</h1>
+            <p>
+              Hacoco Capital works where a transaction is too sensitive, too large or too relationship-led for a public listing environment.
+            </p>
+          </section>
+
+          <section className="capital-section capital-split">
+            <div>
+              <p className="capital-eyebrow">Positioning</p>
+              <h2>We sit between serious capital and serious opportunity.</h2>
+            </div>
+            <div className="capital-copy-stack">
+              <p>
+                The desk supports private acquisitions, income assets, land, development, redevelopment, special situations and discreet sell-side conversations. The work is practical: mandate framing, opportunity assessment, sourcing, preparation and counterparty introductions.
+              </p>
+              <p>
+                Hacoco Capital is not a fund, lender or regulated investment adviser. We do not promise returns, underwrite guarantees or provide legal, tax, valuation or regulatory advice. The value is in private market access, sharper filtering and a controlled route toward qualified professional diligence.
+              </p>
+            </div>
+          </section>
+
+          <section className="capital-section">
+            <div className="capital-section__head">
+              <p className="capital-eyebrow">Who We Work With</p>
+              <h2>Clients and counterparties who value fewer, better conversations.</h2>
+            </div>
+            <div className="capital-strategy-grid capital-strategy-grid--compact">
+              {[
+                "Family offices and UHNI principals",
+                "Founders and private company owners",
+                "NRI capital seeking India exposure",
+                "Large owners and family-held real estate",
+                "Developers and redevelopment partners",
+                "Professional intermediaries with real mandates",
+              ].map((item) => (
+                <article key={item} className="capital-strategy-card">
+                  <span>Counterparty</span>
+                  <h3>{item}</h3>
+                  <p>Suitable when the transaction requires discretion, qualification and senior-level judgement before introductions begin.</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="capital-section">
+            <div className="capital-section__head">
+              <p className="capital-eyebrow">Operating Principles</p>
+              <h2>What guides the desk.</h2>
+            </div>
+            <div className="capital-underwriting__grid">
+              {underwritingPillars.map((pillar) => (
+                <article key={pillar.title}>
+                  <span>{pillar.title}</span>
+                  <p>{pillar.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="capital-section">
+            <div className="capital-section__head">
+              <p className="capital-eyebrow">Scope</p>
+              <h2>Where we are most relevant.</h2>
+            </div>
+            <div className="capital-insight-list">
+              {transactionStrategies.map((strategy) => (
+                <Link key={strategy.slug} href={`/strategies/${strategy.slug}`}>
+                  <span>{strategy.eyebrow}</span>
+                  <h3>{strategy.title}</h3>
+                  <p>{strategy.summary}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <CapitalFooter site={site} />
+        </div>
+      </main>
+    );
+  }
 
   if (isInvestor) {
     return (
