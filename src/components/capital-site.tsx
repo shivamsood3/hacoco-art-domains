@@ -161,9 +161,9 @@ function CapitalHero({ site }: { site: SiteConfig }) {
 
       <div className="capital-hero__bar" aria-label="Capital desk focus">
         {[
-          ["Larger", "Private or complex real estate mandates"],
-          ["Two-sided", "Capital and opportunity mandates"],
-          ["Prepared", "Origination, underwriting and introductions"],
+          ["Larger mandates", "Private or complex real estate transactions"],
+          ["Two-sided desk", "Capital mandates and transaction mandates"],
+          ["Prepared process", "Origination, underwriting and qualified introductions"],
         ].map(([value, label]) => (
           <article key={value}>
             <strong>{value}</strong>
@@ -341,7 +341,7 @@ function LeadershipSection() {
         <p className="capital-eyebrow">Judgement</p>
         <h2>Private transactions are built on judgement and trust.</h2>
         <p>
-          Hacoco Capital keeps the public team presence restrained until every biography and photograph is approved. The desk is led through direct client relationships rather than anonymous listing volume.
+          The desk is led through direct client relationships, mandate discipline and senior involvement in the conversations that matter.
         </p>
       </div>
       <div className="capital-leadership__cards">
@@ -350,7 +350,6 @@ function LeadershipSection() {
             <span>{person.role}</span>
             <h3>{person.name}</h3>
             <p>{person.focus}</p>
-            <small>{person.note}</small>
           </article>
         ))}
         <Link className="capital-button capital-button--ghost" href="/about">

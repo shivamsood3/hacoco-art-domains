@@ -121,17 +121,35 @@ export default async function AboutPage() {
             </div>
             <div className="capital-strategy-grid capital-strategy-grid--compact">
               {[
-                "Family offices and UHNI principals",
-                "Founders and private company owners",
-                "NRI capital seeking India exposure",
-                "Large owners and family-held real estate",
-                "Developers and redevelopment partners",
-                "Professional intermediaries with real mandates",
+                {
+                  title: "Family offices and UHNI principals",
+                  copy: "Useful where capital needs fewer opportunities, clearer downside review and a private path to suitable counterparties.",
+                },
+                {
+                  title: "Founders and private company owners",
+                  copy: "Useful where real estate decisions sit alongside liquidity events, operating businesses, family requirements or long-hold capital planning.",
+                },
+                {
+                  title: "NRI capital seeking India exposure",
+                  copy: "Useful where local context, documentation sequence, counterparty quality and remote coordination matter before travel or commitment.",
+                },
+                {
+                  title: "Large owners and family-held real estate",
+                  copy: "Useful where a sale, partial exit or capital partner should be prepared before the asset is discussed widely.",
+                },
+                {
+                  title: "Developers and redevelopment partners",
+                  copy: "Useful where land, permissions, residual value, partner capability and capital route need to be assessed together.",
+                },
+                {
+                  title: "Professional intermediaries with real mandates",
+                  copy: "Useful where an adviser has authority, reliable facts and a transaction that needs disciplined counterparty access.",
+                },
               ].map((item) => (
-                <article key={item} className="capital-strategy-card">
+                <article key={item.title} className="capital-strategy-card">
                   <span>Counterparty</span>
-                  <h3>{item}</h3>
-                  <p>Suitable when the transaction requires discretion, qualification and senior-level judgement before introductions begin.</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
                 </article>
               ))}
             </div>
@@ -142,7 +160,7 @@ export default async function AboutPage() {
               <p className="capital-eyebrow">Leadership</p>
               <h2>Transaction judgement is personal.</h2>
               <p>
-                The public team profile is intentionally restrained until every photograph, title and background line is approved by the business.
+                Hacoco Capital is led through direct relationships, selective mandates and senior involvement in private transaction conversations.
               </p>
             </div>
             <div className="capital-leadership__cards">
@@ -151,7 +169,6 @@ export default async function AboutPage() {
                   <span>{person.role}</span>
                   <h3>{person.name}</h3>
                   <p>{person.focus}</p>
-                  <small>{person.note}</small>
                 </article>
               ))}
             </div>
@@ -198,7 +215,7 @@ export default async function AboutPage() {
                 Commercial arrangements vary by mandate. Hacoco Capital may work on advisory, brokerage, retainer or success-fee terms depending on the nature of the transaction.
               </p>
               <p>
-                Commercial terms and potential conflicts are discussed before substantive work begins. This wording should be reviewed for legal and business accuracy before wider outreach.
+                Commercial terms and potential conflicts are discussed before substantive work begins.
               </p>
             </div>
           </section>
