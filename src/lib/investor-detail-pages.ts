@@ -454,8 +454,8 @@ export const investorMarketPages: InvestorDetailPage[] = [
     description:
       "Builder floors, bungalows and redevelopment assets across Defence Colony, Greater Kailash, Vasant Vihar, Anand Niketan, Panchsheel Park and other prime colonies.",
     image: {
-      src: "/images/investor/safdarjung.jpeg",
-      alt: "Hacoco bungalow opportunity in Safdarjung Enclave, New Delhi",
+      src: "/images/investor/defence-colony-b-block.jpeg",
+      alt: "B Block Defence Colony bungalow opportunity in New Delhi",
     },
     keywords: ["South Delhi homes", "builder floors South Delhi", "Defence Colony", "Greater Kailash"],
     highlights: ["Scarce colony land", "Resale depth", "End-use demand", "Documentation-sensitive"],

@@ -8,10 +8,20 @@ import type { SiteConfig } from "@/lib/site-config";
 import { LeadForm } from "./lead-form";
 import { SiteFooter, SiteHeader } from "./site-chrome";
 
+function getListingForShowcase(slug: string) {
+  const listing = investorListings.find((item) => item.slug === slug);
+
+  if (!listing) {
+    throw new Error(`Missing investor listing: ${slug}`);
+  }
+
+  return listing;
+}
+
 const featuredListings = [
-  investorListings[0],
-  investorListings[1],
-  investorListings[7],
+  getListingForShowcase("defence-colony-b-block-bungalow"),
+  getListingForShowcase("panchsheel-park-800-sq-yd-new-build"),
+  getListingForShowcase("golf-links-freehold-plot"),
 ];
 
 const marketFeatures = [
@@ -351,9 +361,9 @@ function Intelligence() {
 
 function MarketActivity() {
   const activity = [
-    investorListings[0],
-    investorListings[1],
-    investorListings[5],
+    getListingForShowcase("defence-colony-b-block-bungalow"),
+    getListingForShowcase("golf-links-freehold-plot"),
+    getListingForShowcase("janpath-connaught-place-commercial-building"),
   ];
 
   return (
