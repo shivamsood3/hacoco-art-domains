@@ -313,10 +313,10 @@ textarea {
 .commodity-hero__copy h1 {
   max-width: 13ch;
   margin-top: 1.4rem;
-  font-size: clamp(3.6rem, 6vw, 6.4rem);
+  font-size: clamp(3.35rem, 5.4vw, 5.7rem);
   font-weight: 560;
   letter-spacing: -0.065em;
-  line-height: 0.88;
+  line-height: 0.97;
   text-wrap: balance;
 }
 
@@ -481,10 +481,10 @@ textarea {
 .commodity-section-heading h2 {
   max-width: 18ch;
   margin-top: 1rem;
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(2.4rem, 4.4vw, 4.4rem);
   font-weight: 560;
   letter-spacing: -0.06em;
-  line-height: 0.94;
+  line-height: 1;
   text-wrap: balance;
 }
 
@@ -620,10 +620,11 @@ textarea {
 
 .trade-model h3 {
   margin-top: 2.5rem;
-  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  font-size: clamp(2.35rem, 4.3vw, 4rem);
   font-weight: 560;
   letter-spacing: -0.06em;
-  line-height: 0.9;
+  line-height: 1;
+  text-wrap: balance;
 }
 
 .trade-model__description {
@@ -679,10 +680,11 @@ textarea {
 
 .commodity-risk__intro h2 {
   max-width: 15ch;
-  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-size: clamp(2.55rem, 5vw, 5rem);
   font-weight: 560;
   letter-spacing: -0.065em;
-  line-height: 0.9;
+  line-height: 1;
+  text-wrap: balance;
 }
 
 .commodity-risk__copy {
@@ -885,10 +887,11 @@ textarea {
 .commodity-cta h2 {
   max-width: 15ch;
   margin-top: 1rem;
-  font-size: clamp(2.8rem, 6vw, 5.75rem);
+  font-size: clamp(2.55rem, 5vw, 5rem);
   font-weight: 560;
   letter-spacing: -0.065em;
-  line-height: 0.9;
+  line-height: 1;
+  text-wrap: balance;
 }
 
 .commodity-cta > div:last-child {
@@ -934,10 +937,11 @@ textarea {
 .commodity-lead__intro h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-size: clamp(2.55rem, 4.8vw, 4.5rem);
   font-weight: 560;
   letter-spacing: -0.06em;
-  line-height: 0.92;
+  line-height: 1;
+  text-wrap: balance;
 }
 
 .commodity-lead__intro > p:nth-of-type(2) {
@@ -1209,7 +1213,8 @@ textarea {
   }
 
   .commodity-hero__copy h1 {
-    font-size: clamp(3.15rem, 15vw, 4.65rem);
+    font-size: clamp(2.9rem, 13vw, 4.1rem);
+    line-height: 1;
   }
 
   .commodity-metrics span {
@@ -1425,8 +1430,9 @@ textarea {
 .investor-hero h1 {
   max-width: 7ch;
   margin-top: 1.2rem;
-  font-size: clamp(4.6rem, 7.2vw, 7.5rem);
-  line-height: 0.84;
+  font-size: clamp(4.2rem, 6.5vw, 6.8rem);
+  line-height: 0.95;
+  text-wrap: balance;
 }
 
 .investor-hero__lede {
@@ -1510,8 +1516,9 @@ textarea {
 .investor-requirement h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(3.3rem, 5.4vw, 5.8rem);
-  line-height: 0.91;
+  font-size: clamp(3rem, 4.8vw, 5rem);
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .investor-section-heading > div:last-child > p,
@@ -1572,8 +1579,9 @@ textarea {
 
 .investor-opportunity-feature h3 {
   margin-top: 0.75rem;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 0.94;
+  font-size: clamp(2.25rem, 3.5vw, 3.5rem);
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .investor-opportunity-feature__price {
@@ -1767,8 +1775,9 @@ textarea {
 .investor-market__copy h3 {
   max-width: 11ch;
   margin-top: 1rem;
-  font-size: clamp(2.8rem, 4.5vw, 4.8rem);
-  line-height: 0.93;
+  font-size: clamp(2.5rem, 4vw, 4.1rem);
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .investor-market__copy > p:not(.investor-eyebrow) {
@@ -2281,7 +2290,8 @@ textarea {
 
   .investor-hero h1 {
     max-width: 7ch;
-    font-size: clamp(4rem, 20vw, 5.35rem);
+    font-size: clamp(3.25rem, 16vw, 4.5rem);
+    line-height: 0.98;
   }
 
   .investor-actions {
@@ -2308,7 +2318,8 @@ textarea {
   .investor-activity h2,
   .investor-human h2,
   .investor-requirement h2 {
-    font-size: clamp(3rem, 15vw, 4.2rem);
+    font-size: clamp(2.6rem, 12vw, 3.7rem);
+    line-height: 1;
   }
 
   .investor-opportunity-layout {
@@ -2439,8 +2450,9 @@ textarea {
 
 .investor-index-hero h1 {
   max-width: 15ch;
-  font-size: clamp(4rem, 7vw, 7.4rem);
-  line-height: 0.88;
+  font-size: clamp(3.55rem, 6vw, 6.25rem);
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .investor-index-hero > p:last-child {
@@ -2492,8 +2504,9 @@ textarea {
 .investor-service-index__card h2 {
   max-width: 12ch;
   margin-top: 1.2rem;
-  font-size: clamp(2.4rem, 3.4vw, 3.7rem);
-  line-height: 0.95;
+  font-size: clamp(2.25rem, 3.1vw, 3.3rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .investor-service-index__card > div > p:not(.investor-eyebrow) {
@@ -2556,8 +2569,9 @@ textarea {
 .investor-market-index__feature h2 {
   max-width: 13ch;
   margin-top: 1.2rem;
-  font-size: clamp(2.8rem, 4.5vw, 4.9rem);
-  line-height: 0.94;
+  font-size: clamp(2.45rem, 3.9vw, 4rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .investor-market-index__feature > div > p:not(.investor-eyebrow) {
@@ -2584,8 +2598,9 @@ textarea {
 .investor-market-index__corridors h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(2.6rem, 4.4vw, 4.6rem);
-  line-height: 0.95;
+  font-size: clamp(2.35rem, 3.8vw, 3.9rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .investor-market-index__corridors > div:last-child {
@@ -2635,8 +2650,9 @@ textarea {
 
 .intelligence-index-hero h1,
 .intelligence-article header h1 {
-  font-size: clamp(4.3rem, 7.5vw, 8rem);
-  line-height: 0.84;
+  font-size: clamp(3.55rem, 6vw, 6.35rem);
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .intelligence-index-hero > p:last-child,
@@ -2668,8 +2684,9 @@ textarea {
 .intelligence-publication h2 {
   max-width: 16ch;
   margin-top: 1rem;
-  font-size: clamp(3rem, 5vw, 5.4rem);
-  line-height: 0.94;
+  font-size: clamp(2.65rem, 4.4vw, 4.6rem);
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .intelligence-publication p:not(.investor-eyebrow) {
@@ -2750,8 +2767,9 @@ textarea {
 .intelligence-index__article h2 {
   max-width: 14ch;
   margin-top: 1rem;
-  font-size: clamp(2.8rem, 4.5vw, 4.7rem);
-  line-height: 0.93;
+  font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .intelligence-index__article > div > p:not(.investor-eyebrow) {
@@ -2830,8 +2848,9 @@ textarea {
 .intelligence-article__toolkit h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(2.5rem, 4.1vw, 4.4rem);
-  line-height: 0.96;
+  font-size: clamp(2.3rem, 3.6vw, 3.6rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .intelligence-article__summary p:not(.investor-eyebrow) {
@@ -2934,8 +2953,9 @@ textarea {
 
 .intelligence-article__body h2 {
   max-width: 12ch;
-  font-size: clamp(2.8rem, 4.4vw, 4.7rem);
-  line-height: 0.92;
+  font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .intelligence-article__body p {
@@ -2965,8 +2985,9 @@ textarea {
 .intelligence-article__cta h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
-  line-height: 0.9;
+  font-size: clamp(2.75rem, 4.4vw, 4.4rem);
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .intelligence-article__cta p:last-child {
@@ -3051,7 +3072,8 @@ textarea {
   .investor-index-hero h1,
   .intelligence-index-hero h1,
   .intelligence-article header h1 {
-    font-size: clamp(3.8rem, 18vw, 5rem);
+    font-size: clamp(3rem, 14vw, 4.35rem);
+    line-height: 1;
   }
 
   .investor-service-index__card > div {
@@ -3114,8 +3136,9 @@ textarea {
 .investor-detail__hero h1 {
   max-width: 12ch;
   margin-top: 1rem;
-  font-size: clamp(3.6rem, 5.8vw, 6.4rem);
-  line-height: 0.9;
+  font-size: clamp(3.2rem, 5vw, 5.4rem);
+  line-height: 0.99;
+  text-wrap: balance;
 }
 
 .investor-detail__hero > div:first-child > p:last-child {
@@ -3196,8 +3219,9 @@ textarea {
 
 .investor-detail__sections h2 {
   max-width: 13ch;
-  font-size: clamp(2.35rem, 3.7vw, 4.1rem);
-  line-height: 0.96;
+  font-size: clamp(2.25rem, 3.4vw, 3.5rem);
+  line-height: 1.04;
+  text-wrap: balance;
 }
 
 .investor-detail__sections p {
@@ -3251,8 +3275,9 @@ textarea {
 .investor-detail__related h2 {
   max-width: 11ch;
   margin-top: 1rem;
-  font-size: clamp(2.3rem, 3.2vw, 3.5rem);
-  line-height: 0.96;
+  font-size: clamp(2.15rem, 3vw, 3.1rem);
+  line-height: 1.04;
+  text-wrap: balance;
 }
 
 .investor-detail__related-label {
@@ -3305,8 +3330,9 @@ textarea {
 .investor-detail__cta h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
-  line-height: 0.9;
+  font-size: clamp(2.75rem, 4.4vw, 4.4rem);
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .investor-detail__cta .investor-eyebrow {
@@ -3369,7 +3395,8 @@ textarea {
   }
 
   .investor-detail__hero h1 {
-    font-size: clamp(3.8rem, 18vw, 5rem);
+    font-size: clamp(3rem, 14vw, 4.35rem);
+    line-height: 1;
   }
 
   .investor-detail__hero-image {
@@ -3406,8 +3433,9 @@ textarea {
 .investor-about-hero h1,
 .investor-contact h1 {
   max-width: 12ch;
-  font-size: clamp(4.3rem, 7.5vw, 8rem);
-  line-height: 0.84;
+  font-size: clamp(3.55rem, 6vw, 6.35rem);
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .investor-about-hero > p:last-child,
@@ -3443,8 +3471,9 @@ textarea {
 .investor-about-relationship h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(3.3rem, 5.4vw, 5.8rem);
-  line-height: 0.91;
+  font-size: clamp(3rem, 4.8vw, 5rem);
+  line-height: 0.99;
+  text-wrap: balance;
 }
 
 .investor-about-statement > div:last-child > p:not(.investor-eyebrow) {
@@ -3504,8 +3533,9 @@ textarea {
 .investor-about-framework h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(2.7rem, 4.5vw, 4.8rem);
-  line-height: 0.94;
+  font-size: clamp(2.45rem, 3.9vw, 4rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .investor-about-framework p {
@@ -3657,7 +3687,8 @@ textarea {
 @media (max-width: 40rem) {
   .investor-about-hero h1,
   .investor-contact h1 {
-    font-size: clamp(3.8rem, 18vw, 5rem);
+    font-size: clamp(3rem, 14vw, 4.35rem);
+    line-height: 1;
   }
 
   .investor-about-statement__image {
@@ -3865,8 +3896,9 @@ textarea {
 .opportunity-detail__cta h2 {
   max-width: 13ch;
   margin-top: 1rem;
-  font-size: clamp(3.2rem, 5vw, 5rem);
-  line-height: 0.9;
+  font-size: clamp(2.75rem, 4.4vw, 4.4rem);
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 .opportunity-private-cta p:last-child,
@@ -4300,12 +4332,14 @@ textarea {
   font-family: var(--font-newsreader), Georgia, serif;
   font-weight: 500;
   letter-spacing: -0.055em;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .capital-hero__copy h1 {
-  font-size: clamp(5rem, 10vw, 11.6rem);
-  line-height: 0.82;
-  max-width: 7.5em;
+  font-size: clamp(4.25rem, 7.2vw, 8.4rem);
+  line-height: 0.94;
+  max-width: 8.8em;
 }
 
 .capital-hero__copy > p:not(.capital-eyebrow),
@@ -4336,8 +4370,11 @@ textarea {
   border-radius: 2.2rem;
   box-shadow: var(--capital-shadow);
   min-height: 36rem;
+  max-width: 100%;
+  min-width: 0;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .capital-hero__visual::after {
@@ -4422,8 +4459,8 @@ textarea {
 }
 
 .capital-page-hero h1 {
-  font-size: clamp(4rem, 8vw, 8.2rem);
-  line-height: 0.86;
+  font-size: clamp(3.5rem, 6.4vw, 6.8rem);
+  line-height: 0.94;
   margin-top: 1rem;
 }
 
@@ -4439,8 +4476,8 @@ textarea {
 }
 
 .capital-section h2 {
-  font-size: clamp(3rem, 6vw, 6.8rem);
-  line-height: 0.88;
+  font-size: clamp(2.8rem, 5vw, 5.6rem);
+  line-height: 0.95;
   margin-top: 0.8rem;
 }
 
@@ -4505,10 +4542,12 @@ textarea {
 .capital-insight-list h2,
 .capital-insight-list h3 {
   font-family: var(--font-newsreader), Georgia, serif;
-  font-size: clamp(2rem, 3.2vw, 3.7rem);
+  font-size: clamp(1.9rem, 3vw, 3.25rem);
   font-weight: 500;
   letter-spacing: -0.045em;
-  line-height: 0.95;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .capital-two-paths p,
@@ -4732,11 +4771,12 @@ textarea {
 .capital-form-card__intro h2,
 .capital-success h3 {
   font-family: var(--font-newsreader), Georgia, serif;
-  font-size: clamp(2.5rem, 4vw, 4.4rem);
+  font-size: clamp(2.35rem, 3.8vw, 4rem);
   font-weight: 500;
   letter-spacing: -0.05em;
-  line-height: 0.95;
+  line-height: 1;
   margin-top: 0.8rem;
+  text-wrap: balance;
 }
 
 .capital-form-card__intro p:not(.capital-eyebrow),
@@ -4823,8 +4863,8 @@ textarea {
 }
 
 .capital-article h1 {
-  font-size: clamp(4rem, 8vw, 7.6rem);
-  line-height: 0.86;
+  font-size: clamp(3.4rem, 6.2vw, 6.4rem);
+  line-height: 0.94;
   margin-top: 1rem;
 }
 
@@ -4840,10 +4880,11 @@ textarea {
 
 .capital-article h2 {
   font-family: var(--font-newsreader), Georgia, serif;
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-size: clamp(2.1rem, 3.6vw, 3.6rem);
   font-weight: 500;
   letter-spacing: -0.045em;
-  line-height: 0.98;
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .capital-article__cta {
@@ -4897,11 +4938,12 @@ textarea {
 
 .capital-featured-note h2 {
   font-family: var(--font-newsreader), Georgia, serif;
-  font-size: clamp(3rem, 6vw, 7rem);
+  font-size: clamp(2.8rem, 5.4vw, 5.8rem);
   font-weight: 500;
   letter-spacing: -0.055em;
-  line-height: 0.88;
+  line-height: 0.95;
   margin-top: 1rem;
+  text-wrap: balance;
 }
 
 .capital-featured-note p {
@@ -4988,10 +5030,11 @@ textarea {
 .capital-private-selector__context h3,
 .capital-leadership h2 {
   font-family: var(--font-newsreader), Georgia, serif;
-  font-size: clamp(3rem, 6vw, 6.8rem);
+  font-size: clamp(2.8rem, 5vw, 5.6rem);
   font-weight: 500;
   letter-spacing: -0.055em;
-  line-height: 0.88;
+  line-height: 0.95;
+  text-wrap: balance;
 }
 
 .capital-private-selector__intro p:not(.capital-eyebrow),
@@ -5086,11 +5129,12 @@ textarea {
 
 .capital-leadership__cards h3 {
   font-family: var(--font-newsreader), Georgia, serif;
-  font-size: clamp(2.5rem, 4vw, 4.8rem);
+  font-size: clamp(2.35rem, 3.6vw, 4rem);
   font-weight: 500;
   letter-spacing: -0.05em;
-  line-height: 0.9;
+  line-height: 0.98;
   margin-top: 0.8rem;
+  text-wrap: balance;
 }
 
 .capital-leadership__cards small {
@@ -5109,8 +5153,8 @@ textarea {
 }
 
 .capital-footer__brand h2 {
-  font-size: clamp(2.8rem, 5vw, 5rem);
-  line-height: 0.9;
+  font-size: clamp(2.6rem, 4.5vw, 4.5rem);
+  line-height: 0.96;
   margin-top: 0.8rem;
   max-width: 52rem;
 }
@@ -5249,7 +5293,8 @@ textarea {
   .capital-hero__copy h1,
   .capital-page-hero h1,
   .capital-article h1 {
-    font-size: clamp(4.1rem, 19vw, 5.8rem);
+    font-size: clamp(3.15rem, 15vw, 4.85rem);
+    line-height: 0.96;
   }
 
   .capital-hero__visual {

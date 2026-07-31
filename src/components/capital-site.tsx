@@ -130,9 +130,9 @@ function CapitalHero({ site }: { site: SiteConfig }) {
     <section className="capital-hero">
       <div className="capital-hero__copy">
         <p className="capital-eyebrow">Private Real Estate Capital</p>
-        <h1>Capital seeking opportunity. Opportunity seeking capital.</h1>
+        <h1>Private capital for real estate that warrants discretion.</h1>
         <p>
-          Hacoco Capital supports private real estate transactions where discretion, counterparty quality, documentation discipline and senior judgement matter before capital moves.
+          Hacoco Capital works on larger real estate mandates where counterparty quality, underwriting discipline and process control matter before capital moves.
         </p>
         <div className="capital-hero__actions">
           <Link className="capital-button" href="/capital">
@@ -180,22 +180,22 @@ function TwoSidedProposition() {
     <section className="capital-section capital-split">
       <div>
         <p className="capital-eyebrow">Two-Sided Desk</p>
-        <h2>Built for both sides of a private real estate transaction.</h2>
+        <h2>Built for capital mandates and transaction mandates.</h2>
       </div>
       <div className="capital-two-paths">
         <article>
           <span>01</span>
-          <h3>Capital seeking opportunity</h3>
+          <h3>Capital mandates</h3>
           <p>
-            For principals, family offices, founders, UHNI buyers and NRI capital that want a disciplined path to larger real estate opportunities.
+            For principals, family offices, founders, UHNI buyers and NRI capital that need disciplined origination rather than a broad feed of available properties.
           </p>
           <Link href="/capital">Submit capital mandate</Link>
         </article>
         <article>
           <span>02</span>
-          <h3>Opportunity seeking capital</h3>
+          <h3>Transaction mandates</h3>
           <p>
-            For owners, developers, corporates and authorised advisers who need qualified capital, transaction preparation or private buyer introductions.
+            For owners, developers, corporates and authorised advisers who need transaction preparation, qualified capital or private buyer introductions.
           </p>
           <Link href="/transactions">Share transaction brief</Link>
         </article>
@@ -230,14 +230,14 @@ function PrivateDeskSection() {
     <section className="capital-section capital-private-desk" id="private-desk">
       <div>
         <p className="capital-eyebrow">The Private Desk</p>
-        <h2>Transactions seeking capital. Capital seeking transactions.</h2>
+        <h2>A controlled desk for private real estate conversations.</h2>
         <p>
-          Public disclosure is intentionally limited. Details are shared only where Hacoco has an active mandate, permission to disclose and a suitably relevant counterparty.
+          Confidential mandates are not displayed as public inventory. Details are shared only where Hacoco has an active mandate, permission to disclose and a suitably relevant counterparty.
         </p>
       </div>
       <div className="capital-private-desk__columns">
         <article>
-          <span>Transactions Seeking Capital</span>
+          <span>Transaction Mandates</span>
           <h3>No public transaction memoranda are currently open.</h3>
           <p>{transactionDesk.emptyState}</p>
           <Link className="capital-button capital-button--ghost" href="/transactions">
@@ -245,7 +245,7 @@ function PrivateDeskSection() {
           </Link>
         </article>
         <article>
-          <span>Capital Seeking Transactions</span>
+          <span>Capital Mandates</span>
           <h3>Capital requirements are selectively disclosed.</h3>
           <p>{activeCapitalMandates.emptyState}</p>
           <Link className="capital-button capital-button--ghost" href="/capital">

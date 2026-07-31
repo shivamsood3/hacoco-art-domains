@@ -46,11 +46,7 @@ export default async function MarketIntelligencePage() {
 
         <section className="intelligence-index-hero">
           <p className="investor-eyebrow">Hacoco Intelligence</p>
-          <h1>
-            See the market
-            <br />
-            behind the listing.
-          </h1>
+          <h1>See the market behind the listing.</h1>
           <p>
             Field notes and investment analysis for buyers reviewing South
             Delhi, NCR, Dubai, Goa and North India land.

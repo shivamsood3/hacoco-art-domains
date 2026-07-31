@@ -250,7 +250,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
     slug: "capital",
     vertical: "real-estate",
     primaryDomain: "hacococapital.com",
-    hostAliases: ["www.hacococapital.com", "hacococapital.local"],
+    hostAliases: ["www.hacococapital.com", "hacococapital.local", "hacococapital.localhost"],
     brand: {
       name: "Hacoco Capital",
       eyebrow: "Private Real Estate Transactions",
@@ -455,7 +455,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
     slug: "investor",
     vertical: "real-estate",
     primaryDomain: "investwithhacoco.com",
-    hostAliases: ["www.investwithhacoco.com", "investwithhacoco.local"],
+    hostAliases: ["www.investwithhacoco.com", "investwithhacoco.local", "investwithhacoco.localhost"],
     brand: {
       name: "Invest With Hacoco",
       eyebrow: "Private Real Estate",
