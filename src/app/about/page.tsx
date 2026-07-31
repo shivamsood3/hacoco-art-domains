@@ -169,6 +169,14 @@ export default async function AboutPage() {
                   <span>{person.role}</span>
                   <h3>{person.name}</h3>
                   <p>{person.focus}</p>
+                  <Link
+                    className="capital-profile-link"
+                    href={person.linkedIn}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    LinkedIn Profile
+                  </Link>
                 </article>
               ))}
             </div>
@@ -379,7 +387,7 @@ export default async function AboutPage() {
               },
               {
                 label: "Who Is Behind Hacoco",
-                copy: "The work is led through Hacoco's private network and Shivam Sood's direct client relationships. Additional team information should remain real and verifiable before being published.",
+                copy: "The work is led through Hacoco's private network and Shivam Sood's direct client relationships, with a preference for senior involvement over anonymous volume-led circulation.",
               },
             ].map((item) => (
               <article key={item.label}>

@@ -129,7 +129,6 @@ function CapitalHero({ site }: { site: SiteConfig }) {
   return (
     <section className="capital-hero">
       <div className="capital-hero__copy">
-        <p className="capital-eyebrow">Private Real Estate Capital</p>
         <h1>Private capital for real estate that warrants discretion.</h1>
         <p>
           Hacoco Capital works on larger real estate mandates where counterparty quality, underwriting discipline and process control matter before capital moves.
@@ -350,6 +349,14 @@ function LeadershipSection() {
             <span>{person.role}</span>
             <h3>{person.name}</h3>
             <p>{person.focus}</p>
+            <Link
+              className="capital-profile-link"
+              href={person.linkedIn}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              LinkedIn Profile
+            </Link>
           </article>
         ))}
         <Link className="capital-button capital-button--ghost" href="/about">

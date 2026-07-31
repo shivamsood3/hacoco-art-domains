@@ -5144,6 +5144,18 @@ textarea {
   margin-top: 1rem;
 }
 
+.capital-profile-link {
+  color: var(--capital-ink);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-top: 1.2rem;
+  text-decoration-color: var(--capital-bronze);
+  text-transform: uppercase;
+  text-underline-offset: 0.35em;
+}
+
 .capital-footer {
   border-top: 1px solid var(--capital-line);
   display: grid;

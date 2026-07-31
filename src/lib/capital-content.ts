@@ -288,6 +288,7 @@ export const leadership = [
     role: "Founder / Private Transactions",
     focus:
       "Leads Hacoco's private client and counterparty conversations across real estate acquisition, capital and transaction mandates.",
+    linkedIn: "https://www.linkedin.com/in/shivamso/",
   },
 ] as const;
 
