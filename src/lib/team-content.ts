@@ -1,6 +1,10 @@
 export type TeamMember = {
   name: string;
   role: string;
+  image: {
+    src: string;
+    alt: string;
+  };
   advisoryFocus: string;
   investorFocus: string;
   linkedIn?: string;
@@ -10,6 +14,10 @@ export const hacocoTeam: TeamMember[] = [
   {
     name: "Narinder K Sood",
     role: "Director",
+    image: {
+      src: "/images/team/narinder-k-sood.jpg",
+      alt: "Narinder K Sood, Director at Hacoco",
+    },
     advisoryFocus:
       "Oversees governance, commercial review and counterparty acceptance. He holds final review responsibility for commodity mandates progressed by the desk.",
     investorFocus:
@@ -18,6 +26,10 @@ export const hacocoTeam: TeamMember[] = [
   {
     name: "Abhiroop Bhattacharjee",
     role: "Director",
+    image: {
+      src: "/images/team/abhiroop-bhattacharjee.jpg",
+      alt: "Abhiroop Bhattacharjee, Director at Hacoco",
+    },
     advisoryFocus:
       "Leads transaction structuring and process design, including documentation sequence, inspection provisions and alignment between commercial procedure and payment instruments.",
     investorFocus:
@@ -26,6 +38,10 @@ export const hacocoTeam: TeamMember[] = [
   {
     name: "Shivam Sood",
     role: "Director",
+    image: {
+      src: "/images/team/shivam-sood.jpg",
+      alt: "Shivam Sood, Director at Hacoco",
+    },
     advisoryFocus:
       "Leads origination and counterparty development, with responsibility for requirement qualification, buyer and seller sourcing, and commercial relationships across trade routes.",
     investorFocus:

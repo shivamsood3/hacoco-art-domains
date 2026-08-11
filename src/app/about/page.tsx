@@ -557,7 +557,15 @@ export default async function AboutPage() {
             <div className="investor-about-team__grid">
               {hacocoTeam.map((person, index) => (
                 <article key={person.name}>
-                  <div>
+                  <div className="investor-about-team__portrait">
+                    <Image
+                      alt={person.image.alt}
+                      fill
+                      sizes="(min-width: 900px) 24vw, 92vw"
+                      src={person.image.src}
+                    />
+                  </div>
+                  <div className="investor-about-team__meta">
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <small>{person.role}</small>
                   </div>

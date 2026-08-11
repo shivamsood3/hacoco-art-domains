@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -57,6 +58,7 @@ export default async function TeamPage() {
         "@type": "Person",
         name: person.name,
         jobTitle: person.role,
+        image: `https://${site.primaryDomain}${person.image.src}`,
         sameAs: person.linkedIn ? [person.linkedIn] : undefined,
       })),
     },
@@ -84,7 +86,15 @@ export default async function TeamPage() {
         <section className="commodity-team-profiles" aria-label="Hacoco Advisory directors">
           {hacocoTeam.map((person, index) => (
             <article key={person.name}>
-              <div>
+              <div className="commodity-team-profiles__portrait">
+                <Image
+                  alt={person.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
+                  src={person.image.src}
+                />
+              </div>
+              <div className="commodity-team-profiles__meta">
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <p>{person.role}</p>
               </div>

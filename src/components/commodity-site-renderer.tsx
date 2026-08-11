@@ -409,6 +409,14 @@ function CommodityTeamPreview() {
       <div className="commodity-team-grid">
         {hacocoTeam.map((person) => (
           <article key={person.name}>
+            <div className="commodity-team-grid__portrait">
+              <Image
+                alt={person.image.alt}
+                fill
+                sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
+                src={person.image.src}
+              />
+            </div>
             <p>{person.role}</p>
             <h3>{person.name}</h3>
             <span>{person.advisoryFocus}</span>

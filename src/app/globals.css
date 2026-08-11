@@ -940,9 +940,21 @@ textarea {
 }
 
 .commodity-team-grid article {
-  min-height: 21rem;
   background: var(--commoditySurface);
   padding: clamp(1.5rem, 3vw, 2.6rem);
+}
+
+.commodity-team-grid__portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin: calc(clamp(1.5rem, 3vw, 2.6rem) * -1);
+  margin-bottom: 1.75rem;
+  background: var(--commodityBlueSoft);
+}
+
+.commodity-team-grid__portrait img {
+  object-fit: cover;
 }
 
 .commodity-team-grid article > p {
@@ -955,7 +967,7 @@ textarea {
 
 .commodity-team-grid h3 {
   max-width: 12ch;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 560;
   letter-spacing: -0.055em;
@@ -1275,12 +1287,24 @@ textarea {
 }
 
 .commodity-team-profiles article {
-  min-height: 27rem;
   background: var(--commoditySurface);
   padding: clamp(1.75rem, 4vw, 3.5rem);
 }
 
-.commodity-team-profiles article > div {
+.commodity-team-profiles__portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin: calc(clamp(1.75rem, 4vw, 3.5rem) * -1);
+  margin-bottom: clamp(1.75rem, 4vw, 3.5rem);
+  background: var(--commodityBlueSoft);
+}
+
+.commodity-team-profiles__portrait img {
+  object-fit: cover;
+}
+
+.commodity-team-profiles .commodity-team-profiles__meta {
   display: flex;
   justify-content: space-between;
   color: var(--commodityBlue);
@@ -1292,7 +1316,7 @@ textarea {
 
 .commodity-team-profiles h2 {
   max-width: 11ch;
-  margin-top: 5rem;
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 560;
   letter-spacing: -0.06em;
@@ -4032,7 +4056,19 @@ textarea {
   padding-block: 1.8rem;
 }
 
-.investor-about-team__grid article > div {
+.investor-about-team__portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  margin-bottom: 1.6rem;
+  background: var(--investor-paper);
+}
+
+.investor-about-team__portrait img {
+  object-fit: cover;
+}
+
+.investor-about-team__grid .investor-about-team__meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
