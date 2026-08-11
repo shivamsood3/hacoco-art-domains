@@ -1,21 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { DM_Sans, Newsreader } from "next/font/google";
+import localFont from "next/font/local";
 
 import { AnalyticsProvider } from "@/components/analytics-provider";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 import "./globals.css";
 
-const sans = DM_Sans({
-  subsets: ["latin"],
+const sans = localFont({
+  src: "./fonts/dm-sans-latin.woff2",
   variable: "--font-dm-sans",
+  display: "swap",
+  weight: "100 1000",
 });
 
-const display = Newsreader({
-  subsets: ["latin"],
+const display = localFont({
+  src: "./fonts/newsreader-latin.woff2",
   variable: "--font-newsreader",
-  weight: ["400", "500", "600"],
+  display: "swap",
+  weight: "400 600",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
