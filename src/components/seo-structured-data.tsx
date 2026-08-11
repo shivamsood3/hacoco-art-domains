@@ -19,6 +19,24 @@ export function SeoStructuredData({ site }: { site: SiteConfig }) {
       email: site.footer.email,
       description: site.seo.description,
       knowsAbout: site.seo.keywords,
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/apple-icon`,
+        width: 180,
+        height: 180,
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType:
+          site.slug === "advisory"
+            ? "commodity trade enquiries"
+            : site.slug === "capital"
+              ? "private real estate mandates"
+              : "property acquisition enquiries",
+        email: site.footer.email,
+        availableLanguage: ["English"],
+      },
+      areaServed: buildAreaServed(site),
       ...(imageUrl ? { image: imageUrl } : {}),
     },
     {
@@ -31,6 +49,22 @@ export function SeoStructuredData({ site }: { site: SiteConfig }) {
         "@id": organizationId,
       },
       inLanguage: "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/#webpage`,
+      url: baseUrl,
+      name: site.seo.title,
+      description: site.seo.description,
+      isPartOf: { "@id": websiteId },
+      about: { "@id": organizationId },
+      primaryImageOfPage: imageUrl
+        ? {
+            "@type": "ImageObject",
+            url: imageUrl,
+          }
+        : undefined,
+      inLanguage: "en-IN",
     },
     buildServiceSchema(site, baseUrl, organizationId),
   ];
@@ -84,7 +118,11 @@ function buildServiceSchema(
       serviceType: "Commodity trading, sourcing and trade facilitation",
       description: site.seo.description,
       url: baseUrl,
-      areaServed: "International markets",
+      areaServed: buildAreaServed(site),
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Qualified commodity buyers, sellers and authorised mandates",
+      },
       provider: {
         "@id": organizationId,
       },
@@ -116,14 +154,23 @@ function buildServiceSchema(
         : "Private real estate investment access",
     description: site.seo.description,
     url: baseUrl,
-    areaServed:
-      site.slug === "capital"
-        ? "India private real estate markets"
-        : site.slug === "investor"
-          ? "Delhi, NCR, Dubai and selected markets"
-          : "Delhi NCR",
+    areaServed: buildAreaServed(site),
+    audience: {
+      "@type": "Audience",
+      audienceType:
+        site.slug === "capital"
+          ? "Investors, owners, developers and family offices"
+          : "Property buyers, HNIs, NRIs and private real estate investors",
+    },
     provider: {
       "@id": organizationId,
     },
   };
+}
+
+function buildAreaServed(site: SiteConfig) {
+  return (site.seo.serviceAreas ?? []).map((area) => ({
+    "@type": "Place",
+    name: area,
+  }));
 }

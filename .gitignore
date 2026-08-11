@@ -11,3 +11,4 @@ dist
 screenshots
 .vercel
 .env*
+*.tsbuildinfo

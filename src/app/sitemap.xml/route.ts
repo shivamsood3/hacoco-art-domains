@@ -43,6 +43,10 @@ export async function GET() {
     );
   }
 
+  if (site.slug === "advisory") {
+    paths.push("/team");
+  }
+
   const urls = paths
     .map((path) => {
       const priority = path === "" ? "1.0" : path === investorInsightsBasePath ? "0.8" : "0.6";

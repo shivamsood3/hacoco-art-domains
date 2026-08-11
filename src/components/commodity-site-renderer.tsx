@@ -8,6 +8,7 @@ import type {
   TradeRiskControl,
   TradeServiceModel,
 } from "@/lib/site-config";
+import { hacocoTeam } from "@/lib/team-content";
 
 import { LeadForm } from "./lead-form";
 
@@ -25,7 +26,9 @@ export function CommoditySiteRenderer({ site }: { site: SiteConfig }) {
         <CommodityHero site={site} />
         <CommodityTrustStrip site={site} />
         <CommodityGrid categories={trade.categories} />
+        <EnergyDesk />
         <OperatingModels models={trade.serviceModels} />
+        <MandateStandard />
         <RiskControl controls={trade.riskControls} site={site} />
         {site.sections.process ? (
           <TradeProcess
@@ -34,6 +37,7 @@ export function CommoditySiteRenderer({ site }: { site: SiteConfig }) {
             title={site.sections.process.title}
           />
         ) : null}
+        <CommodityTeamPreview />
         {site.sections.faq ? (
           <CommodityFaq
             eyebrow={site.sections.faq.eyebrow}
@@ -49,7 +53,7 @@ export function CommoditySiteRenderer({ site }: { site: SiteConfig }) {
   );
 }
 
-function CommodityNavbar({ site }: { site: SiteConfig }) {
+export function CommodityNavbar({ site }: { site: SiteConfig }) {
   return (
     <header className="flex items-center justify-between py-5 md:py-7">
       <Link href="/" className="group flex items-center gap-3" aria-label="Hacoco Advisory home">
@@ -68,16 +72,74 @@ function CommodityNavbar({ site }: { site: SiteConfig }) {
 
       <nav className="hidden items-center gap-7 text-[0.78rem] font-medium text-[var(--commodityMuted)] lg:flex">
         {site.navigation.slice(0, 4).map((item) => (
-          <a key={item.href} href={item.href} className="hover:text-[var(--commodityInk)]">
+          <Link
+            key={item.href}
+            href={item.href.startsWith("#") ? `/${item.href}` : item.href}
+            className="hover:text-[var(--commodityInk)]"
+          >
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
-      <a className="commodity-button commodity-button--compact" href="#lead-form">
+      <Link className="commodity-button commodity-button--compact" href="/#lead-form">
         {site.navCtaLabel}
-      </a>
+      </Link>
     </header>
+  );
+}
+
+function EnergyDesk() {
+  const productGroups = [
+    {
+      number: "01",
+      label: "Core energy desk",
+      title: "Priority refined products",
+      copy: "Qualified mandates for EN590 10 ppm ULSD, Jet A-1 aviation turbine fuel and D6 virgin fuel oil form the core of the energy desk.",
+    },
+    {
+      number: "02",
+      label: "Crude requirements",
+      title: "Grade-specific sourcing",
+      copy: "Crude requirements are reviewed by grade, availability, loadport, laycan, destination acceptance and sanctions position. No grade named here implies current allocation.",
+    },
+    {
+      number: "03",
+      label: "Broader refined slate",
+      title: "Product-led qualification",
+      copy: "The desk may review gasoil, marine fuel, gasoline, LPG, LNG, naphtha, bitumen, base oil and petroleum coke where specification, route and mandate are clear.",
+    },
+    {
+      number: "04",
+      label: "Delivery structures",
+      title: "Procedure follows the trade",
+      copy: "CIF, CFR, FOB and selected tank-based structures each create different inspection, title-transfer and documentary requirements. The structure is tested before counterparties advance.",
+    },
+  ];
+
+  return (
+    <section className="commodity-section commodity-energy" id="energy-desk">
+      <CommoditySectionHeading
+        eyebrow="Energy Desk"
+        title="Physical energy mandates require product precision."
+        description="A useful energy requirement is specific enough to be tested. Product, grade, volume, frequency, delivery basis, route, timeline and payment terms must form one coherent commercial brief."
+      />
+      <div className="commodity-energy__grid">
+        {productGroups.map((group) => (
+          <article key={group.number}>
+            <span>{group.number}</span>
+            <p>{group.label}</p>
+            <h3>{group.title}</h3>
+            <small>{group.copy}</small>
+          </article>
+        ))}
+      </div>
+      <p className="commodity-energy__note">
+        Product references describe the desk&apos;s review scope only. Final quality,
+        quantity, availability and performance are governed by contract and
+        independent inspection.
+      </p>
+    </section>
   );
 }
 
@@ -232,6 +294,40 @@ function OperatingModels({ models }: { models: TradeServiceModel[] }) {
   );
 }
 
+function MandateStandard() {
+  const requirements = [
+    "Corporate KYC and identifiable principals",
+    "Evidence of buyer, seller or mandate authority",
+    "Defined product, specification and quantity",
+    "Delivery basis, origin, destination and timeline",
+    "Commercial capability and proposed payment path",
+    "Sanctions, compliance and end-use position",
+  ];
+
+  return (
+    <section className="commodity-mandate">
+      <div>
+        <p className="commodity-eyebrow">Mandate Standard</p>
+        <h2>We tell you what we are before we tell you anything else.</h2>
+        <p>
+          In a facilitation mandate, the buyer and seller contract directly and
+          Hacoco does not take title. Hacoco acts as principal only where that role
+          has been expressly agreed in writing before the transaction progresses.
+        </p>
+      </div>
+      <div className="commodity-mandate__requirements">
+        <p>Required before introduction</p>
+        {requirements.map((requirement, index) => (
+          <div key={requirement}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>{requirement}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function RiskControl({
   controls,
   site,
@@ -298,6 +394,35 @@ function TradeProcess({
           </article>
         ))}
       </div>
+    </section>
+  );
+}
+
+function CommodityTeamPreview() {
+  return (
+    <section className="commodity-section" id="team">
+      <CommoditySectionHeading
+        eyebrow="Director-Led Desk"
+        title="The desk is run by its directors."
+        description="Mandates are reviewed, structured and progressed by accountable people. Engagement volume is deliberately controlled so qualified counterparties receive senior attention."
+      />
+      <div className="commodity-team-grid">
+        {hacocoTeam.map((person) => (
+          <article key={person.name}>
+            <p>{person.role}</p>
+            <h3>{person.name}</h3>
+            <span>{person.advisoryFocus}</span>
+            {person.linkedIn ? (
+              <a href={person.linkedIn} rel="noopener noreferrer" target="_blank">
+                LinkedIn profile
+              </a>
+            ) : null}
+          </article>
+        ))}
+      </div>
+      <Link className="commodity-text-link" href="/team">
+        Meet the leadership team
+      </Link>
     </section>
   );
 }
@@ -391,7 +516,7 @@ function CommoditySectionHeading({
   );
 }
 
-function CommodityFooter({ site }: { site: SiteConfig }) {
+export function CommodityFooter({ site }: { site: SiteConfig }) {
   return (
     <footer className="commodity-footer">
       <div>
@@ -400,6 +525,8 @@ function CommodityFooter({ site }: { site: SiteConfig }) {
       </div>
       <div>
         <a href={`mailto:${site.footer.email}`}>{site.footer.email}</a>
+        <Link href="/about">About</Link>
+        <Link href="/team">Team</Link>
         <Link href="/terms">Terms of Use</Link>
         <Link href="/privacy">Privacy Policy</Link>
       </div>

@@ -93,6 +93,20 @@ export default async function ContactPage() {
                   <span>Useful context</span>
                   <p>Location / Budget / Property type / Timing</p>
                 </div>
+                <div>
+                  <span>South Delhi coverage</span>
+                  <p>
+                    Defence Colony, Greater Kailash, Vasant Vihar, Panchsheel
+                    Park, Anand Niketan, Jor Bagh, Sunder Nagar, Golf Links and
+                    adjoining prime colonies.
+                  </p>
+                </div>
+                <div>
+                  <span>Local market desk</span>
+                  <Link href="/markets/south-delhi-homes">
+                    South Delhi property brokerage and acquisition advisory
+                  </Link>
+                </div>
               </div>
             </div>
 

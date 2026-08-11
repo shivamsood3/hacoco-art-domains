@@ -1,4 +1,7 @@
 import { ImageResponse } from "next/og";
+import { headers } from "next/headers";
+
+import { getSiteConfigFromHeaders } from "@/lib/hostname";
 
 export const size = {
   width: 180,
@@ -7,15 +10,19 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const headerStore = await headers();
+  const site = getSiteConfigFromHeaders(headerStore);
+  const identity = getAppleIconIdentity(site.slug);
+
   return new ImageResponse(
     (
       <div
         style={{
           alignItems: "center",
-          background: "#082c3a",
-          border: "5px solid #123f4d",
-          borderRadius: "44px",
+          background: identity.background,
+          border: `5px solid ${identity.border}`,
+          borderRadius: site.slug === "capital" ? "24px" : "44px",
           display: "flex",
           height: "100%",
           justifyContent: "center",
@@ -23,33 +30,12 @@ export default function AppleIcon() {
           width: "100%",
         }}
       >
+        <div style={{ color: identity.foreground, display: "flex", fontSize: "62px", fontWeight: 750, letterSpacing: "-3px" }}>
+          {identity.letters}
+        </div>
         <div
           style={{
-            background: "#f4f1e9",
-            display: "flex",
-            height: "84px",
-            width: "16px",
-          }}
-        />
-        <div
-          style={{
-            background: "#f4f1e9",
-            display: "flex",
-            height: "16px",
-            width: "54px",
-          }}
-        />
-        <div
-          style={{
-            background: "#f4f1e9",
-            display: "flex",
-            height: "84px",
-            width: "16px",
-          }}
-        />
-        <div
-          style={{
-            background: "#e87732",
+            background: identity.accent,
             borderRadius: "50%",
             bottom: "24px",
             display: "flex",
@@ -63,4 +49,16 @@ export default function AppleIcon() {
     ),
     size,
   );
+}
+
+function getAppleIconIdentity(slug: "capital" | "investor" | "advisory") {
+  if (slug === "capital") {
+    return { accent: "#aa7a43", background: "#1d1a17", border: "#3b342c", foreground: "#f7f1e7", letters: "HC" };
+  }
+
+  if (slug === "investor") {
+    return { accent: "#b78a55", background: "#f4f1e9", border: "#d8d0c2", foreground: "#20231f", letters: "IH" };
+  }
+
+  return { accent: "#e87732", background: "#082c3a", border: "#123f4d", foreground: "#f4f1e9", letters: "HA" };
 }

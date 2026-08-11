@@ -26,8 +26,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const ogImageUrl = site.seo.ogImage
     ? new URL(site.seo.ogImage, canonicalUrl).toString()
     : undefined;
+  const googleVerification = getVerificationToken("GOOGLE", site.slug);
+  const bingVerification = getVerificationToken("BING", site.slug);
 
   return {
+    applicationName: site.brand.name,
     metadataBase: new URL(canonicalUrl),
     title: site.seo.title,
     description: site.seo.description,
@@ -36,6 +39,11 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: site.brand.name,
     publisher: site.brand.name,
     manifest: "/manifest.webmanifest",
+    formatDetection: {
+      address: false,
+      email: false,
+      telephone: false,
+    },
     icons: {
       icon: "/icon",
       apple: "/apple-icon",
@@ -64,6 +72,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: canonicalUrl,
       siteName: site.brand.name,
       type: "website",
+      locale: "en_IN",
       images: ogImageUrl
         ? [
             {
@@ -86,7 +95,23 @@ export async function generateMetadata(): Promise<Metadata> {
       description: site.seo.description,
       images: ogImageUrl ? [ogImageUrl] : undefined,
     },
+    verification:
+      googleVerification || bingVerification
+        ? {
+            ...(googleVerification ? { google: googleVerification } : {}),
+            ...(bingVerification
+              ? { other: { "msvalidate.01": bingVerification } }
+              : {}),
+          }
+        : undefined,
   };
+}
+
+function getVerificationToken(
+  provider: "GOOGLE" | "BING",
+  slug: "capital" | "investor" | "advisory",
+) {
+  return process.env[`${provider}_SITE_VERIFICATION_${slug.toUpperCase()}`]?.trim();
 }
 
 export async function generateViewport(): Promise<Viewport> {

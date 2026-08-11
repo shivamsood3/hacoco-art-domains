@@ -72,6 +72,7 @@ export type SiteConfig = {
     description: string;
     keywords: string[];
     ogImage?: string;
+    serviceAreas?: string[];
   };
   navigation: Array<{
     label: string;
@@ -256,7 +257,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Private Real Estate Transactions",
     },
     seo: {
-      title: "Hacoco Capital | Private Real Estate Capital & Transaction Advisory",
+      title: "Private Real Estate Capital & Transactions | Hacoco Capital",
       description:
         "Hacoco Capital advises investors, owners, developers and family offices on select private real estate transactions, capital mandates and complex real estate opportunities.",
       keywords: [
@@ -268,7 +269,8 @@ export const siteConfigs: Record<string, SiteConfig> = {
         "family office real estate India",
         "real estate disposition advisory",
       ],
-      ogImage: "/images/investor/janpath.jpeg",
+      ogImage: "/og-hacococapital.png",
+      serviceAreas: ["New Delhi", "South Delhi", "Delhi NCR", "India"],
     },
     navigation: [
       { label: "Transactions", href: "/transactions" },
@@ -461,9 +463,9 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Private Real Estate",
     },
     seo: {
-      title: "Invest With Hacoco | Private Real Estate Investment and Acquisition",
+      title: "South Delhi Property Broker & Advisor | Invest With Hacoco",
       description:
-        "Private real estate acquisition, property sourcing and investment analysis across South Delhi, Delhi NCR, Dubai, Goa and North India land corridors.",
+        "South Delhi property broker and private acquisition advisor for builder floors, bungalows and investment property, with coverage across Delhi NCR, Dubai, Goa and North India land.",
       keywords: [
         "real estate investment India",
         "private property acquisition",
@@ -476,6 +478,21 @@ export const siteConfigs: Record<string, SiteConfig> = {
         "off market property India",
       ],
       ogImage: "/og-investwithhacoco.png",
+      serviceAreas: [
+        "South Delhi",
+        "Defence Colony",
+        "Greater Kailash",
+        "Vasant Vihar",
+        "Panchsheel Park",
+        "Anand Niketan",
+        "Jor Bagh",
+        "Sunder Nagar",
+        "Golf Links",
+        "Delhi NCR",
+        "Dubai",
+        "Goa",
+        "North India",
+      ],
     },
     navigation: [
       { label: "Invest", href: "#approach" },
@@ -694,6 +711,16 @@ export const siteConfigs: Record<string, SiteConfig> = {
               "Yes. You can request only South Delhi, only primary off plan, only Dubai/UAE, only Goa, only North India land, or only vineyard diversification. The process is shaped around your mandate.",
           },
           {
+            question: "Does Hacoco work as a South Delhi property broker?",
+            answer:
+              "Yes. Hacoco works as a private property broker and acquisition advisor for qualified buyers reviewing builder floors, bungalows, redevelopment assets and select plots across established South Delhi neighbourhoods.",
+          },
+          {
+            question: "Which South Delhi neighbourhoods do you cover?",
+            answer:
+              "Coverage includes Defence Colony, Greater Kailash, Vasant Vihar, Panchsheel Park, Anand Niketan, Jor Bagh, Sunder Nagar, Golf Links and other established South Delhi colonies, subject to the buyer's mandate and available opportunities.",
+          },
+          {
             question: "Can you help with Dubai company setup too?",
             answer:
               "Yes. Hacoco can coordinate free zone company setup support, including activity fit, free zone selection, documentation, visa planning and banking readiness with relevant providers.",
@@ -839,11 +866,13 @@ export const siteConfigs: Record<string, SiteConfig> = {
         "LC SBLC commodity transactions",
       ],
       ogImage: "/og-commodities.jpg?v=20260728",
+      serviceAreas: ["International markets", "India", "Middle East", "Asia"],
     },
     navigation: [
       { label: "Commodities", href: "#commodities" },
       { label: "How We Operate", href: "#operating-models" },
       { label: "Risk Control", href: "#risk-control" },
+      { label: "Team", href: "/team" },
       { label: "Process", href: "#process" },
       { label: "Trade Desk", href: "#lead-form" },
     ],
@@ -877,27 +906,40 @@ export const siteConfigs: Record<string, SiteConfig> = {
         eyebrow: "Why Trade Discipline Matters",
         title: "A credible offer is more than a price and a document.",
         paragraphs: [
-          "Cross-border commodity transactions can stall on counterparty capability, inconsistent documents, or payment terms that do not match the commercial reality of the deal.",
-          "We help buyers and sellers qualify the mandate, test the transaction path, and engage counterparties with greater clarity before time and credibility are spent.",
+          "Physical commodity transactions often fail on process before they fail on price. Counterparty capability, document consistency and payment terms must fit the commercial reality of the deal.",
+          "Our work begins with a properly framed requirement. We test the authority behind the mandate, review whether the transaction sequence can survive bank and compliance scrutiny, and control document circulation before time and credibility are spent.",
+          "A credible offer is more than a price and a document. It requires a counterparty that can perform, a procedure that holds and an instrument the receiving bank can accept.",
         ],
         aside:
           "No introduction removes the need for independent legal, financial, technical, sanctions, and compliance review.",
       },
       process: {
         eyebrow: "Trade Process",
-        title: "From requirement to credible counterparty.",
+        title: "A controlled path from requirement to settlement.",
         steps: [
           {
-            title: "Consult",
-            copy: "We capture product specifications, volume, delivery basis, route, timeline, and commercial position.",
+            title: "Qualify",
+            copy: "We define product specification, volume and frequency, delivery basis, route, timeline, client role and proposed payment terms.",
           },
           {
-            title: "Frame",
-            copy: "We determine the operating model and align the mandate, KYC, supporting documents, and proposed payment path.",
+            title: "Verify",
+            copy: "We review corporate KYC, mandate authority, commercial capability and compliance position before a serious introduction.",
           },
           {
-            title: "Source",
-            copy: "We identify suitable counterparties and support a controlled progression through introductions, documents, and next steps.",
+            title: "Structure",
+            copy: "We align the operating model, delivery structure, inspection point, document sequence and intended payment path.",
+          },
+          {
+            title: "Document",
+            copy: "The parties progress through the applicable commercial documents, with product, volume, route and procedure kept consistent.",
+          },
+          {
+            title: "Inspect",
+            copy: "Independent inspection and the agreed proof of product or payment sequence are coordinated under the contract structure.",
+          },
+          {
+            title: "Settle",
+            copy: "Settlement and title transfer proceed against the contractually agreed documents, subject to bank and compliance approvals.",
           },
         ],
       },
@@ -935,6 +977,21 @@ export const siteConfigs: Record<string, SiteConfig> = {
             question: "Does an introduction guarantee a completed trade?",
             answer:
               "No. Every transaction remains subject to contract, due diligence, compliance, documentation, and performance by the buyer and seller. An introduction does not replace independent legal, financial, technical, sanctions, or compliance review.",
+          },
+          {
+            question: "Which delivery structures can the desk review?",
+            answer:
+              "Requirements may be framed around CIF, CFR, FOB, DES, DAP or tank-based structures such as tank-to-tank and tank takeover, where appropriate. The chosen structure determines the inspection point, title-passing sequence and document set, and must be agreed by the contracting parties and their advisors.",
+          },
+          {
+            question: "Which energy products are within scope?",
+            answer:
+              "The energy desk reviews qualified requirements for crude grades and refined products including EN590 10 ppm ULSD, Jet A-1, D6 fuel oil, gasoil, marine fuels, LPG, LNG, naphtha, bitumen, base oil and petroleum coke. Coverage does not represent current availability, allocation or an offer to sell.",
+          },
+          {
+            question: "What compliance checks remain the parties' responsibility?",
+            answer:
+              "Each party remains responsible for independent KYC, AML, sanctions, legal, tax, banking, technical and destination-market review. Hacoco's facilitation supports transaction discipline but does not replace professional advice or a party's own compliance obligations.",
           },
         ],
       },

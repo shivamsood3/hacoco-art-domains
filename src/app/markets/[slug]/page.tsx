@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { InvestorDetailView } from "@/components/investor-detail-view";
+import { JsonLd } from "@/components/seo-structured-data";
 import {
   getInvestorMarketPage,
   investorMarketPages,
@@ -34,23 +35,30 @@ export async function generateMetadata({
 
   const canonicalUrl = `https://${site.primaryDomain}${investorMarketsBasePath}/${page.slug}`;
   const ogImageUrl = new URL("/og-investwithhacoco.png", canonicalUrl).toString();
+  const isSouthDelhi = page.slug === "south-delhi-homes";
+  const metadataTitle = isSouthDelhi
+    ? `South Delhi Property Broker & Advisor | ${site.brand.name}`
+    : `${page.title} | ${site.brand.name}`;
+  const metadataDescription = isSouthDelhi
+    ? "Private South Delhi property broker and acquisition advisor for builder floors, bungalows and select plots across Defence Colony, GK, Vasant Vihar, Panchsheel Park and adjoining prime colonies."
+    : page.description;
 
   return {
-    title: `${page.title} | ${site.brand.name}`,
-    description: page.description,
+    title: metadataTitle,
+    description: metadataDescription,
     keywords: page.keywords,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${page.title} | ${site.brand.name}`,
-      description: page.description,
+      title: metadataTitle,
+      description: metadataDescription,
       url: canonicalUrl,
       type: "website",
       images: [{ url: ogImageUrl, width: 1200, height: 630, type: "image/png" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${page.title} | ${site.brand.name}`,
-      description: page.description,
+      title: metadataTitle,
+      description: metadataDescription,
       images: [ogImageUrl],
     },
   };
@@ -66,12 +74,84 @@ export default async function MarketPage({ params }: MarketPageProps) {
     notFound();
   }
 
+  const canonicalUrl = `https://${site.primaryDomain}${investorMarketsBasePath}/${page.slug}`;
+  const areaServed =
+    page.slug === "south-delhi-homes"
+      ? [
+          "South Delhi",
+          "Defence Colony",
+          "Greater Kailash",
+          "Vasant Vihar",
+          "Panchsheel Park",
+          "Anand Niketan",
+          "Jor Bagh",
+          "Sunder Nagar",
+          "Golf Links",
+        ]
+      : [page.title];
+
   return (
-    <InvestorDetailView
-      activePath="/#markets"
-      ctaEyebrow="Market Brief"
-      page={page}
-      site={site}
-    />
+    <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "@id": `${canonicalUrl}/#service`,
+              name:
+                page.slug === "south-delhi-homes"
+                  ? "South Delhi Property Brokerage and Acquisition Advisory"
+                  : `${page.title} Property Acquisition Advisory`,
+              description: page.description,
+              url: canonicalUrl,
+              serviceType:
+                page.slug === "south-delhi-homes"
+                  ? "Property brokerage, sourcing and acquisition advisory"
+                  : "Private real estate sourcing and acquisition advisory",
+              areaServed: areaServed.map((area) => ({
+                "@type": "Place",
+                name: area,
+              })),
+              provider: {
+                "@type": "Organization",
+                "@id": `https://${site.primaryDomain}/#organization`,
+                name: site.brand.name,
+                url: `https://${site.primaryDomain}`,
+              },
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: `https://${site.primaryDomain}`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Markets",
+                  item: `https://${site.primaryDomain}${investorMarketsBasePath}`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: page.title,
+                  item: canonicalUrl,
+                },
+              ],
+            },
+          ],
+        }}
+      />
+      <InvestorDetailView
+        activePath="/#markets"
+        ctaEyebrow="Market Brief"
+        page={page}
+        site={site}
+      />
+    </>
   );
 }

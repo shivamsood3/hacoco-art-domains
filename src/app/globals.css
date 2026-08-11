@@ -570,6 +570,65 @@ textarea {
   line-height: 1.7;
 }
 
+.commodity-energy__grid {
+  display: grid;
+  margin-top: 1rem;
+  border: 1px solid var(--commodityLine);
+  border-radius: 0.4rem;
+  background: var(--commoditySurface);
+}
+
+.commodity-energy__grid article {
+  min-height: 18rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.commodity-energy__grid article + article {
+  border-top: 1px solid var(--commodityLine);
+}
+
+.commodity-energy__grid article > span {
+  color: var(--commoditySignal);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.commodity-energy__grid article > p {
+  margin-top: 2.8rem;
+  color: var(--commodityBlue);
+  font-size: 0.6rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.commodity-energy__grid h3 {
+  max-width: 14ch;
+  margin-top: 0.65rem;
+  font-size: clamp(1.65rem, 2.6vw, 2.4rem);
+  font-weight: 560;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.commodity-energy__grid small {
+  display: block;
+  max-width: 30rem;
+  margin-top: 1rem;
+  color: var(--commodityMuted);
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+.commodity-energy__note {
+  max-width: 58rem;
+  margin-top: 1.25rem;
+  color: var(--commodityMuted);
+  font-size: 0.68rem;
+  line-height: 1.7;
+}
+
 .trade-models {
   display: grid;
   gap: 1rem;
@@ -663,6 +722,64 @@ textarea {
   color: var(--commodityInk);
   font-size: 0.82rem;
   line-height: 1.7;
+}
+
+.commodity-mandate {
+  display: grid;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  margin-top: clamp(5rem, 9vw, 8.5rem);
+  border-block: 1px solid var(--commodityLine);
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.commodity-mandate > div:first-child h2 {
+  max-width: 16ch;
+  margin-top: 1rem;
+  font-size: clamp(2.5rem, 4.8vw, 4.8rem);
+  font-weight: 560;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.commodity-mandate > div:first-child > p:last-child {
+  max-width: 40rem;
+  margin-top: 1.5rem;
+  color: var(--commodityMuted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.commodity-mandate__requirements {
+  border-top: 1px solid var(--commodityLine);
+}
+
+.commodity-mandate__requirements > p {
+  padding-block: 1rem;
+  color: var(--commodityBlue);
+  font-size: 0.6rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.commodity-mandate__requirements > div {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  border-top: 1px solid var(--commodityLine);
+  padding-block: 1rem;
+}
+
+.commodity-mandate__requirements span {
+  color: var(--commoditySignal);
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+
+.commodity-mandate__requirements div p {
+  font-size: 0.8rem;
+  line-height: 1.6;
 }
 
 .commodity-risk {
@@ -810,6 +927,66 @@ textarea {
   color: var(--commodityMuted);
   font-size: 0.78rem;
   line-height: 1.7;
+}
+
+.commodity-team-grid {
+  display: grid;
+  gap: 1px;
+  margin-top: 1rem;
+  background: var(--commodityLine);
+  border: 1px solid var(--commodityLine);
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.commodity-team-grid article {
+  min-height: 21rem;
+  background: var(--commoditySurface);
+  padding: clamp(1.5rem, 3vw, 2.6rem);
+}
+
+.commodity-team-grid article > p {
+  color: var(--commodityBlue);
+  font-size: 0.6rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.commodity-team-grid h3 {
+  max-width: 12ch;
+  margin-top: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.commodity-team-grid article > span {
+  display: block;
+  max-width: 31rem;
+  margin-top: 1.25rem;
+  color: var(--commodityMuted);
+  font-size: 0.8rem;
+  line-height: 1.75;
+}
+
+.commodity-team-grid a,
+.commodity-text-link,
+.commodity-team-profiles a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--commodityBlue);
+  padding-bottom: 0.2rem;
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.commodity-text-link {
+  margin-top: 1.5rem;
 }
 
 .commodity-faq {
@@ -1065,7 +1242,226 @@ textarea {
   text-transform: uppercase;
 }
 
+.commodity-team-hero {
+  display: grid;
+  gap: 2rem;
+  border-top: 1px solid var(--commodityLine);
+  padding-block: clamp(5rem, 10vw, 10rem);
+}
+
+.commodity-team-hero h1 {
+  max-width: 12ch;
+  font-size: clamp(3.4rem, 8vw, 8rem);
+  font-weight: 560;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.commodity-team-hero > p:last-child {
+  max-width: 43rem;
+  color: var(--commodityMuted);
+  font-size: clamp(0.95rem, 1.4vw, 1.12rem);
+  line-height: 1.8;
+}
+
+.commodity-team-profiles {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--commodityLine);
+  border-radius: 0.4rem;
+  background: var(--commodityLine);
+}
+
+.commodity-team-profiles article {
+  min-height: 27rem;
+  background: var(--commoditySurface);
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.commodity-team-profiles article > div {
+  display: flex;
+  justify-content: space-between;
+  color: var(--commodityBlue);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.commodity-team-profiles h2 {
+  max-width: 11ch;
+  margin-top: 5rem;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 560;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.commodity-team-profiles article > p {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+  color: var(--commodityMuted);
+  font-size: 0.84rem;
+  line-height: 1.8;
+}
+
+.commodity-team-operating,
+.commodity-about-statement,
+.commodity-about-compliance {
+  display: grid;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  margin-top: clamp(5rem, 9vw, 8.5rem);
+  border-block: 1px solid var(--commodityLine);
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.commodity-team-operating h2,
+.commodity-about-statement h2,
+.commodity-about-compliance h2 {
+  max-width: 14ch;
+  margin-top: 1rem;
+  font-size: clamp(2.5rem, 4.6vw, 4.6rem);
+  font-weight: 560;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.commodity-team-operating > div:last-child p,
+.commodity-about-statement > div:last-child p,
+.commodity-about-compliance > p {
+  max-width: 43rem;
+  color: var(--commodityMuted);
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+.commodity-team-operating > div:last-child p + p,
+.commodity-about-statement > div:last-child p + p {
+  margin-top: 1.25rem;
+}
+
+.commodity-team-principles,
+.commodity-about-grid {
+  display: grid;
+  gap: 1px;
+  margin-top: 1rem;
+  border: 1px solid var(--commodityLine);
+  border-radius: 0.4rem;
+  overflow: hidden;
+  background: var(--commodityLine);
+}
+
+.commodity-team-principles article,
+.commodity-about-grid article {
+  background: var(--commoditySurface);
+  padding: clamp(1.5rem, 3vw, 2.6rem);
+}
+
+.commodity-team-principles span,
+.commodity-about-grid span {
+  color: var(--commoditySignal);
+  font-size: 0.66rem;
+  font-weight: 750;
+}
+
+.commodity-team-principles h3,
+.commodity-about-grid h3 {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 620;
+  letter-spacing: -0.035em;
+}
+
+.commodity-team-principles p,
+.commodity-about-grid p {
+  margin-top: 0.85rem;
+  color: var(--commodityMuted);
+  font-size: 0.8rem;
+  line-height: 1.75;
+}
+
+.commodity-about-models {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(5rem, 9vw, 8.5rem);
+}
+
+.commodity-about-models > div,
+.commodity-about-models article {
+  border: 1px solid var(--commodityLine);
+  border-radius: 0.4rem;
+  background: var(--commoditySurface);
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.commodity-about-models h2 {
+  max-width: 13ch;
+  margin-top: 1rem;
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-weight: 560;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.commodity-about-models article > span {
+  color: var(--commodityBlue);
+  font-size: 0.6rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.commodity-about-models h3 {
+  margin-top: 2.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 560;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.commodity-about-models article p {
+  max-width: 35rem;
+  margin-top: 1.25rem;
+  color: var(--commodityMuted);
+  font-size: 0.84rem;
+  line-height: 1.8;
+}
+
 @media (min-width: 48rem) {
+  .commodity-energy__grid,
+  .commodity-team-grid,
+  .commodity-team-profiles,
+  .commodity-team-principles,
+  .commodity-about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .commodity-energy__grid article:nth-child(even),
+  .commodity-team-grid article:nth-child(even),
+  .commodity-team-profiles article:nth-child(even),
+  .commodity-team-principles article:nth-child(even),
+  .commodity-about-grid article:nth-child(even) {
+    border-left: 1px solid var(--commodityLine);
+  }
+
+  .commodity-energy__grid article + article {
+    border-top: 0;
+  }
+
+  .commodity-energy__grid article:nth-child(n + 3) {
+    border-top: 1px solid var(--commodityLine);
+  }
+
+  .commodity-mandate,
+  .commodity-team-operating,
+  .commodity-about-statement,
+  .commodity-about-compliance {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
   .commodity-trust {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1151,6 +1547,29 @@ textarea {
 }
 
 @media (min-width: 64rem) {
+  .commodity-team-grid,
+  .commodity-team-profiles,
+  .commodity-team-principles,
+  .commodity-about-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .commodity-team-grid article:nth-child(3),
+  .commodity-team-profiles article:nth-child(3),
+  .commodity-team-principles article:nth-child(3),
+  .commodity-about-grid article:nth-child(3) {
+    border-left: 1px solid var(--commodityLine);
+  }
+
+  .commodity-about-grid article:nth-child(4) {
+    grid-column: 2 / 4;
+    border-top: 1px solid var(--commodityLine);
+  }
+
+  .commodity-about-models {
+    grid-template-columns: 0.8fr 1fr 1fr;
+  }
+
   .commodity-hero {
     grid-template-columns: 1.02fr 0.98fr;
   }
@@ -3580,6 +3999,80 @@ textarea {
   line-height: 1.8;
 }
 
+.investor-about-team {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  border-top: 1px solid var(--investor-line);
+  padding-block: clamp(5rem, 9vw, 9rem);
+}
+
+.investor-about-team__intro h2 {
+  max-width: 12ch;
+  margin-top: 1rem;
+  font-size: clamp(3rem, 4.8vw, 5rem);
+  line-height: 0.99;
+  text-wrap: balance;
+}
+
+.investor-about-team__intro > p:last-child {
+  max-width: 34rem;
+  margin-top: 1.75rem;
+  color: var(--investor-muted);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.investor-about-team__grid {
+  border-top: 1px solid var(--investor-line);
+}
+
+.investor-about-team__grid article {
+  border-bottom: 1px solid var(--investor-line);
+  padding-block: 1.8rem;
+}
+
+.investor-about-team__grid article > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.investor-about-team__grid span,
+.investor-about-team__grid small {
+  color: var(--investor-soft);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.investor-about-team__grid h3 {
+  margin-top: 1.8rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
+}
+
+.investor-about-team__grid article > p {
+  max-width: 38rem;
+  margin-top: 1rem;
+  color: var(--investor-muted);
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+.investor-about-team__grid a {
+  display: inline-block;
+  margin-top: 1rem;
+  border-bottom: 1px solid var(--investor-line);
+  color: var(--investor-ink);
+  padding-bottom: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .investor-about-relationship {
   border-block: 1px solid var(--investor-line);
   padding-block: clamp(5rem, 8vw, 8rem);
@@ -3652,6 +4145,7 @@ textarea {
   .investor-about-statement,
   .investor-about-principles,
   .investor-about-framework,
+  .investor-about-team,
   .investor-contact {
     grid-template-columns: 1fr;
   }

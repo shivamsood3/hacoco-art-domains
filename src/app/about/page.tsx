@@ -4,6 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CapitalFooter, CapitalHeader } from "@/components/capital-site";
+import {
+  CommodityFooter,
+  CommodityNavbar,
+} from "@/components/commodity-site-renderer";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import {
   howCapitalWorks,
@@ -12,6 +16,7 @@ import {
   underwritingPillars,
 } from "@/lib/capital-content";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
+import { hacocoTeam } from "@/lib/team-content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headerStore = await headers();
@@ -24,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
         ? "About Hacoco Capital, the private real estate transaction and capital advisory arm of Hacoco."
         : site.slug === "investor"
         ? "About Hacoco, a private real estate investment and acquisition desk sourcing residential, land and investment opportunities."
-        : `About ${site.brand.name}.`,
+        : "About Hacoco Advisory, a director-led commodity sourcing and trade facilitation desk focused on disciplined mandates, verified counterparties and workable transaction structures.",
     alternates: {
       canonical: `https://${site.primaryDomain}/about`,
     },
@@ -265,6 +270,147 @@ export default async function AboutPage() {
     );
   }
 
+  if (site.slug === "advisory") {
+    return (
+      <main className="commodity-page commodity-about-page overflow-x-hidden">
+        <div className="mx-auto max-w-[90rem] px-4 pb-6 sm:px-6 lg:px-8">
+          <CommodityNavbar site={site} />
+
+          <section className="commodity-team-hero commodity-about-hero">
+            <p className="commodity-eyebrow">About Hacoco Advisory</p>
+            <h1>Energy trade fails on process, not on price.</h1>
+            <p>
+              Hacoco Advisory is a disciplined sourcing and trade facilitation
+              desk for physical crude and refined product mandates, with selective
+              coverage across food grains, fertilizers and pesticides.
+            </p>
+          </section>
+
+          <section className="commodity-about-statement">
+            <div>
+              <p className="commodity-eyebrow">Why The Desk Exists</p>
+              <h2>Serious counterparties should not lose time to noise.</h2>
+            </div>
+            <div>
+              <p>
+                Physical commodity markets attract mandates without authority,
+                recycled offers, incomplete requirements and payment structures
+                that no issuing or receiving bank would support. The damage is not
+                limited to a failed transaction. Time, credibility and access are
+                lost with it.
+              </p>
+              <p>
+                Hacoco begins by qualifying the requirement, identifying the
+                client&apos;s role, testing counterparty capability and framing a
+                procedure that can withstand documentary, banking and compliance
+                review.
+              </p>
+            </div>
+          </section>
+
+          <section className="commodity-section">
+            <div className="commodity-section-heading">
+              <div>
+                <p className="commodity-eyebrow">Desk Discipline</p>
+                <h2>Four decisions before a serious introduction.</h2>
+              </div>
+              <p>
+                Price matters, but it becomes actionable only after product,
+                authority, procedure and payment path make commercial sense.
+              </p>
+            </div>
+            <div className="commodity-about-grid">
+              {[
+                {
+                  title: "Define the requirement",
+                  copy: "Product specification, volume, frequency, delivery basis, route, timeline and client role are captured in one qualified brief.",
+                },
+                {
+                  title: "Test the counterparty",
+                  copy: "Corporate identity, mandate authority, commercial capability and compliance position are reviewed before introduction.",
+                },
+                {
+                  title: "Align the documents",
+                  copy: "Commercial documents should tell the same story on product, volume, route, price basis, inspection and transaction sequence.",
+                },
+                {
+                  title: "Fit the payment path",
+                  copy: "The proposed LC, SBLC or alternative instrument must fit the agreed procedure and remain subject to review by the parties and their banks.",
+                },
+              ].map((item, index) => (
+                <article key={item.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="commodity-about-models">
+            <div>
+              <p className="commodity-eyebrow">Operating Position</p>
+              <h2>The commercial role is explicit from the start.</h2>
+            </div>
+            <article>
+              <span>Primary model</span>
+              <h3>Sourcing and trade facilitation</h3>
+              <p>
+                For crude oil, refined products, fertilizers, pesticides and
+                other complex mandates, Hacoco qualifies the requirement, sources
+                suitable counterparties and supports transaction progression. The
+                buyer and seller contract directly, and Hacoco does not take title.
+              </p>
+            </article>
+            <article>
+              <span>By written agreement</span>
+              <h3>Principal trading</h3>
+              <p>
+                Hacoco may act as principal for selected food-grain transactions
+                or another expressly accepted trade. Principal status is never
+                implied and applies only where agreed in writing before the
+                transaction progresses.
+              </p>
+            </article>
+          </section>
+
+          <section className="commodity-about-compliance">
+            <div>
+              <p className="commodity-eyebrow">Compliance Context</p>
+              <h2>Facilitation does not dilute independent responsibility.</h2>
+            </div>
+            <p>
+              Transactions remain subject to KYC, AML, sanctions, destination and
+              end-user controls, applicable Incoterms, banking rules, maritime and
+              environmental requirements, contract, due diligence and performance
+              by the parties. Each counterparty remains responsible for its own
+              legal, financial, technical, sanctions and compliance review.
+            </p>
+          </section>
+
+          <section className="commodity-cta commodity-about-cta">
+            <div>
+              <p className="commodity-eyebrow">Director-Led</p>
+              <h2>Accountability sits with the people running the desk.</h2>
+            </div>
+            <div>
+              <p>
+                Engagement volume is controlled so qualified mandates can receive
+                direct senior review from requirement framing through the next
+                credible transaction step.
+              </p>
+              <Link className="commodity-button" href="/team">
+                Meet the team
+              </Link>
+            </div>
+          </section>
+
+          <CommodityFooter site={site} />
+        </div>
+      </main>
+    );
+  }
+
   if (isInvestor) {
     return (
       <main className="investor-site investor-inner">
@@ -395,6 +541,36 @@ export default async function AboutPage() {
                 <p>{item.copy}</p>
               </article>
             ))}
+          </section>
+
+          <section className="investor-about-team">
+            <div className="investor-about-team__intro">
+              <p className="investor-eyebrow">Leadership</p>
+              <h2>Senior judgement stays close to the mandate.</h2>
+              <p>
+                Hacoco&apos;s director-led model brings governance, transaction
+                discipline and direct relationship ownership into the acquisition
+                process. Responsibilities are clear, and qualified mandates receive
+                senior attention.
+              </p>
+            </div>
+            <div className="investor-about-team__grid">
+              {hacocoTeam.map((person, index) => (
+                <article key={person.name}>
+                  <div>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <small>{person.role}</small>
+                  </div>
+                  <h3>{person.name}</h3>
+                  <p>{person.investorFocus}</p>
+                  {person.linkedIn ? (
+                    <a href={person.linkedIn} rel="noopener noreferrer" target="_blank">
+                      LinkedIn profile
+                    </a>
+                  ) : null}
+                </article>
+              ))}
+            </div>
           </section>
 
           <section className="investor-about-relationship">

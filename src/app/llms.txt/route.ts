@@ -56,10 +56,17 @@ function buildCommodityContent(
     "",
     "A useful brief includes product specifications, volume and frequency, origin and destination, delivery basis, timeline, counterparty role, and proposed payment terms. Introductions remain subject to contract, due diligence, compliance, documentation, and performance by the buyer and seller.",
     "",
+    "## Director-led team",
+    "",
+    "- Narinder K Sood, Director: governance, commercial review and counterparty acceptance.",
+    "- Abhiroop Bhattacharjee, Director: transaction structuring, documentation sequence, inspection provisions and payment-procedure alignment.",
+    "- Shivam Sood, Director: origination, requirement qualification and counterparty development.",
+    "",
     "## Official pages",
     "",
     `- Home: ${baseUrl}`,
     `- About Us: ${baseUrl}/about`,
+    `- Leadership Team: ${baseUrl}/team`,
     `- Contact Us: ${baseUrl}/contact`,
     `- Privacy Policy: ${baseUrl}/privacy`,
     `- Terms of Use: ${baseUrl}/terms`,
@@ -88,6 +95,23 @@ function buildRealEstateContent(
 
   if (site.slug === "investor") {
     lines.push(
+      "",
+      "## What Invest With Hacoco does",
+      "",
+      "Invest With Hacoco is a private property brokerage, sourcing and acquisition advisory desk. It helps qualified buyers define a mandate, compare opportunities, assess market and transaction context, and coordinate the path toward professional diligence and acquisition.",
+      "",
+      "## South Delhi local coverage",
+      "",
+      "Hacoco serves buyers reviewing builder floors, bungalows, redevelopment assets and select plots across Defence Colony, Greater Kailash, Vasant Vihar, Panchsheel Park, Anand Niketan, Jor Bagh, Sunder Nagar, Golf Links and other established South Delhi colonies.",
+      "",
+      "Hacoco is a service-area acquisition desk. The website does not publish a physical walk-in office address. Meetings and property reviews are arranged directly for qualified mandates.",
+      "",
+      "## Direct answers",
+      "",
+      "- Does Hacoco work as a South Delhi property broker? Yes. Hacoco acts as a private property broker and acquisition advisor for qualified buyer mandates.",
+      "- Does Hacoco provide legal or tax advice? No. Hacoco coordinates the transaction process, while qualified professionals appointed by the buyer provide legal, tax, technical and regulatory advice.",
+      "- What should a property brief include? Preferred location, budget, property type, intended use, timing and any non-negotiable requirements.",
+      "",
       `- Opportunities: ${baseUrl}/listings`,
       ...investorListings.map(
         (listing) =>
@@ -105,6 +129,7 @@ function buildRealEstateContent(
       ...investorMarketPages.map(
         (page) => `- Market: ${page.title}: ${baseUrl}${investorMarketsBasePath}/${page.slug}`,
       ),
+      `- Contact: mailto:${site.footer.email}`,
     );
   }
 
@@ -116,6 +141,8 @@ function buildRealEstateContent(
       "Hacoco Capital is a private real estate capital and transaction advisory desk. It supports two sides of a private transaction: capital seeking opportunity, and opportunity seeking capital.",
       "",
       "The desk supports transaction advisory, opportunity assessment, private acquisitions, disposition advisory, capital introductions, sourcing and execution support. Hacoco Capital is not a fund manager, lender or regulated investment adviser.",
+      "",
+      "Hacoco Capital works across New Delhi, South Delhi, Delhi NCR and selected Indian private real estate markets. It is designed for larger or more complex mandates rather than high-volume residential brokerage.",
       "",
       "## Official Capital pages",
       "",
@@ -131,6 +158,7 @@ function buildRealEstateContent(
       ...capitalInsights.map(
         (insight) => `- Insight: ${insight.title}: ${baseUrl}/insights/${insight.slug}`,
       ),
+      `- Contact: mailto:${site.footer.email}`,
     );
   }
 
