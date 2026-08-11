@@ -561,7 +561,7 @@ export default async function AboutPage() {
                     <Image
                       alt={person.image.alt}
                       fill
-                      sizes="(min-width: 900px) 24vw, 92vw"
+                      sizes="160px"
                       src={person.image.src}
                     />
                   </div>

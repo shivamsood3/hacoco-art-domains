@@ -4024,43 +4024,61 @@ textarea {
 }
 
 .investor-about-team {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(3rem, 7vw, 7rem);
   border-top: 1px solid var(--investor-line);
   padding-block: clamp(5rem, 9vw, 9rem);
 }
 
+.investor-about-team__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 0.55fr);
+  column-gap: clamp(3rem, 8vw, 9rem);
+  align-items: end;
+}
+
+.investor-about-team__intro .investor-eyebrow {
+  grid-column: 1 / -1;
+}
+
 .investor-about-team__intro h2 {
-  max-width: 12ch;
+  max-width: 15ch;
   margin-top: 1rem;
-  font-size: clamp(3rem, 4.8vw, 5rem);
+  font-size: clamp(2.8rem, 4.5vw, 4.8rem);
   line-height: 0.99;
   text-wrap: balance;
 }
 
 .investor-about-team__intro > p:last-child {
   max-width: 34rem;
-  margin-top: 1.75rem;
   color: var(--investor-muted);
   font-size: 0.88rem;
   line-height: 1.8;
 }
 
 .investor-about-team__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(3rem, 6vw, 5.5rem);
   border-top: 1px solid var(--investor-line);
+  border-bottom: 1px solid var(--investor-line);
 }
 
 .investor-about-team__grid article {
-  border-bottom: 1px solid var(--investor-line);
-  padding-block: 1.8rem;
+  min-width: 0;
+  padding: clamp(1.5rem, 2.8vw, 2.6rem);
+}
+
+.investor-about-team__grid article + article {
+  border-left: 1px solid var(--investor-line);
 }
 
 .investor-about-team__portrait {
   position: relative;
   overflow: hidden;
+  width: clamp(7.5rem, 10vw, 9.5rem);
   aspect-ratio: 1;
-  margin-bottom: 1.6rem;
+  margin-bottom: clamp(2rem, 3vw, 3rem);
+  border: 1px solid var(--investor-line);
+  border-radius: 0.2rem;
   background: var(--investor-paper);
 }
 
@@ -4084,13 +4102,14 @@ textarea {
 }
 
 .investor-about-team__grid h3 {
-  margin-top: 1.8rem;
-  font-size: clamp(2rem, 3vw, 3rem);
+  max-width: 12ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.7rem);
   line-height: 1;
 }
 
 .investor-about-team__grid article > p {
-  max-width: 38rem;
+  max-width: 30rem;
   margin-top: 1rem;
   color: var(--investor-muted);
   font-size: 0.82rem;
@@ -4107,6 +4126,30 @@ textarea {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+@media (max-width: 56rem) {
+  .investor-about-team__intro {
+    grid-template-columns: 1fr;
+  }
+
+  .investor-about-team__intro .investor-eyebrow,
+  .investor-about-team__intro > p:last-child {
+    grid-column: 1;
+  }
+
+  .investor-about-team__intro > p:last-child {
+    margin-top: 1.75rem;
+  }
+
+  .investor-about-team__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .investor-about-team__grid article + article {
+    border-top: 1px solid var(--investor-line);
+    border-left: 0;
+  }
 }
 
 .investor-about-relationship {
