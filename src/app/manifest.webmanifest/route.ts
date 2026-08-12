@@ -18,8 +18,8 @@ export async function GET() {
       theme_color: commoditySite ? "#082c3a" : "#f7f4ee",
       icons: [
         {
-          src: "/icon",
-          sizes: "64x64",
+          src: "/favicon.ico",
+          sizes: "96x96",
           type: "image/png",
         },
         {

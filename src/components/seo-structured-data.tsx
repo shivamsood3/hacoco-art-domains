@@ -34,6 +34,7 @@ export function SeoStructuredData({ site }: { site: SiteConfig }) {
               ? "private real estate mandates"
               : "property acquisition enquiries",
         email: site.footer.email,
+        url: `${baseUrl}/contact`,
         availableLanguage: ["English"],
       },
       areaServed: buildAreaServed(site),
@@ -67,6 +68,17 @@ export function SeoStructuredData({ site }: { site: SiteConfig }) {
       inLanguage: "en-IN",
     },
     buildServiceSchema(site, baseUrl, organizationId),
+    {
+      "@type": "ItemList",
+      "@id": `${baseUrl}/#primary-navigation`,
+      name: `${site.brand.name} primary navigation`,
+      itemListElement: site.navigation.map((item, index) => ({
+        "@type": "SiteNavigationElement",
+        position: index + 1,
+        name: item.label,
+        url: new URL(item.href, `${baseUrl}/`).toString(),
+      })),
+    },
   ];
 
   if (site.sections.faq) {
@@ -165,6 +177,35 @@ function buildServiceSchema(
     provider: {
       "@id": organizationId,
     },
+    hasOfferCatalog: buildRealEstateOfferCatalog(site),
+  };
+}
+
+function buildRealEstateOfferCatalog(site: SiteConfig): JsonLdValue {
+  const configuredItems =
+    site.slug === "investor"
+      ? site.sections.acquisitionFocus?.items
+      : site.sections.themes?.items;
+
+  const items = configuredItems ?? [];
+
+  return {
+    "@type": "OfferCatalog",
+    name:
+      site.slug === "capital"
+        ? "Private Real Estate Strategies"
+        : "Property Acquisition Services",
+    itemListElement: items.map((item) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: item.title,
+        description: item.copy,
+        ...(item.href
+          ? { url: new URL(item.href, `https://${site.primaryDomain}/`).toString() }
+          : {}),
+      },
+    })),
   };
 }
 

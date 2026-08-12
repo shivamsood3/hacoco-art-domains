@@ -48,8 +48,12 @@ export async function generateMetadata(): Promise<Metadata> {
       telephone: false,
     },
     icons: {
-      icon: "/icon",
-      apple: "/apple-icon",
+      icon: [
+        { url: "/favicon.ico", type: "image/png", sizes: "96x96" },
+        { url: "/icon", type: "image/png", sizes: "64x64" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
     },
     category:
       site.vertical === "commodities"
