@@ -7,7 +7,11 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/seo-structured-data";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
-import { getInvestorListing, investorListings } from "@/lib/listings";
+import {
+  getInvestorListing,
+  investorListings,
+  isLandListing,
+} from "@/lib/listings";
 
 type OpportunityPageProps = {
   params: Promise<{ slug: string }>;
@@ -66,6 +70,7 @@ export default async function OpportunityPage({
 
   const url = `https://${site.primaryDomain}/opportunities/${listing.slug}`;
   const related = getOpportunityRelatedLinks(listing);
+  const isLand = isLandListing(listing);
 
   return (
     <main className="investor-site investor-inner">
@@ -130,19 +135,22 @@ export default async function OpportunityPage({
 
           <div className="opportunity-detail__body">
             <section>
-              <p className="investor-eyebrow">Overview</p>
-              <h2>A closer look at the opportunity.</h2>
+              <p className="investor-eyebrow">{isLand ? "Land Mandate" : "Overview"}</p>
+              <h2>
+                {isLand
+                  ? "The public investment case."
+                  : "A closer look at the opportunity."}
+              </h2>
               <p>{listing.summary}</p>
               <p>
-                Detailed property information, ownership documents and the
-                current transaction position are shared directly with qualified
-                buyers. No assumption should replace independent legal,
-                technical and tax advice.
+                {isLand
+                  ? "Exact location data, commercial terms, survey references, revenue records and planning extracts are shared directly with qualified counterparties. All representations remain subject to independent legal, technical, planning, tax and commercial diligence."
+                  : "Detailed property information, ownership documents and the current transaction position are shared directly with qualified buyers. No assumption should replace independent legal, technical and tax advice."}
               </p>
             </section>
 
             <aside>
-              <p className="investor-eyebrow">Investment Review</p>
+              <p className="investor-eyebrow">{isLand ? "Mandate Highlights" : "Investment Review"}</p>
               {listing.considerations.map((consideration) => (
                 <p key={consideration}>{consideration}</p>
               ))}
@@ -170,10 +178,11 @@ export default async function OpportunityPage({
           <section className="opportunity-detail__cta">
             <div>
               <p className="investor-eyebrow">Private Enquiry</p>
-              <h2>Request the property brief.</h2>
+              <h2>{isLand ? "Request the confidential land note." : "Request the property brief."}</h2>
               <p>
-                Speak to Hacoco for availability, transaction context and the
-                next diligence step.
+                {isLand
+                  ? "Share your intended use, preferred scale, acquisition route and decision timeline. Hacoco will confirm fit before releasing detailed site material."
+                  : "Speak to Hacoco for availability, transaction context and the next diligence step."}
               </p>
             </div>
             <Link

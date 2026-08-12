@@ -4,7 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDeferredValue, useState } from "react";
 
-import { investorListings } from "@/lib/listings";
+import {
+  investorListings,
+  isLandListing,
+  landListings,
+  nonLandListings,
+} from "@/lib/listings";
 
 const markets = [
   "All markets",
@@ -79,34 +84,19 @@ export function OpportunityIndex() {
       </div>
 
       {listings.length ? (
-        <div className="opportunity-grid">
-          {listings.map((listing) => (
-            <Link
-              className="opportunity-card"
-              href={`/opportunities/${listing.slug}`}
-              key={listing.slug}
-            >
-              <div className="opportunity-card__image">
-                <Image
-                  alt={listing.imageAlt}
-                  className="object-cover"
-                  fill
-                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                  src={listing.image}
-                />
-              </div>
-              <div className="opportunity-card__meta">
-                <p>{listing.location}</p>
-                <span>{listing.status}</span>
-              </div>
-              <h2>{listing.title}</h2>
-              <div className="opportunity-card__facts">
-                <span>{listing.category}</span>
-                {listing.size ? <span>{listing.size}</span> : null}
-                <strong>{listing.price}</strong>
-              </div>
-            </Link>
-          ))}
+        <div className="opportunity-groups">
+          <OpportunityGroup
+            eyebrow="Land Acquisition"
+            title="Strategic land mandates"
+            copy="Land opportunities are shown first for corporate, institutional, development and long-duration acquisition mandates. Detailed site material is released after qualification."
+            listings={listings.filter(isLandListing)}
+          />
+          <OpportunityGroup
+            eyebrow="Private Real Estate"
+            title="Residential and commercial opportunities"
+            copy="Selected prime residential, income, lifestyle and global property mandates."
+            listings={listings.filter((listing) => !isLandListing(listing))}
+          />
         </div>
       ) : (
         <div className="opportunity-empty">
@@ -121,11 +111,71 @@ export function OpportunityIndex() {
   );
 }
 
+function OpportunityGroup({
+  eyebrow,
+  title,
+  copy,
+  listings,
+}: {
+  eyebrow: string;
+  title: string;
+  copy: string;
+  listings: typeof landListings | typeof nonLandListings;
+}) {
+  if (!listings.length) return null;
+
+  return (
+    <section className="opportunity-group">
+      <div className="opportunity-group__heading">
+        <div>
+          <p className="investor-eyebrow">{eyebrow}</p>
+          <h2>{title}</h2>
+        </div>
+        <p>{copy}</p>
+      </div>
+      <div className="opportunity-grid">
+        {listings.map((listing) => (
+          <Link
+            className="opportunity-card"
+            href={`/opportunities/${listing.slug}`}
+            key={listing.slug}
+          >
+            <div className="opportunity-card__image">
+              <Image
+                alt={listing.imageAlt}
+                className="object-cover"
+                fill
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                src={listing.image}
+              />
+            </div>
+            <div className="opportunity-card__meta">
+              <p>{listing.location}</p>
+              <span>{listing.status}</span>
+            </div>
+            <h2>{listing.title}</h2>
+            <div className="opportunity-card__facts">
+              <span>{listing.category}</span>
+              {listing.size ? <span>{listing.size}</span> : null}
+              <strong>{listing.price}</strong>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function getMarket(location: string) {
   if (location.includes("Delhi")) return "Delhi";
   if (location.includes("Goa")) return "Goa";
   if (location.includes("Dubai")) return "Dubai";
   if (
+    location.includes("Baghpat") ||
+    location.includes("Khekra") ||
+    location.includes("Haridwar") ||
+    location.includes("Neemrana") ||
+    location.includes("Jaipur") ||
     location.includes("Rajasthan") ||
     location.includes("Expressway") ||
     location.includes("NCR")

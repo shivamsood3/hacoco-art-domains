@@ -4333,6 +4333,35 @@ textarea {
   padding-block: 2rem clamp(6rem, 10vw, 10rem);
 }
 
+.opportunity-groups {
+  display: grid;
+  gap: clamp(6rem, 9vw, 9rem);
+}
+
+.opportunity-group__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.55fr);
+  align-items: end;
+  gap: 3rem;
+  margin-top: 3rem;
+  border-bottom: 1px solid var(--investor-line);
+  padding-bottom: 1.6rem;
+}
+
+.opportunity-group__heading h2 {
+  max-width: 13ch;
+  margin-top: 0.8rem;
+  font-size: clamp(2.7rem, 4vw, 4.3rem);
+  line-height: 0.98;
+}
+
+.opportunity-group__heading > p {
+  max-width: 34rem;
+  color: var(--investor-muted);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
 .opportunity-filters {
   display: grid;
   grid-template-columns: 15rem 15rem 1fr;
@@ -4381,7 +4410,7 @@ textarea {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem 1.6rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .opportunity-card {
@@ -4679,6 +4708,11 @@ textarea {
 
   .opportunity-index-hero .investor-eyebrow {
     margin-bottom: 0;
+  }
+
+  .opportunity-group__heading {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .opportunity-grid {

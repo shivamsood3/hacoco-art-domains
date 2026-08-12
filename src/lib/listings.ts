@@ -17,6 +17,28 @@ export type InvestorListing = {
 
 export const investorListings: InvestorListing[] = [
   {
+    slug: "baghpat-khekra-50-acre-mixed-use-land",
+    title: "50 acre mixed-use land mandate in Baghpat",
+    location: "Khekra, Baghpat, Uttar Pradesh",
+    price: "Commercial terms on request",
+    category: "Land",
+    badge: "Featured Land Mandate",
+    status: "Qualified enquiries",
+    size: "Approx. 50 contiguous acres",
+    summary:
+      "A substantial contiguous holding on the Delhi-Dehradun growth corridor, with direct national-highway frontage, expressway access and mixed-use planning context under the applicable master plan.",
+    image: "/images/investor/haridwar-land.jpg",
+    imageAlt:
+      "Representative North India land view for a Baghpat acquisition mandate",
+    considerations: [
+      "Approximately 50 contiguous acres with a direct highway approach",
+      "Vacant, broadly level land represented as a single contiguous holding",
+      "Mixed-use planning context with potential institutional, logistics, commercial, residential or development review, subject to approvals",
+      "Outright acquisition or a development partnership structure can be discussed with a suitable counterparty",
+      "Survey, revenue, planning and ownership material available to qualified counterparties for independent diligence",
+    ],
+  },
+  {
     slug: "defence-colony-b-block-bungalow",
     title: "B Block bungalow in Defence Colony",
     location: "Defence Colony, New Delhi",
@@ -290,3 +312,18 @@ export const investorListings: InvestorListing[] = [
 export function getInvestorListing(slug: string) {
   return investorListings.find((listing) => listing.slug === slug);
 }
+
+export function isLandListing(listing: InvestorListing) {
+  const haystack = `${listing.title} ${listing.category}`.toLowerCase();
+
+  return (
+    haystack.includes("land") ||
+    listing.category === "Industrial Corridor" ||
+    listing.category === "Plot"
+  );
+}
+
+export const landListings = investorListings.filter(isLandListing);
+export const nonLandListings = investorListings.filter(
+  (listing) => !isLandListing(listing),
+);

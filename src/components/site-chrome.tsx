@@ -9,6 +9,7 @@ type SiteChromeProps = {
 
 const investorMenu = [
   { label: "Invest", href: "/#approach" },
+  { label: "Land", href: "/services/north-india-land-acquisition" },
   { label: "Services", href: "/services" },
   { label: "Markets", href: "/markets" },
   { label: "Opportunities", href: "/listings" },

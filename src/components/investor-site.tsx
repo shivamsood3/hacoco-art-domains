@@ -19,12 +19,22 @@ function getListingForShowcase(slug: string) {
 }
 
 const featuredListings = [
-  getListingForShowcase("defence-colony-b-block-bungalow"),
-  getListingForShowcase("panchsheel-park-800-sq-yd-new-build"),
-  getListingForShowcase("golf-links-freehold-plot"),
+  getListingForShowcase("baghpat-khekra-50-acre-mixed-use-land"),
+  getListingForShowcase("haridwar-dehradun-expressway-land"),
+  getListingForShowcase("neemrana-rajasthan-land"),
 ];
 
 const marketFeatures = [
+  {
+    eyebrow: "Land Acquisition",
+    title: "Northern India is where fieldwork matters most.",
+    description:
+      "We originate and screen strategic land across Baghpat, Haridwar, Neemrana, Jewar and the Dehradun foothills for corporate, institutional and private-capital mandates. Parcel-level work covers ownership, access, use, planning context and credible execution routes.",
+    places: "Baghpat / Haridwar / Neemrana / Jewar / Dehradun",
+    href: "/services/north-india-land-acquisition",
+    image: "/images/investor/haridwar-land.jpg",
+    alt: "Large land parcel on the Delhi-Dehradun growth corridor",
+  },
   {
     eyebrow: "South Delhi",
     title: "Land-backed homes in established neighbourhoods.",
@@ -55,16 +65,6 @@ const marketFeatures = [
     href: "/markets/dubai-property",
     image: "/images/investor/dubai-marina.jpg",
     alt: "View across Dubai Marina from a Hacoco opportunity",
-  },
-  {
-    eyebrow: "Land",
-    title: "Northern India is where fieldwork matters most.",
-    description:
-      "We source and screen land around Baghpat, Haridwar, Neemrana, Jewar and the Dehradun foothills, with attention to title, access, use and a credible future buyer.",
-    places: "Baghpat / Haridwar / Neemrana / Jewar / Dehradun",
-    href: "/services/north-india-land-acquisition",
-    image: "/images/investor/haridwar-land.jpg",
-    alt: "Land parcel in the Haridwar Dehradun growth corridor",
   },
 ];
 
@@ -115,39 +115,40 @@ function InvestorHero() {
     <section className="investor-hero">
       <div className="investor-hero__copy">
         <div>
-          <p className="investor-eyebrow">Private Real Estate &amp; Investment</p>
-          <h1>Property worth owning.</h1>
+          <p className="investor-eyebrow">Land Acquisition &amp; Private Real Estate</p>
+          <h1>Land worth acquiring.</h1>
           <p className="investor-hero__lede">
-            Hacoco sources and evaluates residential, land and investment
-            opportunities across Delhi, NCR, Dubai and selected markets.
+            Hacoco originates and evaluates strategic land for companies,
+            developers, institutions and private capital across North India,
+            alongside selected residential and global property mandates.
           </p>
         </div>
 
         <div>
           <div className="investor-actions">
             <Link className="investor-button" href="/contact">
-              Discuss an Investment
+              Discuss a Land Mandate
             </Link>
             <Link className="investor-text-link" href="/listings">
               View Opportunities
             </Link>
           </div>
           <p className="investor-hero__markets">
-            South Delhi <span /> NCR <span /> Dubai <span /> Goa <span /> Land
+            Baghpat <span /> Haridwar <span /> Neemrana <span /> Jewar <span /> Dehradun
           </p>
         </div>
       </div>
 
       <div className="investor-hero__image">
         <Image
-          alt="Architectural residence with warm stone and landscaped gardens"
+          alt="Strategic land acquisition corridor in North India"
           className="object-cover"
           fill
           priority
           sizes="(max-width: 900px) 100vw, 54vw"
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=88"
+          src="/images/investor/haridwar-land.jpg"
         />
-        <p>Private acquisition / Delhi, NCR and selected markets</p>
+        <p>Land acquisition / North India growth corridors</p>
       </div>
     </section>
   );
@@ -160,13 +161,14 @@ function SelectedOpportunities() {
     <section className="investor-section investor-opportunities" id="opportunities">
       <div className="investor-section-heading">
         <div>
-          <p className="investor-eyebrow">Selected Opportunities</p>
-          <h2>Access, made visible.</h2>
+          <p className="investor-eyebrow">Featured Land Mandates</p>
+          <h2>Scale, access and a credible use case.</h2>
         </div>
         <div>
           <p>
-            A small selection of residential, commercial and land opportunities
-            currently represented or sourced through Hacoco.
+            Current land opportunities for corporate occupiers, developers,
+            institutions and private capital. Detailed records are shared only
+            after mandate and counterparty qualification.
           </p>
           <Link className="investor-text-link" href="/listings">
             View all opportunities

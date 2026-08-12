@@ -12,16 +12,16 @@ export async function generateMetadata(): Promise<Metadata> {
   const site = getSiteConfigFromHeaders(headerStore);
 
   return {
-    title: `Private Real Estate Opportunities | ${site.brand.name}`,
+    title: `Land Acquisition Mandates & Private Opportunities | ${site.brand.name}`,
     description:
-      "Selected residential, commercial and land opportunities sourced through Hacoco across Delhi, NCR, Dubai, Goa and North India.",
+      "Strategic land acquisition mandates across Baghpat, North India and growth corridors, followed by selected residential and commercial opportunities sourced through Hacoco.",
     alternates: {
       canonical: `https://${site.primaryDomain}/listings`,
     },
     openGraph: {
-      title: `Private Real Estate Opportunities | ${site.brand.name}`,
+      title: `Land Acquisition Mandates & Private Opportunities | ${site.brand.name}`,
       description:
-        "Review selected real estate and land opportunities with Hacoco's private acquisition desk.",
+        "Review strategic land mandates and selected private real estate opportunities with Hacoco's acquisition desk.",
       url: `https://${site.primaryDomain}/listings`,
       images: [
         {
@@ -49,16 +49,17 @@ export default async function ListingsPage() {
         <SiteHeader site={site} activePath="/listings" />
 
         <section className="opportunity-index-hero">
-          <p className="investor-eyebrow">Private Opportunity Book</p>
+          <p className="investor-eyebrow">Land &amp; Private Opportunity Book</p>
           <h1>
-            Opportunities worth
+            Land mandates first.
             <br />
-            a closer look.
+            Private real estate next.
           </h1>
           <p>
-            A selection of residential, commercial and land opportunities
-            sourced through Hacoco. Some mandates remain private and are shared
-            only after a direct buyer conversation.
+            Hacoco originates strategic land for companies, developers,
+            institutions and private capital. Current land mandates appear
+            first, followed by selected residential and commercial inventory.
+            Sensitive records remain available only to qualified parties.
           </p>
         </section>
 

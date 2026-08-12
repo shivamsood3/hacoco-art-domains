@@ -463,10 +463,16 @@ export const siteConfigs: Record<string, SiteConfig> = {
       eyebrow: "Private Real Estate",
     },
     seo: {
-      title: "South Delhi Property Broker & Advisor | Invest With Hacoco",
+      title: "Land Acquisition in North India & Private Real Estate | Hacoco",
       description:
-        "South Delhi property broker and private acquisition advisor for builder floors, bungalows and investment property, with coverage across Delhi NCR, Dubai, Goa and North India land.",
+        "Land acquisition advisory for companies, developers, institutions and private capital across Baghpat and North India, alongside private property sourcing in Delhi, Dubai and Goa.",
       keywords: [
+        "land acquisition company India",
+        "corporate land acquisition North India",
+        "Baghpat land acquisition",
+        "Khekra land for development",
+        "Delhi Dehradun Expressway land",
+        "large land parcels North India",
         "real estate investment India",
         "private property acquisition",
         "South Delhi property",
@@ -492,6 +498,12 @@ export const siteConfigs: Record<string, SiteConfig> = {
         "Dubai",
         "Goa",
         "North India",
+        "Baghpat",
+        "Khekra",
+        "Haridwar",
+        "Neemrana",
+        "Jewar",
+        "Dehradun",
       ],
     },
     navigation: [
@@ -504,13 +516,13 @@ export const siteConfigs: Record<string, SiteConfig> = {
     ],
     navCtaLabel: "Speak to Hacoco",
     hero: {
-      eyebrow: "Private Real Estate and Investment",
-      title: "Property worth owning.",
+      eyebrow: "Land Acquisition and Private Real Estate",
+      title: "Land worth acquiring.",
       description:
-        "Hacoco sources and evaluates residential, land and investment opportunities across Delhi, NCR, Dubai and selected markets.",
+        "Hacoco originates and evaluates strategic land for companies, developers, institutions and private capital across North India, alongside selected residential and global property mandates.",
       formAboveFold: false,
       ctas: [
-        { label: "Discuss an Investment", href: "/contact", variant: "primary" },
+        { label: "Discuss a Land Mandate", href: "/contact", variant: "primary" },
         { label: "View Opportunities", href: "/listings", variant: "secondary" },
       ],
       metrics: [
