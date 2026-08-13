@@ -27,9 +27,9 @@ export const investorListings: InvestorListing[] = [
     size: "Approx. 50 contiguous acres",
     summary:
       "A substantial contiguous holding on the Delhi-Dehradun growth corridor, with direct national-highway frontage, expressway access and mixed-use planning context under the applicable master plan.",
-    image: "/images/investor/haridwar-land.jpg",
+    image: "/images/investor/baghpat-50-acre-aerial.jpg",
     imageAlt:
-      "Representative North India land view for a Baghpat acquisition mandate",
+      "Aerial view of the approximately 50 acre Baghpat land mandate beside the expressway corridor",
     considerations: [
       "Approximately 50 contiguous acres with a direct highway approach",
       "Vacant, broadly level land represented as a single contiguous holding",
