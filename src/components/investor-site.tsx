@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
+import { investorFamilyOfficeWorkstreams } from "@/lib/family-office-content";
 import { investorListings } from "@/lib/listings";
 import type { SiteConfig } from "@/lib/site-config";
 
@@ -99,6 +100,7 @@ export function InvestorSite({ site }: { site: SiteConfig }) {
       <AcquisitionProposition />
 
       <div className="investor-container">
+        <FamilyOfficeMandates />
         <Markets />
         <Intelligence />
         <MarketActivity />
@@ -107,6 +109,36 @@ export function InvestorSite({ site }: { site: SiteConfig }) {
         <SiteFooter site={site} />
       </div>
     </main>
+  );
+}
+
+function FamilyOfficeMandates() {
+  return (
+    <section className="investor-section investor-family-office-home">
+      <div className="investor-section-heading">
+        <div>
+          <p className="investor-eyebrow">Family Office Acquisition</p>
+          <h2>A private market process built around the mandate.</h2>
+        </div>
+        <div>
+          <p>
+            For family offices and principals who need local origination, sharper rejection criteria and a concise record of what deserves further diligence.
+          </p>
+          <Link className="investor-text-link" href="/family-offices">
+            Review the family office desk
+          </Link>
+        </div>
+      </div>
+      <div className="investor-family-office-grid">
+        {investorFamilyOfficeWorkstreams.map((item, index) => (
+          <article key={item.title}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 

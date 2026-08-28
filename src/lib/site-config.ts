@@ -250,7 +250,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
   "hacococapital.com": {
     slug: "capital",
     vertical: "real-estate",
-    primaryDomain: "hacococapital.com",
+    primaryDomain: "www.hacococapital.com",
     hostAliases: ["www.hacococapital.com", "hacococapital.local", "hacococapital.localhost"],
     brand: {
       name: "Hacoco Capital",
@@ -275,6 +275,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
     navigation: [
       { label: "Transactions", href: "/transactions" },
       { label: "Capital", href: "/capital" },
+      { label: "Family Offices", href: "/family-offices" },
       { label: "Strategies", href: "/strategies" },
       { label: "Insights", href: "/insights" },
       { label: "About", href: "/about" },
@@ -456,7 +457,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
   "investwithhacoco.com": {
     slug: "investor",
     vertical: "real-estate",
-    primaryDomain: "investwithhacoco.com",
+    primaryDomain: "www.investwithhacoco.com",
     hostAliases: ["www.investwithhacoco.com", "investwithhacoco.local", "investwithhacoco.localhost"],
     brand: {
       name: "Invest With Hacoco",
@@ -508,6 +509,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
     },
     navigation: [
       { label: "Invest", href: "#approach" },
+      { label: "Family Offices", href: "/family-offices" },
       { label: "Markets", href: "#markets" },
       { label: "Opportunities", href: "/listings" },
       { label: "Intelligence", href: "/market-intelligence" },

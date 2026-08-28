@@ -31,6 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     : undefined;
   const googleVerification = getVerificationToken("GOOGLE", site.slug);
   const bingVerification = getVerificationToken("BING", site.slug);
+  const faviconUrl = `/icons/${getFaviconFile(site.slug)}`;
 
   return {
     applicationName: site.brand.name,
@@ -48,11 +49,8 @@ export async function generateMetadata(): Promise<Metadata> {
       telephone: false,
     },
     icons: {
-      icon: [
-        { url: "/favicon.ico", type: "image/png", sizes: "96x96" },
-        { url: "/icon", type: "image/png", sizes: "64x64" },
-      ],
-      shortcut: "/favicon.ico",
+      icon: [{ url: faviconUrl, type: "image/png", sizes: "96x96" }],
+      shortcut: faviconUrl,
       apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
     },
     category:
@@ -112,6 +110,14 @@ export async function generateMetadata(): Promise<Metadata> {
           }
         : undefined,
   };
+}
+
+function getFaviconFile(slug: "capital" | "investor" | "advisory") {
+  return {
+    capital: "hacoco-capital-96.png",
+    investor: "invest-with-hacoco-96.png",
+    advisory: "hacoco-advisory-96.png",
+  }[slug];
 }
 
 function getVerificationToken(

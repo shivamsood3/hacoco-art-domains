@@ -13,6 +13,11 @@ import {
   underwritingFramework,
   underwritingPillars,
 } from "@/lib/capital-content";
+import {
+  capitalCommitteeOutputs,
+  capitalGovernancePrinciples,
+  capitalMandateArchitecture,
+} from "@/lib/family-office-content";
 import type { SiteConfig } from "@/lib/site-config";
 
 export function CapitalSite({ site }: { site: SiteConfig }) {
@@ -22,6 +27,7 @@ export function CapitalSite({ site }: { site: SiteConfig }) {
         <CapitalHeader activePath="/" site={site} />
         <CapitalHero site={site} />
         <TwoSidedProposition />
+        <FamilyOfficeMandates />
         <StrategyGrid />
         <UnderwritingApproach />
         <PrivateDeskSection />
@@ -100,6 +106,7 @@ export function CapitalFooter({ site }: { site: SiteConfig }) {
         <p className="capital-footer__label">Desk</p>
         <Link href="/transactions">Transactions</Link>
         <Link href="/capital">Deploy Capital</Link>
+        <Link href="/family-offices">Family Offices</Link>
         <Link href="/private-desk">Private Desk</Link>
         <Link href="/about">About</Link>
       </div>
@@ -122,6 +129,61 @@ export function CapitalFooter({ site }: { site: SiteConfig }) {
         <Link href="/terms">Terms</Link>
       </div>
     </footer>
+  );
+}
+
+function FamilyOfficeMandates() {
+  return (
+    <section className="capital-section capital-family-office">
+      <div className="capital-section__head">
+        <p className="capital-eyebrow">Family Office Mandates</p>
+        <h2>Real estate exposure should begin with allocation intent.</h2>
+        <Link href="/family-offices">Family office framework</Link>
+      </div>
+
+      <div className="capital-family-office__intro">
+        <p>
+          Hacoco Capital works with family offices, founders, principals and appointed advisers where real estate is being evaluated as income, strategic ownership, development exposure, land optionality or a solution to a specific transaction problem.
+        </p>
+        <p>
+          The desk does not manage capital. It helps define the mandate, originate relevant situations, organise underwriting questions, control information flow and support transaction progression alongside the client&apos;s professional advisers.
+        </p>
+      </div>
+
+      <div className="capital-family-office__framework">
+        {capitalMandateArchitecture.slice(0, 3).map((item, index) => (
+          <article key={item.title}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </article>
+        ))}
+      </div>
+
+      <div className="capital-family-office__outputs">
+        <div>
+          <p className="capital-eyebrow">Decision Support</p>
+          <h3>What a prepared review can include.</h3>
+        </div>
+        <div>
+          {capitalCommitteeOutputs.map((item) => (
+            <article key={item.title}>
+              <strong>{item.title}</strong>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div className="capital-family-office__governance">
+        {capitalGovernancePrinciples.slice(0, 3).map(([title, copy]) => (
+          <article key={title}>
+            <span>{title}</span>
+            <p>{copy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 

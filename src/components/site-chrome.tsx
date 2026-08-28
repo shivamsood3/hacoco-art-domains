@@ -8,8 +8,8 @@ type SiteChromeProps = {
 };
 
 const investorMenu = [
-  { label: "Invest", href: "/#approach" },
   { label: "Land", href: "/services/north-india-land-acquisition" },
+  { label: "Family Offices", href: "/family-offices" },
   { label: "Services", href: "/services" },
   { label: "Markets", href: "/markets" },
   { label: "Opportunities", href: "/listings" },
@@ -18,6 +18,7 @@ const investorMenu = [
 ];
 
 const investorFooterMenu = [
+  { label: "Family Offices", href: "/family-offices" },
   { label: "Residential", href: "/services/south-delhi-prime-homes-builder-floors" },
   { label: "Land", href: "/services/north-india-land-acquisition" },
   { label: "Off Plan", href: "/services/off-plan-property-investments" },

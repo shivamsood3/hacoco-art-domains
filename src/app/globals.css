@@ -5933,3 +5933,273 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* Family office mandate pages */
+.investor-family-office-grid {
+  border-block: 1px solid var(--investor-line);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 3rem;
+}
+
+.investor-family-office-grid article {
+  border-right: 1px solid var(--investor-line);
+  min-height: 19rem;
+  padding: 2rem 1.8rem 2rem 0;
+}
+
+.investor-family-office-grid article + article {
+  padding-left: 1.8rem;
+}
+
+.investor-family-office-grid article:last-child {
+  border-right: 0;
+}
+
+.investor-family-office-grid span,
+.investor-family-office-model span {
+  color: var(--investor-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.investor-family-office-grid h3,
+.investor-family-office-model h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.65rem);
+  font-weight: 400;
+  line-height: 1;
+  margin: 2rem 0 1rem;
+}
+
+.investor-family-office-grid p,
+.investor-family-office-model p {
+  color: var(--investor-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.investor-family-office-model {
+  border-block: 1px solid var(--investor-line);
+  display: grid;
+  gap: clamp(2rem, 6vw, 7rem);
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  padding-block: 3rem;
+}
+
+.investor-family-office-model > div:first-child h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.94;
+  margin: 1.5rem 0;
+}
+
+.investor-family-office-model > div:first-child p {
+  max-width: 31rem;
+}
+
+.investor-family-office-model article {
+  border-bottom: 1px solid var(--investor-line);
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  padding-block: 1.35rem;
+}
+
+.investor-family-office-model article:first-child {
+  padding-top: 0;
+}
+
+.investor-family-office-model article h3 {
+  font-size: clamp(1.45rem, 2vw, 2.1rem);
+  margin: 0 0 0.55rem;
+}
+
+.investor-family-office-fit > div:first-child {
+  border-bottom: 1px solid var(--investor-line);
+  padding-bottom: 2.5rem;
+}
+
+.investor-family-office-faq,
+.capital-faq-list {
+  margin-top: 2.5rem;
+}
+
+.investor-family-office-faq details,
+.capital-faq-list details {
+  border-bottom: 1px solid var(--investor-line);
+  padding-block: 1.35rem;
+}
+
+.capital-faq-list details {
+  border-color: var(--capital-line);
+}
+
+.investor-family-office-faq summary,
+.capital-faq-list summary {
+  cursor: pointer;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 650;
+  list-style: none;
+}
+
+.investor-family-office-faq summary::-webkit-details-marker,
+.capital-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.investor-family-office-faq p,
+.capital-faq-list p {
+  color: var(--investor-muted);
+  line-height: 1.75;
+  margin: 1rem 0 0;
+  max-width: 58rem;
+}
+
+.capital-faq-list p {
+  color: var(--capital-muted);
+}
+
+.capital-family-office__intro {
+  display: grid;
+  gap: clamp(2rem, 7vw, 8rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 3.5rem;
+}
+
+.capital-family-office__intro p {
+  color: var(--capital-muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.capital-family-office__framework,
+.capital-family-office__governance {
+  background: var(--capital-line);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.capital-family-office__framework article,
+.capital-family-office__governance article {
+  background: var(--capital-canvas);
+  min-height: 18rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.capital-family-office__framework span,
+.capital-family-office__outputs span {
+  color: var(--capital-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.capital-family-office__framework h3,
+.capital-family-office__outputs h3,
+.capital-family-office__governance h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.65rem, 2.4vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.02;
+  margin: 1.7rem 0 1rem;
+}
+
+.capital-family-office__framework p,
+.capital-family-office__outputs p,
+.capital-family-office__governance p {
+  color: var(--capital-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.capital-family-office__outputs {
+  border-block: 1px solid var(--capital-line);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 2.5rem;
+}
+
+.capital-family-office__outputs article {
+  border-right: 1px solid var(--capital-line);
+  min-height: 15rem;
+  padding: 2rem;
+}
+
+.capital-family-office__outputs article:last-child {
+  border-right: 0;
+}
+
+.capital-family-office__governance {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 68rem) {
+  .investor-family-office-grid,
+  .capital-family-office__outputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .investor-family-office-grid article:nth-child(2),
+  .capital-family-office__outputs article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .investor-family-office-grid article:nth-child(n + 3),
+  .capital-family-office__outputs article:nth-child(n + 3) {
+    border-top: 1px solid var(--investor-line);
+  }
+
+  .capital-family-office__outputs article:nth-child(n + 3) {
+    border-color: var(--capital-line);
+  }
+
+  .investor-family-office-model,
+  .capital-family-office__intro {
+    grid-template-columns: 1fr;
+  }
+
+  .capital-family-office__framework,
+  .capital-family-office__governance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 42rem) {
+  .investor-family-office-grid,
+  .capital-family-office__framework,
+  .capital-family-office__outputs,
+  .capital-family-office__governance {
+    grid-template-columns: 1fr;
+  }
+
+  .investor-family-office-grid article,
+  .investor-family-office-grid article + article,
+  .capital-family-office__outputs article {
+    border-bottom: 1px solid var(--investor-line);
+    border-right: 0;
+    min-height: auto;
+    padding: 1.75rem 0;
+  }
+
+  .capital-family-office__outputs article {
+    border-color: var(--capital-line);
+    padding-inline: 0;
+  }
+
+  .investor-family-office-grid article:last-child,
+  .capital-family-office__outputs article:last-child {
+    border-bottom: 0;
+  }
+
+  .investor-family-office-model article {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+  }
+}

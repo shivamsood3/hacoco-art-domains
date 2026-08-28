@@ -6,6 +6,11 @@ export async function GET() {
   const headerStore = await headers();
   const site = getSiteConfigFromHeaders(headerStore);
   const commoditySite = site.vertical === "commodities";
+  const favicon = {
+    capital: "hacoco-capital-96.png",
+    investor: "invest-with-hacoco-96.png",
+    advisory: "hacoco-advisory-96.png",
+  }[site.slug];
 
   return Response.json(
     {
@@ -18,7 +23,7 @@ export async function GET() {
       theme_color: commoditySite ? "#082c3a" : "#f7f4ee",
       icons: [
         {
-          src: "/favicon.ico",
+          src: `/icons/${favicon}`,
           sizes: "96x96",
           type: "image/png",
         },

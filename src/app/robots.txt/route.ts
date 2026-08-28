@@ -17,6 +17,7 @@ export async function GET() {
       "Allow: /favicon.ico",
       "Allow: /icon",
       "Allow: /apple-icon",
+      "Allow: /icons/",
       "Allow: /images/",
       "",
       "User-agent: OAI-SearchBot",

@@ -19,6 +19,7 @@ export async function GET() {
 
   if (site.slug === "investor") {
     paths.push(
+      "/family-offices",
       "/listings",
       investorMarketsBasePath,
       ...investorListings.map((listing) => `/opportunities/${listing.slug}`),
@@ -32,6 +33,7 @@ export async function GET() {
 
   if (site.slug === "capital") {
     paths.push(
+      "/family-offices",
       "/capital",
       "/transactions",
       "/private-desk",
