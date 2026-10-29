@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 
 import { capitalInsights, transactionStrategies } from "@/lib/capital-content";
+import { hospitalityServices } from "@/lib/hospitality-content";
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 import {
@@ -36,11 +37,13 @@ export async function GET() {
       "/family-offices",
       "/capital",
       "/transactions",
+      "/hospitality",
       "/private-desk",
       "/disclaimer",
       "/strategies",
       "/insights",
       ...transactionStrategies.map((strategy) => `/strategies/${strategy.slug}`),
+      ...hospitalityServices.map((service) => `/hospitality/${service.slug}`),
       ...capitalInsights.map((insight) => `/insights/${insight.slug}`),
     );
   }

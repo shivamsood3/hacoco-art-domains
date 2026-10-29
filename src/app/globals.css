@@ -5093,6 +5093,31 @@ textarea {
   gap: 1.15rem;
 }
 
+.capital-faq-item {
+  border-top: 1px solid var(--capital-line);
+  padding: 1.25rem 0;
+}
+
+.capital-faq-item:last-child {
+  border-bottom: 1px solid var(--capital-line);
+}
+
+.capital-faq-item summary {
+  color: var(--capital-ink);
+  cursor: pointer;
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: clamp(1.45rem, 2.2vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  list-style-position: outside;
+  padding-right: 2rem;
+}
+
+.capital-faq-item p {
+  max-width: 58rem;
+  padding-top: 0.8rem;
+}
+
 .capital-two-paths,
 .capital-strategy-grid,
 .capital-underwriting__grid,

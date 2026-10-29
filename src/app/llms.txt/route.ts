@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 
 import { capitalInsights, transactionStrategies } from "@/lib/capital-content";
+import { hospitalityServices } from "@/lib/hospitality-content";
 import { investorBlogPosts, investorInsightsBasePath } from "@/lib/blog";
 import { getSiteConfigFromHeaders } from "@/lib/hostname";
 import {
@@ -147,6 +148,12 @@ function buildRealEstateContent(
       "",
       "The desk supports transaction advisory, opportunity assessment, private acquisitions, disposition advisory, capital introductions, sourcing and execution support. Hacoco Capital is not a fund manager, lender or regulated investment adviser.",
       "",
+      "## Hotel and hospitality practice",
+      "",
+      "Hacoco Capital advises hotel buyers, sellers, owners, developers and investors on hotel acquisitions, sales and dispositions, greenfield and brownfield development, hotel M&A, valuation and on-ground advisory. Coverage may include operating hotels, resorts, boutique assets, serviced apartments, incomplete projects and hospitality-led mixed-use assets, subject to mandate fit.",
+      "",
+      "Hotel work is commercial and transaction advisory. Independent legal, tax, technical, statutory valuation and hospitality-operating specialists remain responsible for their professional opinions where required.",
+      "",
       "Hacoco Capital works across New Delhi, South Delhi, Delhi NCR and selected Indian private real estate markets. It is designed for larger or more complex mandates rather than high-volume residential brokerage.",
       "",
       "## Family office mandates",
@@ -159,11 +166,15 @@ function buildRealEstateContent(
       `- Family Office Mandates: ${baseUrl}/family-offices`,
       `- Private Transactions: ${baseUrl}/transactions`,
       `- Private Desk: ${baseUrl}/private-desk`,
+      `- Hotel & Hospitality Practice: ${baseUrl}/hospitality`,
       `- Disclaimer: ${baseUrl}/disclaimer`,
       `- Strategies: ${baseUrl}/strategies`,
       `- Insights: ${baseUrl}/insights`,
       ...transactionStrategies.map(
         (strategy) => `- Strategy: ${strategy.title}: ${baseUrl}/strategies/${strategy.slug}`,
+      ),
+      ...hospitalityServices.map(
+        (service) => `- Hospitality service: ${service.title}: ${baseUrl}/hospitality/${service.slug}`,
       ),
       ...capitalInsights.map(
         (insight) => `- Insight: ${insight.title}: ${baseUrl}/insights/${insight.slug}`,

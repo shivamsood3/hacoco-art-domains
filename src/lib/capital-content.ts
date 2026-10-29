@@ -4,6 +4,7 @@ export const capitalNav = [
   { label: "Transactions", href: "/transactions" },
   { label: "Capital", href: "/capital" },
   { label: "Family Offices", href: "/family-offices" },
+  { label: "Hospitality", href: "/hospitality" },
   { label: "Strategies", href: "/strategies" },
   { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },

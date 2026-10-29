@@ -1,4 +1,5 @@
 import type { SiteConfig } from "@/lib/site-config";
+import { hospitalityServices } from "@/lib/hospitality-content";
 
 type JsonLdValue = Record<string, unknown>;
 
@@ -160,7 +161,7 @@ function buildServiceSchema(
     name: site.brand.name,
     serviceType:
       site.slug === "capital"
-        ? "Private real estate capital and transaction advisory"
+        ? "Private real estate, hotel and hospitality transaction advisory"
         : site.slug === "investor"
         ? "Private real estate investment and acquisition"
         : "Private real estate investment access",
@@ -189,23 +190,39 @@ function buildRealEstateOfferCatalog(site: SiteConfig): JsonLdValue {
 
   const items = configuredItems ?? [];
 
+  const hospitalityItems =
+    site.slug === "capital"
+      ? hospitalityServices.map((service) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: service.title,
+            description: service.summary,
+            url: new URL(`/hospitality/${service.slug}`, `https://${site.primaryDomain}/`).toString(),
+          },
+        }))
+      : [];
+
   return {
     "@type": "OfferCatalog",
     name:
       site.slug === "capital"
         ? "Private Real Estate Strategies"
         : "Property Acquisition Services",
-    itemListElement: items.map((item) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: item.title,
-        description: item.copy,
-        ...(item.href
-          ? { url: new URL(item.href, `https://${site.primaryDomain}/`).toString() }
-          : {}),
-      },
-    })),
+    itemListElement: [
+      ...items.map((item) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: item.title,
+          description: item.copy,
+          ...(item.href
+            ? { url: new URL(item.href, `https://${site.primaryDomain}/`).toString() }
+            : {}),
+        },
+      })),
+      ...hospitalityItems,
+    ],
   };
 }
 

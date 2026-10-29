@@ -13,6 +13,7 @@ import {
   underwritingFramework,
   underwritingPillars,
 } from "@/lib/capital-content";
+import { hospitalityServices } from "@/lib/hospitality-content";
 import {
   capitalCommitteeOutputs,
   capitalGovernancePrinciples,
@@ -29,6 +30,7 @@ export function CapitalSite({ site }: { site: SiteConfig }) {
         <TwoSidedProposition />
         <FamilyOfficeMandates />
         <StrategyGrid />
+        <HospitalitySection />
         <UnderwritingApproach />
         <PrivateDeskSection />
         <CapitalProcess />
@@ -107,6 +109,7 @@ export function CapitalFooter({ site }: { site: SiteConfig }) {
         <Link href="/transactions">Transactions</Link>
         <Link href="/capital">Deploy Capital</Link>
         <Link href="/family-offices">Family Offices</Link>
+        <Link href="/hospitality">Hotel & Hospitality</Link>
         <Link href="/private-desk">Private Desk</Link>
         <Link href="/about">About</Link>
       </div>
@@ -279,6 +282,27 @@ function StrategyGrid() {
             <span>{strategy.eyebrow}</span>
             <h3>{strategy.title}</h3>
             <p>{strategy.summary}</p>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function HospitalitySection() {
+  return (
+    <section className="capital-section" id="hospitality">
+      <div className="capital-section__head">
+        <p className="capital-eyebrow">Hotel & Hospitality</p>
+        <h2>Hospitality transactions need real estate, operating and local market judgement.</h2>
+        <Link href="/hospitality">View hospitality practice</Link>
+      </div>
+      <div className="capital-strategy-grid">
+        {hospitalityServices.slice(0, 6).map((service) => (
+          <Link key={service.slug} className="capital-strategy-card" href={`/hospitality/${service.slug}`}>
+            <span>{service.eyebrow}</span>
+            <h3>{service.title}</h3>
+            <p>{service.summary}</p>
           </Link>
         ))}
       </div>
