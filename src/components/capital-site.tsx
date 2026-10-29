@@ -54,7 +54,7 @@ export function CapitalHeader({
     <header className="capital-header">
       <Link href="/" className="capital-wordmark" aria-label="Hacoco Capital home">
         <span>Hacoco Capital</span>
-        <small>Private Real Estate Transactions</small>
+        <small>Real Estate &amp; Hotel Transactions</small>
       </Link>
 
       <nav className="capital-nav" aria-label="Primary navigation">
@@ -98,7 +98,7 @@ export function CapitalFooter({ site }: { site: SiteConfig }) {
     <footer className="capital-footer">
       <div className="capital-footer__brand">
         <p className="capital-eyebrow">Hacoco Capital</p>
-        <h2>Private real estate capital and transaction advisory.</h2>
+        <h2>Private real estate and hotel capital advisory.</h2>
         <p>
           A discreet desk for capital seeking real estate opportunity and real estate opportunity seeking qualified capital.
         </p>
@@ -194,9 +194,9 @@ function CapitalHero({ site }: { site: SiteConfig }) {
   return (
     <section className="capital-hero">
       <div className="capital-hero__copy">
-        <h1>Private capital for real estate that warrants discretion.</h1>
+        <h1>Private capital for real estate and hotels that warrant discretion.</h1>
         <p>
-          Hacoco Capital works on larger real estate mandates where counterparty quality, underwriting discipline and process control matter before capital moves.
+          Hacoco Capital works on larger real estate and hotel mandates where operating context, counterparty quality, underwriting discipline and process control matter before capital moves.
         </p>
         <div className="capital-hero__actions">
           <Link className="capital-button" href="/capital">
@@ -210,7 +210,7 @@ function CapitalHero({ site }: { site: SiteConfig }) {
 
       <div className="capital-hero__visual">
         <Image
-          alt="Prime Delhi commercial real estate corridor"
+          alt="Contemporary hotel exterior with a landscaped arrival court"
           className="object-cover"
           fill
           priority
@@ -218,8 +218,8 @@ function CapitalHero({ site }: { site: SiteConfig }) {
           src={capitalImages.hero}
         />
         <div className="capital-hero__panel">
-          <span>Transaction Desk</span>
-          <p>Private acquisitions, income assets, land, development, special situations and discreet dispositions.</p>
+          <span>Hotel &amp; Hospitality Desk</span>
+          <p>Acquisitions, dispositions, greenfield and brownfield development, M&amp;A, valuation and on-ground advisory.</p>
         </div>
       </div>
 
@@ -227,7 +227,7 @@ function CapitalHero({ site }: { site: SiteConfig }) {
         {[
           ["Larger mandates", "Private or complex real estate transactions"],
           ["Two-sided desk", "Capital mandates and transaction mandates"],
-          ["Prepared process", "Origination, underwriting and qualified introductions"],
+          ["Hospitality lens", "Operating, asset and transaction context"],
         ].map(([value, label]) => (
           <article key={value}>
             <strong>{value}</strong>
@@ -291,20 +291,38 @@ function StrategyGrid() {
 
 function HospitalitySection() {
   return (
-    <section className="capital-section" id="hospitality">
-      <div className="capital-section__head">
-        <p className="capital-eyebrow">Hotel & Hospitality</p>
-        <h2>Hospitality transactions need real estate, operating and local market judgement.</h2>
-        <Link href="/hospitality">View hospitality practice</Link>
+    <section className="capital-section capital-hospitality-spotlight" id="hospitality">
+      <div className="capital-hospitality-spotlight__visual">
+        <Image
+          alt="Contemporary hotel lobby with reception and lounge spaces"
+          className="object-cover"
+          fill
+          sizes="(max-width: 1088px) 100vw, 46vw"
+          src={capitalImages.hospitalityLobby}
+        />
+        <div className="capital-hero__panel">
+          <span>Hospitality practice</span>
+          <p>Hotel decisions are part real estate, part operating business and part local market judgement.</p>
+        </div>
       </div>
-      <div className="capital-strategy-grid">
-        {hospitalityServices.slice(0, 6).map((service) => (
-          <Link key={service.slug} className="capital-strategy-card" href={`/hospitality/${service.slug}`}>
-            <span>{service.eyebrow}</span>
-            <h3>{service.title}</h3>
-            <p>{service.summary}</p>
-          </Link>
-        ))}
+      <div className="capital-hospitality-spotlight__copy">
+        <p className="capital-eyebrow">Hotel &amp; Hospitality</p>
+        <h2>Hospitality transactions need the full picture.</h2>
+        <p>
+          Hacoco Capital advises hotel buyers, sellers, developers, owners and investors across acquisitions, dispositions, greenfield and brownfield development, M&amp;A, valuation and on-ground execution.
+        </p>
+        <div className="capital-hospitality-links">
+          {hospitalityServices.slice(0, 4).map((service) => (
+            <Link key={service.slug} href={`/hospitality/${service.slug}`}>
+              <span>{service.eyebrow}</span>
+              <strong>{service.title}</strong>
+              <small>{service.summary}</small>
+            </Link>
+          ))}
+        </div>
+        <Link className="capital-button capital-button--ghost" href="/hospitality">
+          View Hospitality Practice
+        </Link>
       </div>
     </section>
   );

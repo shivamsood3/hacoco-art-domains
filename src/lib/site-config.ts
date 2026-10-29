@@ -254,7 +254,7 @@ export const siteConfigs: Record<string, SiteConfig> = {
     hostAliases: ["www.hacococapital.com", "hacococapital.local", "hacococapital.localhost"],
     brand: {
       name: "Hacoco Capital",
-      eyebrow: "Private Real Estate Transactions",
+      eyebrow: "Private Real Estate & Hotel Transactions",
     },
     seo: {
       title: "Private Real Estate & Hotel Transactions | Hacoco Capital",

@@ -11,7 +11,8 @@ export const capitalNav = [
 ] as const;
 
 export const capitalImages = {
-  hero: "/images/investor/janpath.jpeg",
+  hero: "/images/hospitality/hotel-exterior.png",
+  hospitalityLobby: "/images/hospitality/hotel-lobby.png",
   income: "/images/investor/safdarjung.jpeg",
   land: "/images/investor/neemrana-land.jpg",
   development: "/images/investor/haridwar-land.jpg",

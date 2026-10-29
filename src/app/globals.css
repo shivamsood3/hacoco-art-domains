@@ -5219,6 +5219,91 @@ textarea {
   text-underline-offset: 0.35em;
 }
 
+.capital-hospitality-spotlight {
+  align-items: stretch;
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+}
+
+.capital-hospitality-spotlight__visual {
+  background: var(--capital-graphite);
+  border: 1px solid var(--capital-line);
+  border-radius: 2rem;
+  min-height: 38rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.capital-hospitality-spotlight__visual::after {
+  background: linear-gradient(180deg, transparent 45%, rgba(23, 22, 21, 0.62));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.capital-hospitality-spotlight__visual .capital-hero__panel {
+  max-width: 25rem;
+}
+
+.capital-hospitality-spotlight__copy {
+  align-self: center;
+}
+
+.capital-hospitality-spotlight__copy > p:not(.capital-eyebrow) {
+  color: var(--capital-muted);
+  font-size: 1.08rem;
+  line-height: 1.85;
+  margin-top: 1.5rem;
+  max-width: 42rem;
+}
+
+.capital-hospitality-links {
+  border-top: 1px solid var(--capital-line);
+  margin: 2rem 0;
+}
+
+.capital-hospitality-links a {
+  border-bottom: 1px solid var(--capital-line);
+  color: var(--capital-ink);
+  display: grid;
+  gap: 0.25rem 1rem;
+  grid-template-columns: minmax(9rem, 0.42fr) minmax(0, 1fr);
+  padding: 1.05rem 0;
+  text-decoration: none;
+}
+
+.capital-hospitality-links a:hover strong {
+  color: var(--capital-bronze);
+}
+
+.capital-hospitality-links span,
+.capital-hospitality-links small {
+  color: var(--capital-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.capital-hospitality-links strong {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.capital-hospitality-links small {
+  font-size: 0.82rem;
+  font-weight: 500;
+  grid-column: 2;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .capital-strategy-grid {
   background: var(--capital-line);
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -5885,6 +5970,7 @@ textarea {
 
   .capital-hero,
   .capital-split,
+  .capital-hospitality-spotlight,
   .capital-underwriting,
   .capital-desk,
   .capital-mandates,
@@ -5943,6 +6029,18 @@ textarea {
 
   .capital-hero__visual {
     min-height: 30rem;
+  }
+
+  .capital-hospitality-spotlight__visual {
+    min-height: 28rem;
+  }
+
+  .capital-hospitality-links a {
+    grid-template-columns: 1fr;
+  }
+
+  .capital-hospitality-links small {
+    grid-column: auto;
   }
 
   .capital-hero__bar {
