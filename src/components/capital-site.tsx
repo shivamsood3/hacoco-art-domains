@@ -102,6 +102,9 @@ export function CapitalFooter({ site }: { site: SiteConfig }) {
         <p>
           A discreet desk for capital seeking real estate opportunity and real estate opportunity seeking qualified capital.
         </p>
+        <p className="capital-footer__notice">
+          Hacoco Capital does not manage funds, lend, or act as a regulated investment adviser.
+        </p>
       </div>
 
       <div>
@@ -192,19 +195,23 @@ function FamilyOfficeMandates() {
 
 function CapitalHero({ site }: { site: SiteConfig }) {
   return (
-    <section className="capital-hero">
+    <section className="capital-hero capital-hero--dark">
       <div className="capital-hero__copy">
         <h1>Private capital for real estate and hotels that warrant discretion.</h1>
         <p>
           Hacoco Capital works on larger real estate and hotel mandates where operating context, counterparty quality, underwriting discipline and process control matter before capital moves.
         </p>
         <div className="capital-hero__actions">
-          <Link className="capital-button" href="/capital">
+          <Link className="capital-button capital-button--brass" href="/capital">
             Deploy Capital
           </Link>
           <Link className="capital-button capital-button--ghost" href="/transactions">
             Discuss A Transaction
           </Link>
+        </div>
+        <div className="capital-hero__notice">
+          <span>Notice</span>
+          <p>Hacoco Capital does not manage funds, lend, or act as a regulated investment adviser.</p>
         </div>
       </div>
 
@@ -276,12 +283,14 @@ function StrategyGrid() {
         <h2>Different transactions require different underwriting.</h2>
         <Link href="/strategies">View all strategies</Link>
       </div>
-      <div className="capital-strategy-grid">
-        {transactionStrategies.map((strategy) => (
-          <Link key={strategy.slug} className="capital-strategy-card" href={`/strategies/${strategy.slug}`}>
-            <span>{strategy.eyebrow}</span>
+      <div className="capital-strategy-ledger">
+        {transactionStrategies.map((strategy, index) => (
+          <Link key={strategy.slug} className="capital-strategy-row" href={`/strategies/${strategy.slug}`}>
+            <span className="capital-strategy-row__number">{String(index + 1).padStart(2, "0")}</span>
+            <span className="capital-strategy-row__eyebrow">{strategy.eyebrow}</span>
             <h3>{strategy.title}</h3>
             <p>{strategy.summary}</p>
+            <span className="capital-strategy-row__arrow" aria-hidden="true">→</span>
           </Link>
         ))}
       </div>
@@ -291,38 +300,50 @@ function StrategyGrid() {
 
 function HospitalitySection() {
   return (
-    <section className="capital-section capital-hospitality-spotlight" id="hospitality">
-      <div className="capital-hospitality-spotlight__visual">
+    <section className="capital-section capital-hospitality" id="hospitality">
+      <div className="capital-hospitality__grid">
+        <div className="capital-hospitality__visual capital-hospitality__visual--tall">
+          <Image
+            alt="Contemporary hotel exterior with a landscaped arrival court"
+            className="object-cover"
+            fill
+            sizes="(max-width: 1088px) 100vw, 42vw"
+            src={capitalImages.hero}
+          />
+        </div>
+        <div className="capital-hospitality__copy">
+          <p className="capital-eyebrow">Hospitality practice</p>
+          <h2>Hotels, advised as a specialist discipline.</h2>
+          <p className="capital-hospitality__lede">
+            Hotel transactions turn on operators, brands and keys as much as on real estate. The practice is built around that.
+          </p>
+          <div className="capital-hospitality-links">
+            {hospitalityServices.slice(0, 4).map((service) => (
+              <Link key={service.slug} href={`/hospitality/${service.slug}`}>
+                <strong>{service.title}</strong>
+                <small>{service.summary}</small>
+              </Link>
+            ))}
+          </div>
+          <Link className="capital-button capital-button--brass" href="/hospitality">
+            View Hospitality Practice
+          </Link>
+        </div>
+      </div>
+      <div className="capital-hospitality__visual capital-hospitality__visual--wide">
         <Image
           alt="Contemporary hotel lobby with reception and lounge spaces"
           className="object-cover"
           fill
-          sizes="(max-width: 1088px) 100vw, 46vw"
+          sizes="(max-width: 1088px) 100vw, 100vw"
           src={capitalImages.hospitalityLobby}
         />
-        <div className="capital-hero__panel">
-          <span>Hospitality practice</span>
-          <p>Hotel decisions are part real estate, part operating business and part local market judgement.</p>
-        </div>
       </div>
-      <div className="capital-hospitality-spotlight__copy">
-        <p className="capital-eyebrow">Hotel &amp; Hospitality</p>
-        <h2>Hospitality transactions need the full picture.</h2>
-        <p>
-          Hacoco Capital advises hotel buyers, sellers, developers, owners and investors across acquisitions, dispositions, greenfield and brownfield development, M&amp;A, valuation and on-ground execution.
-        </p>
-        <div className="capital-hospitality-links">
-          {hospitalityServices.slice(0, 4).map((service) => (
-            <Link key={service.slug} href={`/hospitality/${service.slug}`}>
-              <span>{service.eyebrow}</span>
-              <strong>{service.title}</strong>
-              <small>{service.summary}</small>
-            </Link>
-          ))}
-        </div>
-        <Link className="capital-button capital-button--ghost" href="/hospitality">
-          View Hospitality Practice
-        </Link>
+      <div className="capital-hospitality__index" aria-label="Hospitality service categories">
+        <span>Buy-side</span>
+        <span>Sell-side</span>
+        <span>Greenfield &amp; brownfield</span>
+        <span>M&amp;A and valuation</span>
       </div>
     </section>
   );
@@ -425,13 +446,16 @@ function SelectedInsight() {
 
   return (
     <section className="capital-section capital-insight">
-      <div>
+      <div className="capital-insight__copy">
         <p className="capital-eyebrow">Selected Insight</p>
         <h2>{insight.title}</h2>
-        <p>{insight.description}</p>
+        <Link className="capital-text-link" href={`/insights/${insight.slug}`}>
+          Read Note
+        </Link>
       </div>
-      <Link className="capital-button capital-button--ghost" href={`/insights/${insight.slug}`}>
-        Read Note
+      <Link className="capital-insight__note" href={`/insights/${insight.slug}`}>
+        <span>Featured note</span>
+        <p>{insight.description}</p>
       </Link>
     </section>
   );
@@ -440,7 +464,15 @@ function SelectedInsight() {
 function LeadershipSection() {
   return (
     <section className="capital-section capital-leadership">
-      <div>
+      <div className="capital-leadership__portrait">
+        <Image
+          alt="Shivam Sood, founder of Hacoco Capital"
+          fill
+          sizes="(max-width: 1088px) 100vw, 38vw"
+          src={capitalImages.portrait}
+        />
+      </div>
+      <div className="capital-leadership__copy">
         <p className="capital-eyebrow">Judgement</p>
         <h2>Private transactions are built on judgement and trust.</h2>
         <p>

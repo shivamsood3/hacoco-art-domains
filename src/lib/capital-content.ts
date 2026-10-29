@@ -13,6 +13,7 @@ export const capitalNav = [
 export const capitalImages = {
   hero: "/images/hospitality/hotel-exterior.png",
   hospitalityLobby: "/images/hospitality/hotel-lobby.png",
+  portrait: "/images/team/shivam-sood.jpg",
   income: "/images/investor/safdarjung.jpeg",
   land: "/images/investor/neemrana-land.jpg",
   development: "/images/investor/haridwar-land.jpg",
