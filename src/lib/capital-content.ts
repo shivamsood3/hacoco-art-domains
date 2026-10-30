@@ -13,11 +13,32 @@ export const capitalNav = [
 export const capitalImages = {
   hero: "/images/hospitality/hotel-exterior.png",
   hospitalityLobby: "/images/hospitality/hotel-lobby.png",
-  portrait: "/images/team/shivam-sood.jpg",
+  portrait: "/images/team/shivam-sood-restored.png",
   income: "/images/investor/safdarjung.jpeg",
   land: "/images/investor/neemrana-land.jpg",
   development: "/images/investor/haridwar-land.jpg",
 } as const;
+
+export const capitalContextImages = [
+  {
+    src: "/images/investor/baghpat-50-acre-aerial.jpg",
+    eyebrow: "Land / North India",
+    title: "Infrastructure is part of underwriting.",
+    alt: "Aerial view of a large land parcel beside a highway corridor",
+  },
+  {
+    src: "/images/investor/safdarjung.jpeg",
+    eyebrow: "Income / Delhi",
+    title: "The asset is only part of the return.",
+    alt: "Residential property in a mature Delhi neighbourhood",
+  },
+  {
+    src: "/images/investor/dubai-marina.jpg",
+    eyebrow: "Cross-border / Dubai",
+    title: "Local context travels with the capital.",
+    alt: "Dubai skyline and marina viewed across the water",
+  },
+] as const;
 
 export const transactionStrategies = [
   {

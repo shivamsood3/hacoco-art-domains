@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   activeCapitalMandates,
   capitalImages,
+  capitalContextImages,
   capitalInsights,
   capitalNav,
   howCapitalWorks,
@@ -30,6 +31,7 @@ export function CapitalSite({ site }: { site: SiteConfig }) {
         <TwoSidedProposition />
         <FamilyOfficeMandates />
         <StrategyGrid />
+        <MarketContextSection />
         <HospitalitySection />
         <UnderwritingApproach />
         <PrivateDeskSection />
@@ -141,9 +143,11 @@ export function CapitalFooter({ site }: { site: SiteConfig }) {
 function FamilyOfficeMandates() {
   return (
     <section className="capital-section capital-family-office">
-      <div className="capital-section__head">
-        <p className="capital-eyebrow">Family Office Mandates</p>
-        <h2>Real estate exposure should begin with allocation intent.</h2>
+      <div className="capital-section__head capital-section__head--wide">
+        <div className="capital-section__head-copy">
+          <p className="capital-eyebrow">Family Office Mandates</p>
+          <h2>Real estate exposure should begin with allocation intent.</h2>
+        </div>
         <Link href="/family-offices">Family office framework</Link>
       </div>
 
@@ -248,7 +252,7 @@ function CapitalHero({ site }: { site: SiteConfig }) {
 
 function TwoSidedProposition() {
   return (
-    <section className="capital-section capital-split">
+    <section className="capital-section capital-split capital-split--desk">
       <div>
         <p className="capital-eyebrow">Two-Sided Desk</p>
         <h2>Built for capital mandates and transaction mandates.</h2>
@@ -260,7 +264,7 @@ function TwoSidedProposition() {
           <p>
             For principals, family offices, founders, UHNI buyers and NRI capital that need disciplined origination rather than a broad feed of available properties.
           </p>
-          <Link href="/capital">Submit capital mandate</Link>
+          <Link className="capital-card-link" href="/capital">Submit capital mandate</Link>
         </article>
         <article>
           <span>02</span>
@@ -268,7 +272,7 @@ function TwoSidedProposition() {
           <p>
             For owners, developers, corporates and authorised advisers who need transaction preparation, qualified capital or private buyer introductions.
           </p>
-          <Link href="/transactions">Share transaction brief</Link>
+          <Link className="capital-card-link" href="/transactions">Share transaction brief</Link>
         </article>
       </div>
     </section>
@@ -278,9 +282,11 @@ function TwoSidedProposition() {
 function StrategyGrid() {
   return (
     <section className="capital-section" id="strategies">
-      <div className="capital-section__head">
-        <p className="capital-eyebrow">Transaction Strategies</p>
-        <h2>Different transactions require different underwriting.</h2>
+      <div className="capital-section__head capital-section__head--wide">
+        <div className="capital-section__head-copy">
+          <p className="capital-eyebrow">Transaction Strategies</p>
+          <h2>Different transactions require different underwriting.</h2>
+        </div>
         <Link href="/strategies">View all strategies</Link>
       </div>
       <div className="capital-strategy-ledger">
@@ -292,6 +298,33 @@ function StrategyGrid() {
             <p>{strategy.summary}</p>
             <span className="capital-strategy-row__arrow" aria-hidden="true">→</span>
           </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function MarketContextSection() {
+  return (
+    <section className="capital-section capital-context" aria-labelledby="capital-context-title">
+      <div className="capital-section__head capital-section__head--wide">
+        <div className="capital-section__head-copy">
+          <p className="capital-eyebrow">Market Context</p>
+          <h2 id="capital-context-title">The work starts with the place, not the brochure.</h2>
+        </div>
+        <p className="capital-context__intro">
+          Real estate decisions become clearer when location, asset condition and future liquidity are visible together.
+        </p>
+      </div>
+      <div className="capital-context__grid">
+        {capitalContextImages.map((item, index) => (
+          <figure className={`capital-context-card capital-context-card--${index + 1}`} key={item.src}>
+            <Image alt={item.alt} className="object-cover" fill sizes="(max-width: 672px) 100vw, 40vw" src={item.src} />
+            <figcaption>
+              <span>{item.eyebrow}</span>
+              <strong>{item.title}</strong>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </section>
@@ -464,14 +497,6 @@ function SelectedInsight() {
 function LeadershipSection() {
   return (
     <section className="capital-section capital-leadership">
-      <div className="capital-leadership__portrait">
-        <Image
-          alt="Shivam Sood, founder of Hacoco Capital"
-          fill
-          sizes="(max-width: 1088px) 100vw, 38vw"
-          src={capitalImages.portrait}
-        />
-      </div>
       <div className="capital-leadership__copy">
         <p className="capital-eyebrow">Judgement</p>
         <h2>Private transactions are built on judgement and trust.</h2>
@@ -479,25 +504,35 @@ function LeadershipSection() {
           The desk is led through direct client relationships, mandate discipline and senior involvement in the conversations that matter.
         </p>
       </div>
-      <div className="capital-leadership__cards">
-        {leadership.map((person) => (
-          <article key={person.name}>
-            <span>{person.role}</span>
-            <h3>{person.name}</h3>
-            <p>{person.focus}</p>
-            <Link
-              className="capital-profile-link"
-              href={person.linkedIn}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              LinkedIn Profile
-            </Link>
-          </article>
-        ))}
-        <Link className="capital-button capital-button--ghost" href="/about">
-          Read About Hacoco Capital
-        </Link>
+      <div className="capital-leadership__founder">
+        <div className="capital-leadership__portrait">
+          <Image
+            alt="Shivam Sood, founder of Hacoco Capital"
+            fill
+            sizes="(max-width: 672px) 13rem, 24vw"
+            src={capitalImages.portrait}
+          />
+        </div>
+        <div className="capital-leadership__founder-card">
+          {leadership.map((person) => (
+            <article key={person.name}>
+              <span>{person.role}</span>
+              <h3>{person.name}</h3>
+              <p>{person.focus}</p>
+              <Link
+                className="capital-profile-link"
+                href={person.linkedIn}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                LinkedIn Profile
+              </Link>
+            </article>
+          ))}
+          <Link className="capital-button capital-button--ghost" href="/about">
+            Read About Hacoco Capital
+          </Link>
+        </div>
       </div>
     </section>
   );
